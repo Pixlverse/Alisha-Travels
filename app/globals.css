@@ -1,0 +1,729 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Alisha Tours & Travels — design tokens
+   ---------------------------------------------------------------------------
+   Two layers live in this file:
+
+   1. BRAND tokens (--brand-*, --ink-*, --mist-*). These drive the bespoke
+      public-facing site. Always reference them through Tailwind utilities
+      (bg-brand, text-ink, border-line ...) — never paste raw hex into a
+      component, so a future palette change is a one-file edit.
+
+   2. shadcn/ui tokens (--primary, --muted, --border ...). These drive the
+      /admin dashboard only. They are tinted towards the brand blue so the
+      dashboard feels related to the site, but the public site does not use
+      them.
+
+   The public site is deliberately light-only: this is a warm, photographic
+   travel brand and a dark inversion would fight the imagery. The `.dark`
+   block below exists solely so shadcn components keep working if a dark
+   toggle is ever added to the dashboard.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* --- Brand blues. 500 is the client's primary, 800 the deep accent. --- */
+  --brand-50: #eef9fe;
+  --brand-100: #d5f0fc;
+  --brand-200: #ade1f7;
+  --brand-300: #74cbf0;
+  --brand-400: #35b1e6;
+  --brand-500: #0a9ddb; /* primary — client-specified */
+  --brand-600: #0a80b6;
+  --brand-700: #0c6a94;
+  --brand-800: #005c75; /* deep accent — client-specified */
+  --brand-900: #0a4457;
+
+  /* --- Neutrals. 200 is the client's specified light grey. --- */
+  --mist-50: #fafafb;
+  --mist-100: #f1f1f3;
+  --mist-200: #e3e3e5; /* neutral/background — client-specified */
+  --mist-300: #d1d2d6;
+
+  /* --- Ink: text colours, cooled slightly so they sit with the blues. --- */
+  --ink: #10202a;
+  --ink-soft: #3c4d59;
+  /* Darkened from #6a7a86 in the phase 14 accessibility pass, where the old
+     value failed WCAG AA for small text on every surface it sits on. Chosen
+     against the DARKEST of those surfaces, --mist-200, because the muted /
+     mist-200 pairing appears six times (status chips, expired departure
+     badges, inline <code>): white 6.08, --mist-50 5.83, --mist-100 5.39,
+     --mist-200 4.75. Still clearly lighter than --ink-soft, so the three-step
+     text hierarchy survives. */
+  --ink-muted: #566470;
+  --line: #dcdee1;
+
+  /* --- Sun: a single warm accent, reserved for ratings, price bands and
+         "limited seats" style urgency. Used sparingly and never as a CTA. --- */
+  /* --- WhatsApp affordances --------------------------------------------
+     --whatsapp IS WhatsApp's own brand green, #25D366, at the client's
+     instruction: the previous darkened forest green (#0e7a40) read as "some
+     green button" rather than as WhatsApp.
+
+     The catch that green carries, and how each token answers it: #25D366 holds
+     white text at 1.98:1, nowhere near AA. It is designed to sit under a white
+     LOGO, not under button copy. So the fill keeps the real green and the copy
+     on top of it goes dark instead of white — --whatsapp-ink on --whatsapp
+     measures 7.04:1. The one thing that stays white on the green is the
+     WhatsApp glyph itself, which is the actual lockup and always sits beside a
+     text label, never carrying the meaning alone.
+
+     --whatsapp-text is the darkened green for the opposite case: green TEXT on
+     a white surface (the sticky bar, office cards, the form's channel radio).
+     #25D366 on white is 1.98:1 there too; this measures 5.42:1. */
+  --whatsapp: #25d366;
+  --whatsapp-hover: #1fbe5b;
+  --whatsapp-ink: #06331f;
+  --whatsapp-text: #0e7a40;
+
+  --sun: #f0a91c;
+  --sun-deep: #b97708;
+  /* --sun-deep is fine as a fill and fine as text on white (4.9:1), but on a
+     20% --sun wash it drops to 3.21:1, which fails AA for the 10px bold badges
+     on the departure cards. This is the rung that clears it there (4.94:1). */
+  --sun-shadow: #8f5c06;
+
+  /* --- Typography (set on <html> by next/font in app/layout.js) --- */
+  --font-sans: var(--font-body);
+
+  /* --- shadcn/ui surface tokens (admin dashboard) --- */
+  --background: #ffffff;
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--brand-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--mist-100);
+  --secondary-foreground: var(--ink);
+  --muted: var(--mist-100);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--brand-50);
+  --accent-foreground: var(--brand-800);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand-400);
+  --chart-1: var(--brand-500);
+  --chart-2: var(--brand-800);
+  --chart-3: var(--sun);
+  --chart-4: var(--brand-300);
+  --chart-5: var(--ink-muted);
+  --radius: 0.625rem;
+  --sidebar: var(--mist-50);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--brand-50);
+  --sidebar-accent-foreground: var(--brand-800);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--brand-400);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: var(--brand-400);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--brand-400);
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  /* Brand scale → bg-brand-500, text-brand-800, border-brand-200, ... */
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  /* Bare aliases for the two colours the client named explicitly. */
+  --color-brand: var(--brand-500);
+  --color-brand-deep: var(--brand-800);
+
+  --color-mist-50: var(--mist-50);
+  --color-mist-100: var(--mist-100);
+  --color-mist-200: var(--mist-200);
+  --color-mist-300: var(--mist-300);
+  --color-mist: var(--mist-200);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-sun: var(--sun);
+  --color-sun-deep: var(--sun-deep);
+  --color-sun-shadow: var(--sun-shadow);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-hover: var(--whatsapp-hover);
+  --color-whatsapp-ink: var(--whatsapp-ink);
+  --color-whatsapp-text: var(--whatsapp-text);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-display);
+
+  /* shadcn/ui token bridge (admin) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings on the public site use the display serif by default. Admin
+     screens opt out via `font-sans` on their own headings. */
+  /*
+    Headings are SANS. Fraunces used to be applied here to every h1-h4, which
+    is why every section title on the site read as a soft display serif no
+    matter what the component asked for. The client's feedback was that it
+    looked childish, so the display serif is now opt-in: it survives only on
+    small italic accents (the tagline badge, the About pull-quotes and their
+    attributions), which is where it reads as character rather than as a
+    default.
+  */
+  h1, h2, h3, h4 {
+    @apply font-sans;
+  }
+
+  ::selection {
+    background-color: var(--brand-200);
+    color: var(--brand-900);
+  }
+}
+
+@layer components {
+  /* Shared page rhythm. The public site is built on a 1200px measure with
+     generous gutters; sections breathe more on desktop than a typical
+     dashboard layout would. */
+  /*
+    76rem (1216px). Briefly widened to 90rem to use more of a large display,
+    but at 1440px that left the content flush to the window with only its
+    padding for relief, so it went back — the side margin is deliberate.
+
+    The horizontal padding is the knob for edge breathing room instead:
+    20/32/40px as the viewport grows.
+
+    CAUTION: ScrollRow's full-bleed rail mirrors this padding three times over
+    — negative margin, padding and scroll-padding — so the first card lines up
+    with its section heading. A mismatch there is what put every card 32px left
+    of its heading once already. Change this, change all four.
+  */
+  .container-page {
+    @apply mx-auto w-full max-w-[76rem] px-5 sm:px-8 lg:px-10;
+  }
+
+  .container-prose {
+    @apply mx-auto w-full max-w-[46rem] px-5 sm:px-8;
+  }
+
+  /*
+    The label above a section heading, and the one type decision on this site
+    that gets read as a house style rather than as a component.
+
+    It WAS 11px semibold sans, uppercase, letter-spaced 0.18em — the small
+    tracked-caps micro-label that every generated landing page on the internet
+    now opens each section with. The client's read, in as many words: it gives
+    the page an AI vibe. They are right, and at 11px it was also the least
+    legible text on the site.
+
+    It is now the brand's own second voice: Fraunces italic at 15px in
+    --brand-700, sentence case, behind a short rule. That pairing already
+    carries the tagline in the hero badge, the payoff line on the campaign
+    band and the accent phrases on About and Contact, so section labels now
+    sound like the rest of the site instead of like a UI kit. Sentence case
+    also means a label reads as written — "Since 2013", not "SINCE 2013".
+
+    inline-flex, not flex, so a centred SectionHeading still centres it and it
+    can sit inline beside a row of chips. --brand-700 stays for contrast:
+    5.99:1 on white, 5.74 on --mist-50.
+  */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-display text-[0.9375rem] leading-tight font-normal text-brand-700 italic;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 shrink-0 bg-brand-300;
+  }
+}
+
+@utility text-balance-heading {
+  text-wrap: balance;
+}
+
+/* Respect users who have asked for less motion: the paper-plane loader and
+   every scroll/hover animation collapse to an instant state change. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Full-screen paper-plane loader
+   ---------------------------------------------------------------------------
+   Behaviour and rationale live in components/site/PageLoader.js — read that
+   before changing anything here. Three things are worth repeating.
+
+   1. The `animation` on `.page-loader` is a JavaScript-free safety net. It
+      fades the overlay out at 3000ms whether or not React ever hydrates, so a
+      hydration failure can never leave a visitor staring at a blank screen.
+      This delay MUST match MAX_MS in PageLoader.js — if it is shorter, the
+      overlay fades while React still thinks it is holding.
+
+   2. The overlay is --brand-800, the same colour as the hero band, so the
+      loader does not "cut" to the page: it dissolves into the top of it. That
+      also means every mark on it can be white, which is the one tint that is
+      guaranteed to hold at 7.5:1 no matter which hero photograph is swapped in
+      behind the band later.
+
+   3. travel-loader.svg is the client's supplied "travel loading.svg" with three
+      changes. Keep this script — it is how to regenerate the file if the client
+      sends a new version of the artwork:
+
+        import re
+        s = open("public/animations/travel loading.svg").read()
+        s = re.sub(r'dur="6\.033s"', 'dur="3s"', s)
+        s = re.sub(r'<text\b[^>]*>.*?</text>', '', s, flags=re.S)
+        s = re.sub(r'd="([^"]*)"', lambda m: 'd="%s"' % re.sub(
+                       r'-?\d+\.\d+',
+                       lambda x: '%g' % round(float(x.group()), 1),
+                       m.group(1)), s)
+        open("public/animations/travel-loader.svg", "w").write(s)
+
+      - RETIMED from 6.033s to 3s, so one complete pass fills the hold and the
+        globe is whole at the moment the overlay leaves. Held at its original
+        speed it would have been cut off around the halfway mark, with the ring
+        still visibly unfinished. One substitution does the whole timeline
+        because all 82 animations declare begin="0s" and the same dur, and their
+        keyTimes/keySplines are proportional to it.
+      - CAPTION REMOVED. The file carries its own "Loading your Travel Request"
+        at font-size 24 inside a 1080 viewBox — around 11px on a phone — set in
+        OpenSans/Arial, which this site does not load. The line is re-set below
+        the artwork in Fraunces at a readable size instead.
+      - COORDINATES ROUNDED to one decimal, which is where 137KB of the weight
+        went. One viewBox unit renders at roughly 0.4px at the size the artwork
+        is displayed, so a tenth of a unit is about 0.04px. Rounding all the way
+        to integers saves a further 22KB compressed but starts visibly shifting
+        hairline strokes (measured: 2.4% of pixels moving, up to 50/255), so it
+        is deliberately not done. Only `d` attributes are touched — transform
+        matrices are left alone, where a rounded scale factor is a real change.
+--------------------------------------------------------------------------- */
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--brand-800);
+  animation: alisha-loader-exit 350ms ease 3000ms forwards;
+}
+
+.page-loader[data-hiding="true"] {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 350ms ease,
+    visibility 0s linear 350ms;
+}
+
+/* The reviews spotlight's rotation indicator — a bar that fills over one
+   slide. Its duration comes from --alisha-rotate, set inline from ROTATE_MS in
+   components/site/TestimonialSpotlight.js, so the timing lives in one place. */
+@keyframes alisha-spotlight-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes alisha-loader-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* The wordmark PNG carries its own transparent padding, so it renders smaller
+   than its box — these numbers are the box, not the ink. */
+.page-loader__mark {
+  width: auto;
+  height: clamp(3.25rem, 11vw, 4.75rem);
+}
+
+/* The artwork is square (1080x1080) and mostly margin — the ring of landmarks
+   sits well inside its canvas. --art is the one place its size is decided, and
+   the tagline's own size is derived from it, so the two always scale together
+   however this number is changed. Capped in rem so it stops growing on a large
+   monitor rather than filling it. */
+.page-loader__stage {
+  position: relative;
+  --art: min(52rem, 94vw, 88vh);
+  /* The circle and the things inside it are sized off SEPARATE scales, on
+     purpose. --art drives the artwork; --content drives the wordmark, the
+     tagline and the column they sit in, and it stops growing at 40rem.
+     Everything used to hang off --art alone, which meant enlarging the circle
+     enlarged the type in lockstep and the group stayed just as tight against
+     the ring as before. Capping --content lets the circle keep growing while
+     the type holds still, which is the whole point: the extra room becomes
+     margin rather than bigger letters.
+     Below 40rem the cap is inert and the two scales move together again, so
+     the group still shrinks to fit on a phone instead of overflowing the ring.
+     40rem is not arbitrary — it is the previous --art ceiling, so the type is
+     exactly the size it was. */
+  --content: min(var(--art), 40rem);
+  width: var(--art);
+  /* The square is declared here, not inherited from the image, because the
+     image is appended after load (see PageLoader.js). Without this the stage
+     would be zero-high until the artwork arrived and the tagline would jump
+     into place — a layout shift on every single page load. */
+  aspect-ratio: 1;
+  color: #fff;
+}
+
+.page-loader__art-slot {
+  position: absolute;
+  inset: 0;
+}
+
+/* The still paper plane exists only as the reduced-motion swap, so it is absent
+   by default. Losing this one rule renders it full-size over the artwork on
+   every load — which is exactly what happened once. */
+.page-loader__still {
+  display: none;
+}
+
+/* The artwork is an iframe — PageLoader.js explains at length why it must be.
+   It is sized to the square stage and made completely inert: it cannot be
+   clicked through to, and it draws no frame of its own. The SVG inside declares
+   width/height 100% with a viewBox, so it fills this box and keeps its aspect. */
+.page-loader__art {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  overflow: hidden;
+  pointer-events: none;
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------------------
+   The wordmark and tagline, centred inside the ring of landmarks.
+
+   These numbers are measured off the rendered artwork rather than guessed, so
+   here is the measurement in case the client ever supplies new art. Rendering
+   travel-loader.svg at 1080x1080 on the brand ground and walking outwards from
+   the centre to the first stroke in each direction puts the ring's inner circle
+   at centre (539, 541) with a radius of ~255 — that is 49.9%/50.1% of the
+   canvas, which is dead centre to within a pixel, so `left: 50%; top: 50%` is
+   correct and is not an approximation. Note that the ILLUSTRATION is not
+   centred (its ink spans x 92..907, biased left by the landmarks that stick out
+   further on that side) — the ring is. Centring on the ink would put this group
+   off-centre in the hole.
+
+   Radius 255 of 1080 makes the hole 47.2% of the artwork wide. The column is
+   42% of --content, which is narrow enough that the tagline sets on two lines —
+   the shape that fills a circle properly. Note it is 42% of --content, not of
+   --art: measured against the circle it is 89% of the hole's width once --art
+   passes the cap, which is what turns the extra circle into margin.
+
+   Every size in here is a fraction of one of those two scales rather than a vw
+   clamp, so the group keeps a fixed proportion at every screen size. A clamp
+   would drift and start colliding with the artwork at some widths.
+--------------------------------------------------------------------------- */
+.page-loader__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  display: flex;
+  width: calc(var(--content) * 0.42);
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--content) * 0.03);
+}
+
+/* The wordmark PNG carries its own transparent padding, so this is the height
+   of its box, not of the ink. */
+.page-loader__mark {
+  width: auto;
+  height: calc(var(--content) * 0.115);
+  animation: alisha-loader-quote 600ms ease both;
+}
+
+/* Figtree, the body face — the client asked for the site's own body font here
+   rather than a display or handwriting one. It sets wider than a script at the
+   same size, so the size is lower than it looks: 0.055 of --art keeps the line
+   on two lines inside the 42% column. */
+.page-loader__quote {
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: calc(var(--content) * 0.055);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+/* Word-by-word reveal. --i is set per word in PageLoader.js; 90ms apart is
+   quick enough that the line still reads as one phrase rather than as a list,
+   and the whole run finishes inside 700ms of the 3000ms hold. */
+.page-loader__quote span {
+  display: inline-block;
+  animation: alisha-loader-quote 500ms ease both;
+  animation-delay: calc(120ms + var(--i) * 90ms);
+}
+
+/* Each word is its own inline-block, which swallows the space between them, so
+   it is put back explicitly. */
+.page-loader__quote span + span {
+  margin-left: 0.26em;
+}
+
+@keyframes alisha-loader-quote {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reduced motion: no artwork. Two reasons, and the second is not optional. An
+   illustration that assembles itself for three seconds is precisely the kind of
+   motion this request is asking us not to show — and the artwork's own first
+   keyframe is scale(0,0), so with SMIL suppressed it would render as an empty
+   screen rather than as a still picture. The animated SVG is therefore dropped
+   outright and a still paper plane stands in its place. The overlay also
+   clears at 600ms instead of 3000ms — holding a static image for three seconds
+   is just a delay with nothing to look at. PageLoader.js reads this same media
+   query and shortens its own hold to match (REDUCED_MS); if only this delay
+   moves, the overlay fades while the component keeps the body scroll-locked.
+
+   Note the global reduced-motion rule further up collapses CSS animation
+   durations, but it cannot touch SMIL inside an <img>; only removing the
+   element does. */
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    animation: alisha-loader-exit 1ms linear 600ms forwards;
+  }
+  .page-loader__art,
+  .page-loader__art-slot {
+    display: none;
+  }
+  /* With the artwork gone there is no ring to sit inside, so the stage stops
+     being a positioned square and the tagline returns to normal flow beneath
+     the still plane. */
+  .page-loader__stage {
+    display: flex;
+    width: auto;
+    aspect-ratio: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .page-loader__still {
+    display: block;
+    order: -1;
+    width: clamp(3rem, 12vw, 4.5rem);
+    height: auto;
+  }
+  .page-loader__inner {
+    position: static;
+    translate: none;
+    width: auto;
+    gap: 1.25rem;
+  }
+  .page-loader__mark {
+    height: clamp(3.25rem, 11vw, 4.75rem);
+    animation: none;
+    opacity: 1;
+  }
+  .page-loader__quote {
+    font-size: clamp(1.15rem, 3.6vw, 1.6rem);
+  }
+  .page-loader__quote span {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Sticky mobile action bar clearance
+   ---------------------------------------------------------------------------
+   The Call / WhatsApp / Enquire bar is fixed to the bottom of the viewport on
+   small screens, so the page needs matching bottom padding or the last element
+   of every page sits underneath it. env(safe-area-inset-bottom) keeps it clear
+   of the home indicator on iOS.
+--------------------------------------------------------------------------- */
+
+.has-action-bar {
+  padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 1024px) {
+  .has-action-bar {
+    padding-bottom: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Print
+   ---------------------------------------------------------------------------
+   Package pages carry a "Save as PDF" control that simply prints. These rules
+   are what make that produce a usable itinerary rather than a screenshot of a
+   website: the site chrome, the loader, the sticky bars and every interactive
+   control are dropped, backgrounds are flattened, and the itinerary is stopped
+   from breaking across a page boundary mid-day.
+
+   This is the replacement for the legacy site's PDF-only itineraries — the
+   HTML is the canonical version and the PDF is generated from it on demand.
+--------------------------------------------------------------------------- */
+
+@media print {
+  .page-loader,
+  header,
+  footer,
+  .has-action-bar,
+  [data-print-hide],
+  .print\:hidden {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    font-size: 11pt;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  /* Flatten tinted section bands so they do not burn through ink. */
+  [class*="bg-brand-"],
+  [class*="bg-mist-"] {
+    background: #fff !important;
+    color: #10202a !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #52606d;
+    word-break: break-all;
+  }
+
+  /* Keep a day of the itinerary on one page. */
+  li,
+  section,
+  figure {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

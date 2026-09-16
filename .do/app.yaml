@@ -1,0 +1,126 @@
+# DigitalOcean App Platform specification
+# ---------------------------------------------------------------------------
+# One app, one component. The Next.js server renders the public site AND
+# handles every API route, so there is no separate backend service, no second
+# URL and no CORS configuration anywhere in this repository.
+#
+# Built with App Platform's Node.js buildpack — no Dockerfile. The buildpack
+# runs `npm ci` then `npm run build` (which chains `postbuild` to complete the
+# standalone bundle) and starts the app with `npm start`, which runs the
+# standalone server directly. See README > Deployment.
+#
+# Apply it with either:
+#   doctl apps create --spec .do/app.yaml           # first time
+#   doctl apps update <APP_ID> --spec .do/app.yaml  # subsequent changes
+# or let .github/workflows/deploy.yml do it on every push to main.
+#
+# BEFORE THE FIRST DEPLOY, replace:
+#   1. github.repo         — your GitHub owner/repository
+#   2. every ${...} secret — set them as encrypted App-Level variables in the
+#      App Platform UI, or with `doctl apps update --spec` after substituting.
+#      Values are NOT stored in this file; anything secret must be marked
+#      type: SECRET so App Platform encrypts it at rest.
+# ---------------------------------------------------------------------------
+
+name: alisha-travels
+region: blr1
+
+services:
+  - name: web
+    environment_slug: node-js
+    source_dir: /
+
+    # Both are the buildpack's own defaults; stated explicitly so it is obvious
+    # what actually runs. `npm run build` triggers the `postbuild` script, which
+    # copies .next/static and public into .next/standalone — without that the
+    # site serves 200s with no CSS and no images.
+    build_command: npm run build
+    run_command: npm start
+
+    github:
+      repo: your-org/alisha-travels
+      branch: main
+      # GitHub Actions triggers the deploy instead, so it is visible and
+      # controllable from both GitHub and DO's Activity tab. Set this to true
+      # if you would rather DO watch the branch directly — but then do not also
+      # run the workflow, or every push deploys twice.
+      deploy_on_push: false
+
+    http_port: 3000
+    instance_count: 1
+    # Entry-level. Move up a size if p95 response times climb; this app is
+    # mostly serving statically generated pages, so it is not memory-hungry.
+    instance_size_slug: apps-s-1vcpu-1gb
+
+    health_check:
+      # The trailing slash is REQUIRED. next.config.mjs sets
+      # trailingSlash: true, so /api/health 308-redirects to /api/health/ —
+      # and App Platform's health check does not follow redirects, so the
+      # slashless path would be a permanent failure and the deployment would
+      # never go healthy.
+      http_path: /api/health/
+      initial_delay_seconds: 20
+      period_seconds: 20
+      timeout_seconds: 5
+      success_threshold: 1
+      failure_threshold: 5
+
+    envs:
+      # --- Database -------------------------------------------------------
+      # RUN_AND_BUILD_TIME because `next build` prerenders pages that query
+      # MongoDB. BUILD-only or RUN-only would produce empty pages. The
+      # buildpack injects RUN_AND_BUILD_TIME variables into the build step for
+      # us, so there is no build-argument plumbing to keep in step.
+      - key: MONGODB_URI
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: ${MONGODB_URI}
+
+      # --- Media ----------------------------------------------------------
+      - key: CLOUDINARY_URL
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value: ${CLOUDINARY_URL}
+
+      # --- Transactional e-mail -------------------------------------------
+      - key: RESEND_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+        value: ${RESEND_API_KEY}
+      - key: ENQUIRY_FROM_EMAIL
+        scope: RUN_TIME
+        value: Alisha Tours & Travels <enquiries@alishatravels.in>
+      - key: ENQUIRY_TO_EMAIL
+        scope: RUN_TIME
+        value: info@alishatravels.in
+
+      # --- Auth -----------------------------------------------------------
+      # Rotating this signs every admin out. Generate with:
+      #   openssl rand -base64 48
+      - key: AUTH_SECRET
+        scope: RUN_TIME
+        type: SECRET
+        value: ${AUTH_SECRET}
+
+      # --- Public (inlined into the client bundle at build time) -----------
+      - key: NEXT_PUBLIC_SITE_URL
+        scope: RUN_AND_BUILD_TIME
+        value: https://alishatravels.in
+      - key: NEXT_PUBLIC_WHATSAPP_NUMBER
+        scope: RUN_AND_BUILD_TIME
+        value: "919562921818"
+      - key: NEXT_PUBLIC_GTM_ID
+        scope: RUN_AND_BUILD_TIME
+        value: GTM-NF9ST9W5
+
+domains:
+  - domain: alishatravels.in
+    type: PRIMARY
+    zone: alishatravels.in
+  - domain: www.alishatravels.in
+    type: ALIAS
+    zone: alishatravels.in
+
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED

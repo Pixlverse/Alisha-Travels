@@ -1,0 +1,99 @@
+name: Deploy
+
+# App Platform can watch the branch itself, but then a deployment is only
+# visible in DO's Activity tab. Driving it from here means every deploy has a
+# GitHub run attached to the commit that caused it, can be re-run from the
+# Actions tab, and — importantly — only happens after lint and build pass.
+#
+# `deploy_on_push` is therefore set to false in .do/app.yaml. If you turn it
+# back on, disable this workflow or every push will deploy twice.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why are you deploying manually?
+        required: false
+        default: Manual deployment
+
+concurrency:
+  # One deployment at a time. A second push while the first is still rolling
+  # out is queued rather than racing it — but the in-flight one is allowed to
+  # finish, because cancelling a half-applied App Platform deploy is worse.
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Lint and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        # No MONGODB_URI here on purpose. lib/data/_helpers.js returns empty
+        # data and warns when it is absent, so this proves the app compiles and
+        # every page renders without depending on production data — and no
+        # database credential is ever exposed to a CI runner.
+        env:
+          NEXT_PUBLIC_SITE_URL: https://alishatravels.in
+          NEXT_PUBLIC_WHATSAPP_NUMBER: "919562921818"
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: npm run build
+
+  deploy:
+    name: Deploy to App Platform
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: production
+      url: https://alishatravels.in
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy
+        uses: digitalocean/app_action/deploy@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          # Deploys the app that already exists under this name, using the spec
+          # stored in App Platform. Create it once from .do/app.yaml, then this
+          # workflow only ever triggers new deployments of it — so a bad spec
+          # in a feature branch can never reshape production.
+          app_name: alisha-travels
+          print_build_logs: true
+          print_deploy_logs: true
+
+      - name: Smoke test
+        run: |
+          # Trailing slash on purpose: trailingSlash: true means the
+          # slashless path answers 308, and curl here does not follow it.
+          echo "Waiting for the new deployment to answer…"
+          for attempt in $(seq 1 12); do
+            status=$(curl -s -o /dev/null -w '%{http_code}' https://alishatravels.in/api/health/ || echo 000)
+            if [ "$status" = "200" ]; then
+              echo "Health check passed on attempt $attempt."
+              curl -s https://alishatravels.in/api/health/
+              exit 0
+            fi
+            echo "  attempt $attempt: HTTP $status — retrying in 10s"
+            sleep 10
+          done
+          echo "::error::Health check never returned 200. Check the App Platform logs."
+          exit 1
