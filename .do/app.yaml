@@ -102,6 +102,17 @@ services:
         type: SECRET
         value: ${AUTH_SECRET}
 
+      # --- Build shape -----------------------------------------------------
+      # Turns on `output: "standalone"` in next.config.mjs, which this
+      # component depends on: `npm start` boots .next/standalone/server.js.
+      # It is opt-in because a standalone bundle breaks managed hosts that
+      # trace dependencies themselves (Vercel fails assembling it), so the
+      # default is the portable build and the container asks for the other.
+      # BUILD_TIME only — the running server never reads it.
+      - key: STANDALONE_BUILD
+        scope: BUILD_TIME
+        value: "1"
+
       # --- Public (inlined into the client bundle at build time) -----------
       - key: NEXT_PUBLIC_SITE_URL
         scope: RUN_AND_BUILD_TIME

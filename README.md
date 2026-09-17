@@ -857,7 +857,7 @@ result — see below.
 
 | File | What it is |
 | --- | --- |
-| `next.config.mjs` | `output: 'standalone'`, `trailingSlash: true`, image hosts, legacy redirects. |
+| `next.config.mjs` | `output: 'standalone'` **when `STANDALONE_BUILD=1`**, `trailingSlash: true`, image hosts, legacy redirects. |
 | `scripts/postbuild.js` | Copies `.next/static` and `public` into the standalone bundle. Runs automatically after `npm run build`. |
 | `.do/app.yaml` | The App Platform spec — buildpack, build/run commands, health check, env var scopes, domains, alerts. |
 | `.github/workflows/deploy.yml` | Lint → build → deploy → smoke test on every push to `main`. |
@@ -867,7 +867,16 @@ result — see below.
 
 The spec asks for `output: 'standalone'` "for a lean container". That reads like
 it implies a Dockerfile, but it does not: `standalone` is a property of the
-*build output*, not of how the build is packaged. Next traces exactly the files
+*build output*, not of how the build is packaged.
+
+**It is opt-in.** `next.config.mjs` only asks for a standalone bundle when
+`STANDALONE_BUILD=1`, which `.do/app.yaml` sets at build time. The default —
+what you get on any host that sets nothing — is an ordinary build, because a
+standalone bundle breaks managed platforms that trace dependencies themselves:
+on Vercel the build dies assembling it, with `ENOENT … next-server.js.nft.json`,
+*after* the app has compiled successfully. Deploying a demo to Vercel or
+Netlify therefore needs no config change; only this container does, and it asks
+for it explicitly. Next traces exactly the files
 the server imports and emits a self-contained `.next/standalone` with its own
 `server.js` and a pruned `node_modules` (~44 MB against ~500 MB installed).
 Running that is what makes the deployment lean, and the Node buildpack runs it

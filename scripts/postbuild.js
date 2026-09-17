@@ -38,7 +38,7 @@ if (!existsSync(standalone)) {
   console.log(
     "[postbuild] No .next/standalone bundle — nothing to complete. " +
       "That is expected on hosts that build with their own output adapter (Vercel, Netlify); " +
-      "for a self-hosted build, check that `output: \"standalone\"` is still set in next.config.mjs."
+      "for a self-hosted build, check that STANDALONE_BUILD=1 is set — see next.config.mjs."
   );
   process.exit(0);
 }
