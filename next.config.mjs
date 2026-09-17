@@ -3,7 +3,22 @@ const nextConfig = {
   // DigitalOcean App Platform runs this as a container. `standalone` emits
   // .next/standalone with only the files the server actually needs, which
   // keeps the image small and cold starts fast. See README > Deployment.
-  output: "standalone",
+  //
+  // NOT ON VERCEL. Vercel compiles with its own output adapter, which traces
+  // the server's dependencies its own way; asking for a standalone bundle on
+  // top of that fails while the bundle is being assembled —
+  //
+  //   Error: ENOENT: no such file or directory, open
+  //   '/vercel/path0/.next/next-server.js.nft.json'
+  //
+  // — which lands AFTER the app has compiled successfully and so reads as a
+  // code fault rather than a config one. Vercel needs no help here: it emits
+  // its own server bundle either way, so the option is simply dropped there.
+  //
+  // Keyed on Vercel's own build variable, so nothing has to be set in the
+  // dashboard. scripts/postbuild.js already skips when the bundle is absent,
+  // so the two halves of this agree without knowing about each other.
+  output: process.env.VERCEL ? undefined : "standalone",
 
   // The SEO-confirmed sitemap (see README > URL structure) is written with
   // trailing slashes on every path — /destinations/, /packages/honeymoon/ and
