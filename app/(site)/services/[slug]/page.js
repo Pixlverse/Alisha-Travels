@@ -13,7 +13,7 @@ import { Section } from "@/components/site/Section";
 import ServiceIcon from "@/components/site/ServiceIcon";
 import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { getServiceBySlug, getServices, getServiceSlugs } from "@/lib/data/content";
-import { EMAILS, PRIMARY_PHONE, SITE } from "@/lib/site";
+import { EMAILS, PRIMARY_PHONE, SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo/schema";
 import { cn } from "@/lib/utils";
@@ -462,7 +462,7 @@ function gridColumns(count) {
 /** The credentials line under the hero buttons. Figures come from lib/site.js. */
 function TrustStrip() {
   const items = [
-    { star: true, label: `${SITE.rating.value} on Google` },
+    { star: true, label: `${SITE.rating.value} on Google`, href: SOCIAL.google },
     { star: true, label: `${SITE.rating.justDial} on JustDial` },
     { label: "IATA accredited" },
     { label: `Since ${SITE.founded}` },
@@ -475,12 +475,26 @@ function TrustStrip() {
           {index ? (
             <span aria-hidden="true" className="size-1 rounded-full bg-mist-300" />
           ) : null}
-          <span className="inline-flex items-center gap-1.5">
-            {item.star ? (
+          {/* The Google rating is a link to Google; the rest are statements
+              of fact with nowhere to go. */}
+          {item.href ? (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 underline-offset-4 transition-colors hover:text-brand-700 hover:underline focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none"
+            >
               <Star className="size-3.5 fill-sun text-sun" aria-hidden="true" />
-            ) : null}
-            {item.label}
-          </span>
+              {item.label}
+            </a>
+          ) : (
+            <span className="inline-flex items-center gap-1.5">
+              {item.star ? (
+                <Star className="size-3.5 fill-sun text-sun" aria-hidden="true" />
+              ) : null}
+              {item.label}
+            </span>
+          )}
         </li>
       ))}
     </ul>

@@ -1,13 +1,19 @@
 /**
  * Services.
  *
- * A note on the count, because the brief and the nav specification disagree by
- * one. The nav lists nine Services entries, but 4.8 "Fixed Departure Tours"
- * points at /fixed-departures/ rather than a service page of its own. So there
- * are EIGHT service documents here — one per real URL — and the /services/
- * index renders a ninth card that links straight to the Fixed Departures
- * calendar. That way the menu and the index page both show nine items and no
- * dead /services/fixed-departure-tours/ page is created.
+ * There are TEN service documents here, one per real URL. Two notes on that
+ * number, because it has moved twice:
+ *
+ *   - "Fixed Departure Tours" is not one of them. The nav specification listed
+ *     it as a service, but it points at /fixed-departures/ rather than a page
+ *     of its own, so no dead /services/fixed-departure-tours/ page exists.
+ *   - Three of the ten (customised, educational and adventure tours) are
+ *     presented under PACKAGES rather than Services and are filtered out of
+ *     the Services listings — see SERVICES_PRESENTED_AS_PACKAGES in
+ *     lib/site.js. Their pages are unchanged and still live at /services/.
+ *
+ * `order` follows the client's own priority: air tickets, global tourist visa
+ * and MICE first, in that order, then train and bus tickets.
  *
  * The legacy site's tenth service, "Worldwide Tourist Visa", was dropped by the
  * client's SEO revision ("Travel Guide and Visa & Attestation removed") and is
@@ -132,7 +138,7 @@ export const services = [
     slug: "hotel-booking",
     title: "Hotel booking",
     icon: "BedDouble",
-    order: 2,
+    order: 5,
     shortDescription:
       "Hotels, resorts and homestays booked directly with the property, in India and overseas.",
     heroLead:
@@ -258,7 +264,7 @@ export const services = [
     slug: "travel-insurance",
     title: "Travel insurance",
     icon: "ShieldCheck",
-    order: 3,
+    order: 6,
     shortDescription:
       "Cover that actually pays out — medical, baggage, cancellation and visa-mandated policies.",
     heroHeading: "Travel Insurance Services for Domestic & International Trips",
@@ -427,7 +433,7 @@ export const services = [
     slug: "customized-tour-packages",
     title: "Customized tour packages",
     icon: "Compass",
-    order: 4,
+    order: 8,
     shortDescription:
       "Holidays built around your pace, your budget and the people travelling with you. Nothing off the shelf.",
     heroHeading: "Customised Tour Packages for Personalised Travel",
@@ -565,12 +571,15 @@ export const services = [
             title: "One planner throughout",
             text: "The person who drafted the itinerary is the person you call from the road.",
           },
+          /*
+            The "IATA accredited since 2013" card is deliberately NOT here, at
+            the client's instruction: accreditation is what lets us issue a
+            ticket, and it has no bearing on how well a tour is planned. It
+            stays on the services where it decides something — air tickets and
+            corporate travel.
+          */
           {
-            title: "IATA accredited since 2013",
-            text: "Flights are issued directly by us, not resold through a portal.",
-          },
-          {
-            title: "Thirteen years of itineraries",
+            title: "Itineraries since 2013",
             text: "Honest advice on which destinations suit which kind of trip, and which do not.",
           },
           {
@@ -592,10 +601,119 @@ export const services = [
       "Custom-built holiday packages on your dates, your budget and your pace — domestic and international, with inclusions, exclusions and any TCS stated upfront.",
   },
   {
+    /*
+      ADDED at the client's instruction, and the only service on this site whose
+      copy is NOT theirs. They removed "Worldwide Tourist Visa" during the SEO
+      revision and have now asked for it back, without supplying text.
+      Everything below is deliberately short, factual and free of claims about
+      turnaround, success rates or approval — nothing an embassy decides can be
+      promised on a travel agency's website. REPLACE IT with their own copy
+      before launch; the page renders the standard layout until then.
+    */
+    slug: "global-tourist-visa",
+    title: "Global tourist visa",
+    icon: "Stamp",
+    order: 2,
+    shortDescription:
+      "Tourist visa documentation and appointments, prepared and checked before anything is submitted.",
+    longDescription:
+      "A tourist visa is refused far more often for paperwork than for anything about the traveller: a bank statement that does not cover the stay, an itinerary that does not match the dates, a hotel booking that was never confirmed, a photograph in the wrong dimensions. We assemble the file in the form the consulate asks for and check it before it goes in.\n\nWhere a destination requires proof of travel and accommodation, those come from the same office that books them, dated to match the application. Where cover is mandatory — Schengen applications set a minimum sum insured — the policy is issued to meet it.\n\nThe decision belongs to the embassy or consulate, and nobody outside it can promise an outcome. What we can tell you is what your file needs, what the appointment will involve, and where the delay is if the wait gets long.",
+    points: [
+      "Document checklist prepared for the specific destination",
+      "Application forms completed and reviewed before submission",
+      "Appointment booking and, where required, biometrics scheduling",
+      "Confirmed flight and hotel bookings, dated to match the application",
+      "Travel insurance meeting the destination's minimum cover",
+    ],
+    ctaLabel: "Ask about a visa",
+    ctaType: "enquiry",
+    metaTitle: "Global Tourist Visa Assistance",
+    metaDescription:
+      "Tourist visa documentation, appointments and supporting bookings prepared by an IATA-accredited agency in Kerala, checked before submission.",
+  },
+  /*
+    TRAIN & BUS TICKETS — added at the client's instruction ("We can include
+    Train and Bus ticket also").
+
+    THE COPY BELOW IS DRAFTED, NOT SUPPLIED. Every other service on this site
+    carries the client's own words; this one carries ours, written to match
+    their voice and to claim nothing we cannot stand behind — no reservation
+    quotas, no tatkal promises, no named operators. It needs their sign-off,
+    and anything in it that is wrong about how they actually work should be
+    corrected in /admin/ rather than here.
+  */
+  {
+    slug: "train-bus-tickets",
+    title: "Train & bus tickets",
+    icon: "TrainFront",
+    order: 4,
+    shortDescription:
+      "Rail and road legs booked alongside the rest of the trip, so the connections actually meet.",
+    heroLead:
+      "Not every journey is a flight. Train reservations and intercity bus seats are booked from the same desk as the rest of your trip, which means the arrival and the onward leg are checked against each other before anything is confirmed.",
+    ctaLabel: "Ask about a booking",
+    ctaType: "enquiry",
+    secondaryCtaLabel: "WhatsApp us",
+    secondaryCtaType: "whatsapp",
+    assurances: [
+      { title: "Booked with the trip", text: "Not a separate errand on a separate app" },
+      { title: "Connections checked", text: "Arrival and onward leg compared before booking" },
+      { title: "One place to ask", text: "The planner who booked it answers about it" },
+      { title: "Groups handled", text: "Seats together, on one payment" },
+    ],
+    blocks: [
+      {
+        kind: "cards",
+        title: "What we are usually asked for",
+        intro:
+          "Rail and road work is rarely the whole trip — it is the part that has to line up with the rest of it.",
+        items: [
+          {
+            tag: "Rail",
+            title: "Train reservations",
+            text: "Reserved seats and berths on Indian Railways, booked for the class and quota that is actually available on your date.",
+          },
+          {
+            tag: "Road",
+            title: "Intercity bus seats",
+            text: "Sleeper and seater coaches on interstate routes, including the overnight legs some hill itineraries depend on.",
+          },
+          {
+            tag: "Groups",
+            title: "Groups travelling together",
+            text: "Seats together rather than scattered through the coach, on one booking and one payment.",
+          },
+          {
+            tag: "Transfers",
+            title: "Station and stand transfers",
+            text: "The car that meets the train, arranged with the arrival time rather than an estimate of it.",
+          },
+        ],
+        footnote:
+          "Availability on Indian Railways is decided by the reservation system, not by an agent. We will tell you what is open on your date, and what the realistic alternative is when it is not.",
+      },
+      {
+        kind: "prose",
+        title: "Why book a train through us at all",
+        body:
+          "You can book a train yourself, and on a single straightforward journey you probably should. It is worth asking us when the rail or road leg is part of something larger: a flight landing the same morning, a hotel that has to be held an extra night, a group of twenty who need to arrive together.\n\nThose are the bookings that go wrong in the gaps between them — a connection that looked fine until the arrival terminal was checked, an overnight bus that reaches town four hours before check-in. Booking the legs from one desk is what lets somebody notice that before you have paid for it.",
+      },
+    ],
+    closingTitle: "Tell us the route and the date.",
+    closingText: "We will come back with what is available and what it costs.",
+    closingPrimaryLabel: "Ask about a booking",
+    closingPrimaryType: "enquiry",
+    closingSecondaryLabel: "WhatsApp us",
+    closingSecondaryType: "whatsapp",
+    metaTitle: "Train & Bus Ticket Booking",
+    metaDescription:
+      "Train reservations and intercity bus tickets booked from Kerala alongside flights, hotels and transfers, with connections checked and groups seated together.",
+  },
+  {
     slug: "mice-corporate-travel",
     title: "MICE & corporate travel",
     icon: "Briefcase",
-    order: 5,
+    order: 3,
     shortDescription:
       "Corporate travel management, MICE events and business travel for organisations that move people regularly.",
     heroHeading: "MICE & Corporate Travel Services",
@@ -739,6 +857,10 @@ export const services = [
             title: "Events and travel from one supplier",
             text: "No handover between an event agency and a travel agent.",
           },
+          {
+            title: "350-passenger groups managed",
+            text: "The largest single movement we have run, start to finish, on one plan and one point of contact.",
+          },
         ],
       },
     ],
@@ -756,7 +878,7 @@ export const services = [
     slug: "educational-tours",
     title: "Educational tours",
     icon: "GraduationCap",
-    order: 6,
+    order: 9,
     shortDescription:
       "School and college trips built around a curriculum, with the supervision ratios and paperwork schools actually need.",
     heroHeading: "Educational Tours for Schools, Colleges & Student Groups",
@@ -919,7 +1041,7 @@ export const services = [
     slug: "adventure-tours",
     title: "Adventure tours",
     icon: "Mountain",
-    order: 7,
+    order: 10,
     shortDescription:
       "Treks, dives and high-altitude road trips, run with operators whose safety record we have actually checked.",
     heroHeading: "Adventure Tour Packages for Unforgettable Experiences",
@@ -1064,7 +1186,7 @@ export const services = [
     slug: "certificate-attestation",
     title: "Certificate attestation",
     icon: "FileCheck",
-    order: 8,
+    order: 7,
     shortDescription:
       "Education, employment and personal documents authenticated for use abroad — we know the sequence by heart.",
     heroHeading: "Certificate Attestation Services",

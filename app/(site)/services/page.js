@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import EnquiryCta from "@/components/site/EnquiryCta";
 import JsonLd from "@/components/site/JsonLd";
@@ -7,6 +7,7 @@ import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import ServiceIcon from "@/components/site/ServiceIcon";
 import { getServices } from "@/lib/data/content";
+import { SERVICES_PRESENTED_AS_PACKAGES } from "@/lib/site";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
@@ -22,12 +23,17 @@ export const metadata = {
 /**
  * The services index.
  *
- * Nine cards, eight pages. The navigation specification lists nine Services
- * entries, but 4.8 "Fixed Departure Tours" points at /fixed-departures/ rather
- * than a page of its own — so eight Service documents render from the database
- * and the ninth card is a hand-written link to the departures calendar. The
- * menu and this page both show nine items, and no dead
- * /services/fixed-departure-tours/ page is created.
+ * FIVE services, five pages, all from the database.
+ *
+ * It was nine. At the client's instruction, customized tours, educational
+ * tours, adventure tours and MICE & corporate travel are now presented under
+ * Packages — they are trips, not work that surrounds somebody else's trip —
+ * and the Fixed departure tours entry is gone because Fixed Departures is a
+ * top-level menu item with its own calendar page. Global tourist visa is new.
+ *
+ * The four moved services keep their pages and their URLs; only where they are
+ * advertised changed. lib/site.js owns the rule (SERVICES_PRESENTED_AS_PACKAGES)
+ * so this page, the menu and the homepage band cannot disagree.
  *
  * On the legacy site each of these was a heading, a paragraph and a `tel:` link
  * with empty anchor text — an invisible, unclickable, screen-reader-hostile
@@ -35,7 +41,20 @@ export const metadata = {
  * link with visible text.
  */
 export default async function ServicesPage() {
-  const services = await getServices();
+  const all = await getServices();
+
+  /*
+    Customized tours, educational tours, adventure tours and MICE & corporate
+    travel are listed under Packages now, at the client's instruction — they
+    are trips, not work that surrounds somebody else's trip. Their pages are
+    untouched and still live at /services/<slug>/; this page just stops
+    advertising them, and the rule lives in lib/site.js so the menu, this index
+    and the homepage band cannot drift apart when a service is edited in the
+    dashboard.
+  */
+  const services = all.filter(
+    (service) => !SERVICES_PRESENTED_AS_PACKAGES.includes(service.slug)
+  );
 
   /*
     The split was "has long-form content" while only three services had it.
@@ -217,52 +236,10 @@ export default async function ServicesPage() {
               </ul>
             </div>
           ) : null}
-
-          {/* The ninth entry in the menu, and the only one that is not a
-              service page. Per the navigation specification it links to the
-              departures calendar. */}
-          {/* The one dark block on the page. It is doing two jobs: giving a
-              page of white panels a base to sit on, and saying plainly that
-              this entry is a different kind of thing from the eight above it.
-              Copy is white on --brand-800, which clears AA at this size. */}
-          <Link
-            href="/fixed-departures/"
-            className="group relative isolate mt-8 flex flex-col gap-5 overflow-hidden rounded-[1.5rem] bg-brand-800 p-6 transition-colors hover:bg-brand-900 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-7"
-          >
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_12%_15%,rgba(255,255,255,0.2),transparent_55%)]"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-6 -bottom-10 z-0 text-white/10"
-            >
-              <CalendarDays className="size-44" strokeWidth={1} />
-            </span>
-
-            <span className="relative z-10 flex items-start gap-4">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-white/25">
-                <CalendarDays className="size-5" aria-hidden="true" />
-              </span>
-              <span>
-                <span className="block text-xl leading-snug font-semibold text-white">
-                  Fixed departure tours
-                </span>
-                <span className="mt-1.5 block max-w-2xl text-[0.9375rem] leading-relaxed text-brand-100/90">
-                  Curated group departures on set dates at set prices, with itineraries already
-                  tested and a tour manager travelling with the group.
-                </span>
-              </span>
-            </span>
-
-            <span className="relative z-10 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-brand-800 transition-colors group-hover:bg-brand-50">
-              See the calendar
-              <ArrowRight
-                className="size-4 transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
-            </span>
-          </Link>
+          {/* The Fixed departure tours strip that used to close this page has
+              gone, at the client's instruction: Fixed Departures is a
+              top-level menu item with its own calendar, so a panel here sent
+              people to a page the navigation already offers. */}
         </div>
       </Section>
 

@@ -37,7 +37,6 @@ export default async function sitemap() {
     { path: "/packages/honeymoon/", priority: 0.8, changeFrequency: "weekly" },
     { path: "/packages/family/", priority: 0.8, changeFrequency: "weekly" },
     { path: "/packages/group-tours/", priority: 0.8, changeFrequency: "weekly" },
-    { path: "/packages/corporate/", priority: 0.8, changeFrequency: "weekly" },
     // Departures change more often than anything else on the site.
     { path: "/fixed-departures/", priority: 0.9, changeFrequency: "daily" },
     { path: "/fixed-departures/international/", priority: 0.7, changeFrequency: "daily" },

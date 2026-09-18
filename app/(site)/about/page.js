@@ -11,7 +11,7 @@ import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { getDestinationsByRegion } from "@/lib/data/destinations";
 import { getTestimonials } from "@/lib/data/content";
 import { ABOUT_HERO, ABOUT_SECTIONS } from "@/lib/content/about";
-import { SITE } from "@/lib/site";
+import { SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 
 export const revalidate = 600;
@@ -19,7 +19,7 @@ export const revalidate = 600;
 export const metadata = {
   title: "About Alisha Tours & Travels — IATA Accredited Since 2013",
   description:
-    "Ramzi Mohammed Ali founded Alisha Tours & Travels in 2013 on one conviction: a traveller should never have to chase anyone. IATA accredited, 4.8★ from 532 travellers, based in Kottayam, Kerala.",
+    "Ramzi Mohammed Ali founded Alisha Tours & Travels in 2013 on one conviction: a traveller should never have to chase anyone. IATA accredited, 4.8★ on Google reviews, based in Kottayam, Kerala.",
   alternates: { canonical: "/about/" },
 };
 
@@ -74,7 +74,7 @@ export default async function AboutPage() {
     );
   };
 
-  // "Since 2013 · IATA Accredited · 4.8★ from 532 travellers" — the client's
+  // "Since 2013 · IATA Accredited · 4.8★ on Google reviews" — the client's
   // line, split on its own separators into the three facts it already is.
   const credentials = ABOUT_HERO.subline.split("·").map((part) => part.trim());
 
@@ -168,7 +168,7 @@ export default async function AboutPage() {
       {/*
         A TWO-WAY CHAT, which is what the copy already was: five questions a
         traveller asks, and one line that answers all five — "For more than
-        twelve years, that has been our job."
+        2013, that has been our job."
 
         So the traveller asks, on the left, in white. Alisha answers, on the
         right, in brand, under a plane avatar and with the two read ticks a
@@ -488,7 +488,19 @@ export default async function AboutPage() {
               </div>
             </article>
 
-            {/* Vision — where people end up. Light card, Kerala water. */}
+            {/*
+              Vision — where people end up. Light card, Kerala water.
+
+              THE PHOTOGRAPH IS HELD BACK HERE in a way the mission card does
+              not need. The client's note was that the vision was hard to
+              read, and the reason is the pairing: the mission card is dark
+              with white type, so a bright picture behind it only adds
+              contrast, while this card is white with --ink-soft type, so the
+              same brightness eats it. The image keeps its mask and gains a
+              white veil over the copy's half of the card plus a lighter,
+              less saturated treatment, which leaves the photograph legible as
+              a photograph and the paragraph legible as a paragraph.
+            */}
             <article className="group relative overflow-hidden rounded-[1.75rem] bg-white ring-1 ring-brand-100 shadow-[0_34px_70px_-45px_rgba(16,32,42,0.6)] transition-transform duration-500 ease-out lg:mt-10 lg:rotate-[0.5deg] lg:hover:rotate-0 motion-reduce:transition-none motion-reduce:lg:rotate-0">
               <div
                 aria-hidden="true"
@@ -500,7 +512,11 @@ export default async function AboutPage() {
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 22rem, 60vw"
-                  className="object-cover"
+                  className="object-cover opacity-90 brightness-[1.06] saturate-[0.85]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[linear-gradient(to_right,#fff_0%,rgb(255_255_255/0.78)_38%,rgb(255_255_255/0.12)_78%,transparent_100%)]"
                 />
               </div>
 
@@ -844,20 +860,28 @@ export default async function AboutPage() {
                 <SharpStar className="size-11 shrink-0 text-sun sm:size-14" />
                 <span className="sr-only">stars on Google</span>
               </p>
-              <p aria-hidden="true" className="mt-3 text-sm text-ink-muted">
-                on Google
-              </p>
+              {/* The label is the link — to Google, not to our own /reviews/.
+                  aria-hidden is gone with the plain text: the figure above
+                  carries the screen-reader wording, and a hidden link would be
+                  a keyboard stop announcing nothing. */}
+              <a
+                href={SOCIAL.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm text-ink-muted underline-offset-4 transition-colors hover:text-brand-700 hover:underline focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none"
+              >
+                Read the reviews on Google
+              </a>
               <h2 className="mt-5 text-2xl font-semibold text-ink sm:text-3xl">
                 {goldStars(proof.heading)}
               </h2>
 
+              {/* No review COUNT and no elapsed-year count — the client asked
+                  for both to go. A years-in-operation figure also went stale
+                  every January, which a founding year cannot. */}
               <dl className="mt-7 divide-y divide-line border-y border-line">
                 <Stat value={goldStars(`${SITE.rating.justDial}★`)} label="on JustDial" />
-                <Stat value={SITE.rating.count} label="reviews written" />
-                <Stat
-                  value={`${new Date().getFullYear() - SITE.founded} yrs`}
-                  label="operating"
-                />
+                <Stat value={`Since ${SITE.founded}`} label="operating" />
               </dl>
             </div>
 
@@ -1045,7 +1069,7 @@ function SharpStar({ className }) {
  * The ★ characters the client's own copy contains, painted --sun.
  *
  * The text is untouched — the string is split on the glyph and the glyph is
- * put back inside a span — so "4.8★ from 532 reviews." still reads exactly as
+ * put back inside a span — so "4.8★ on Google reviews." still reads exactly as
  * written, with the star the colour a star should be rather than ink black.
  */
 function goldStars(text) {

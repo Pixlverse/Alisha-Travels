@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
-import { durationLabel, formatDateShort, formatINR } from "@/lib/format";
+import { durationLabel, formatDateRange, formatDateShort, formatINR } from "@/lib/format";
 import { PACKAGE_CATEGORIES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -20,6 +20,12 @@ export default function PackageCard({ pkg, className, eager = false }) {
     pkg.offerEndsOn && new Date(pkg.offerEndsOn) >= startOfToday()
       ? formatDateShort(pkg.offerEndsOn)
       : null;
+
+  const nextDeparture = pkg.nextDeparture;
+  const departsOn = nextDeparture ? formatDateShort(nextDeparture.departureDate) : null;
+  const departureWindow = nextDeparture
+    ? formatDateRange(nextDeparture.departureDate, nextDeparture.returnDate)
+    : null;
 
   return (
     <article
@@ -45,10 +51,17 @@ export default function PackageCard({ pkg, className, eager = false }) {
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
 
+        {/* THE DATE IS THE BADGE for a fixed departure. It used to read
+            "Fixed departure" and nothing else, which is the one fact a group
+            tour cannot leave off: the whole proposition is that it leaves on a
+            day you can plan around. The label falls back to "Fixed departure"
+            only when no upcoming date is loaded — see `withNextDeparture` in
+            lib/data/packages.js — so a card never claims a date it does not
+            have, and never sits on a date that has passed. */}
         {pkg.type === "fixed-departure" ? (
-          <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-sun px-2.5 py-1 text-[0.6875rem] font-semibold tracking-wide text-brand-900 uppercase">
+          <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-sun px-2.5 py-1 text-[0.6875rem] font-bold tracking-wide text-brand-900 uppercase">
             <CalendarDays className="size-3.5" aria-hidden="true" />
-            Fixed departure
+            {departsOn ? `Departs ${departsOn}` : "Fixed departure"}
           </span>
         ) : null}
 
@@ -86,6 +99,15 @@ export default function PackageCard({ pkg, className, eager = false }) {
 
         {pkg.summary ? (
           <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-ink-soft">{pkg.summary}</p>
+        ) : null}
+
+        {/* The badge gives the departure day; this gives the whole window, so
+            somebody counting leave days does not have to open the page. */}
+        {departureWindow ? (
+          <p className="mt-3 inline-flex items-center gap-1.5 self-start rounded-lg bg-sun/12 px-2.5 py-1.5 text-[0.8125rem] font-semibold text-sun-shadow">
+            <CalendarDays className="size-3.5 shrink-0" aria-hidden="true" />
+            {departureWindow}
+          </p>
         ) : null}
 
         <div className="mt-auto flex items-end justify-between gap-3 pt-5">

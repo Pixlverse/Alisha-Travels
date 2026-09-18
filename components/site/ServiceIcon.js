@@ -7,7 +7,9 @@ import {
   Mountain,
   Plane,
   ShieldCheck,
+  Stamp,
   Ticket,
+  TrainFront,
 } from "lucide-react";
 
 /**
@@ -19,12 +21,14 @@ const ICONS = {
   Plane,
   BedDouble,
   ShieldCheck,
+  Stamp,
   Compass,
   Briefcase,
   GraduationCap,
   Mountain,
   FileCheck,
   Ticket,
+  TrainFront,
 };
 
 export const SERVICE_ICON_NAMES = Object.keys(ICONS);

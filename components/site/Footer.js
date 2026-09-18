@@ -2,8 +2,10 @@ import Link from "next/link";
 import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import Logo from "./Logo";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
+import { FacebookIcon, GoogleIcon, InstagramIcon } from "./icons/SocialIcons";
 import { EMAILS, NAV, OFFICES, PRIMARY_PHONE, SECONDARY_PHONE, SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 /**
  * Footer.
@@ -76,33 +78,44 @@ export default function Footer() {
               IATA Accredited Agent
             </p>
 
-            <div className="mt-6 flex items-center gap-4 text-sm">
-              <a
-                href={SOCIAL.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-4 hover:text-white hover:underline"
-              >
-                Facebook
-              </a>
-              <a
-                href={SOCIAL.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-4 hover:text-white hover:underline"
-              >
-                Instagram
-              </a>
-              <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 underline-offset-4 hover:text-white hover:underline"
-              >
-                <WhatsAppIcon className="size-4" />
-                WhatsApp
-              </a>
-            </div>
+            {/*
+              Four marks on filled tiles, where there used to be three words in
+              a row of underlined text at the size of the small print. The
+              client's note was that these were hard to find, and they were:
+              set in the same colour and weight as the paragraph above them,
+              the only thing distinguishing a social link from body copy was
+              the word itself.
+
+              Google is the fourth, and new — it is where the 4.8 on this site
+              comes from, so it belongs beside the other three. It keeps its
+              own four colours on a white tile; the rest take the footer's.
+            */}
+            <ul className="mt-7 flex flex-wrap items-center gap-2.5">
+              {[
+                { href: SOCIAL.facebook, label: "Facebook", Icon: FacebookIcon },
+                { href: SOCIAL.instagram, label: "Instagram", Icon: InstagramIcon },
+                { href: whatsappLink(), label: "WhatsApp", Icon: WhatsAppIcon },
+                { href: SOCIAL.google, label: "Google reviews", Icon: GoogleIcon, brand: true },
+              ].map(({ href, label, Icon, brand }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={label}
+                    className={cn(
+                      "flex size-11 items-center justify-center rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none",
+                      brand
+                        ? "bg-white hover:bg-brand-50"
+                        : "bg-white/10 text-white ring-1 ring-white/20 hover:bg-white hover:text-brand-900"
+                    )}
+                  >
+                    <Icon className="size-5" />
+                    <span className="sr-only">{label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Link columns */}

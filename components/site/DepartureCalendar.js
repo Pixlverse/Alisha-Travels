@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CalendarX2 } from "lucide-react";
 import DepartureCard from "./DepartureCard";
 import Button from "./Button";
+import MonthRail from "./MonthRail";
 import { groupByMonth } from "@/lib/format";
 
 /**
@@ -17,35 +18,37 @@ import { groupByMonth } from "@/lib/format";
  * three rows reads as a business that has stopped operating. Showing history,
  * clearly marked, is what makes an operating record out of the same data.
  */
-export default function DepartureCalendar({ upcoming = [], past = [], emptyMessage }) {
+export default function DepartureCalendar({
+  upcoming = [],
+  past = [],
+  emptyMessage,
+  destinations = [],
+  services = [],
+}) {
   const upcomingMonths = groupByMonth(upcoming);
   const pastMonths = groupByMonth(past);
 
   return (
     <div>
-      {/* Month jump strip — the "calendar" affordance. */}
-      {upcomingMonths.length > 1 ? (
-        <nav
-          aria-label="Jump to a month"
-          className="-mx-5 mb-8 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {upcomingMonths.map((month) => (
-            <a
-              key={month.key}
-              href={`#month-${month.key}`}
-              className="shrink-0 rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-300 hover:text-brand-700"
-            >
-              {month.label}
-              <span className="ml-2 text-xs text-ink-muted">{month.departures.length}</span>
-            </a>
-          ))}
-        </nav>
-      ) : null}
+      {/* Month jump strip — the "calendar" affordance. Sticky, and it tracks
+          where you are; see MonthRail. */}
+      <MonthRail
+        months={upcomingMonths.map((month) => ({
+          key: month.key,
+          label: month.label,
+          count: month.departures.length,
+        }))}
+      />
 
       {upcomingMonths.length ? (
         <div className="space-y-12">
           {upcomingMonths.map((month) => (
-            <section key={month.key} id={`month-${month.key}`} aria-labelledby={`h-${month.key}`}>
+            <section
+              key={month.key}
+              id={`month-${month.key}`}
+              aria-labelledby={`h-${month.key}`}
+              className="scroll-mt-36"
+            >
               <div className="flex items-center gap-4">
                 <h2
                   id={`h-${month.key}`}
@@ -63,7 +66,11 @@ export default function DepartureCalendar({ upcoming = [], past = [], emptyMessa
               <ul className="mt-5 space-y-4">
                 {month.departures.map((departure) => (
                   <li key={departure._id}>
-                    <DepartureCard departure={departure} />
+                    <DepartureCard
+                      departure={departure}
+                      destinations={destinations}
+                      services={services}
+                    />
                   </li>
                 ))}
               </ul>
@@ -126,7 +133,11 @@ export default function DepartureCalendar({ upcoming = [], past = [], emptyMessa
                 <ul className="mt-5 space-y-4">
                   {month.departures.map((departure) => (
                     <li key={departure._id}>
-                      <DepartureCard departure={departure} />
+                      <DepartureCard
+                      departure={departure}
+                      destinations={destinations}
+                      services={services}
+                    />
                     </li>
                   ))}
                 </ul>

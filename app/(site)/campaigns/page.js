@@ -57,7 +57,7 @@ export default async function CampaignsPage() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 76rem, 100vw"
-                quality={65}
+                quality={60}
                 className="object-cover grayscale brightness-[1.15] contrast-[1.05] transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />
               <div

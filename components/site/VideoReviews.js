@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Play } from "lucide-react";
 import StarRating from "./StarRating";
 import { cn } from "@/lib/utils";
+import { embedUrl } from "@/lib/video";
 
 /**
  * Video reviews.
@@ -19,8 +20,52 @@ import { cn } from "@/lib/utils";
  * The written quote stays under every card. If a video is pulled, or a network
  * blocks the host entirely, the review is still a review.
  */
-export default function VideoReviews({ reviews }) {
+export default function VideoReviews({ reviews = [] }) {
   const [playing, setPlaying] = useState(null);
+
+  /*
+    RESERVED FRAMES when there are none yet.
+
+    This band used not to render at all without videos, so the space the
+    client asked to keep for video reviews did not exist on the page and
+    looked like it had never been built. Three empty frames say the section is
+    real and waiting, without inventing a review to fill them — the one thing
+    that must not happen here. They disappear the moment a video review is
+    saved in the dashboard.
+
+    To go back to hiding the band entirely, return null here.
+  */
+  if (!reviews.length) {
+    return (
+      <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {[0, 1, 2].map((slot) => (
+          <li
+            key={slot}
+            className="overflow-hidden rounded-3xl border border-dashed border-line bg-white"
+          >
+            <div className="relative flex aspect-video flex-col items-center justify-center gap-3 bg-mist-50">
+              <span
+                aria-hidden="true"
+                className="flex size-14 items-center justify-center rounded-full bg-white text-brand-300 ring-1 ring-line"
+              >
+                <Play className="ml-0.5 size-5 fill-current" />
+              </span>
+              <p className="font-sans text-[0.6875rem] font-bold tracking-[0.18em] text-ink-muted uppercase">
+                Video review
+              </p>
+            </div>
+            <div className="p-5">
+              <p className="text-sm text-ink-muted">
+                {slot === 0
+                  ? "Filmed reviews from travellers go here — the written ones are above."
+                  : "Coming soon."}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   return (
     <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -100,43 +145,4 @@ export default function VideoReviews({ reviews }) {
       })}
     </ul>
   );
-}
-
-/**
- * Turns a YouTube or Vimeo share link into an embed URL.
- *
- * Admins paste whatever the share button gave them, so all the usual shapes
- * have to work: youtu.be/ID, /watch?v=ID, /shorts/ID, /embed/ID and
- * vimeo.com/ID. Anything else returns null and the card renders as a still
- * with the play button disabled rather than as a broken frame — an unknown
- * host is not something to hand to an iframe.
- */
-function embedUrl(url) {
-  if (!url) return null;
-
-  try {
-    const parsed = new URL(url.trim());
-    const host = parsed.hostname.replace(/^www\./, "");
-
-    if (host === "youtu.be") {
-      const id = parsed.pathname.slice(1);
-      return id ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1` : null;
-    }
-
-    if (host === "youtube.com" || host === "m.youtube.com" || host === "youtube-nocookie.com") {
-      const id =
-        parsed.searchParams.get("v") ||
-        parsed.pathname.split("/").filter(Boolean).slice(-1)[0];
-      return id ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1` : null;
-    }
-
-    if (host === "vimeo.com" || host === "player.vimeo.com") {
-      const id = parsed.pathname.split("/").filter(Boolean).slice(-1)[0];
-      return /^\d+$/.test(id) ? `https://player.vimeo.com/video/${id}?autoplay=1` : null;
-    }
-  } catch {
-    return null;
-  }
-
-  return null;
 }

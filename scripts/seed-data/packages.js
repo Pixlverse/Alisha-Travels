@@ -742,7 +742,10 @@ export const packages = [
     summary:
       "A turnkey incentive and dealer-meet programme for 40 to 150 delegates, with one coordinator from quote to departure.",
     destinationSlug: "thailand",
-    category: "corporate",
+    // Was category "corporate". The client removed Corporate & MICE as a
+    // package category — every corporate movement is quoted from scratch — so
+    // these two are what they always were: customised trips.
+    category: "customized",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
@@ -793,7 +796,10 @@ export const packages = [
     summary:
       "Conference facilities in Dubai with a desert gala and an Abu Dhabi excursion, priced per delegate.",
     destinationSlug: "dubai",
-    category: "corporate",
+    // Was category "corporate". The client removed Corporate & MICE as a
+    // package category — every corporate movement is quoted from scratch — so
+    // these two are what they always were: customised trips.
+    category: "customized",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
@@ -935,8 +941,10 @@ export const packages = [
     states its basis in `priceNote`. `offerEndsOn` drives the "Offer ends"
     badge on the card and expires itself.
 
-    TO DO: none of these has a day-by-day itinerary yet. The client supplied
-    the highlight line and the price basis only.
+    TO DO: only Charm of Hyderabad has a day-by-day itinerary — it is the one
+    the client sent a full proposal for (sample1.pdf). For the other six they
+    supplied the highlight line and the price basis only; the itinerary,
+    hotels and proposal fields go in through /admin/ as each proposal arrives.
   */
   {
     slug: "charm-of-hyderabad-3d2n",
@@ -961,11 +969,62 @@ export const packages = [
       "Golconda Fort",
       "The laser show over Hussain Sagar",
     ],
-    inclusions: LAND_ONLY_INCLUSIONS,
+    /* Inclusions, exclusions, itinerary and the proposal fields below are
+       transcribed from the client's own travel proposal for this trip
+       (REF 004645, prepared 29 July 2026) — see sample1.pdf. */
+    inclusions: [
+      "2 nights' A/C room accommodation",
+      "Daily breakfast except on arrival day",
+      "Airport pick-up and drop",
+      "Ramoji Film City entry ticket",
+      "All local sightseeing entry tickets as per the itinerary",
+      "Sedan car for sightseeing as per the itinerary",
+      "Toll, parking and driver allowance",
+      "GST",
+    ],
     exclusions: [
-      "Flights to and from Hyderabad",
-      "Entry tickets other than Ramoji Film City",
-      ...LAND_ONLY_EXCLUSIONS,
+      "Round trip airfare",
+      "Early check-in or late check-out (standard check-in 12:00pm, check-out 10:00am)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Other sightseeing entry tickets",
+      "Personal expenses, room service, special orders, and alcoholic/non-alcoholic beverages",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival & Local Sightseeing",
+        description:
+          "On arrival at Hyderabad Airport, transfer to your hotel to check in and freshen up. The city tour covers Birla Mandir, NTR Gardens, the 125-foot bronze Statue of Dr. B.R. Ambedkar, Lumbini Park and Hussain Sagar Lake, ending with the evening Laser Show before returning to the hotel.",
+        stay: "Overnight, Hyderabad",
+      },
+      {
+        day: 2,
+        title: "Ramoji Film City Excursion",
+        description:
+          "After breakfast, a full-day excursion to Ramoji Film City, the world's largest integrated film studio complex, exploring its film sets, gardens and entertainment zones before returning to the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Hyderabad",
+      },
+      {
+        day: 3,
+        title: "Heritage Tour of Hyderabad",
+        description:
+          "After breakfast, a historical sightseeing tour: the Salar Jung Museum, the iconic Charminar and its surrounding markets, the historic Mecca Masjid, and Golconda Fort, before transferring to Hyderabad Airport for your onward journey.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "004645",
+    travelWindow: "August 2026",
+    travellers: "3 adults",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Hyderabad",
+        hotel: "Hotel Central Park or similar",
+        nights: 2,
+        meals: "Breakfast",
+      },
     ],
     metaTitle: "Charm of Hyderabad — 3 Days / 2 Nights",
     metaDescription:
@@ -1182,6 +1241,96 @@ export const packages = [
     metaTitle: "Fascinating Dubai — 4 Days / 3 Nights",
     metaDescription:
       "Dubai in four days from ₹26,999 per adult — a creek dhow dinner cruise, the Burj Khalifa's 124th floor and a desert safari with BBQ. Land only.",
+  },
+
+  /* =============== PROPOSAL-BACKED PACKAGES (client PDF) ================= */
+  /*
+    Transcribed from the client's own travel proposal (REF 004946) — see
+    sample2.pdf. This is the shape every quote they send out takes, so it is
+    the reference entry: every proposal field the model carries is filled in
+    here, and the detail page renders each one as its own section.
+  */
+  {
+    slug: "charm-of-malaysia-3d2n",
+    title: "Charm of Malaysia",
+    summary:
+      "Three days across Kuala Lumpur — Putrajaya's modern skyline, the golden statue and limestone caves at Batu, a cable-car ride into the hills at Genting, and the city's own landmarks.",
+    priceNote:
+      "Package cost shown per person; excludes airfare. Quoted rates are not valid on surcharged dates — public holidays, festivals or peak season — when additional charges will apply.",
+    destinationSlug: "malaysia",
+    category: "customized",
+    type: "customized",
+    durationDays: 3,
+    durationNights: 2,
+    priceFrom: 21199,
+    order: 8,
+    heroImage: x("kualaLumpur"),
+    highlights: [
+      "Putrajaya en route from the airport",
+      "Batu Caves and its golden statue",
+      "The Genting Skyway cable car",
+      "KL Tower Observatory Deck and the KLCC Aquarium",
+    ],
+    inclusions: [
+      "2 nights' accommodation at the above-mentioned hotel",
+      "Daily breakfast (except on arrival day)",
+      "Meet & greet at the airport",
+      "Sightseeing as per the above-mentioned itinerary",
+      "All entry tickets as per the itinerary",
+      "All tours and transfers on a private sedan",
+      "GST",
+    ],
+    exclusions: [
+      "Round-trip airfare",
+      "TCS",
+      "Lunch and dinner",
+      "Early check-in or late check-out (standard check-in after 1400/1500 hrs, check-out before 1100/1200 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival — Putrajaya Tour",
+        description:
+          "Upon arrival at Kuala Lumpur International Airport, you will be met and greeted by our representative and transferred to your hotel in Kuala Lumpur, with a visit to Putrajaya en route. Upon arrival at the hotel, you will proceed with check-in. In the evening, enjoy a 2-hour tour of Bukit Bintang, one of Kuala Lumpur's most vibrant shopping and entertainment districts. After the tour, return to the hotel for an overnight stay.",
+        meals: "None",
+        stay: "Overnight, Kuala Lumpur",
+      },
+      {
+        day: 2,
+        title: "Genting Highlands, Batu Caves & Cable Car",
+        description:
+          "After breakfast, begin your day with a visit to the iconic Batu Caves, one of Malaysia's most famous Hindu pilgrimage sites. Continue to Genting Highlands, a popular hill resort offering cool weather, entertainment and scenic views. Enjoy a round-trip ride on the Genting Skyway Cable Car, which is included in your package.",
+        meals: "Breakfast only",
+        stay: "Overnight, Kuala Lumpur",
+      },
+      {
+        day: 3,
+        title: "Kuala Lumpur City Tour & Departure",
+        description:
+          "After breakfast, embark on a half-day Kuala Lumpur city tour lasting approximately 4 hours. The tour includes photo stops at the iconic Petronas Twin Towers and KL Tower, visits to the National Mosque, National Monument, Independence Square, the King's Palace and a chocolate outlet, and entry to the KL Tower Observatory Deck and the KLCC Aquarium. You are then transferred to Kuala Lumpur International Airport for your onward flight, marking the end of your Malaysia trip.",
+        meals: "Breakfast only",
+      },
+    ],
+    referenceNo: "004946",
+    travelWindow: "January 2027",
+    travellers: "4 adults",
+    rooms: 2,
+    stays: [
+      {
+        destination: "Kuala Lumpur",
+        hotel: "Howard Johnson or similar",
+        nights: 2,
+        meals: "Breakfast",
+      },
+    ],
+    priceRows: [{ label: "Per adult", amount: 21199 }],
+    metaTitle: "Charm of Malaysia — 3 Days / 2 Nights",
+    metaDescription:
+      "Kuala Lumpur in three days from ₹21,199 per adult — Putrajaya, Batu Caves, the Genting Skyway cable car and the KL city tour. Land only.",
   },
 ];
 

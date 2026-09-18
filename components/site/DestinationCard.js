@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
  *
  * Follows the pattern the client picked out from the Akbar Travels "Trending
  * Destinations" strip: a photograph, the destination name set large over it,
- * and a "Starting @ ₹X" band pinned to the bottom edge. Adapted to our palette
+ * and a "Starting from ₹X" band pinned to the bottom edge. Adapted to our palette
  * and set in Fraunces italic rather than a script face, so no third font is
  * loaded just for this one element.
  *
@@ -77,7 +77,7 @@ export default function DestinationCard({ destination, size = "default", eager =
           <div className="mt-4 flex items-center gap-3 border-t border-white/20 pt-3.5">
             {priceFrom ? (
               <p className="text-sm text-white/75">
-                Starting @{" "}
+                Starting from{" "}
                 <span className="font-sans text-base font-semibold text-white">
                   {formatINRCompact(priceFrom)}
                 </span>

@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, Pause, Play, Quote } from "lucide-react";
 
 import StarRating from "./StarRating";
 import { formatDate } from "@/lib/format";
+import { SOCIAL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const SOURCE_LABEL = {
@@ -242,12 +243,17 @@ export default function TestimonialSpotlight({ testimonials = [], rating, classN
         {/* --------------------------- Reviewer list ---------------------------- */}
         <div className="flex min-w-0 flex-col">
           {rating ? (
-            <p className="order-2 mt-4 flex items-center gap-2 text-sm text-ink-muted lg:order-1 lg:mt-0 lg:mb-4">
+            /* Links to Google, not to our own reviews page — see the note on
+               SOCIAL.google in lib/site.js. */
+            <a
+              href={SOCIAL.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="order-2 mt-4 flex w-fit items-center gap-2 text-sm text-ink-muted underline-offset-4 transition-colors hover:text-brand-700 hover:underline focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none lg:order-1 lg:mt-0 lg:mb-4"
+            >
               <StarRating value={rating.value} showValue />
-              <span>
-                from {rating.count} Google reviews
-              </span>
-            </p>
+              <span>on Google reviews</span>
+            </a>
           ) : null}
 
           {/*

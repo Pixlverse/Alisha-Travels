@@ -38,6 +38,19 @@ const campaignSchema = new mongoose.Schema(
     /** The line the campaign is meant to land on, if it has one. */
     pullQuote: { type: String, trim: true, default: "" },
 
+    /**
+     * The campaign film.
+     *
+     * A YouTube or Vimeo share link, parsed by lib/video.js — the same field
+     * shape as a video testimonial, and for the same reason: an <iframe> is
+     * never built until somebody presses play, so the thumbnail is a field
+     * rather than something the page needs the embed to obtain.
+     *
+     * `videoThumbnail` is optional; the campaign's hero image stands in.
+     */
+    videoUrl: { type: String, trim: true, default: "" },
+    videoThumbnail: { type: imageSchema },
+
     order: { type: Number, default: 100, index: true },
     status: { type: String, enum: ["active", "draft"], default: "active", index: true },
     ...seoSchema,

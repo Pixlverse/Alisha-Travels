@@ -3,12 +3,14 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeIndianRupee,
-  Briefcase,
   CalendarDays,
   Compass,
+  GraduationCap,
+  Mountain,
   HandHeart,
   Heart,
   PhoneCall,
+  Play,
   PlaneLanding,
   Scale,
   Star,
@@ -19,7 +21,9 @@ import {
 } from "lucide-react";
 
 import Button from "@/components/site/Button";
+import CampaignFilm from "@/components/site/CampaignFilm";
 import DealsTabs from "@/components/site/DealsTabs";
+import DepartureMonths from "@/components/site/DepartureMonths";
 import DestinationCard from "@/components/site/DestinationCard";
 import Hero from "@/components/site/Hero";
 import ScrollRow from "@/components/site/ScrollRow";
@@ -38,10 +42,9 @@ import {
   getTestimonials,
   getVideoTestimonials,
 } from "@/lib/data/content";
-import { SITE } from "@/lib/site";
+import { SERVICES_PRESENTED_AS_PACKAGES, SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { whatsappLink } from "@/lib/whatsapp";
-import { formatDate } from "@/lib/format";
 import { getDepartures } from "@/lib/data/departures";
 
 /**
@@ -77,12 +80,42 @@ const PACKAGE_KINDS = [
     href: "/packages/group-tours/",
     linkLabel: "See group tours",
   },
+  /*
+    Corporate & MICE used to be the fourth tile here, pointing at
+    /packages/corporate/. Both are gone: the client's position is that a
+    corporate movement is customised from scratch, so it is not a category of
+    packages to browse. It is a SERVICE now, third in that menu, and it
+    appears in the services band further down this page — which is also why it
+    is not repeated here.
+  */
+  /*
+    The last three moved here from the services band at the client's
+    instruction — they are trips people buy, not work attached to somebody
+    else's trip. Each line is the first sentence of the service page's own
+    lead, so this band and the page it opens say the same thing, and each link
+    goes to that page: the copy on them is the client's and it is indexed, so
+    nothing was rebuilt to change a label.
+  */
   {
-    icon: Briefcase,
-    title: "Corporate & MICE",
-    text: "Conferences, incentive trips, dealer meets and offsites. One point of contact from first quote to last boarding pass.",
-    href: "/packages/corporate/",
-    linkLabel: "See corporate travel",
+    icon: Compass,
+    title: "Customized tour packages",
+    text: "Your dates, your budget, your pace. We say what the budget buys before we plan the trip, and the inclusions are written down.",
+    href: "/services/customized-tour-packages/",
+    linkLabel: "See customized packages",
+  },
+  {
+    icon: GraduationCap,
+    title: "Educational tours",
+    text: "School and college trips built around the curriculum, with the supervision, transport and paperwork set out in writing.",
+    href: "/services/educational-tours/",
+    linkLabel: "See educational tours",
+  },
+  {
+    icon: Mountain,
+    title: "Adventure tours",
+    text: "Trekking, rafting, diving and desert crossings, planned to the season and run with operators we have used before.",
+    href: "/services/adventure-tours/",
+    linkLabel: "See adventure tours",
   },
 ];
 
@@ -179,19 +212,34 @@ export default async function HomePage() {
     departures,
   ] = await Promise.all([
     getDestinationsByRegion(),
-    getPackages({ limit: 60 }),
-    getServices({ limit: 8 }),
+    // withNextDeparture: the fixed-departure cards in the band below carry
+    // their travel date on the face of the card.
+    getPackages({ limit: 60, withNextDeparture: true }),
+    getServices(),
     getTestimonials({ limit: 6 }),
     getVideoTestimonials({ limit: 6 }),
-    getCampaigns({ limit: 1 }),
-    getDepartures({ includePast: false, limit: 4 }),
+    getCampaigns({ limit: 4 }),
+    // No limit: the departures band is a calendar of every upcoming date, not
+    // a list of the next few. There are tens of these, not thousands.
+    getDepartures({ includePast: false }),
   ]);
 
   // The band below Services. It was hardcoded copy about one trip; it is a
-  // collection now, so this shows the most recent campaign and /campaigns/
-  // shows them all.
-  const campaign = campaigns[0];
+  // collection now. The newest campaign leads the band and the others sit
+  // beside it — the client's note was that the area should not be given over
+  // to a single campaign when they have run several.
+  const [campaign, ...otherCampaigns] = campaigns;
 
+  /*
+    TWO tabs, not four.
+
+    Domestic and International were tabs in here as well, which meant a band
+    headed "Promotional packages & fixed departures" was also showing every
+    other package on the site — the client's note, and they are right: the
+    tabs contradicted the heading. Those two are a different question ("where
+    do you want to go?"), so they are links out of the band now rather than
+    tabs inside it, and the band shows only what it says it shows.
+  */
   const groups = [
     {
       key: "hot",
@@ -205,18 +253,21 @@ export default async function HomePage() {
       href: "/fixed-departures/",
       packages: packages.filter((p) => p.type === "fixed-departure"),
     },
+  ];
+
+  /** Where the rest of the inventory lives, with a count so each link is honest. */
+  const browseElsewhere = [
     {
-      key: "domestic",
-      label: "Domestic",
+      label: "Domestic packages",
       href: "/destinations/domestic/",
-      packages: packages.filter((p) => p.destination?.region === "domestic"),
+      count: packages.filter((p) => p.destination?.region === "domestic").length,
     },
     {
-      key: "international",
-      label: "International",
+      label: "International packages",
       href: "/destinations/international/",
-      packages: packages.filter((p) => p.destination?.region === "international"),
+      count: packages.filter((p) => p.destination?.region === "international").length,
     },
+    { label: "Every package", href: "/packages/", count: packages.length },
   ];
 
   // The hero photograph is data-driven rather than hardcoded, so the client can
@@ -225,6 +276,13 @@ export default async function HomePage() {
   // dedicated hero photography.
   const heroImage =
     destinations.find((d) => d.slug === "maldives")?.heroImage || destinations[0]?.heroImage;
+
+  // The services band shows the work that surrounds a trip. The four the
+  // client moved under Packages are advertised in the packages band instead —
+  // see SERVICES_PRESENTED_AS_PACKAGES.
+  const otherServices = services.filter(
+    (service) => !SERVICES_PRESENTED_AS_PACKAGES.includes(service.slug)
+  );
 
   // The Who-we-are photograph, data-driven like the hero: the client changes
   // it by editing the Kerala destination image in the dashboard.
@@ -338,7 +396,7 @@ export default async function HomePage() {
                 watermark: <CalendarDays className="size-32 text-brand-100" strokeWidth={1} aria-hidden="true" />,
                 icon: <CalendarDays className="size-6 text-brand-700" aria-hidden="true" />,
                 value: `Since ${SITE.founded}`,
-                label: "Thirteen years and thousands of departures",
+                label: "Thousands of departures, and counting",
                 href: "/about/",
               },
               {
@@ -430,6 +488,24 @@ export default async function HomePage() {
             link="/packages/"
             linkLabel="All packages"
           />
+
+          {/* The way out of this band. Domestic and International used to be
+              two more tabs in it, which is how a band about promotions and
+              fixed departures ended up showing the whole catalogue. */}
+          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-7">
+            <p className="mr-1 text-sm text-ink-muted">Looking for something else?</p>
+            {browseElsewhere.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand-300 hover:text-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none"
+              >
+                {item.label}
+                <span className="font-sans text-xs text-ink-muted">{item.count}</span>
+                <ArrowRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -449,6 +525,73 @@ export default async function HomePage() {
               <DestinationCard key={destination.slug} destination={destination} size="tall" />
             ))}
           </ScrollRow>
+        </div>
+      </Section>
+
+      {/* ---------------------------- Testimonials -------------------------- */}
+      {/*
+        DIRECTLY BELOW DESTINATIONS, where the client placed it.
+
+        It started life directly above the final call to action, behind three
+        bands of our own account of ourselves — who we are, why people stay,
+        what we hold ourselves to — so the first independent evidence on the
+        page arrived after about four screens of the company describing
+        itself. It moved below the departures, then to second band on the
+        page, and this is where it settled: after the two bands that show what
+        is for sale, before the ones that explain who we are.
+
+        A visitor has now seen the packages and the places, which is the
+        moment "is this lot any good?" occurs to them — and the answer is
+        other people, not us.
+      */}
+      {testimonials.length ? (
+        // MIST again. Destinations above it is white and the travel-packages
+        // band below is mist, so the tint alternates rather than running two
+        // greys together — which is the one thing to check whenever this
+        // block moves. It also gives the reviews card a band to sit on.
+        <Section tone="mist">
+          <div className="container-page">
+            <SectionHeading
+              eyebrow="Proof"
+              title="They remember the person, not the package."
+              lead="Read our reviews and the pattern shows itself that people name the person who looked after them. Junaid. Ben. SriSankar. Aditya. Mini."
+              link="/reviews/"
+              linkLabel="Read all reviews"
+            />
+            {/* One quote in a spotlight with every reviewer listed beside it,
+                replacing a six-card rail. The rationale and the interaction
+                notes are in the component. */}
+            <TestimonialSpotlight
+              testimonials={testimonials}
+              rating={SITE.rating}
+              className="mt-6"
+            />
+          </div>
+        </Section>
+      ) : null}
+
+      {/* --------------------------- Video reviews -------------------------- */}
+      {/*
+        Directly under the written reviews, because it is the same evidence in a
+        stronger form: a traveller saying it on camera is the one thing a page
+        cannot fake.
+
+        It used to render only when there were videos, which meant it did not
+        render at all — so the space the client asked to have set aside for
+        video reviews was invisible, and looked like it had never been built.
+        It is always here now, and VideoReviews draws reserved frames until
+        the first video is added in /admin/ (Testimonials → Video review URL),
+        at which point the frames give way to the real thing.
+      */}
+      <Section>
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="On camera"
+            title="Some of them said it out loud."
+            link="/reviews/"
+            linkLabel="All reviews"
+          />
+          <VideoReviews reviews={videoReviews} />
         </div>
       </Section>
 
@@ -567,51 +710,26 @@ export default async function HomePage() {
 
 
       {/* -------------------------- Next departures ------------------------- */}
+      {/*
+        A CALENDAR, not the next four rows.
+
+        This band used to render `departures` — the four soonest, in order,
+        with no way to see past them. A group departure is bought on the date
+        as much as on the destination ("what have you got in December?"), so
+        the whole upcoming calendar is here now: a month rail, a month grid
+        with the departure days live, and the list filtering to whichever day
+        you pick. DepartureMonths has the rest of the reasoning.
+      */}
       {departures.length ? (
         <Section tone="tint" className="py-6 sm:py-7">
           <div className="container-page">
             <SectionHeading
               title="Leaving next"
+              lead="Set dates with seats still open. Pick a month, or a day, to see what leaves."
               link="/fixed-departures/"
               linkLabel="Full calendar"
             />
-            <ul className="mt-9 grid gap-3 sm:grid-cols-2">
-              {departures.map((departure) => (
-                <li key={departure._id}>
-                  <Link
-                    href={departure.href}
-                    className="group flex items-center gap-4 rounded-2xl border border-line bg-white p-4 transition-colors hover:border-brand-300"
-                  >
-                    <span className="flex size-14 shrink-0 flex-col items-center justify-center rounded-xl bg-brand-800 text-white">
-                      <span className="font-sans text-lg leading-none font-bold">
-                        {new Date(departure.departureDate).getUTCDate()}
-                      </span>
-                      <span className="mt-0.5 text-[0.625rem] tracking-wide uppercase">
-                        {formatDate(departure.departureDate).split(" ")[1]}
-                      </span>
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate text-base font-semibold text-ink group-hover:text-brand-700">
-                        {departure.package.title}
-                      </span>
-                      <span className="mt-0.5 block text-xs text-ink-muted">
-                        {formatDate(departure.departureDate)}
-                        {departure.boardingCity ? ` · from ${departure.boardingCity}` : ""}
-                        {departure.availability === "sold-out"
-                          ? " · Sold out"
-                          : departure.seatsRemaining
-                            ? ` · ${departure.seatsRemaining} seats left`
-                            : ""}
-                      </span>
-                    </span>
-                    <ArrowRight
-                      className="size-4 shrink-0 text-ink-muted transition-transform group-hover:translate-x-0.5 group-hover:text-brand-700"
-                      aria-hidden="true"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <DepartureMonths departures={departures} />
           </div>
         </Section>
       ) : null}
@@ -658,11 +776,17 @@ export default async function HomePage() {
           />
 
           <div className="relative z-10 container-page py-12 sm:py-16 lg:py-20">
+            {/* TWO COLUMNS now. This was one campaign at full width with the
+                photograph behind it, which the client's note called out: they
+                have run several, and the band gave the area to one of them and
+                left no room for a film. The lead campaign keeps the left, and
+                the right carries the film and the other campaigns. */}
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-14">
             <div className="max-w-2xl">
               <p className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 ring-1 ring-white/25">
                 <HandHeart className="size-4 text-brand-200" aria-hidden="true" />
                 <span className="text-[0.6875rem] font-semibold tracking-[0.18em] text-white uppercase">
-                  Our campaign
+                  {campaigns.length > 1 ? "Our campaigns" : "Our campaign"}
                 </span>
               </p>
 
@@ -697,6 +821,66 @@ export default async function HomePage() {
               {campaign.imageNote ? (
                 <p className="mt-5 text-xs leading-relaxed text-white/65">{campaign.imageNote}</p>
               ) : null}
+            </div>
+
+            {/* The film, and the campaigns this band is not leading with. */}
+            <div className="lg:pt-4">
+              <CampaignFilm
+                videoUrl={campaign.videoUrl}
+                still={campaign.videoThumbnail?.url || campaign.heroImage?.url}
+                alt={campaign.videoThumbnail?.alt || ""}
+                title={campaign.title}
+              />
+
+              {otherCampaigns.length ? (
+                <>
+                  <p className="mt-8 font-sans text-[0.6875rem] font-bold tracking-[0.18em] text-brand-200 uppercase">
+                    More of our work
+                  </p>
+                  <ul className="mt-4 divide-y divide-white/15 border-y border-white/15">
+                    {otherCampaigns.map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          href={item.href}
+                          className="group flex items-center gap-4 py-4 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none"
+                        >
+                          <span className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-brand-900">
+                            {item.heroImage?.url ? (
+                              <Image
+                                src={item.heroImage.url}
+                                alt=""
+                                fill
+                                sizes="3.5rem"
+                                quality={60}
+                                className="object-cover"
+                              />
+                            ) : null}
+                            {item.videoUrl ? (
+                              <span
+                                aria-hidden="true"
+                                className="absolute inset-0 flex items-center justify-center bg-brand-900/45 text-white"
+                              >
+                                <Play className="size-4 fill-current" />
+                              </span>
+                            ) : null}
+                          </span>
+                          <span className="min-w-0">
+                            <span className="line-clamp-2 text-[0.9375rem] leading-snug font-semibold text-white underline-offset-4 group-hover:underline">
+                              {item.title}
+                            </span>
+                            {item.period || item.location ? (
+                              <span className="mt-1 block text-xs text-white/60">
+                                {[item.period, item.location].filter(Boolean).join(" · ")}
+                              </span>
+                            ) : null}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </div>
             </div>
           </div>
         </section>
@@ -748,8 +932,10 @@ export default async function HomePage() {
             linkLabel="All services"
           />
 
-          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
+          {/* Five services now, so three across and five on a wide screen —
+              a four-column grid left a single card stranded on a second row. */}
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {otherServices.map((service) => (
               <li key={service.slug}>
                 <Link
                   href={service.href}
@@ -807,35 +993,10 @@ export default async function HomePage() {
                 </Link>
               </li>
             ))}
-
-            {/* The ninth entry in the menu. It points at the departures
-                calendar rather than a service page, but on this band it is the
-                SAME card as the other eight — tint, no shadow and no corner
-                wave made it read as a broken card rather than a deliberate
-                one. The calendar mark is the only signal it needs; /services/
-                is where it gets a layout of its own. */}
-            <li>
-              <Link
-                href="/fixed-departures/"
-                className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-white p-6 shadow-[0_18px_40px_-32px_rgba(16,32,42,0.5)] ring-1 ring-brand-100/70 transition-[box-shadow,transform] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:ring-brand-200 hover:shadow-[0_26px_48px_-30px_rgba(10,68,87,0.45)] focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:outline-none motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-0 bottom-0 z-0 size-14 bg-gradient-to-br from-brand-200 to-brand-400 opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] [clip-path:path('M56,2.8C44.8,2.8,43.4,19.6,30.8,22.4C18.2,25.2,16.8,42,4.2,44.8C2.1,45.5,1.4,50.4,0,56L56,56Z')] group-hover:opacity-90"
-                />
-
-                <span className="relative z-10 flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600 transition-colors duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:from-brand-500 group-hover:to-brand-600 group-hover:text-white">
-                  <CalendarDays className="size-5" aria-hidden="true" />
-                </span>
-                <h3 className="relative z-10 mt-5 text-lg leading-snug font-semibold text-ink">
-                  Fixed departure tours
-                </h3>
-                <p className="relative z-10 mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">
-                  Curated group departures on set dates at set prices, with a tour manager
-                  travelling with the group.
-                </p>
-              </Link>
-            </li>
+            {/* The Fixed departure tours card that used to close this row is
+                gone, at the client's instruction: Fixed Departures is a
+                top-level menu item and has its own calendar page, so a card
+                here advertised the same destination twice. */}
           </ul>
         </div>
       </Section>
@@ -891,7 +1052,7 @@ export default async function HomePage() {
               <p className="eyebrow text-brand-200">Who we are</p>
 
               <h2 className="mt-3 max-w-3xl text-balance-heading text-2xl leading-tight font-bold tracking-[-0.02em] text-white sm:text-[2rem] lg:text-[2.5rem]">
-                Somebody has to handle the details. For thirteen years,
+                Somebody has to handle the details. Since 2013,
                 that&rsquo;s been us.
               </h2>
 
@@ -913,8 +1074,8 @@ export default async function HomePage() {
                   you, and not to everyone.
                 </p>
                 <p className="break-inside-avoid text-[0.9375rem] leading-relaxed text-brand-100/90 sm:text-base sm:leading-relaxed">
-                  You&rsquo;re at the right desk. We&rsquo;ve been handling journeys like yours for
-                  thirteen years, and we&rsquo;ve never once treated one as routine.
+                  You&rsquo;re at the right desk. We&rsquo;ve been handling journeys like yours
+                  since 2013, and we&rsquo;ve never once treated one as routine.
                 </p>
               </div>
 
@@ -1025,57 +1186,6 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      {/* ---------------------------- Testimonials -------------------------- */}
-      {testimonials.length ? (
-        // tone="mist" so the reviews card has a band to sit on rather than
-        // floating on bare white. The Final CTA below was mist too and the two
-        // ran together as one grey block, so that one is white now — its panel
-        // is --brand-700 and needs no help standing out.
-        <Section tone="mist">
-          <div className="container-page">
-            <SectionHeading
-              eyebrow="Proof"
-              title="They remember the person, not the package."
-              lead="Read our reviews and the pattern shows itself that people name the person who looked after them. Junaid. Ben. SriSankar. Aditya. Mini."
-              link="/reviews/"
-              linkLabel="Read them all on Google"
-            />
-            {/* One quote in a spotlight with every reviewer listed beside it,
-                replacing a six-card rail. The rationale and the interaction
-                notes are in the component. */}
-            <TestimonialSpotlight
-              testimonials={testimonials}
-              rating={SITE.rating}
-              className="mt-6"
-            />
-          </div>
-        </Section>
-      ) : null}
-
-      {/* --------------------------- Video reviews -------------------------- */}
-      {/*
-        Directly under the written reviews, because it is the same evidence in a
-        stronger form: a traveller saying it on camera is the one thing a page
-        cannot fake.
-
-        The band renders only when there are videos. An empty "video reviews"
-        heading over nothing would be worse than not having the section — so
-        until the client adds the first one in /admin/ (Testimonials → Video
-        review URL), the homepage is exactly as it was.
-      */}
-      {videoReviews.length ? (
-        <Section>
-          <div className="container-page">
-            <SectionHeading
-              eyebrow="On camera"
-              title="Some of them said it out loud."
-              link="/reviews/"
-              linkLabel="All reviews"
-            />
-            <VideoReviews reviews={videoReviews} />
-          </div>
-        </Section>
-      ) : null}
 
       {/* ------------------------------ Final CTA --------------------------- */}
       <Section className="pb-8 sm:pb-10">

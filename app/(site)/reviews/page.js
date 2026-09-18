@@ -7,16 +7,16 @@ import { Section } from "@/components/site/Section";
 import StarRating from "@/components/site/StarRating";
 import TestimonialCard from "@/components/site/TestimonialCard";
 import { getTestimonials } from "@/lib/data/content";
-import { SITE } from "@/lib/site";
+import { SITE, SOCIAL } from "@/lib/site";
 import { ABOUT_SECTIONS } from "@/lib/content/about";
 import { breadcrumbSchema, reviewsSchema } from "@/lib/seo/schema";
 
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Customer Reviews — 4.8★ from 532 Travellers",
+  title: "Customer Reviews — 4.8★ on Google",
   description:
-    "What travellers say about Alisha Tours & Travels. 4.8 on Google from 532 reviews and 4.9 on JustDial, earned one traveller at a time since 2013.",
+    "What travellers say about Alisha Tours & Travels. 4.8 on Google reviews and 4.9 on JustDial, earned one traveller at a time since 2013.",
   alternates: { canonical: "/reviews/" },
 };
 
@@ -31,7 +31,7 @@ const SOURCE_LABELS = {
  *
  * Testimonials are entered by admins — there is no live Google Reviews API
  * sync in this phase, per the scope boundaries. The aggregate figures come
- * from lib/site.js so the 4.8★ / 532 numbers quoted across the site all move
+ * from lib/site.js so the ratings quoted across the site all move
  * together when the client updates them.
  *
  * The legacy site had no testimonials at all and a rating widget stuck at
@@ -70,15 +70,20 @@ export default async function ReviewsPage() {
         breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Customer Reviews" }]}
       >
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <div className="flex items-center gap-3">
+          <a
+            href={SOCIAL.google}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 rounded-full underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none"
+          >
             <StarRating value={SITE.rating.value} size="lg" />
             <span className="font-sans text-lg font-bold text-ink">
               {SITE.rating.value}
               <span className="ml-1.5 text-sm font-normal text-ink-muted">
-                on Google · {SITE.rating.count} reviews
+                on Google reviews
               </span>
             </span>
-          </div>
+          </a>
           <span className="hidden h-6 w-px bg-line sm:block" aria-hidden="true" />
           <span className="font-sans text-lg font-bold text-ink">
             {SITE.rating.justDial}
@@ -129,9 +134,16 @@ export default async function ReviewsPage() {
           <p className="mt-10 flex flex-wrap items-center gap-2 rounded-2xl border border-line bg-mist-50 p-5 text-sm leading-relaxed text-ink-soft">
             <ExternalLink className="size-4 shrink-0 text-brand-500" aria-hidden="true" />
             <span>
-              These are published with the travellers&rsquo; permission. The full set lives on our
-              Google Business Profile and on JustDial, where the {SITE.rating.count} figure above
-              comes from.
+              These are published with the travellers&rsquo; permission. The full set lives on{" "}
+              <a
+                href={SOCIAL.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
+              >
+                our Google Business Profile
+              </a>{" "}
+              and on JustDial, where the ratings above come from.
             </span>
           </p>
         </div>

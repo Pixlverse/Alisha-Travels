@@ -18,21 +18,21 @@ import { cn } from "@/lib/utils";
  *   - Email opens the visitor's mail client with the itinerary link and a
  *     subject already filled in.
  */
-export default function PackageActions({ title, pdfUrl, className }) {
+export default function PackageActions({ title, pdfUrl, url, className }) {
   const [copied, setCopied] = useState(false);
 
   const share = async () => {
-    const url = window.location.href;
+    const shareUrl = url || window.location.href;
     if (navigator.share) {
       try {
-        await navigator.share({ title, url });
+        await navigator.share({ title, url: shareUrl });
         return;
       } catch {
         // The visitor dismissed the share sheet — fall through to copying.
       }
     }
     try {
-      await navigator.clipboard.writeText(url);
+      await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch {
@@ -40,11 +40,22 @@ export default function PackageActions({ title, pdfUrl, className }) {
     }
   };
 
+  /*
+    `url` is the canonical address, handed down from the server component.
+
+    This used to read window.location.href behind a `typeof window` check,
+    which is the one thing a Client Component must not do in a value it
+    renders: the server produced a mailto: with an empty URL in the body and
+    the browser produced one with the real URL, so React reported a hydration
+    mismatch and left the server's version in place — meaning the link the
+    visitor actually clicked had no URL in it. Taking it as a prop fixes the
+    warning and the link, and sends the canonical address rather than whatever
+    tracking parameters happen to be in the bar.
+  */
   const mailtoHref = () => {
-    const url = typeof window === "undefined" ? "" : window.location.href;
     const subject = encodeURIComponent(`Itinerary: ${title}`);
     const body = encodeURIComponent(
-      `Thought this might be worth a look —\n\n${title}\n${url}\n\nAlisha Tours & Travels`
+      `Thought this might be worth a look —\n\n${title}\n${url || ""}\n\nAlisha Tours & Travels`
     );
     return `mailto:?subject=${subject}&body=${body}`;
   };

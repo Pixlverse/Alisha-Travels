@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowRight, ShieldCheck, Star } from "lucide-react";
 import Button from "./Button";
 import HeroSearch from "./HeroSearch";
-import { SITE } from "@/lib/site";
+import { SITE, SOCIAL } from "@/lib/site";
 
 /**
  * Homepage hero.
@@ -206,11 +206,21 @@ export default function Hero({ destinations = [], testimonials = [] }) {
                   </li>
                 ))}
               </ul>
-              <p className="flex items-center gap-1.5 text-sm text-brand-100">
+              {/* A link, to GOOGLE. A rating we host is a claim; the same
+                  rating on Google is evidence. It used to be plain text, and
+                  the one place that did link "read them all on Google" sent
+                  people to our own /reviews/ page instead — which is the
+                  thing that makes a visitor stop believing the number. */}
+              <a
+                href={SOCIAL.google}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm text-brand-100 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none"
+              >
                 <Star className="size-4 fill-sun text-sun" aria-hidden="true" />
                 <span className="font-semibold text-white">{SITE.rating.value}</span>
                 on Google
-              </p>
+              </a>
             </div>
           ) : null}
 

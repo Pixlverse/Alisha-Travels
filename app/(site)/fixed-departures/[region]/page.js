@@ -6,6 +6,8 @@ import EnquiryCta from "@/components/site/EnquiryCta";
 import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import { getDeparturesSplit } from "@/lib/data/departures";
+import { getDestinations } from "@/lib/data/destinations";
+import { getServices } from "@/lib/data/content";
 
 export const revalidate = 600;
 
@@ -58,10 +60,14 @@ export default async function RegionCalendarPage({ params }) {
   const config = REGIONS[region];
   if (!config) notFound();
 
-  const [{ upcoming, past }, all, other] = await Promise.all([
+  // destinations and services feed the enquiry form each card can open in
+  // place — see DepartureCard.
+  const [{ upcoming, past }, all, other, destinations, services] = await Promise.all([
     getDeparturesSplit({ region }),
     getDeparturesSplit(),
     getDeparturesSplit({ region: region === "international" ? "domestic" : "international" }),
+    getDestinations(),
+    getServices(),
   ]);
 
   return (
@@ -87,7 +93,13 @@ export default async function RegionCalendarPage({ params }) {
 
       <Section className="py-6 sm:py-7">
         <div className="container-page">
-          <DepartureCalendar upcoming={upcoming} past={past} emptyMessage={config.empty} />
+          <DepartureCalendar
+            upcoming={upcoming}
+            past={past}
+            emptyMessage={config.empty}
+            destinations={destinations}
+            services={services}
+          />
         </div>
       </Section>
 

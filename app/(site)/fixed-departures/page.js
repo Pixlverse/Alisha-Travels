@@ -5,6 +5,8 @@ import JsonLd from "@/components/site/JsonLd";
 import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import { getDeparturesSplit } from "@/lib/data/departures";
+import { getDestinations } from "@/lib/data/destinations";
+import { getServices } from "@/lib/data/content";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
@@ -18,10 +20,14 @@ export const metadata = {
 };
 
 export default async function FixedDeparturesPage() {
-  const [{ upcoming, past }, international, domestic] = await Promise.all([
+  // destinations and services feed the enquiry form each card can open in
+  // place — see DepartureCard.
+  const [{ upcoming, past }, international, domestic, destinations, services] = await Promise.all([
     getDeparturesSplit(),
     getDeparturesSplit({ region: "international" }),
     getDeparturesSplit({ region: "domestic" }),
+    getDestinations(),
+    getServices(),
   ]);
 
   return (
@@ -46,7 +52,12 @@ export default async function FixedDeparturesPage() {
 
       <Section className="py-6 sm:py-7">
         <div className="container-page">
-          <DepartureCalendar upcoming={upcoming} past={past} />
+          <DepartureCalendar
+            upcoming={upcoming}
+            past={past}
+            destinations={destinations}
+            services={services}
+          />
         </div>
       </Section>
 

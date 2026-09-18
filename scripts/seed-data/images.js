@@ -136,6 +136,10 @@ export const EXTRA_IMAGES = {
     url: `${C}/5/56/Ettumanoor_Temple_North_Gate_Entrance.JPG/1920px-Ettumanoor_Temple_North_Gate_Entrance.JPG`,
     alt: "The north gate of the Ettumanoor temple, near the Kottayam head office",
   },
+  kualaLumpur: {
+    url: `${C}/8/87/Kuala_Lumpur_Malaysia_Skyline-01.jpg/1920px-Kuala_Lumpur_Malaysia_Skyline-01.jpg`,
+    alt: "The Kuala Lumpur skyline with the Petronas Twin Towers and KL Tower",
+  },
   airport: {
     url: `${C}/3/3c/Cochin_International_Airport_IMG_20251109_114917159.jpg/1920px-Cochin_International_Airport_IMG_20251109_114917159.jpg`,
     alt: "The terminal building at Cochin International Airport",

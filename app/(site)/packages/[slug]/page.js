@@ -3,11 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   CalendarDays,
+  CalendarRange,
   Check,
+  ChevronDown,
   Clock,
   MapPin,
+  Moon,
   Sparkles,
   Users,
+  UsersRound,
+  Utensils,
   X as XIcon,
 } from "lucide-react";
 
@@ -27,7 +32,15 @@ import { getPackageBySlug, getPackageSlugs, getPackages } from "@/lib/data/packa
 import { getDestinations } from "@/lib/data/destinations";
 import { getServices } from "@/lib/data/content";
 import { durationLabel, formatDate, formatDateRange, formatINR } from "@/lib/format";
-import { PACKAGE_CATEGORIES } from "@/lib/site";
+import { PACKAGE_CATEGORIES, SITE } from "@/lib/site";
+import {
+  BOOKING_POLICY,
+  CANCELLATION_POLICY,
+  PACKAGE_TERMS,
+  PAYMENT_OPTIONS,
+  STAY_NOTE,
+  guidelinesFor,
+} from "@/lib/content/package-policies";
 import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, faqSchema, touristTripSchema } from "@/lib/seo/schema";
 import { cn } from "@/lib/utils";
@@ -86,6 +99,18 @@ export default async function PackagePage({ params }) {
     durationNights,
     priceFrom,
     priceNote,
+    referenceNo,
+    travelWindow,
+    travellers,
+    rooms,
+    stays = [],
+    stayNote,
+    priceRows = [],
+    paymentOptions = [],
+    bookingPolicy,
+    cancellationPolicy,
+    guidelines = [],
+    terms = [],
     highlights = [],
     inclusions = [],
     exclusions = [],
@@ -189,7 +214,32 @@ export default async function PackagePage({ params }) {
                   {CATEGORY_LABEL[category]}
                 </li>
               ) : null}
+              {/* The proposal's cover carries the window the quote is built
+                  for and the party it is priced for. Both change what the
+                  price means, so they belong beside it rather than in a table
+                  further down. */}
+              {travelWindow ? (
+                <li className="inline-flex items-center gap-2">
+                  <CalendarRange className="size-4 text-brand-200" aria-hidden="true" />
+                  {travelWindow}
+                </li>
+              ) : null}
+              {travellers ? (
+                <li className="inline-flex items-center gap-2">
+                  <UsersRound className="size-4 text-brand-200" aria-hidden="true" />
+                  {travellers}
+                </li>
+              ) : null}
             </ul>
+
+            {/* The reference number, so a caller and the office are looking at
+                the same quote. Small, and last: it means nothing to a browser
+                and everything to somebody on the phone. */}
+            {referenceNo ? (
+              <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 font-mono text-xs tracking-wider text-white/80 ring-1 ring-white/20">
+                REF {referenceNo}
+              </p>
+            ) : null}
           </div>
         </div>
       </section>
@@ -198,33 +248,169 @@ export default async function PackagePage({ params }) {
       <Section className="py-6 sm:py-7">
         <div className="container-page grid gap-10 lg:grid-cols-[1.7fr_1fr] lg:gap-14">
           <div className="min-w-0">
-            <PackageActions title={title} pdfUrl={pdfUrl} className="mb-10" />
+            {/* The canonical URL is computed HERE, on the server, and passed
+                down. PackageActions used to read window.location.href itself,
+                which is empty during SSR and real after hydration — React saw
+                two different mailto: hrefs for the same node and warned about
+                the mismatch. This way both renders agree, and the e-mail link
+                works before the page has hydrated. */}
+            <PackageActions
+              title={title}
+              pdfUrl={pdfUrl}
+              url={`${SITE.url.replace(/\/$/, "")}/packages/${slug}/`}
+              className="mb-10"
+            />
 
             {highlights.length ? (
               <div>
                 <h2 className="text-2xl font-semibold text-ink sm:text-3xl">Tour highlights</h2>
-                {/* Was a --mist-50 box with a hairline border and --ink-soft
-                    copy, five of them in a row — grey on grey, which is most of
-                    why this page read as soft. White cards on a --brand-100
-                    ring, each with a filled icon chip and --ink copy. */}
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {highlights.map((highlight) => (
+                {/* No cards — but not a bare list either.
+
+                    Four rounded white panels with a ring, a shadow and the
+                    same icon chip in each read as packaging; four hairline
+                    rows with a small grey numeral read as a footnote. So the
+                    weight went into the TYPE: a large Fraunces numeral in
+                    brand, the line itself at reading size in --ink, and rules
+                    in --brand-100 rather than --line so the section has a
+                    colour of its own rather than sitting in default grey. */}
+                <ul className="mt-6 grid sm:grid-cols-2 sm:gap-x-12">
+                  {highlights.map((highlight, index) => (
                     <li
                       key={highlight}
-                      className="flex items-start gap-3.5 rounded-2xl bg-white p-4 ring-1 ring-brand-100 shadow-[0_14px_34px_-30px_rgba(16,32,42,0.5)]"
+                      className="flex items-baseline gap-5 border-t-2 border-brand-100 py-5 last:border-b-2 sm:last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-2"
                     >
                       <span
                         aria-hidden="true"
-                        className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand-50 to-brand-100 text-brand-600"
+                        className="font-display text-[1.875rem] leading-none font-semibold text-brand-500 italic tabular-nums"
                       >
-                        <Sparkles className="size-4" />
+                        {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="text-[0.9375rem] leading-snug font-medium text-ink">
+                      <span className="text-[1.0625rem] leading-snug font-semibold text-ink">
                         {highlight}
                       </span>
                     </li>
                   ))}
                 </ul>
+              </div>
+            ) : null}
+
+            {/* ---------------------- Trip at a glance ----------------------- */}
+            {/* Page 2 of the proposal. The figures a traveller checks first —
+                how long, how many nights, how many rooms, how many of them.
+
+                One BAND, dashed-ruled like a ticket stub, instead of five
+                separate tiles. Five tiles in a four-column grid also left a
+                single orphan on its own row, which read as a mistake; a band
+                wraps without leaving a hole, and the dashed rules between the
+                figures are the same perforation language as the boarding-pass
+                card on the 404 and the About page. */}
+            {travelWindow || rooms || travellers ? (
+              <div className="mt-14">
+                <h2 className="text-2xl font-semibold text-ink sm:text-3xl">Trip at a glance</h2>
+                {/* A DARK stub, and the only dark element in this stretch of
+                    the page, which is the whole point: these are the figures a
+                    traveller checks first, so the section they are in should
+                    be the one the eye lands on. On white hairlines they were
+                    accurate and invisible.
+
+                    Still one band rather than five tiles — five tiles in a
+                    four-column grid left a single orphan on its own row — with
+                    the dashed dividers and the hatched paper texture of the
+                    boarding pass on the 404. */}
+                <div className="relative mt-6 overflow-hidden rounded-[1.5rem] bg-brand-800 px-6 py-7 sm:px-8">
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:repeating-linear-gradient(135deg,#fff_0_1px,transparent_1px_10px)]"
+                  />
+                  {/* The labels carry the units and the values are the
+                      figures — "NIGHTS 2", not "ACCOMMODATION 2 nights". The
+                      long labels were the problem: each cell was as wide as
+                      its own label, so ACCOMMODATION ran up against the
+                      divider beside it while TRAVEL WINDOW wrapped onto two
+                      lines and left the rest of the band empty underneath.
+                      These are also the labels the proposal's own page 2
+                      uses. Nothing wraps, so every cell is one line tall and
+                      the dividers run the full height of the band. */}
+                  <dl className="relative flex flex-wrap items-stretch gap-y-7">
+                    {[
+                      { label: "Days", value: String(durationDays) },
+                      { label: "Nights", value: String(durationNights) },
+                      rooms ? { label: "Rooms", value: String(rooms) } : null,
+                      travellers ? { label: "Travellers", value: travellers } : null,
+                      travelWindow ? { label: "Travel window", value: travelWindow } : null,
+                    ]
+                      .filter(Boolean)
+                      .map((fact) => (
+                        <div
+                          key={fact.label}
+                          className="flex-1 border-l border-dashed border-white/25 px-6 first:border-l-0 first:pl-0 last:pr-0"
+                        >
+                          <dt className="font-sans text-[0.625rem] font-bold tracking-[0.16em] whitespace-nowrap text-brand-200 uppercase">
+                            {fact.label}
+                          </dt>
+                          <dd className="mt-2 text-xl leading-tight font-bold whitespace-nowrap text-white">
+                            {fact.value}
+                          </dd>
+                        </div>
+                      ))}
+                  </dl>
+                </div>
+              </div>
+            ) : null}
+
+            {/* ---------------------- Where you'll stay ---------------------- */}
+            {stays.length ? (
+              <div className="mt-14">
+                <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
+                  Where you&rsquo;ll stay
+                </h2>
+                {/* Was a four-column table in a rounded, ringed shell with a
+                    grey header strip. Most trips have ONE row in it, so the
+                    header was four labels of chrome above a single line of
+                    content — and on a phone the four columns crushed.
+
+                    Now each stay is a record: the town as an eyebrow, the
+                    hotel as the line that matters, nights and meals as
+                    icon-led facts that label themselves, so the header row
+                    disappears with the box. Hairlines keep the list reading
+                    as a set. */}
+                <ul className="mt-6 space-y-3">
+                  {stays.map((stay, index) => (
+                    <li
+                      key={`${stay.hotel}-${index}`}
+                      className="flex flex-wrap items-center justify-between gap-x-8 gap-y-3 border-l-[3px] border-brand-400 bg-gradient-to-r from-brand-50 to-transparent py-4 pr-2 pl-5"
+                    >
+                      <div className="min-w-0">
+                        <p className="font-sans text-[0.625rem] font-bold tracking-[0.16em] text-brand-700 uppercase">
+                          {stay.destination}
+                        </p>
+                        <p className="mt-1.5 text-xl leading-snug font-bold text-ink">
+                          {stay.hotel}
+                        </p>
+                      </div>
+                      {/* Nights and meals as filled chips: small enough not to
+                          become the panels this section just lost, strong
+                          enough to be read from across the page. */}
+                      <div className="flex flex-wrap items-center gap-2">
+                        {stay.nights ? (
+                          <span className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-3.5 py-1.5 text-sm font-semibold text-white">
+                            <Moon className="size-3.5 shrink-0" aria-hidden="true" />
+                            {stay.nights} {stay.nights === 1 ? "night" : "nights"}
+                          </span>
+                        ) : null}
+                        {stay.meals ? (
+                          <span className="inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-1.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-200">
+                            <Utensils className="size-3.5 shrink-0" aria-hidden="true" />
+                            {stay.meals}
+                          </span>
+                        ) : null}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  {stayNote || STAY_NOTE}
+                </p>
               </div>
             ) : null}
 
@@ -293,6 +479,133 @@ export default async function PackagePage({ params }) {
               </div>
             ) : null}
 
+            {/* ---------------------- Your investment ------------------------ */}
+            {/* Page 5. The sidebar carries the headline figure; this is the
+                proposal's own table — per adult, and the party total where the
+                quote states it — because a family reading "from ₹11,800" wants
+                to know what three of them comes to. */}
+            {priceRows.length ? (
+              <div className="mt-14">
+                <h2 className="text-2xl font-semibold text-ink sm:text-3xl">Your investment</h2>
+                {/* Hairline rows, not a ringed card: the same treatment as
+                    "Where you'll stay" above, because it is the same thing —
+                    two or three rows of figures that do not need a shell
+                    drawn around them to be read as a set. */}
+                <dl className="mt-6 border-t border-line">
+                  {priceRows.map((row) => (
+                    <div
+                      key={row.label}
+                      className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b border-line py-4"
+                    >
+                      <dt className="font-sans text-[0.625rem] font-bold tracking-[0.16em] text-ink-muted uppercase">
+                        {row.label}
+                      </dt>
+                      <dd className="font-sans text-2xl leading-none font-extrabold text-ink">
+                        {formatINR(row.amount)}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                {priceNote ? (
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{priceNote}</p>
+                ) : null}
+              </div>
+            ) : null}
+
+            {/* --------------------- Payment & policies ---------------------- */}
+            {/* Page 6. Everything here falls back to the standard terms in
+                lib/content/package-policies.js, so a package only carries its
+                own copy when this trip genuinely differs. */}
+            <div className="mt-14">
+              <h2 className="text-2xl font-semibold text-ink sm:text-3xl">Payment &amp; policies</h2>
+
+              <div className="mt-6 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+                <div className="overflow-hidden rounded-3xl ring-1 ring-line">
+                  <table className="w-full text-left text-[0.9375rem]">
+                    <thead className="bg-mist-50">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-5 py-3 font-sans text-[0.625rem] font-bold tracking-[0.16em] text-ink-muted uppercase"
+                        >
+                          Payment option
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-5 py-3 text-right font-sans text-[0.625rem] font-bold tracking-[0.16em] text-ink-muted uppercase"
+                        >
+                          Charges
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-line bg-white">
+                      {(paymentOptions.length ? paymentOptions : PAYMENT_OPTIONS).map((option) => (
+                        <tr key={option.method}>
+                          <td className="px-5 py-4 text-ink-soft">{option.method}</td>
+                          <td className="px-5 py-4 text-right font-semibold text-ink">
+                            {option.charges}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="grid gap-4">
+                  <div className="rounded-3xl bg-gradient-to-b from-brand-50 to-white p-6 ring-1 ring-brand-100">
+                    <h3 className="font-sans text-[0.625rem] font-bold tracking-[0.16em] text-brand-800 uppercase">
+                      Booking policy
+                    </h3>
+                    <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+                      {bookingPolicy || BOOKING_POLICY}
+                    </p>
+                  </div>
+                  <div className="rounded-3xl bg-mist-50 p-6 ring-1 ring-line">
+                    <h3 className="font-sans text-[0.625rem] font-bold tracking-[0.16em] text-ink-muted uppercase">
+                      Cancellation policy
+                    </h3>
+                    <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+                      {cancellationPolicy || CANCELLATION_POLICY}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ------------------ Guidelines for travelling ------------------ */}
+            {/* Page 6. The domestic set asks for a photo ID, the international
+                one for a passport and a visa, so the region picks the list. */}
+            <div className="mt-14">
+              <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
+                Guidelines for travelling
+              </h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {(guidelines.length ? guidelines : guidelinesFor(destination?.region)).map(
+                  (group) => (
+                    <div
+                      key={group.title}
+                      className="rounded-3xl bg-white p-6 ring-1 ring-line shadow-[0_14px_34px_-30px_rgba(16,32,42,0.5)]"
+                    >
+                      <h3 className="text-base font-semibold text-ink">{group.title}</h3>
+                      <ul className="mt-4 space-y-2.5">
+                        {group.points.map((point) => (
+                          <li key={point} className="flex gap-3">
+                            <span
+                              aria-hidden="true"
+                              className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-400"
+                            />
+                            <span className="text-[0.9375rem] leading-snug text-ink-soft">
+                              {point}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+
             {/* Departures. Past dates are shown, never hidden — see the note in
                 models/Departure.js. */}
             {departures.length ? (
@@ -359,6 +672,48 @@ export default async function PackagePage({ params }) {
                 <Faqs faqs={faqs} id="package-faqs" title="Questions about this tour" />
               </div>
             ) : null}
+
+            {/* ------------------------- The fine print ---------------------- */}
+            {/* Page 7 — fourteen clauses. Collapsed by default because that is
+                honest about what it is: a legal document that has to be on the
+                page and available, not something anybody reads before they
+                have decided. <details> rather than a component, so it prints,
+                links and finds-in-page without JavaScript. */}
+            <details className="group mt-14 rounded-3xl bg-mist-50 p-6 ring-1 ring-line sm:p-7">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                <span>
+                  {/* An h2, not a styled span: the fourteen clauses below are
+                      h3s, and without a heading of their own they would hang
+                      off "Guidelines for travelling" in the document outline. */}
+                  <h2 className="text-xl font-semibold text-ink">Terms &amp; conditions</h2>
+                  <span className="mt-1 block text-sm text-ink-muted">
+                    The fine print, in full — the same {(terms.length ? terms : PACKAGE_TERMS).length}{" "}
+                    clauses as the proposal
+                  </span>
+                </span>
+                <ChevronDown
+                  className="size-5 shrink-0 text-ink-muted transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                />
+              </summary>
+
+              <ol className="mt-6 space-y-5 border-t border-line pt-6">
+                {(terms.length ? terms : PACKAGE_TERMS).map((clause, index) => (
+                  <li key={clause.title} className="flex gap-4">
+                    <span
+                      aria-hidden="true"
+                      className="font-sans text-xs font-bold text-brand-400 tabular-nums"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-[0.9375rem] font-semibold text-ink">{clause.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{clause.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </details>
           </div>
 
           {/* ------------------------------ Sidebar ---------------------------- */}

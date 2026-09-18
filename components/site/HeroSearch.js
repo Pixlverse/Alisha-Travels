@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CalendarRange, MapPin, Search, Tag, Wallet } from "lucide-react";
+import { Globe, MapPin, Search, Tag, Wallet } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BUDGET_RANGES, PACKAGE_CATEGORIES } from "@/lib/site";
 
@@ -20,6 +20,13 @@ import { BUDGET_RANGES, PACKAGE_CATEGORIES } from "@/lib/site";
  * group departure on a set date.
  */
 
+/** What the button does, which is not the same thing on all three tabs. */
+const SUBMIT_LABEL = {
+  packages: "Search packages",
+  destinations: "Explore",
+  departures: "See dates",
+};
+
 const TABS = [
   { key: "packages", label: "Packages" },
   { key: "destinations", label: "Destinations" },
@@ -35,8 +42,36 @@ export default function HeroSearch({ destinations = [] }) {
   const [budget, setBudget] = useState("");
   const [region, setRegion] = useState("");
 
-  const international = destinations.filter((d) => d.region === "international");
-  const domestic = destinations.filter((d) => d.region === "domestic");
+  /*
+    The client's note was that the Packages and Destinations tabs looked much
+    the same while only Packages could really filter. They were: Destinations
+    showed the same "Where to?" select followed by a DEAD field reading
+    "Attractions, FAQs, packages", so it looked like the Packages tab with two
+    of its controls greyed out.
+
+    They are now different instruments. Packages filters — place, kind of
+    trip, budget — and lands on a filtered listing. Destinations narrows:
+    picking a region rebuilds the list of places below it, and the tab goes to
+    a destination guide or a region index. Nothing in either tab is a label
+    pretending to be a control, and the button says which of the two you are
+    about to do.
+  */
+  const scoped =
+    region === "international" || region === "domestic"
+      ? destinations.filter((d) => d.region === region)
+      : destinations;
+
+  const international = scoped.filter((d) => d.region === "international");
+  const domestic = scoped.filter((d) => d.region === "domestic");
+
+  const onRegionChange = (value) => {
+    setRegion(value);
+    // A place that is no longer in the list cannot stay selected, or Search
+    // would route somewhere the visitor can no longer see they chose.
+    if (value && destinations.find((d) => d.slug === destination)?.region !== value) {
+      setDestination("");
+    }
+  };
 
   // Arrow keys, Home and End across the tabs, with a roving tabindex — the
   // tablist pattern proper, so the three tabs are one stop in the tab order and
@@ -64,7 +99,11 @@ export default function HeroSearch({ destinations = [] }) {
 
     if (tab === "destinations") {
       const match = destinations.find((d) => d.slug === destination);
-      router.push(match ? match.href : "/destinations/");
+      if (match) {
+        router.push(match.href);
+        return;
+      }
+      router.push(region ? `/destinations/${region}/` : "/destinations/");
       return;
     }
 
@@ -154,23 +193,40 @@ export default function HeroSearch({ destinations = [] }) {
       >
         {tab === "departures" ? (
           <>
-            <Field icon={<MapPin className="size-4" />} label="Region" wide>
+            <Field icon={<MapPin className="size-4" />} label="Region">
               <Select value={region} onChange={setRegion}>
                 <option value="">Anywhere</option>
                 <option value="international">International</option>
                 <option value="domestic">Domestic</option>
               </Select>
             </Field>
-            <Field icon={<CalendarRange className="size-4" />} label="When" divider>
-              <p className="truncate text-sm font-medium text-ink">
-                All upcoming dates
-              </p>
-            </Field>
+            {/* The dead "When: all upcoming dates" field that used to sit here
+                is gone rather than replaced. /fixed-departures/ lists every
+                upcoming date grouped by month, and this component has no way
+                to know which months have departures behind them, so any date
+                control here would be another label dressed as a filter. One
+                real field and a button reading "See dates" is the honest
+                version of this panel. */}
+            <span className="hidden sm:block" />
             <span className="hidden sm:block" />
           </>
         ) : (
           <>
-            <Field icon={<MapPin className="size-4" />} label="Where to?">
+            {tab === "destinations" ? (
+              <Field icon={<Globe className="size-4" />} label="Region">
+                <Select value={region} onChange={onRegionChange}>
+                  <option value="">Everywhere we plan</option>
+                  <option value="international">International</option>
+                  <option value="domestic">Domestic</option>
+                </Select>
+              </Field>
+            ) : null}
+
+            <Field
+              icon={<MapPin className="size-4" />}
+              label="Where to?"
+              divider={tab === "destinations"}
+            >
               <Select value={destination} onChange={setDestination}>
                 <option value="">
                   {tab === "destinations" ? "Browse every destination" : "Anywhere — help me choose"}
@@ -219,14 +275,7 @@ export default function HeroSearch({ destinations = [] }) {
                 </Field>
               </>
             ) : (
-              <>
-                <Field icon={<Tag className="size-4" />} label="What you'll find" divider>
-                  <p className="truncate text-sm font-medium text-ink">
-                    Attractions, FAQs, packages
-                  </p>
-                </Field>
-                <span className="hidden sm:block" />
-              </>
+              <span className="hidden sm:block" />
             )}
           </>
         )}
@@ -236,7 +285,7 @@ export default function HeroSearch({ destinations = [] }) {
           className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:outline-none sm:ml-2"
         >
           <Search className="size-4" aria-hidden="true" />
-          Search
+          {SUBMIT_LABEL[tab]}
         </button>
       </form>
     </div>
