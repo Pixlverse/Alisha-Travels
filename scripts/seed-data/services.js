@@ -1,7 +1,7 @@
 /**
  * Services.
  *
- * There are TEN service documents here, one per real URL. Two notes on that
+ * There are FOURTEEN service documents here, one per real URL. Two notes on that
  * number, because it has moved twice:
  *
  *   - "Fixed Departure Tours" is not one of them. The nav specification listed
@@ -12,8 +12,9 @@
  *     the Services listings — see SERVICES_PRESENTED_AS_PACKAGES in
  *     lib/site.js. Their pages are unchanged and still live at /services/.
  *
- * `order` follows the client's own priority: air tickets, global tourist visa
- * and MICE first, in that order, then train and bus tickets.
+ * `order` follows the client's own priority: air tickets, the global tourist
+ * visa and MICE & corporate travel first, in that order, then everything else
+ * behind them. The three trip types presented under Packages sort last.
  *
  * The legacy site's tenth service, "Worldwide Tourist Visa", was dropped by the
  * client's SEO revision ("Travel Guide and Visa & Attestation removed") and is
@@ -138,7 +139,7 @@ export const services = [
     slug: "hotel-booking",
     title: "Hotel booking",
     icon: "BedDouble",
-    order: 5,
+    order: 7,
     shortDescription:
       "Hotels, resorts and homestays booked directly with the property, in India and overseas.",
     heroLead:
@@ -264,7 +265,7 @@ export const services = [
     slug: "travel-insurance",
     title: "Travel insurance",
     icon: "ShieldCheck",
-    order: 6,
+    order: 8,
     shortDescription:
       "Cover that actually pays out — medical, baggage, cancellation and visa-mandated policies.",
     heroHeading: "Travel Insurance Services for Domestic & International Trips",
@@ -433,7 +434,7 @@ export const services = [
     slug: "customized-tour-packages",
     title: "Customized tour packages",
     icon: "Compass",
-    order: 8,
+    order: 12,
     shortDescription:
       "Holidays built around your pace, your budget and the people travelling with you. Nothing off the shelf.",
     heroHeading: "Customised Tour Packages for Personalised Travel",
@@ -709,6 +710,254 @@ export const services = [
     metaDescription:
       "Train reservations and intercity bus tickets booked from Kerala alongside flights, hotels and transfers, with connections checked and groups seated together.",
   },
+  /*
+    CAB RENTAL, PASSPORT, IMMIGRATION AND CRUISE — added at the client's
+    instruction, alongside train and bus tickets.
+
+    THE COPY ON ALL FOUR IS DRAFTED, NOT SUPPLIED, exactly as it is on the
+    train and bus page. It is written in their voice and it claims nothing
+    that cannot be stood behind — no processing times, no named operators, no
+    suggestion that we decide anything an authority decides. Every one of them
+    needs the client's sign-off, and the specifics (rates, the cruise lines
+    they actually sell, what their immigration desk does and does not handle)
+    have to come from them. Edit in /admin/ rather than here.
+  */
+  {
+    slug: "cab-rental",
+    title: "Cab rental",
+    icon: "Car",
+    order: 5,
+    shortDescription:
+      "Airport transfers, day hire and outstation cars with drivers we have used before.",
+    heroLead:
+      "A car and a driver for an airport run, a day of sightseeing or a week on the road. The same desk that books the trip books the cars in it, which is what keeps the pickup time matched to the arrival rather than to the scheduled arrival.",
+    ctaLabel: "Ask for a quote",
+    ctaType: "enquiry",
+    secondaryCtaLabel: "WhatsApp us",
+    secondaryCtaType: "whatsapp",
+    assurances: [
+      { title: "Quoted before you travel", text: "Kilometres, tolls and driver allowance stated up front" },
+      { title: "Drivers we know", text: "Not whoever the app assigns at 4 a.m." },
+      { title: "Matched to the flight", text: "Pickups tracked against the actual arrival" },
+      { title: "One bill", text: "Cars invoiced with the rest of the trip, not settled in cash" },
+    ],
+    blocks: [
+      {
+        kind: "cards",
+        title: "What we are usually asked for",
+        items: [
+          {
+            tag: "Airport",
+            title: "Airport pickups and drops",
+            text: "Kochi, Trivandrum and Kozhikode, with the driver's number sent ahead and the pickup held if the flight is late.",
+          },
+          {
+            tag: "Day hire",
+            title: "A car for the day",
+            text: "Eight hours and eighty kilometres is the usual basis; anything beyond it is charged at a rate agreed before you set off.",
+          },
+          {
+            tag: "Outstation",
+            title: "Multi-day tours with a driver",
+            text: "The whole itinerary in one vehicle, with the driver's accommodation and allowance included in the quote rather than collected on the road.",
+          },
+          {
+            tag: "Groups",
+            title: "Tempo travellers and coaches",
+            text: "Twelve to forty-nine seats for family movements, school groups and corporate travel.",
+          },
+        ],
+        footnote:
+          "Sedans, SUVs and tempo travellers. Tell us the route and the number of people and we will tell you which is the sensible vehicle, not the most expensive one.",
+      },
+      {
+        kind: "prose",
+        title: "What the quote includes",
+        body:
+          "A cab quote from us states the vehicle, the kilometre and hour limits, the rate beyond them, and whether tolls, parking, state permits and the driver's allowance are inside the figure or outside it. Those five lines are where hire charges usually go wrong, and they are the reason a fare quoted on the phone turns into an argument at the end of the trip.\n\nWe do not own the cars. What we do is use the same operators repeatedly, quote you what they have quoted us, and take the call ourselves when something goes wrong at the roadside.",
+      },
+    ],
+    closingTitle: "Tell us the route and the dates.",
+    closingText: "We will come back with the vehicle and the figure it costs.",
+    closingPrimaryLabel: "Ask for a quote",
+    closingPrimaryType: "enquiry",
+    closingSecondaryLabel: "WhatsApp us",
+    closingSecondaryType: "whatsapp",
+    metaTitle: "Cab Rental & Airport Transfers in Kerala",
+    metaDescription:
+      "Airport transfers, day hire and outstation cars with drivers, booked from Kottayam alongside flights, hotels and tour packages. Tolls and allowances quoted up front.",
+  },
+  {
+    slug: "cruise-holidays",
+    title: "Cruise holidays",
+    icon: "Ship",
+    order: 6,
+    shortDescription:
+      "Cabins booked, shore excursions planned and the flights either side arranged with them.",
+    heroLead:
+      "A cruise is the one holiday where the hotel moves overnight. It suits families with a wide age range, first-time international travellers and anyone who would rather unpack once — and it is the trip most often booked without anybody explaining what the fare actually covers.",
+    ctaLabel: "Ask about a cruise",
+    ctaType: "enquiry",
+    secondaryCtaLabel: "WhatsApp us",
+    secondaryCtaType: "whatsapp",
+    assurances: [
+      { title: "The fare, explained", text: "What is in the cabin rate and what is billed on board" },
+      { title: "Flights either side", text: "Booked to reach the port with a night in hand" },
+      { title: "Cabins chosen, not assigned", text: "Deck, side and position picked for the sailing" },
+      { title: "Shore days planned", text: "Excursions booked before they sell out at the desk" },
+    ],
+    blocks: [
+      {
+        kind: "cards",
+        title: "How cruises are usually booked",
+        intro:
+          "Cruise itineraries are fixed by the line and published months ahead, so the work is in choosing the sailing, the cabin and what happens on either side of it.",
+        items: [
+          {
+            tag: "Sailing",
+            title: "Choosing the sailing",
+            text: "The route, the length and the season decide most of the experience. We will say plainly which sailings suit a first cruise and which are better once you know you enjoy them.",
+          },
+          {
+            tag: "Cabin",
+            title: "Choosing the cabin",
+            text: "Inside, ocean view, balcony or suite, and where on the ship it sits. Deck and position matter more than the category name, particularly for anyone prone to seasickness.",
+          },
+          {
+            tag: "Ports",
+            title: "Shore excursions",
+            text: "Each port day is a choice between the ship's excursion, an independent tour and a day ashore on your own. We book them ahead, because the popular ones close before sailing.",
+          },
+          {
+            tag: "Either side",
+            title: "Flights, hotels and transfers",
+            text: "Reaching the port the day before is not caution, it is the difference between a missed sailing and a holiday. Flights, the pre-cruise night and the transfer are booked with the cabin.",
+          },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "What the fare covers, and what it does not",
+        body:
+          "A cruise fare usually covers the cabin, main dining, most entertainment and getting from port to port. Speciality restaurants, drinks packages, shore excursions, gratuities, spa treatments and Wi-Fi are normally billed on board, and port charges and taxes are often quoted separately from the headline fare.\n\nWe set that out in writing before you pay, with the on-board account explained, so the bill on the last morning is not the first time anybody mentions it.",
+      },
+      {
+        kind: "prose",
+        title: "Itineraries",
+        body:
+          "Every sailing has its own day-by-day itinerary, and we send it as a written plan the same way we send a land tour: the ports, the sea days, the times the ship sails, and what is worth doing at each stop.\n\nTell us the month, the region and how many are travelling, and we will come back with the sailings that fit.",
+      },
+    ],
+    closingTitle: "Thinking about a cruise?",
+    closingText:
+      "Tell us roughly when and where, and whether this is a first cruise. We will come back with two or three sailings, what each cabin grade costs and what the on-board bill is likely to add.",
+    closingPrimaryLabel: "Ask about a cruise",
+    closingPrimaryType: "enquiry",
+    closingSecondaryLabel: "WhatsApp us",
+    closingSecondaryType: "whatsapp",
+    metaTitle: "Cruise Holidays & Cruise Bookings from Kerala",
+    metaDescription:
+      "Cruise holidays booked from Kerala — choosing the sailing and the cabin, shore excursions, and the flights and hotels either side, with the on-board costs explained before you pay.",
+  },
+  {
+    slug: "passport-services",
+    title: "Passport services",
+    icon: "BookUser",
+    order: 9,
+    shortDescription:
+      "Applications filled, documents checked and Passport Seva appointments booked.",
+    heroLead:
+      "A passport application is refused or delayed far more often for a mismatched address or a missing document than for anything about the applicant. We prepare the file, check it against what the Passport Seva Kendra asks for, and book the appointment.",
+    ctaLabel: "Ask about a passport",
+    ctaType: "enquiry",
+    secondaryCtaLabel: "WhatsApp us",
+    secondaryCtaType: "whatsapp",
+    assurances: [
+      { title: "Checked before submission", text: "Against the current document list, not last year's" },
+      { title: "Appointments booked", text: "At the Kendra that can actually see you soonest" },
+      { title: "Fresh, renewal or reissue", text: "Including damaged, lost and name-change cases" },
+      { title: "One person on your file", text: "Who knows where the application has reached" },
+    ],
+    blocks: [
+      {
+        kind: "list",
+        title: "What we help with",
+        points: [
+          "Fresh passport applications for adults, children and senior citizens",
+          "Renewal and reissue, including expiry, exhausted pages and damaged books",
+          "Change of name, address or date of birth, with the supporting documents each one needs",
+          "Tatkaal applications where the case qualifies, with the verification documents prepared",
+          "Police clearance certificates for employment and visa purposes",
+          "Appointment booking, form filling and a document check before you go",
+        ],
+      },
+      {
+        kind: "prose",
+        title: "What we cannot do",
+        body:
+          "A passport is issued by the Regional Passport Office, and nobody outside it can promise an outcome, a date or a police verification result. Anyone who tells you otherwise is selling something they do not control.\n\nWhat we can do is make sure the file that reaches them is complete and consistent, that the appointment is booked for a date that works, and that you know what happens at each stage — which is where most of the delay and nearly all of the anxiety comes from.",
+      },
+    ],
+    closingTitle: "Tell us what you need the passport for.",
+    closingText: "Fresh, renewal or urgent — we will tell you which documents to bring and book the appointment.",
+    closingPrimaryLabel: "Ask about a passport",
+    closingPrimaryType: "enquiry",
+    closingSecondaryLabel: "Call the office",
+    closingSecondaryType: "phone",
+    metaTitle: "Passport Services in Kottayam, Kerala",
+    metaDescription:
+      "Passport applications, renewals and reissues prepared and checked in Kottayam, with Passport Seva appointments booked and the document list explained before you go.",
+  },
+  {
+    slug: "immigration-services",
+    title: "Immigration services",
+    icon: "PlaneTakeoff",
+    order: 10,
+    shortDescription:
+      "Documentation support for study, work and family applications, prepared and checked.",
+    heroLead:
+      "Moving abroad to study, work or join family runs on paperwork, and the paperwork is where applications fail. We prepare and check the documents an application needs, and we are straight with you about which parts of the process are ours to influence and which are not.",
+    ctaLabel: "Ask about an application",
+    ctaType: "enquiry",
+    secondaryCtaLabel: "WhatsApp us",
+    secondaryCtaType: "whatsapp",
+    assurances: [
+      { title: "Documents prepared properly", text: "Attested, translated and ordered as the mission asks" },
+      { title: "Appointments and biometrics", text: "Booked, with what to carry set out beforehand" },
+      { title: "Nothing promised for you", text: "The decision is the authority's, and we say so" },
+      { title: "One named person", text: "Who keeps the file and answers about it" },
+    ],
+    blocks: [
+      {
+        kind: "list",
+        title: "What we help with",
+        points: [
+          "Document checklists for study, work, visit and family applications",
+          "Certificate attestation, apostille and translation, handled in-house",
+          "Application forms completed and reviewed before anything is submitted",
+          "Appointment and biometrics booking, with the document list confirmed",
+          "Flight and accommodation bookings dated to match the application",
+          "Travel and medical insurance that meets the destination's minimum cover",
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Where the line is",
+        body:
+          "Immigration decisions belong to the government of the country you are applying to. No agency can guarantee a visa, a permit or a timeline, and anybody quoting you a success rate is describing their own marketing rather than your case.\n\nWe also do not offer legal advice or represent anyone before an immigration authority. Where a case needs a licensed immigration lawyer or a registered consultant, we will say so rather than take the file. What we do is the documentation and the bookings around it, which is the part that is genuinely ours to get right.",
+      },
+    ],
+    closingTitle: "Tell us where you are going and why.",
+    closingText:
+      "We will tell you what the file needs, what we can prepare, and where you will need somebody else.",
+    closingPrimaryLabel: "Ask about an application",
+    closingPrimaryType: "enquiry",
+    closingSecondaryLabel: "Call the office",
+    closingSecondaryType: "phone",
+    metaTitle: "Immigration Documentation Services in Kerala",
+    metaDescription:
+      "Documentation support for study, work and family applications from Kerala — checklists, attestation, forms, appointments and the bookings an application needs.",
+  },
   {
     slug: "mice-corporate-travel",
     title: "MICE & corporate travel",
@@ -878,7 +1127,7 @@ export const services = [
     slug: "educational-tours",
     title: "Educational tours",
     icon: "GraduationCap",
-    order: 9,
+    order: 13,
     shortDescription:
       "School and college trips built around a curriculum, with the supervision ratios and paperwork schools actually need.",
     heroHeading: "Educational Tours for Schools, Colleges & Student Groups",
@@ -1041,7 +1290,7 @@ export const services = [
     slug: "adventure-tours",
     title: "Adventure tours",
     icon: "Mountain",
-    order: 10,
+    order: 14,
     shortDescription:
       "Treks, dives and high-altitude road trips, run with operators whose safety record we have actually checked.",
     heroHeading: "Adventure Tour Packages for Unforgettable Experiences",
@@ -1186,7 +1435,7 @@ export const services = [
     slug: "certificate-attestation",
     title: "Certificate attestation",
     icon: "FileCheck",
-    order: 7,
+    order: 11,
     shortDescription:
       "Education, employment and personal documents authenticated for use abroad — we know the sequence by heart.",
     heroHeading: "Certificate Attestation Services",

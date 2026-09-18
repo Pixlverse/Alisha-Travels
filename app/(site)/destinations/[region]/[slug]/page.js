@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CalendarClock, Compass, MapPin } from "lucide-react";
+import { ArrowRight, CalendarClock, Check, Compass, MapPin } from "lucide-react";
 
 import Breadcrumbs from "@/components/site/Breadcrumbs";
 import Button from "@/components/site/Button";
@@ -14,6 +14,7 @@ import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { getDestinationBySlug, getDestinationParams } from "@/lib/data/destinations";
 import { formatINR } from "@/lib/format";
 import { whatsappLink } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 import { breadcrumbSchema, faqSchema, touristDestinationSchema } from "@/lib/seo/schema";
 
 export const revalidate = 600;
@@ -57,6 +58,9 @@ export default async function DestinationPage({ params }) {
     tagline,
     heroImage,
     intro,
+    blocks = [],
+    closingTitle,
+    closingText,
     whyVisit,
     bestTimeToVisit,
     topAttractions = [],
@@ -177,15 +181,29 @@ export default async function DestinationPage({ params }) {
       <Section className="py-6 sm:py-7">
         <div className="container-page grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
           <div>
-            {intro ? (
-              <p className="text-lg leading-relaxed text-ink-soft">{intro}</p>
-            ) : null}
+            {/* The client writes an intro of two or three paragraphs, so this
+                splits on blank lines rather than rendering one <p>. */}
+            {paragraphs(intro).map((paragraph, index) => (
+              <p
+                key={index}
+                className={cn(
+                  "leading-relaxed text-ink-soft",
+                  index === 0 ? "text-lg" : "mt-4 text-base"
+                )}
+              >
+                {paragraph}
+              </p>
+            ))}
 
-            {whyVisit ? (
+            {/* whyVisit and the attraction chips are the layout this page had
+                before the client supplied long-form copy. A destination with
+                blocks renders those instead, further down — see the guide
+                below the packages. */}
+            {!blocks.length && whyVisit ? (
               <p className="mt-5 text-base leading-relaxed text-ink-soft">{whyVisit}</p>
             ) : null}
 
-            {topAttractions.length ? (
+            {!blocks.length && topAttractions.length ? (
               <div className="mt-7">
                 <h2 className="flex items-center gap-2 font-sans text-sm font-semibold text-ink">
                   <Compass className="size-4 text-brand-500" aria-hidden="true" />
@@ -222,7 +240,34 @@ export default async function DestinationPage({ params }) {
                 </div>
               ) : null}
 
-              {bestTimeToVisit ? (
+              {/* With blocks, the guide below carries the best time to visit
+                  along with everything else, so repeating it here would be
+                  the same paragraph twice on one screen. What the sidebar
+                  gives instead is a way INTO that guide — the headings, as
+                  anchors, which is the one thing a page this long needs and
+                  did not have. */}
+              {blocks.length ? (
+                <nav className="pt-5" aria-label={`In this ${name} guide`}>
+                  <h2 className="flex items-center gap-2 font-sans text-sm font-semibold text-ink">
+                    <Compass className="size-4 text-brand-500" aria-hidden="true" />
+                    In this guide
+                  </h2>
+                  <ul className="mt-3 space-y-1.5">
+                    {blocks
+                      .filter((block) => block.title)
+                      .map((block) => (
+                        <li key={block.title}>
+                          <a
+                            href={`#${blockId(block.title)}`}
+                            className="text-[0.9375rem] leading-snug text-ink-soft underline-offset-4 transition-colors hover:text-brand-700 hover:underline"
+                          >
+                            {block.title}
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </nav>
+              ) : bestTimeToVisit ? (
                 <div className="pt-5">
                   <h2 className="flex items-center gap-2 font-sans text-sm font-semibold text-ink">
                     <CalendarClock className="size-4 text-brand-500" aria-hidden="true" />
@@ -276,6 +321,120 @@ export default async function DestinationPage({ params }) {
         </Section>
       ) : null}
 
+      {/* ------------------------------- The guide ---------------------------- */}
+      {/*
+        The client's own copy for this destination, in the order they wrote it.
+
+        BELOW THE PACKAGES on purpose. The note that shaped this page was that
+        700px of prose stood between a visitor and a single price; putting
+        nineteen documents of long-form copy back above the fold would undo
+        exactly that. So the page still opens with the intro, the price and
+        the trips, and the guide is what a visitor scrolls INTO once they have
+        seen them — with the sidebar's anchor list as the way in.
+      */}
+      {blocks.length ? (
+        <Section className="py-6 sm:py-7">
+          <div className="container-page grid gap-10 lg:grid-cols-[minmax(0,48rem)_1fr]">
+            <div>
+              {blocks.map((block) => {
+                const id = block.title ? blockId(block.title) : undefined;
+                return (
+                  <section key={block.title || id} id={id} className="scroll-mt-28 not-first:mt-12">
+                    {block.title ? (
+                      <h2 className="text-2xl font-bold tracking-[-0.015em] text-ink sm:text-[1.75rem]">
+                        {block.title}
+                      </h2>
+                    ) : null}
+
+                    {block.intro ? (
+                      <p className="mt-3 text-base leading-relaxed text-ink-soft">{block.intro}</p>
+                    ) : null}
+
+                    {/* A bulleted list — "why travellers choose". Two columns
+                        at width, because these run to six or seven lines. */}
+                    {block.kind === "list" && block.points?.length ? (
+                      <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2">
+                        {block.points.map((point) => (
+                          <li key={point} className="flex gap-3">
+                            <Check
+                              className="mt-1 size-4 shrink-0 text-brand-500"
+                              aria-hidden="true"
+                            />
+                            <span className="text-[0.9375rem] leading-snug text-ink-soft">
+                              {point}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {/* Named cards — attractions, regions, package types. */}
+                    {block.kind === "cards" && block.items?.length ? (
+                      <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+                        {block.items.map((item) => (
+                          <li
+                            key={item.title}
+                            className="rounded-2xl bg-gradient-to-b from-brand-50/70 to-white p-5 ring-1 ring-brand-100"
+                          >
+                            <h3 className="text-base font-bold text-ink">{item.title}</h3>
+                            {item.text ? (
+                              <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">
+                                {item.text}
+                              </p>
+                            ) : null}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {paragraphs(block.body).map((paragraph, index) => (
+                      <p
+                        key={index}
+                        className="mt-4 text-base leading-relaxed text-ink-soft first:mt-5"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+
+                    {block.footnote ? (
+                      <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
+                        {block.footnote}
+                      </p>
+                    ) : null}
+                  </section>
+                );
+              })}
+
+              {closingTitle || closingText ? (
+                <div className="mt-12 rounded-3xl bg-brand-800 p-7 text-white sm:p-9">
+                  {closingTitle ? (
+                    <h2 className="text-xl font-bold sm:text-2xl">{closingTitle}</h2>
+                  ) : null}
+                  {paragraphs(closingText).map((paragraph, index) => (
+                    <p key={index} className="mt-3 text-[0.9375rem] leading-relaxed text-brand-100">
+                      {paragraph}
+                    </p>
+                  ))}
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Button href="/contact/" variant="white">
+                      Plan this trip
+                    </Button>
+                    <Button
+                      href={whatsappLink({ destinationName: name })}
+                      variant="outline"
+                      className="border-white/50 bg-transparent text-white hover:border-white hover:bg-white/10"
+                    >
+                      <WhatsAppIcon className="size-5" />
+                      Ask on WhatsApp
+                    </Button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </Section>
+      ) : null}
+
       {/* -------------------------------- FAQs ------------------------------- */}
       {faqs.length ? (
         <Section tone="mist" className="py-6 sm:py-7">
@@ -307,4 +466,20 @@ export default async function DestinationPage({ params }) {
       </Section>
     </>
   );
+}
+
+/** Blank-line-separated paragraphs, which is how the client writes them. */
+function paragraphs(value) {
+  return String(value || "")
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
+
+/** A stable anchor for a section heading, for the sidebar's jump list. */
+function blockId(title) {
+  return `s-${String(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
 }

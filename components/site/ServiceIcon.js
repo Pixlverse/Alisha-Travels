@@ -1,12 +1,16 @@
 import {
   BedDouble,
+  BookUser,
   Briefcase,
+  Car,
   Compass,
   FileCheck,
   GraduationCap,
   Mountain,
   Plane,
+  PlaneTakeoff,
   ShieldCheck,
+  Ship,
   Stamp,
   Ticket,
   TrainFront,
@@ -29,6 +33,10 @@ const ICONS = {
   FileCheck,
   Ticket,
   TrainFront,
+  Car,
+  Ship,
+  BookUser,
+  PlaneTakeoff,
 };
 
 export const SERVICE_ICON_NAMES = Object.keys(ICONS);

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  Briefcase,
   BadgeIndianRupee,
   CalendarDays,
   Compass,
@@ -81,20 +82,18 @@ const PACKAGE_KINDS = [
     linkLabel: "See group tours",
   },
   /*
-    Corporate & MICE used to be the fourth tile here, pointing at
-    /packages/corporate/. Both are gone: the client's position is that a
-    corporate movement is customised from scratch, so it is not a category of
-    packages to browse. It is a SERVICE now, third in that menu, and it
-    appears in the services band further down this page — which is also why it
-    is not repeated here.
-  */
-  /*
-    The last three moved here from the services band at the client's
+    The last four moved here from the services band at the client's
     instruction — they are trips people buy, not work attached to somebody
     else's trip. Each line is the first sentence of the service page's own
     lead, so this band and the page it opens say the same thing, and each link
     goes to that page: the copy on them is the client's and it is indexed, so
     nothing was rebuilt to change a label.
+
+    They link to /services/<slug>/ rather than to a category view. There is no
+    Corporate & MICE package CATEGORY and there should not be — a corporate
+    movement is quoted from scratch, which is exactly why /packages/corporate/
+    was removed — but the WORK is a trip the client sells, so it is advertised
+    here with the other three.
   */
   {
     icon: Compass,
@@ -102,6 +101,13 @@ const PACKAGE_KINDS = [
     text: "Your dates, your budget, your pace. We say what the budget buys before we plan the trip, and the inclusions are written down.",
     href: "/services/customized-tour-packages/",
     linkLabel: "See customized packages",
+  },
+  {
+    icon: Briefcase,
+    title: "MICE & corporate travel",
+    text: "Conferences, dealer meets, incentive trips and offsites. One account manager, one plan, and a GST invoice finance will accept.",
+    href: "/services/mice-corporate-travel/",
+    linkLabel: "See corporate travel",
   },
   {
     icon: GraduationCap,

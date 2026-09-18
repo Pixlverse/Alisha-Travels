@@ -57,16 +57,20 @@ export default async function ServicesPage() {
   );
 
   /*
-    The split was "has long-form content" while only three services had it.
-    All eight do now, so the rule is the client's own ranking instead: the
-    three they order first — which is demand order, the same sequence the menu
-    runs in — lead the page, and the rest follow as an index.
+    The client's own ranking decides the page: the three they order first —
+    air tickets, the global tourist visa, MICE & corporate travel — lead it,
+    and the rest follow as an index. Still no list of slugs in code: reorder
+    the services in /admin/ and this page reorders with them.
 
-    Still no list of slugs in code: reorder the services in /admin/ and this
-    page reorders with them.
+    There used to be a `.filter(service => service.blocks?.length)` on the
+    three, from when only some services had long-form pages. It quietly broke
+    the client's order: the global tourist visa has no blocks, so their second
+    service dropped out of the lead and their third moved up into its place.
+    The card renders from title, description and whatever short list the
+    service carries, so the guard was protecting against nothing.
   */
   const ranked = [...services].sort((a, b) => (a.order ?? 100) - (b.order ?? 100));
-  const inDetail = ranked.slice(0, 3).filter((service) => service.blocks?.length);
+  const inDetail = ranked.slice(0, 3);
   const rest = ranked.filter((service) => !inDetail.includes(service));
 
   return (
@@ -164,19 +168,22 @@ export default async function ServicesPage() {
                         {service.shortDescription}
                       </p>
 
-                      {/* The page's own promises, in its own words — the thing
-                          a "Read more" link could not tell you. */}
-                      {service.assurances?.length ? (
+                      {/* The page's own promises, in its own words — the
+                          thing a "Read more" link could not tell you. A
+                          service with no assurances falls back to its own
+                          bullet list, so a column is never three lines of
+                          description and a link. */}
+                      {leadPoints(service).length ? (
                         <ul className="relative z-10 mt-5 space-y-2.5 border-t border-line pt-5">
-                          {service.assurances.slice(0, 3).map((assurance) => (
+                          {leadPoints(service).map((point) => (
                             <li
-                              key={assurance.title}
+                              key={point}
                               className="flex items-start gap-2.5 text-sm leading-snug font-medium text-ink"
                             >
                               <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700">
                                 <Check className="size-3" strokeWidth={3} aria-hidden="true" />
                               </span>
-                              {assurance.title}
+                              {point}
                             </li>
                           ))}
                         </ul>
@@ -252,4 +259,15 @@ export default async function ServicesPage() {
       </Section>
     </>
   );
+}
+
+/**
+ * Three short lines for a service card: the page's own assurances where it has
+ * them, otherwise the first of its bullet points.
+ */
+function leadPoints(service) {
+  if (service.assurances?.length) {
+    return service.assurances.slice(0, 3).map((assurance) => assurance.title);
+  }
+  return (service.points || []).slice(0, 3);
 }
