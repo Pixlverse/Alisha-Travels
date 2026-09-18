@@ -283,11 +283,23 @@ export default async function HomePage() {
   const heroImage =
     destinations.find((d) => d.slug === "maldives")?.heroImage || destinations[0]?.heroImage;
 
-  // The services band shows the work that surrounds a trip. The four the
-  // client moved under Packages are advertised in the packages band instead —
-  // see SERVICES_PRESENTED_AS_PACKAGES.
+  /*
+    The services band shows the work that surrounds a trip.
+
+    What it leaves out is whatever the PACKAGES BAND on this page already
+    advertises — read off that band's own tiles rather than from a list of
+    slugs, so the two can never show the same thing twice. That is a stricter
+    rule than SERVICES_PRESENTED_AS_PACKAGES, which governs the /services/
+    index and the menus: MICE & corporate travel is a service there and stays
+    on that page, but on the HOMEPAGE it is already a tile in the packages
+    band, and one screen carrying the same card twice is the client's note.
+  */
+  const inPackagesBand = new Set(
+    PACKAGE_KINDS.map((kind) => kind.href.match(/^\/services\/([^/]+)\/$/)?.[1]).filter(Boolean)
+  );
   const otherServices = services.filter(
-    (service) => !SERVICES_PRESENTED_AS_PACKAGES.includes(service.slug)
+    (service) =>
+      !SERVICES_PRESENTED_AS_PACKAGES.includes(service.slug) && !inPackagesBand.has(service.slug)
   );
 
   // The Who-we-are photograph, data-driven like the hero: the client changes
@@ -938,8 +950,11 @@ export default async function HomePage() {
             linkLabel="All services"
           />
 
-          {/* Five services now, so three across and five on a wide screen —
-              a four-column grid left a single card stranded on a second row. */}
+          {/* Three across and five on a wide screen. The count has grown from
+              five to ten as the client added services, and five columns keeps
+              dividing into it evenly — which is the thing to check here, since
+              a stranded card on its own row is what this grid was changed to
+              avoid in the first place. */}
           <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {otherServices.map((service) => (
               <li key={service.slug}>

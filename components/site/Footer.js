@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import Logo from "./Logo";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
 import { FacebookIcon, GoogleIcon, InstagramIcon } from "./icons/SocialIcons";
-import { EMAILS, NAV, OFFICES, PRIMARY_PHONE, SECONDARY_PHONE, SITE, SOCIAL } from "@/lib/site";
+import { EMAILS, NAV, OFFICES, PRIMARY_PHONE, SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -168,7 +169,7 @@ export default function Footer() {
           <div>
             <h2 className="text-lg font-semibold text-white">Talk to us</h2>
             <ul className="mt-3 space-y-2.5">
-              {[PRIMARY_PHONE, SECONDARY_PHONE].map((phone) => (
+              {[PRIMARY_PHONE].map((phone) => (
                 <li key={phone.tel}>
                   <a
                     href={`tel:${phone.tel}`}
@@ -208,11 +209,32 @@ export default function Footer() {
             IATA accredited · Founded {SITE.founded} by {SITE.founder} · © {year}{" "}
             {SITE.legalName}
           </p>
-          <p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href="/reviews/" className="underline-offset-4 hover:text-white hover:underline">
               Read our reviews
             </Link>
-          </p>
+
+            {/* The build credit. The mark is white artwork on transparency, so
+                it needs no treatment against this band — it carries its own
+                colour and sits at the weight of the line beside it rather than
+                competing with the client's own logo above. */}
+            <a
+              href="https://www.hiwagamakers.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 text-brand-100/70 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none"
+            >
+              Developed by
+              <Image
+                src="/images/hiwaga-logo.png"
+                alt="Hiwaga Makers"
+                width={3206}
+                height={868}
+                sizes="88px"
+                className="h-5 w-auto opacity-80 transition-opacity group-hover:opacity-100"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

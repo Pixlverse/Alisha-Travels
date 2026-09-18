@@ -159,9 +159,9 @@ export const galleryItems = [
  * document is gone from this seed. A database seeded before that change still
  * holds it: delete it in /admin/offices/ or re-seed.
  *
- * The two mobile numbers below are the ones published on the legacy site. The
- * landline is marked PLACEHOLDER and must be replaced with the real value
- * before launch (see README > Content to confirm).
+ * ONE NUMBER, not the five the legacy site published or the three this seed
+ * carried: the client has confirmed +91 95629 21818 is the only line
+ * associated with the business.
  */
 export const offices = [
   {
@@ -178,11 +178,18 @@ export const offices = [
     email: EMAILS.primary,
     order: 1,
     hours: "Monday to Saturday, 9:30 am – 6:30 pm",
+    /*
+      ONE NUMBER. The client's instruction is that +91 95629 21818 is the only
+      line associated with the business.
+
+      Two others used to be here: a second mobile labelled "Customized Tours",
+      and an office landline carrying a comment to replace it with the real one
+      before launch — the answer turned out to be that there is no landline to
+      replace it with. A published number that nobody answers is worse than no
+      number at all.
+    */
     phones: [
       { label: "Sales", number: "+919562921818", display: "+91 95629 21818", whatsapp: true },
-      { label: "Customized Tours", number: "+919562311818", display: "+91 95623 11818", whatsapp: false },
-      // PLACEHOLDER — replace with the real landline before launch.
-      { label: "Office Landline", number: "+914812630000", display: "+91 481 263 0000", whatsapp: false },
     ],
     mapLink:
       "https://www.google.com/maps/search/?api=1&query=Alisha+Tours+and+Travels+Ettumanoor+Kottayam",

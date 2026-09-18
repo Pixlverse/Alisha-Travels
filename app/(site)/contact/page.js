@@ -8,7 +8,7 @@ import { Section } from "@/components/site/Section";
 import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { getDestinations } from "@/lib/data/destinations";
 import { getOffices, getServices } from "@/lib/data/content";
-import { EMAILS, OFFICES, PRIMARY_PHONE, SECONDARY_PHONE, SITE } from "@/lib/site";
+import { EMAILS, OFFICES, PRIMARY_PHONE, SITE } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, officeSchema } from "@/lib/seo/schema";
 
@@ -123,12 +123,12 @@ export default async function ContactPage() {
                 Would rather just talk?
               </h2>
               <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
-                Nothing on this page is a form you have to fill in to reach us. Ring either number
+                Nothing on this page is a form you have to fill in to reach us. Ring the number
                 and you get a person, not a queue.
               </p>
 
               <ul className="mt-5 space-y-3 border-t border-line pt-5">
-                {[PRIMARY_PHONE, SECONDARY_PHONE].map((phone) => (
+                {[PRIMARY_PHONE].map((phone) => (
                   <li key={phone.tel}>
                     <a
                       href={`tel:${phone.tel}`}

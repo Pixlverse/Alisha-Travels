@@ -182,7 +182,7 @@ export const destinations = [
     ],
     metaTitle: "Singapore Tour Packages",
     metaDescription:
-      "Singapore holiday packages with visa, flights, hotels, Universal Studios and Sentosa. Family and honeymoon itineraries arranged from our Kottayam office.",
+      "Singapore holiday packages with visa, flights, hotels, Universal Studios and Sentosa. Family and honeymoon itineraries arranged from our office.",
   },
   {
     slug: "thailand",
@@ -536,7 +536,7 @@ export const destinations = [
         kind: "prose",
         title: "Bali tour packages from Kerala",
         body:
-          "Bali connects from Kochi and Thiruvananthapuram through the Gulf or Southeast Asian hubs, and the visa on arrival means no application to file before leaving. The time difference is two and a half hours, small enough that no day is lost on either end.\n\nWe put these together as complete packages from our Kottayam office: flights, villa or resort, airport transfers, a private driver for sightseeing days, entry tickets, and the fast boat if the trip runs on to Nusa Penida or the Gilis. Honeymoons, family trips and group departures are all arranged the same way, with one point of contact throughout.",
+          "Bali connects from Kochi and Thiruvananthapuram through the Gulf or Southeast Asian hubs, and the visa on arrival means no application to file before leaving. The time difference is two and a half hours, small enough that no day is lost on either end.\n\nWe put these together as complete packages from our office: flights, villa or resort, airport transfers, a private driver for sightseeing days, entry tickets, and the fast boat if the trip runs on to Nusa Penida or the Gilis. Honeymoons, family trips and group departures are all arranged the same way, with one point of contact throughout.",
       },
       {
         kind: "prose",
@@ -806,7 +806,7 @@ export const destinations = [
         kind: "prose",
         title: "Europe tour packages from Kerala",
         body:
-          "A Europe trip from Kerala is mostly a question of sequencing, and the visa sets the pace. Schengen appointment slots in Kochi and Thiruvananthapuram get scarce well before the summer, so the application has to start two to three months ahead of departure, and the flights and hotels need confirming before that application can even be filed.\n\nWe handle that whole order of work from our Kottayam office: documentation and the Schengen appointment, flights from Kochi or Thiruvananthapuram, hotels across every city on the route, rail passes and seat reservations, transfers and daily sightseeing. Group departures with Indian meals and a tour manager throughout suit first-time travellers and larger family groups, while private itineraries run on your own dates. Either way there is one point of contact from the first enquiry to the return flight.",
+          "A Europe trip from Kerala is mostly a question of sequencing, and the visa sets the pace. Schengen appointment slots in Kochi and Thiruvananthapuram get scarce well before the summer, so the application has to start two to three months ahead of departure, and the flights and hotels need confirming before that application can even be filed.\n\nWe handle that whole order of work from our office: documentation and the Schengen appointment, flights from Kochi or Thiruvananthapuram, hotels across every city on the route, rail passes and seat reservations, transfers and daily sightseeing. Group departures with Indian meals and a tour manager throughout suit first-time travellers and larger family groups, while private itineraries run on your own dates. Either way there is one point of contact from the first enquiry to the return flight.",
       },
       {
         kind: "prose",
