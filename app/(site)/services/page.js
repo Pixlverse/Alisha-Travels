@@ -14,7 +14,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Our Services — Tickets, Hotels, Visas, Attestation & Tours",
+  title: "Our Services - Tickets, Hotels, Visas, Attestation & Tours",
   description:
     "Everything Alisha Tours & Travels handles in-house: IATA air ticketing, hotel booking, travel insurance, customised tours, MICE and corporate travel, educational and adventure tours, and certificate attestation.",
   alternates: { canonical: "/services/" },
@@ -80,7 +80,7 @@ export default async function ServicesPage() {
       <PageHeader
         eyebrow="What we do"
         title="A single trip never needs a second agency."
-        lead="Tickets, hotels, insurance, attestation and the tour itself — all handled in-house, by the same people, so nothing falls between two suppliers who each think the other has it."
+        lead="Tickets, hotels, insurance, attestation and the tour itself - all handled in-house, by the same people, so nothing falls between two suppliers who each think the other has it."
         breadcrumbs={[{ label: "Services" }]}
       />
 

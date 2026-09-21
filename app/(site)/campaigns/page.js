@@ -14,7 +14,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Campaigns — The Trips That Are Not For Sale",
+  title: "Campaigns - The Trips That Are Not For Sale",
   description:
     "The journeys Alisha Tours & Travels arranges that nobody pays for: sponsored trips, community departures and the work behind the line every travel is a blessing.",
   alternates: { canonical: "/campaigns/" },

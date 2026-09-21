@@ -87,7 +87,7 @@ export default async function EditResourcePage({ params }) {
                 {resource.children.label} on this {resource.label.toLowerCase()}
               </h2>
               <p className="mt-0.5 text-xs text-muted-foreground">
-                {children.length} in total. Past dates stay here deliberately — they are shown on
+                {children.length} in total. Past dates stay here deliberately - they are shown on
                 the site as history rather than deleted.
               </p>
             </div>
@@ -137,7 +137,7 @@ export default async function EditResourcePage({ params }) {
                       id={child._id}
                       label="departure"
                       name={`the ${formatDate(child.departureDate)} departure`}
-                      note="This removes the departure date permanently. It disappears from the Fixed Departures calendar immediately. Past dates are kept on purpose — the site shows them as history."
+                      note="This removes the departure date permanently. It disappears from the Fixed Departures calendar immediately. Past dates are kept on purpose - the site shows them as history."
                     />
                   </li>
                 );

@@ -132,7 +132,7 @@ export default function EnquiryForm({
         </span>
 
         <h3 className="mt-5 text-xl font-semibold text-ink" role="status">
-          Thank you, {values.name.split(" ")[0]} — we have it.
+          Thank you, {values.name.split(" ")[0]} - we have it.
         </h3>
 
         <p className="mx-auto mt-3 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
@@ -156,7 +156,7 @@ export default function EnquiryForm({
         </div>
 
         <p className="mt-6 text-xs text-ink-muted">
-          Reference {result?.id ? result.id.slice(-6).toUpperCase() : "—"}
+          Reference {result?.id ? result.id.slice(-6).toUpperCase() : "-"}
         </p>
       </div>
     );
@@ -248,14 +248,14 @@ export default function EnquiryForm({
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Tour type">
               <select value={values.tourType} onChange={set("tourType")} className={INPUT}>
-                <option value="customized">Customized — built around us</option>
-                <option value="fixed">Fixed departure — join a group</option>
+                <option value="customized">Customized - built around us</option>
+                <option value="fixed">Fixed departure - join a group</option>
               </select>
             </Field>
 
             <Field label="Destination">
               <select value={values.destination} onChange={set("destination")} className={INPUT}>
-                <option value="">Not sure yet — help me choose</option>
+                <option value="">Not sure yet - help me choose</option>
                 <optgroup label="International">
                   {destinations
                     .filter((d) => d.region === "international")
@@ -360,7 +360,7 @@ export default function EnquiryForm({
             checked={channel === "whatsapp"}
             onChange={(event) => setChannel(event.target.value)}
             title="WhatsApp"
-            body="Fastest — usually within the hour"
+            body="Fastest - usually within the hour"
             icon={<WhatsAppIcon className="size-4 text-whatsapp-text" />}
           />
           <Choice

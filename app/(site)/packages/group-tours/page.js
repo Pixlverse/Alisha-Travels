@@ -13,7 +13,7 @@ export const revalidate = 600;
 
 export const metadata = {
   title: "Group Tour Packages & Fixed Departures",
-  description: "Group tours and fixed departures from Kerala to Thailand, Ladakh, Malaysia, Azerbaijan and Europe — set dates, set prices and a tour manager with the group.",
+  description: "Group tours and fixed departures from Kerala to Thailand, Ladakh, Malaysia, Azerbaijan and Europe - set dates, set prices and a tour manager with the group.",
   alternates: { canonical: "/packages/group-tours/" },
 };
 

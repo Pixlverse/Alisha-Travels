@@ -57,7 +57,7 @@ export const STATUS_TOKENS = {
 export function statusToken(status) {
   return (
     STATUS_TOKENS[status] || {
-      label: String(status || "—").replace("-", " "),
+      label: String(status || "-").replace("-", " "),
       badge: "bg-mist-200 text-ink-muted",
       dot: "bg-mist-300",
     }

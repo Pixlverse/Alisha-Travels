@@ -189,7 +189,7 @@ export default async function EnquiriesPage({ searchParams }) {
                       {enquiry.packageTitle ||
                         enquiry.destinationName ||
                         enquiry.serviceType ||
-                        (enquiry.enquiryType === "tours" ? "Tours — not specified" : "Other services")}
+                        (enquiry.enquiryType === "tours" ? "Tours - not specified" : "Other services")}
                     </span>
                     {enquiry.message ? (
                       <span className="mt-0.5 line-clamp-2 block text-xs text-muted-foreground">
@@ -237,7 +237,7 @@ export default async function EnquiriesPage({ searchParams }) {
           <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
             {counts.total
               ? "Try widening the date range or clearing the search."
-              : "Every enquiry from the website lands here the moment it is submitted — before the visitor is handed off to WhatsApp or e-mail."}
+              : "Every enquiry from the website lands here the moment it is submitted - before the visitor is handed off to WhatsApp or e-mail."}
           </p>
         </div>
       )}

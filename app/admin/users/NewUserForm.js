@@ -47,8 +47,8 @@ export default function NewUserForm() {
             defaultValue="staff"
             className="h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm"
           >
-            <option value="staff">Staff — enquiries only</option>
-            <option value="admin">Admin — full access</option>
+            <option value="staff">Staff - enquiries only</option>
+            <option value="admin">Admin - full access</option>
           </select>
         </div>
       </div>

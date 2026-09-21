@@ -18,18 +18,18 @@ const REGIONS = {
   international: {
     title: "International destinations",
     heading: "The countries people ask for, in the order they ask for them.",
-    lead: "Dubai, Singapore, Thailand and the Maldives lead this list because that is the order the enquiries arrive in — not because it reads well alphabetically. Every page tells you what the visa involves, when to go, and what the trip really costs in rupees.",
+    lead: "Dubai, Singapore, Thailand and the Maldives lead this list because that is the order the enquiries arrive in - not because it reads well alphabetically. Every page tells you what the visa involves, when to go, and what the trip really costs in rupees.",
     metaTitle: "International Tour Packages from Kerala",
     metaDescription:
-      "Dubai, Singapore, Thailand, Maldives, Malaysia, Bali, Vietnam, Azerbaijan, Europe, Bhutan and Nepal — international holiday packages with visas, flights and hotels arranged from Kerala.",
+      "Dubai, Singapore, Thailand, Maldives, Malaysia, Bali, Vietnam, Azerbaijan, Europe, Bhutan and Nepal - international holiday packages with visas, flights and hotels arranged from Kerala.",
   },
   domestic: {
     title: "Domestic destinations",
     heading: "India, starting with the part of it we live in.",
-    lead: "Kerala is home, which is where we are most useful — we know which backwater operator maintains their boats and which hill resort photographs better than it lives. The rest we sell only where we have sent travellers and heard back.",
+    lead: "Kerala is home, which is where we are most useful - we know which backwater operator maintains their boats and which hill resort photographs better than it lives. The rest we sell only where we have sent travellers and heard back.",
     metaTitle: "Domestic Tour Packages from Kerala",
     metaDescription:
-      "Kerala, Kashmir, Ladakh, Andaman, Goa, Rajasthan, Darjeeling and Hyderabad — domestic holiday packages with flights, hotels and transfers arranged from Kottayam.",
+      "Kerala, Kashmir, Ladakh, Andaman, Goa, Rajasthan, Darjeeling and Hyderabad - domestic holiday packages with flights, hotels and transfers arranged from Kottayam.",
   },
 };
 

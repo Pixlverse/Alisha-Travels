@@ -71,7 +71,7 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-brand-100/75">
               An IATA-accredited travel agency based in Kerala since {SITE.founded}. Customised
               holidays, fixed departures, corporate movements and the paperwork that goes with
-              them — handled by a named person from the first question to the last boarding pass.
+              them - handled by a named person from the first question to the last boarding pass.
             </p>
 
             <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-brand-200">

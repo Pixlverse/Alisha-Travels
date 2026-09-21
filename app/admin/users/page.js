@@ -73,7 +73,7 @@ export default async function UsersPage() {
       <p className="rounded-xl border border-line bg-white p-4 text-xs leading-relaxed text-muted-foreground">
         <strong className="font-semibold text-ink">Safety rules enforced on the server:</strong> you
         cannot change your own role, deactivate or delete your own account, or remove the last
-        active admin. Passwords are stored only as bcrypt hashes and cannot be read back — a reset
+        active admin. Passwords are stored only as bcrypt hashes and cannot be read back - a reset
         sets a new one, which you then pass on out of band.
       </p>
     </div>

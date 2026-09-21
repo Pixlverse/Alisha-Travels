@@ -337,7 +337,7 @@ export default function PackagesBrowser({
           ) : (
             <div className="rounded-3xl border border-dashed border-line px-6 py-16 text-center">
               <h2 className="text-xl font-semibold text-ink">
-                Nothing matches that combination — yet.
+                Nothing matches that combination - yet.
               </h2>
               <p className="mx-auto mt-3 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
                 These are the trips we have already built and priced. Almost everything we sell is

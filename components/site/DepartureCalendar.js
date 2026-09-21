@@ -105,7 +105,7 @@ export default function DepartureCalendar({
                 Departures we have already run
               </span>
               <span className="mt-0.5 block text-sm text-ink-muted">
-                {past.length} past {past.length === 1 ? "departure" : "departures"} — kept here so
+                {past.length} past {past.length === 1 ? "departure" : "departures"} - kept here so
                 you can see what we actually operate
               </span>
             </span>
@@ -153,7 +153,7 @@ export default function DepartureCalendar({
             >
               Ask us
             </Link>{" "}
-            — most of them come back, and we will tell you when.
+            - most of them come back, and we will tell you when.
           </p>
         </details>
       ) : null}

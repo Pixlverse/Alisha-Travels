@@ -95,7 +95,7 @@ export const destinations = [
       {
         question: "Do we need a visa for Dubai from India?",
         answer:
-          "Yes. Indian passport holders need a UAE tourist visa, usually issued as a 14, 30 or 60-day e-visa. We handle the application as part of the package — you send us scans, we do the rest.",
+          "Yes. Indian passport holders need a UAE tourist visa, usually issued as a 14, 30 or 60-day e-visa. We handle the application as part of the package - you send us scans, we do the rest.",
       },
       {
         question: "Is Dubai suitable for young children and elderly parents?",
@@ -110,7 +110,7 @@ export const destinations = [
     ],
     metaTitle: "Dubai Tour Packages",
     metaDescription:
-      "Dubai holiday packages from Kochi and Trivandrum — visa, flights, hotels, desert safari and city tours arranged end to end by an IATA-accredited agency.",
+      "Dubai holiday packages from Kochi and Trivandrum - visa, flights, hotels, desert safari and city tours arranged end to end by an IATA-accredited agency.",
   },
   {
     slug: "singapore",
@@ -374,7 +374,7 @@ export const destinations = [
       {
         question: "Is all-inclusive worth it?",
         answer:
-          "On most islands, yes — there is nowhere else to eat and à la carte adds up fast. We will tell you when a half-board plan genuinely works out cheaper.",
+          "On most islands, yes - there is nowhere else to eat and à la carte adds up fast. We will tell you when a half-board plan genuinely works out cheaper.",
       },
     ],
     metaTitle: "Maldives Tour Packages",
@@ -834,12 +834,12 @@ export const destinations = [
       {
         question: "How far in advance should we start a Europe trip?",
         answer:
-          "Four to five months. Schengen appointment slots are the bottleneck, not the flights — in peak season they can be booked out six weeks ahead.",
+          "Four to five months. Schengen appointment slots are the bottleneck, not the flights - in peak season they can be booked out six weeks ahead.",
       },
       {
         question: "Do you handle the Schengen visa?",
         answer:
-          "We prepare and check the full file — cover letter, itinerary, hotel and flight confirmations, insurance — and book the appointment. The applicant still has to attend in person for biometrics.",
+          "We prepare and check the full file - cover letter, itinerary, hotel and flight confirmations, insurance - and book the appointment. The applicant still has to attend in person for biometrics.",
       },
       {
         question: "Group tour or private?",
@@ -1043,7 +1043,7 @@ export const destinations = [
       {
         question: "Do Indians need a visa for Nepal?",
         answer:
-          "No. Indian citizens travel visa-free, but you must carry a valid passport or voter ID — we will tell you exactly which documents to bring for each traveller.",
+          "No. Indian citizens travel visa-free, but you must carry a valid passport or voter ID - we will tell you exactly which documents to bring for each traveller.",
       },
       {
         question: "Can we do a short trek?",
@@ -1222,7 +1222,7 @@ export const destinations = [
       {
         question: "Houseboat or hotel?",
         answer:
-          "Both, ideally — two nights on a houseboat for the experience and the rest in a hotel for the facilities. Houseboats vary enormously in standard, which is where our recommendation actually matters.",
+          "Both, ideally - two nights on a houseboat for the experience and the rest in a hotel for the facilities. Houseboats vary enormously in standard, which is where our recommendation actually matters.",
       },
     ],
     metaTitle: "Srinagar & Kashmir Tour Packages",
@@ -1394,7 +1394,7 @@ export const destinations = [
       {
         question: "How many days are enough?",
         answer:
-          "Five nights is the practical minimum — Port Blair either side of two or three nights on Havelock. Anything shorter and the ferries eat the trip.",
+          "Five nights is the practical minimum - Port Blair either side of two or three nights on Havelock. Anything shorter and the ferries eat the trip.",
       },
     ],
     metaTitle: "Andaman Tour Packages",
@@ -1560,7 +1560,7 @@ export const destinations = [
       {
         question: "Are heritage hotels worth the extra?",
         answer:
-          "In Rajasthan, more than anywhere else in India — the buildings are the sightseeing. We will point out which ones are genuinely historic and which are recent construction in an old style.",
+          "In Rajasthan, more than anywhere else in India - the buildings are the sightseeing. We will point out which ones are genuinely historic and which are recent construction in an old style.",
       },
     ],
     metaTitle: "Rajasthan Tour Packages",
@@ -1721,7 +1721,7 @@ export const destinations = [
       {
         question: "Is two nights enough?",
         answer:
-          "Two nights covers the old city and the fort. Add a third if Ramoji Film City is on the list — it genuinely takes a full day.",
+          "Two nights covers the old city and the fort. Add a third if Ramoji Film City is on the list - it genuinely takes a full day.",
       },
       {
         question: "Can this work as a corporate add-on?",
@@ -1745,7 +1745,7 @@ export const destinations = [
     intro:
       "Delhi, Agra and Jaipur sit close enough together to see properly in four days, which is why the circuit has outlasted every itinerary invented since. It is the trip most families do first in north India, and the one first-time visitors are almost always sold.",
     whyVisit:
-      "Three cities, three completely different characters, and no long internal flights between them. Delhi carries the Mughal and colonial history, Agra has the one building everybody has come to see, and Jaipur is where the trip loosens up — forts, bazaars and colour.",
+      "Three cities, three completely different characters, and no long internal flights between them. Delhi carries the Mughal and colonial history, Agra has the one building everybody has come to see, and Jaipur is where the trip loosens up - forts, bazaars and colour.",
     bestTimeToVisit:
       "October to March. April to June is genuinely punishing on the road between Agra and Jaipur, and the monsoon months make the fort visits harder work than they are worth.",
     topAttractions: [
@@ -1763,12 +1763,12 @@ export const destinations = [
       {
         question: "Is the Taj Mahal ticket included?",
         answer:
-          "Not in the headline package price — monument entry is quoted separately, and we tell you the current rate when we quote.",
+          "Not in the headline package price - monument entry is quoted separately, and we tell you the current rate when we quote.",
       },
     ],
     metaTitle: "Golden Triangle Tour Packages",
     metaDescription:
-      "Golden Triangle packages covering Delhi, Agra and Jaipur — the Taj Mahal, Red Fort, Hawa Mahal and Amber Fort, arranged from Kerala.",
+      "Golden Triangle packages covering Delhi, Agra and Jaipur - the Taj Mahal, Red Fort, Hawa Mahal and Amber Fort, arranged from Kerala.",
   },
   {
     slug: "delhi-manali",
@@ -1789,7 +1789,7 @@ export const destinations = [
       { title: "Solang Valley", description: "Paragliding, ropeway and snow depending on the season." },
       { title: "Hadimba Temple & Old Manali", description: "An easy half-day on foot." },
       { title: "Kullu", description: "The valley, the river and the shawl workshops, usually on the way back." },
-      { title: "Delhi's landmarks", description: "Half a day before the flight home — India Gate, the Red Fort and Akshardham." },
+      { title: "Delhi's landmarks", description: "Half a day before the flight home - India Gate, the Red Fort and Akshardham." },
     ],
     faqs: [
       {
@@ -1800,12 +1800,12 @@ export const destinations = [
       {
         question: "Will we see snow?",
         answer:
-          "Between December and March, yes, at Solang. Later in the season it means going higher, which depends on Rohtang permits — we will say honestly what your dates are likely to get.",
+          "Between December and March, yes, at Solang. Later in the season it means going higher, which depends on Rohtang permits - we will say honestly what your dates are likely to get.",
       },
     ],
     metaTitle: "Delhi & Manali Tour Packages",
     metaDescription:
-      "Delhi and Manali holiday packages from Kerala — Solang Valley, Hadimba Temple and Kullu, with overnight Volvo transfers and a day in Delhi.",
+      "Delhi and Manali holiday packages from Kerala - Solang Valley, Hadimba Temple and Kullu, with overnight Volvo transfers and a day in Delhi.",
   },
 ];
 

@@ -198,7 +198,7 @@ export const categoryPages = [
       "A rough group size, dates, destination and budget per person is enough to start.",
     metaTitle: "Group Tour Packages from Kerala",
     metaDescription:
-      "Group holiday packages from Kerala for friends, families, associations and pilgrimage groups — per-head pricing, group fares held while names are confirmed, one coordinator throughout.",
+      "Group holiday packages from Kerala for friends, families, associations and pilgrimage groups - per-head pricing, group fares held while names are confirmed, one coordinator throughout.",
   },
 
   /* ---------------------------- FAMILY PACKAGES -------------------------- */
@@ -356,7 +356,7 @@ export const categoryPages = [
       "Number of travellers, their ages, dates and a rough budget is enough to start.",
     metaTitle: "Family Tour Packages from Kerala",
     metaDescription:
-      "Family holiday packages from Kerala — planned around the ages of the people travelling, with reasonable driving days, rooms that fit and one price quoted per family.",
+      "Family holiday packages from Kerala - planned around the ages of the people travelling, with reasonable driving days, rooms that fit and one price quoted per family.",
   },
 
   /* -------------------------- HONEYMOON PACKAGES ------------------------- */
@@ -514,7 +514,7 @@ export const categoryPages = [
     closingText: "Travel dates, number of nights and a rough budget is enough to start.",
     metaTitle: "Honeymoon Packages from Kerala",
     metaDescription:
-      "Honeymoon packages from Kerala — hill stations, beaches, backwaters and overseas resorts, planned after a conversation with the couple and costed in full before you pay.",
+      "Honeymoon packages from Kerala - hill stations, beaches, backwaters and overseas resorts, planned after a conversation with the couple and costed in full before you pay.",
   },
 ];
 

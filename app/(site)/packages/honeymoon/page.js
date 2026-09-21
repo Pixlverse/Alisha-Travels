@@ -13,7 +13,7 @@ export const revalidate = 600;
 
 export const metadata = {
   title: "Honeymoon Packages from Kerala",
-  description: "Honeymoon packages to the Maldives, Bali, Dubai, Andaman and more — private villas, transfers and itineraries built around the two of you. Priced in INR from Kerala.",
+  description: "Honeymoon packages to the Maldives, Bali, Dubai, Andaman and more - private villas, transfers and itineraries built around the two of you. Priced in INR from Kerala.",
   alternates: { canonical: "/packages/honeymoon/" },
 };
 

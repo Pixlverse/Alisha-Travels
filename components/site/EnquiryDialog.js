@@ -30,7 +30,7 @@ export default function EnquiryDialog({
   source = "",
   sourceLabel = "",
   title = "Tell us where you want to go.",
-  lead = "Fill in as much or as little as you know — dates and budget can be approximate.",
+  lead = "Fill in as much or as little as you know - dates and budget can be approximate.",
   // Seeds the form's message box. Read fresh on every open, because the form
   // is mounted only while the dialog is open (see below) — a form rendered
   // once at page load would have frozen the first value it ever saw.

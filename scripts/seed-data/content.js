@@ -36,20 +36,20 @@ export const campaigns = [
     slug: "school-for-the-blind-kottayam",
     title: "We sponsored a trip for children from a school for the blind in Kottayam.",
     summary:
-      "The same work as any other departure — the route, the stops, the people who would meet them at the other end. For travellers who would take the whole place in through everything except the view. Nothing we have done explains our line better.",
+      "The same work as any other departure - the route, the stops, the people who would meet them at the other end. For travellers who would take the whole place in through everything except the view. Nothing we have done explains our line better.",
     body:
-      "The same work as any other departure — the route, the stops, the people who would meet them at the other end. For travellers who would take the whole place in through everything except the view. Nothing we have done explains our line better.",
+      "The same work as any other departure - the route, the stops, the people who would meet them at the other end. For travellers who would take the whole place in through everything except the view. Nothing we have done explains our line better.",
     pullQuote: "Every travel is a blessing.",
     location: "Kottayam, Kerala",
     heroImage: {
       url: "/images/campaign-braille.jpg",
       alt: "A person's hands resting on an open page of braille.",
     },
-    imageNote: "Photograph illustrative — hands reading braille. Not taken on the trip.",
+    imageNote: "Photograph illustrative - hands reading braille. Not taken on the trip.",
     order: 1,
-    metaTitle: "Our Campaign — A Trip for Children From a School for the Blind",
+    metaTitle: "Our Campaign - A Trip for Children From a School for the Blind",
     metaDescription:
-      "Alisha Tours & Travels sponsored a trip for children from a school for the blind in Kottayam — the same work as any other departure.",
+      "Alisha Tours & Travels sponsored a trip for children from a school for the blind in Kottayam - the same work as any other departure.",
   },
 ];
 
@@ -64,12 +64,12 @@ export const testimonials = [
     order: 1,
     date: "2026-06-14",
     quote:
-      "Junaid planned our honeymoon down to the transfer times, which turned out to matter — our flight landed late and the seaplane would not have flown. He had already put us on a speedboat resort for that exact reason. Nothing went wrong because somebody had thought about it before we did.",
+      "Junaid planned our honeymoon down to the transfer times, which turned out to matter - our flight landed late and the seaplane would not have flown. He had already put us on a speedboat resort for that exact reason. Nothing went wrong because somebody had thought about it before we did.",
   },
   {
     name: "Priya Menon",
     location: "Thiruvananthapuram",
-    tourTaken: "Kerala — Munnar, Thekkady & Alleppey",
+    tourTaken: "Kerala - Munnar, Thekkady & Alleppey",
     rating: 5,
     source: "google",
     featured: true,
@@ -124,7 +124,7 @@ export const testimonials = [
     order: 6,
     date: "2025-09-08",
     quote:
-      "The two rest days in Leh felt excessive when I read the itinerary and made complete sense by day four, when half the people we met who had gone straight up were unwell. Only reason it is not five stars is the camp at Pangong, which was basic — though they did warn us it would be.",
+      "The two rest days in Leh felt excessive when I read the itinerary and made complete sense by day four, when half the people we met who had gone straight up were unwell. Only reason it is not five stars is the camp at Pangong, which was basic - though they did warn us it would be.",
   },
 ];
 
@@ -147,8 +147,8 @@ export const galleryItems = [
   { image: d("goa"), caption: "Long-weekend group at Palolem, South Goa", category: "memories", order: 7 },
   { image: x("ettumanoor"), caption: "Ettumanoor, where the head office has been since 2013", category: "office", order: 8 },
   { image: x("airport"), caption: "Sending a group off from Cochin International", category: "office", order: 9 },
-  { image: x("gardensByTheBay"), caption: "Gardens by the Bay — Singapore family package advertisement", category: "ads", order: 10 },
-  { image: d("thailand"), caption: "Phi Phi Islands — Thailand fixed departure advertisement", category: "ads", order: 11 },
+  { image: x("gardensByTheBay"), caption: "Gardens by the Bay - Singapore family package advertisement", category: "ads", order: 10 },
+  { image: d("thailand"), caption: "Phi Phi Islands - Thailand fixed departure advertisement", category: "ads", order: 11 },
 ];
 
 /**

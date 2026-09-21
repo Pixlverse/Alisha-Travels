@@ -10,7 +10,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Gallery — Tours, Offices and Travellers",
+  title: "Gallery - Tours, Offices and Travellers",
   description:
     "Photographs from Alisha Tours & Travels group departures, family holidays and our Kottayam office.",
   alternates: { canonical: "/gallery/" },

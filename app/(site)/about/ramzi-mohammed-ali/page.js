@@ -16,7 +16,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Ramzi Mohammed Ali — Founder",
+  title: "Ramzi Mohammed Ali - Founder",
   description:
     "Ramzi Mohammed Ali founded Alisha Tours & Travels in Ettumanoor in 2013 with one desk and one conviction: a traveller should never have to chase anyone.",
   alternates: { canonical: "/about/ramzi-mohammed-ali/" },

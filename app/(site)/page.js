@@ -201,7 +201,7 @@ const HOMEPAGE_DESTINATIONS = [
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Alisha Tours & Travels — Tour Packages from Kerala",
+  title: "Alisha Tours & Travels - Tour Packages from Kerala",
   description:
     "IATA-accredited travel agency in Kottayam, Kerala. Customised tour packages, fixed group departures, honeymoons, family holidays and corporate travel, domestic and international.",
   alternates: { canonical: "/" },
@@ -533,7 +533,7 @@ export default async function HomePage() {
           <ScrollRow
             eyebrow="Destinations"
             title="Places we know well enough to argue about."
-            lead="The ones we are asked for most often — not the limit of where we plan. We recommend only what our own clients have come back and reported on, and if you want somewhere that is not here, we will plan that too."
+            lead="The ones we are asked for most often - not the limit of where we plan. We recommend only what our own clients have come back and reported on, and if you want somewhere that is not here, we will plan that too."
             link="/destinations/"
             linkLabel="All destinations"
             label="Destinations"
@@ -1230,7 +1230,7 @@ export default async function HomePage() {
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
                 Every culture that sends people on journeys has some version of those words. Our
-                work sits inside them — getting you there properly, and getting you home.
+                work sits inside them - getting you there properly, and getting you home.
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-3">
                 <Button href="/contact/" size="lg" variant="white">

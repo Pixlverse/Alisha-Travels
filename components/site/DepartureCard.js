@@ -220,7 +220,7 @@ export default function DepartureCard({ departure, destinations = [], services =
             packageSlug={pkg?.slug}
             destinationSlug={pkg?.destination?.slug}
             source="/fixed-departures/"
-            sourceLabel={`${pkg?.title} — ${dates}`}
+            sourceLabel={`${pkg?.title} - ${dates}`}
             title={`Join the ${month} ${day} departure`}
             lead="Tell us how many are travelling and we will hold seats while you decide."
             initialMessage={`I would like to join the ${pkg?.title} departure on ${dates}.`}

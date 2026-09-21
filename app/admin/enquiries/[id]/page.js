@@ -24,7 +24,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const enquiry = await getEnquiryById(id);
-  return { title: enquiry ? `Enquiry — ${enquiry.name}` : "Enquiry" };
+  return { title: enquiry ? `Enquiry - ${enquiry.name}` : "Enquiry" };
 }
 
 export default async function EnquiryDetailPage({ params }) {
@@ -85,7 +85,7 @@ export default async function EnquiryDetailPage({ params }) {
         </Button>
         {enquiry.email ? (
           <Button asChild variant="outline">
-            <a href={`mailto:${enquiry.email}?subject=${encodeURIComponent("Your enquiry — Alisha Tours & Travels")}`}>
+            <a href={`mailto:${enquiry.email}?subject=${encodeURIComponent("Your enquiry - Alisha Tours & Travels")}`}>
               <Mail className="size-4" aria-hidden="true" />
               Reply by e-mail
             </a>
@@ -98,7 +98,7 @@ export default async function EnquiryDetailPage({ params }) {
           <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" aria-hidden="true" />
           <span>
             <strong className="font-semibold">The notification e-mail did not send.</strong> The
-            lead was still recorded — that is why you can see it here. Reason:{" "}
+            lead was still recorded - that is why you can see it here. Reason:{" "}
             <code className="rounded bg-mist-100 px-1">{enquiry.emailError}</code>
           </span>
         </p>
@@ -141,9 +141,9 @@ export default async function EnquiryDetailPage({ params }) {
             <h2 className="text-sm font-bold text-ink">Attribution</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <Row label="Channel chosen" value={enquiry.channel} />
-              <Row label="Page" value={enquiry.source || "—"} />
-              <Row label="Context" value={enquiry.sourceLabel || "—"} />
-              <Row label="Referrer" value={enquiry.referrer || "—"} truncate />
+              <Row label="Page" value={enquiry.source || "-"} />
+              <Row label="Context" value={enquiry.sourceLabel || "-"} />
+              <Row label="Referrer" value={enquiry.referrer || "-"} truncate />
               <Row
                 label="Notification e-mail"
                 value={
@@ -181,7 +181,7 @@ export default async function EnquiryDetailPage({ params }) {
           <section className="rounded-xl border border-line bg-white p-5">
             <h2 className="text-sm font-bold text-ink">Copy for WhatsApp</h2>
             <p className="mt-1 text-xs text-muted-foreground">
-              The summary the traveller would have sent — useful when forwarding to a colleague.
+              The summary the traveller would have sent - useful when forwarding to a colleague.
             </p>
             <pre className="mt-3 max-h-56 overflow-auto rounded-lg bg-mist-50 p-3 text-xs leading-relaxed whitespace-pre-wrap text-ink-soft">
               {enquiryToWhatsAppText(enquiry)}

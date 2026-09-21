@@ -14,7 +14,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Destinations — Places We Send Travellers",
+  title: "Destinations - Places We Send Travellers",
   description:
     "Every destination Alisha Tours & Travels arranges holidays to, international and domestic, each with attractions, the best time to travel, FAQs and the packages that go there.",
   alternates: { canonical: "/destinations/" },
@@ -40,7 +40,7 @@ export default async function DestinationsPage() {
       region: "international",
       title: "International",
       href: "/destinations/international/",
-      lead: "Ordered by what travellers from Kerala actually ask for — Dubai, Singapore, Thailand and the Maldives lead, because that is the order the enquiries arrive in.",
+      lead: "Ordered by what travellers from Kerala actually ask for - Dubai, Singapore, Thailand and the Maldives lead, because that is the order the enquiries arrive in.",
       destinations: international,
     },
     {

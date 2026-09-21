@@ -61,7 +61,7 @@ export default function Itinerary({ days = [] }) {
                       Overnight: {day.stay}
                     </li>
                   ) : null}
-                  {day.meals && day.meals !== "—" ? (
+                  {day.meals && day.meals !== "-" ? (
                     <li className="inline-flex items-center gap-1.5">
                       <UtensilsCrossed className="size-3.5 text-brand-400" aria-hidden="true" />
                       {day.meals}

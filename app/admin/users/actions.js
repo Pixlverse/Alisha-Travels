@@ -66,7 +66,7 @@ export async function setUserRole(id, role) {
 
   await connectToDatabase();
   if (role === "staff" && !(await countOtherActiveAdmins(id))) {
-    return { ok: false, error: "That is the last active admin — promote someone else first." };
+    return { ok: false, error: "That is the last active admin - promote someone else first." };
   }
 
   await AdminUser.updateOne({ _id: id }, { $set: { role } });
@@ -82,7 +82,7 @@ export async function setUserActive(id, active) {
 
   await connectToDatabase();
   if (!active && !(await countOtherActiveAdmins(id))) {
-    return { ok: false, error: "That is the last active admin — promote someone else first." };
+    return { ok: false, error: "That is the last active admin - promote someone else first." };
   }
 
   await AdminUser.updateOne({ _id: id }, { $set: { active: Boolean(active) } });
@@ -111,7 +111,7 @@ export async function deleteUser(id) {
 
   await connectToDatabase();
   if (!(await countOtherActiveAdmins(id))) {
-    return { ok: false, error: "That is the last active admin — promote someone else first." };
+    return { ok: false, error: "That is the last active admin - promote someone else first." };
   }
 
   await AdminUser.deleteOne({ _id: id });

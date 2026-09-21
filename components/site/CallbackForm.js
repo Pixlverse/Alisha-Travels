@@ -54,7 +54,7 @@ export default function CallbackForm({ packageTitle, packageSlug, destinationSlu
         <p className="flex items-start gap-2.5 rounded-xl bg-brand-50 p-4 text-[0.8125rem] leading-relaxed text-brand-900">
           <Check className="mt-0.5 size-4 shrink-0 text-brand-600" aria-hidden="true" />
           <span>
-            Got it, {name.split(" ")[0]}. We have your number and someone will ring you back —
+            Got it, {name.split(" ")[0]}. We have your number and someone will ring you back -
             usually the same working day.
           </span>
         </p>
@@ -69,7 +69,7 @@ export default function CallbackForm({ packageTitle, packageSlug, destinationSlu
         Want us to call you?
       </h2>
       <p className="mt-1.5 text-xs leading-relaxed text-ink-muted">
-        Leave a number and a person rings you back — usually the same working day.
+        Leave a number and a person rings you back - usually the same working day.
       </p>
 
       <div className="mt-3 grid gap-2">

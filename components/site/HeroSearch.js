@@ -229,7 +229,7 @@ export default function HeroSearch({ destinations = [] }) {
             >
               <Select value={destination} onChange={setDestination}>
                 <option value="">
-                  {tab === "destinations" ? "Browse every destination" : "Anywhere — help me choose"}
+                  {tab === "destinations" ? "Browse every destination" : "Anywhere - help me choose"}
                 </option>
                 {international.length ? (
                   <optgroup label="International">

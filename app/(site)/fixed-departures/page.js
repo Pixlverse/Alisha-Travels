@@ -13,7 +13,7 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Fixed Departures — Upcoming Group Tours",
+  title: "Fixed Departures - Upcoming Group Tours",
   description:
     "Group departures on set dates at set prices, with itineraries already tested and a tour manager travelling with the group. Upcoming international and domestic departures from Kerala.",
   alternates: { canonical: "/fixed-departures/" },
@@ -37,7 +37,7 @@ export default async function FixedDeparturesPage() {
       <PageHeader
         eyebrow={`${upcoming.length} upcoming ${upcoming.length === 1 ? "departure" : "departures"}`}
         title="Set dates, set prices, and someone travelling with you."
-        lead="Curated group departures with itineraries we have already run. Couples, senior travellers and women's groups travel with us often — and first-time flyers tell us it is the easiest way to start."
+        lead="Curated group departures with itineraries we have already run. Couples, senior travellers and women's groups travel with us often - and first-time flyers tell us it is the easiest way to start."
         breadcrumbs={[{ label: "Fixed Departures" }]}
       >
         <CalendarTabs

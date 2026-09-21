@@ -439,7 +439,7 @@ export default async function DestinationPage({ params }) {
       {faqs.length ? (
         <Section tone="mist" className="py-6 sm:py-7">
           <div className="container-prose px-0">
-            <Faqs faqs={faqs} id="faqs" title={`${name} — questions we get asked`} />
+            <Faqs faqs={faqs} id="faqs" title={`${name} - questions we get asked`} />
           </div>
         </Section>
       ) : null}

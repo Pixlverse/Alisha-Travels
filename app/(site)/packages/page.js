@@ -15,9 +15,9 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Tour Packages — Honeymoon, Family, Group & Corporate",
+  title: "Tour Packages - Honeymoon, Family, Group & Corporate",
   description:
-    "Every package Alisha Tours & Travels has built and priced — filter by destination, budget, duration and the kind of trip. Fixed group departures and customised itineraries, all in INR.",
+    "Every package Alisha Tours & Travels has built and priced - filter by destination, budget, duration and the kind of trip. Fixed group departures and customised itineraries, all in INR.",
   alternates: { canonical: "/packages/" },
 };
 
@@ -34,7 +34,7 @@ export default async function PackagesPage() {
       <PageHeader
         eyebrow={`${packages.length} ${packages.length === 1 ? "package" : "packages"}`}
         title="Trips we have already built, priced and tested."
-        lead="Filter by where you want to go, what kind of trip it is, how long you have and what you want to spend. Every one of these can be rebuilt around your dates and your family — ask, and we will requote."
+        lead="Filter by where you want to go, what kind of trip it is, how long you have and what you want to spend. Every one of these can be rebuilt around your dates and your family - ask, and we will requote."
         breadcrumbs={[{ label: "Packages" }]}
       >
         <nav aria-label="Package categories" className="mt-8 flex flex-wrap gap-2">

@@ -15,7 +15,7 @@ import { breadcrumbSchema, officeSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Contact Us — Kottayam, Kerala",
+  title: "Contact Us - Kottayam, Kerala",
   description:
     "Talk to Alisha Tours & Travels. Our office is in Ettumanoor, Kottayam. Phone, WhatsApp, e-mail and a general enquiry form.",
   alternates: { canonical: "/contact/" },
@@ -104,7 +104,7 @@ export default async function ContactPage() {
               Tell us where you want to go.
             </h2>
             <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-ink-soft">
-              Fill in as much or as little as you know. Dates and budget can be approximate — they
+              Fill in as much or as little as you know. Dates and budget can be approximate - they
               help us quote something realistic rather than a number that changes later.
             </p>
 

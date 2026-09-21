@@ -122,7 +122,7 @@ export const services = [
         kind: "prose",
         title: "Why direct issue matters",
         body:
-          "When a portal sells you a ticket, they hold the reservation and you hold a reference number. If a flight is rescheduled, you join a helpline queue and explain yourself to someone seeing your trip for the first time.\n\nOur tickets sit with us. A reissue, a date change, a missed connection at an odd hour — you call the person who booked it, and they can act on the file without asking anyone's permission.",
+          "When a portal sells you a ticket, they hold the reservation and you hold a reference number. If a flight is rescheduled, you join a helpline queue and explain yourself to someone seeing your trip for the first time.\n\nOur tickets sit with us. A reissue, a date change, a missed connection at an odd hour - you call the person who booked it, and they can act on the file without asking anyone's permission.",
       },
     ],
     closingTitle: "Tell us your dates. We'll come back with a fare.",
@@ -214,7 +214,7 @@ export const services = [
           },
         ],
         footnote:
-          "Every property we can reach, domestic or international. Budget room to overwater villa — tell us the destination and the dates.",
+          "Every property we can reach, domestic or international. Budget room to overwater villa - tell us the destination and the dates.",
       },
       {
         kind: "steps",
@@ -248,7 +248,7 @@ export const services = [
         kind: "prose",
         title: "Why booking with the property matters",
         body:
-          "A portal sells you a voucher. The hotel receives a prepaid line item and a guest name, and little else. If the room isn't what the photos showed, or the property says it is overbooked, the front desk sends you to a helpline and the helpline sends you back to the front desk.\n\nWe book with the property directly. Your requests are agreed with someone at the hotel before you pay, rather than left in a notes field nobody reads. And if something is wrong at check-in, you call the person who made the booking and they call the hotel — while you are still standing there.",
+          "A portal sells you a voucher. The hotel receives a prepaid line item and a guest name, and little else. If the room isn't what the photos showed, or the property says it is overbooked, the front desk sends you to a helpline and the helpline sends you back to the front desk.\n\nWe book with the property directly. Your requests are agreed with someone at the hotel before you pay, rather than left in a notes field nobody reads. And if something is wrong at check-in, you call the person who made the booking and they call the hotel - while you are still standing there.",
       },
     ],
     closingTitle: "Tell us where and when. We'll come back with options.",
@@ -267,7 +267,7 @@ export const services = [
     icon: "ShieldCheck",
     order: 8,
     shortDescription:
-      "Cover that actually pays out — medical, baggage, cancellation and visa-mandated policies.",
+      "Cover that actually pays out - medical, baggage, cancellation and visa-mandated policies.",
     heroHeading: "Travel Insurance Services for Domestic & International Trips",
     heroLead:
       "We provide travel insurance services for trips within India and abroad: holidays, family visits, study, business travel and group tours. Every recommendation is built around two questions: does the cover fit the trip you are actually taking, and do you know what it will not pay for before you buy it?",
@@ -428,7 +428,7 @@ export const services = [
       "Insurance is the subject matter of solicitation. Travel insurance policies are issued by [insurer name(s)]. Benefits, limits and exclusions are subject to the terms and conditions of the policy issued. Please read the policy wording carefully before purchase.",
     metaTitle: "Travel Insurance Services for Domestic & International Trips",
     metaDescription:
-      "Travel insurance for trips in India and abroad — medical, cancellation, baggage and Schengen-compliant cover, with the exclusions explained before you buy.",
+      "Travel insurance for trips in India and abroad - medical, cancellation, baggage and Schengen-compliant cover, with the exclusions explained before you buy.",
   },
   {
     slug: "customized-tour-packages",
@@ -471,13 +471,13 @@ export const services = [
         title: "Choose your destination, duration & experiences",
         intro: "The parts you decide. Tell us as much or as little as you have settled on.",
         points: [
-          "Destination — one place or several, or tell us the region and let us suggest.",
-          "Duration and dates — built to your leave, not to a departure calendar.",
-          "Pace — how many sights a day, and how many days with nothing scheduled.",
-          "Accommodation — budget, mid-range or premium, and which nights are worth spending more on.",
-          "Activities and sightseeing — included, optional, or left open.",
-          "Transport — private vehicle, shared transfers, rail or internal flights.",
-          "Budget — fixed at the start, with inclusions and exclusions written down.",
+          "Destination - one place or several, or tell us the region and let us suggest.",
+          "Duration and dates - built to your leave, not to a departure calendar.",
+          "Pace - how many sights a day, and how many days with nothing scheduled.",
+          "Accommodation - budget, mid-range or premium, and which nights are worth spending more on.",
+          "Activities and sightseeing - included, optional, or left open.",
+          "Transport - private vehicle, shared transfers, rail or internal flights.",
+          "Budget - fixed at the start, with inclusions and exclusions written down.",
         ],
       },
       {
@@ -510,7 +510,7 @@ export const services = [
           },
           {
             title: "Couples and honeymoons",
-            text: "Quiet properties over busy ones, unhurried mornings, and a schedule light enough to change. If it is a honeymoon, tell us — the hotel will treat the booking differently.",
+            text: "Quiet properties over busy ones, unhurried mornings, and a schedule light enough to change. If it is a honeymoon, tell us - the hotel will treat the booking differently.",
           },
         ],
       },
@@ -599,7 +599,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Customised Tour Packages for Personalised Travel",
     metaDescription:
-      "Custom-built holiday packages on your dates, your budget and your pace — domestic and international, with inclusions, exclusions and any TCS stated upfront.",
+      "Custom-built holiday packages on your dates, your budget and your pace - domestic and international, with inclusions, exclusions and any TCS stated upfront.",
   },
   {
     /*
@@ -618,7 +618,7 @@ export const services = [
     shortDescription:
       "Tourist visa documentation and appointments, prepared and checked before anything is submitted.",
     longDescription:
-      "A tourist visa is refused far more often for paperwork than for anything about the traveller: a bank statement that does not cover the stay, an itinerary that does not match the dates, a hotel booking that was never confirmed, a photograph in the wrong dimensions. We assemble the file in the form the consulate asks for and check it before it goes in.\n\nWhere a destination requires proof of travel and accommodation, those come from the same office that books them, dated to match the application. Where cover is mandatory — Schengen applications set a minimum sum insured — the policy is issued to meet it.\n\nThe decision belongs to the embassy or consulate, and nobody outside it can promise an outcome. What we can tell you is what your file needs, what the appointment will involve, and where the delay is if the wait gets long.",
+      "A tourist visa is refused far more often for paperwork than for anything about the traveller: a bank statement that does not cover the stay, an itinerary that does not match the dates, a hotel booking that was never confirmed, a photograph in the wrong dimensions. We assemble the file in the form the consulate asks for and check it before it goes in.\n\nWhere a destination requires proof of travel and accommodation, those come from the same office that books them, dated to match the application. Where cover is mandatory - Schengen applications set a minimum sum insured - the policy is issued to meet it.\n\nThe decision belongs to the embassy or consulate, and nobody outside it can promise an outcome. What we can tell you is what your file needs, what the appointment will involve, and where the delay is if the wait gets long.",
     points: [
       "Document checklist prepared for the specific destination",
       "Application forms completed and reviewed before submission",
@@ -648,7 +648,7 @@ export const services = [
     shortDescription:
       "Rail and road legs booked as part of the trip, so the arrival and the onward connection agree.",
     heroLead:
-      "Not every journey needs a flight. We book the rail and road legs as part of the trip you are already planning — so the arrival time, the hotel check-in and the onward connection agree with one another, instead of being three bookings made at three different times by three different people.",
+      "Not every journey needs a flight. We book the rail and road legs as part of the trip you are already planning - so the arrival time, the hotel check-in and the onward connection agree with one another, instead of being three bookings made at three different times by three different people.",
     ctaLabel: "Get the options",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
@@ -676,7 +676,7 @@ export const services = [
         kind: "cards",
         title: "What people come to us for",
         intro:
-          "Not a list of routes — these are the situations travellers arrive with. Tell us yours even if it isn't here.",
+          "Not a list of routes - these are the situations travellers arrive with. Tell us yours even if it isn't here.",
         linkLabel: "Start an enquiry",
         linkHref: "/contact/",
         items: [
@@ -712,7 +712,7 @@ export const services = [
           },
         ],
         footnote:
-          "Train ticket booking services across Kerala — Indian Railways, KSRTC and the private operators. Intercity travel, pilgrimage season travel and domestic travel arrangements for families and groups. Tell us the route and the date.",
+          "Train ticket booking services across Kerala - Indian Railways, KSRTC and the private operators. Intercity travel, pilgrimage season travel and domestic travel arrangements for families and groups. Tell us the route and the date.",
       },
       {
         kind: "steps",
@@ -726,7 +726,7 @@ export const services = [
           },
           {
             title: "We check what actually runs",
-            text: "Trains and buses on that route, with the arrival time set next to your onward plan — not simply the cheapest departure.",
+            text: "Trains and buses on that route, with the arrival time set next to your onward plan - not simply the cheapest departure.",
           },
           {
             title: "You pick one",
@@ -746,7 +746,7 @@ export const services = [
         kind: "prose",
         title: "Why a booking agency beats a booking app",
         body:
-          "An app will sell you a seat on any service with availability. It does not know that your flight lands at 11pm, that the last connecting bus left at nine, or that the return you booked falls on the morning of a visa appointment that has since moved.\n\nWe book the leg after looking at the rest of the trip. If the timing does not work, you are told before the money is spent — and if the railways cancel the service a week later, the person who booked it is the person who finds you another one.",
+          "An app will sell you a seat on any service with availability. It does not know that your flight lands at 11pm, that the last connecting bus left at nine, or that the return you booked falls on the morning of a visa appointment that has since moved.\n\nWe book the leg after looking at the rest of the trip. If the timing does not work, you are told before the money is spent - and if the railways cancel the service a week later, the person who booked it is the person who finds you another one.",
       },
       {
         kind: "list",
@@ -770,7 +770,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Train & Bus Ticket Booking Services in Kerala",
     metaDescription:
-      "Train and bus ticket booking across Kerala — Indian Railways, KSRTC and private operators, booked around your flight, your hotel and the rest of the trip.",
+      "Train and bus ticket booking across Kerala - Indian Railways, KSRTC and private operators, booked around your flight, your hotel and the rest of the trip.",
   },
   {
     slug: "cab-rental",
@@ -780,7 +780,7 @@ export const services = [
     shortDescription:
       "Airport transfers, sightseeing days and outstation runs, fixed alongside the rest of the itinerary.",
     heroLead:
-      "Cab rental in Kerala, arranged around the trip rather than sold by the kilometre. A cab is the part nobody thinks about until they are standing outside an airport at two in the morning with four suitcases — so we fix the airport transfers, the sightseeing days and the outstation runs alongside your itinerary, with the driver's number in your hand before you land.",
+      "Cab rental in Kerala, arranged around the trip rather than sold by the kilometre. A cab is the part nobody thinks about until they are standing outside an airport at two in the morning with four suitcases - so we fix the airport transfers, the sightseeing days and the outstation runs alongside your itinerary, with the driver's number in your hand before you land.",
     ctaLabel: "Get a quote",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
@@ -805,7 +805,7 @@ export const services = [
         kind: "cards",
         title: "What people come to us for",
         intro:
-          "Not a list of vehicles — these are the situations travellers arrive with. Tell us yours even if it isn't here.",
+          "Not a list of vehicles - these are the situations travellers arrive with. Tell us yours even if it isn't here.",
         linkLabel: "Start an enquiry",
         linkHref: "/contact/",
         items: [
@@ -817,7 +817,7 @@ export const services = [
           {
             tag: "Sightseeing",
             title: "Sightseeing transportation",
-            text: "Cab rental for sightseeing through Munnar, Thekkady and Alleppey — one vehicle and one driver for the days you are out, not a fresh negotiation at every stop.",
+            text: "Cab rental for sightseeing through Munnar, Thekkady and Alleppey - one vehicle and one driver for the days you are out, not a fresh negotiation at every stop.",
           },
           {
             tag: "Outstation",
@@ -841,7 +841,7 @@ export const services = [
           },
         ],
         footnote:
-          "Car rental in Kerala, airport and local transfers, and outstation travel across South India. Sedan to tempo traveller, for a single transfer or for a fortnight. Call it a cab, a taxi or a car rental — the arrangement is the same. Tell us the route and how many of you.",
+          "Car rental in Kerala, airport and local transfers, and outstation travel across South India. Sedan to tempo traveller, for a single transfer or for a fortnight. Call it a cab, a taxi or a car rental - the arrangement is the same. Tell us the route and how many of you.",
       },
       {
         kind: "steps",
@@ -875,7 +875,7 @@ export const services = [
         kind: "prose",
         title: "Why the fare is the part to check",
         body:
-          "The number an aggregator shows you is rarely the number you pay. Toll, parking, permit for crossing a state line, driver allowance and the night charge are added at the destination, when arguing about them is the last thing you want to do.\n\nWe state the inclusions before you book. If a route needs an interstate permit or a second driver, that is in the quote you agree to — not a conversation at the end of a long day.",
+          "The number an aggregator shows you is rarely the number you pay. Toll, parking, permit for crossing a state line, driver allowance and the night charge are added at the destination, when arguing about them is the last thing you want to do.\n\nWe state the inclusions before you book. If a route needs an interstate permit or a second driver, that is in the quote you agree to - not a conversation at the end of a long day.",
       },
       {
         kind: "list",
@@ -899,7 +899,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Cab Rental & Car Rental Services in Kerala",
     metaDescription:
-      "Cab rental in Kerala — airport transfers at Kochi, Trivandrum and Calicut, sightseeing days and outstation runs, with toll, parking and driver allowance named in the quote.",
+      "Cab rental in Kerala - airport transfers at Kochi, Trivandrum and Calicut, sightseeing days and outstation runs, with toll, parking and driver allowance named in the quote.",
   },
   {
     slug: "cruise-holidays",
@@ -907,9 +907,9 @@ export const services = [
     icon: "Ship",
     order: 6,
     shortDescription:
-      "The cabin, and everything around it — the flight the day before, the port hotel, the visas each port needs.",
+      "The cabin, and everything around it - the flight the day before, the port hotel, the visas each port needs.",
     heroLead:
-      "Cruise packages from Kerala, planned around the sailing date rather than sold off a brochure. A cruise is the one holiday where being late is not recoverable — the ship sails. So we book the cabin and everything around it: the flight that lands the day before, the hotel in the port city, the visas the itinerary quietly needs, and the transfer that puts you at the terminal with hours to spare rather than minutes.",
+      "Cruise packages from Kerala, planned around the sailing date rather than sold off a brochure. A cruise is the one holiday where being late is not recoverable - the ship sails. So we book the cabin and everything around it: the flight that lands the day before, the hotel in the port city, the visas the itinerary quietly needs, and the transfer that puts you at the terminal with hours to spare rather than minutes.",
     ctaLabel: "Get sailing options",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
@@ -931,7 +931,7 @@ export const services = [
         kind: "cards",
         title: "What people come to us for",
         intro:
-          "Not a list of ships — these are the trips travellers arrive wanting. Tell us yours even if it isn't here.",
+          "Not a list of ships - these are the trips travellers arrive wanting. Tell us yours even if it isn't here.",
         linkLabel: "Start an enquiry",
         linkHref: "/contact/",
         items: [
@@ -948,7 +948,7 @@ export const services = [
           {
             tag: "First cruise",
             title: "Cruise package selection",
-            text: "What the fare covers and what it quietly does not — drinks, shore excursions, gratuities, wifi — before you are on board finding out.",
+            text: "What the fare covers and what it quietly does not - drinks, shore excursions, gratuities, wifi - before you are on board finding out.",
           },
           {
             tag: "Gulf",
@@ -1001,7 +1001,7 @@ export const services = [
         kind: "prose",
         title: "Why the day before matters",
         body:
-          "Almost every cruise that goes wrong goes wrong at embarkation. A connecting flight that was delayed, a visa for a port nobody checked, a transfer booked to the wrong terminal. The ship does not wait, and a missed sailing is rarely covered when the flight was booked separately from the cruise.\n\nSo we build in the night before. It costs a hotel room and it removes the one risk that can end a holiday before it starts — and because the flights, the visas and the cruise are booked by the same person, there is nobody to point at when something has to move.",
+          "Almost every cruise that goes wrong goes wrong at embarkation. A connecting flight that was delayed, a visa for a port nobody checked, a transfer booked to the wrong terminal. The ship does not wait, and a missed sailing is rarely covered when the flight was booked separately from the cruise.\n\nSo we build in the night before. It costs a hotel room and it removes the one risk that can end a holiday before it starts - and because the flights, the visas and the cruise are booked by the same person, there is nobody to point at when something has to move.",
       },
       {
         kind: "list",
@@ -1025,7 +1025,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Cruise Holidays & Cruise Packages from Kerala",
     metaDescription:
-      "Cruise packages from Kerala — domestic, Gulf and international sailings, with the flight the day before, the port hotel, the visas each port needs and the transfer to the terminal.",
+      "Cruise packages from Kerala - domestic, Gulf and international sailings, with the flight the day before, the port hotel, the visas each port needs and the transfer to the terminal.",
   },
   {
     slug: "passport-services",
@@ -1035,7 +1035,7 @@ export const services = [
     shortDescription:
       "Applications prepared and checked against your documents before an appointment is booked.",
     heroLead:
-      "Passport application assistance in Kottayam, for applicants across Kerala. Applications are held up far more often by a mismatched address or a missing annexure than by anything serious — so we fill the form with your documents in front of us, tell you what is missing before an appointment is booked, and are clear about where our part ends: the Passport Office issues the passport, not us.",
+      "Passport application assistance in Kottayam, for applicants across Kerala. Applications are held up far more often by a mismatched address or a missing annexure than by anything serious - so we fill the form with your documents in front of us, tell you what is missing before an appointment is booked, and are clear about where our part ends: the Passport Office issues the passport, not us.",
     ctaLabel: "Get your document list",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
@@ -1063,7 +1063,7 @@ export const services = [
         kind: "cards",
         title: "What people come to us for",
         intro:
-          "Not a list of forms — these are the situations applicants arrive with. Tell us yours even if it isn't here.",
+          "Not a list of forms - these are the situations applicants arrive with. Tell us yours even if it isn't here.",
         linkLabel: "Start an enquiry",
         linkHref: "/contact/",
         items: [
@@ -1095,7 +1095,7 @@ export const services = [
           {
             tag: "Urgent",
             title: "Travelling in ten days",
-            text: "Whether Tatkal applies to your case at all, and whether it will genuinely be faster — sometimes it is not.",
+            text: "Whether Tatkal applies to your case at all, and whether it will genuinely be faster - sometimes it is not.",
           },
         ],
         footnote:
@@ -1133,7 +1133,7 @@ export const services = [
         kind: "prose",
         title: "Why the form is the part that goes wrong",
         body:
-          "The online form is unforgiving. A name spelled one way on a school certificate and another on an electricity bill, an address the proof does not support, the wrong annexure for your marital status — each one means a second visit, or a file sitting on hold while you work out what happened.\n\nNone of that is difficult to avoid. It just has to be checked by somebody who has seen it go wrong before, with your documents on the desk, before the appointment is booked rather than after you have taken a day off to attend one.",
+          "The online form is unforgiving. A name spelled one way on a school certificate and another on an electricity bill, an address the proof does not support, the wrong annexure for your marital status - each one means a second visit, or a file sitting on hold while you work out what happened.\n\nNone of that is difficult to avoid. It just has to be checked by somebody who has seen it go wrong before, with your documents on the desk, before the appointment is booked rather than after you have taken a day off to attend one.",
       },
       {
         kind: "list",
@@ -1157,7 +1157,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Passport Services & Application Assistance in Kottayam",
     metaDescription:
-      "Passport application assistance in Kottayam — fresh applications, renewals, reissues and changes of particulars, with documents checked and the Seva Kendra appointment booked.",
+      "Passport application assistance in Kottayam - fresh applications, renewals, reissues and changes of particulars, with documents checked and the Seva Kendra appointment booked.",
   },
   {
     slug: "immigration-services",
@@ -1207,7 +1207,7 @@ export const services = [
     closingSecondaryType: "phone",
     metaTitle: "Immigration Documentation Services in Kerala",
     metaDescription:
-      "Documentation support for study, work and family applications from Kerala — checklists, attestation, forms, appointments and the bookings an application needs.",
+      "Documentation support for study, work and family applications from Kerala - checklists, attestation, forms, appointments and the bookings an application needs.",
   },
   {
     slug: "mice-corporate-travel",
@@ -1535,7 +1535,7 @@ export const services = [
     closingSecondaryType: "email",
     metaTitle: "Educational Tours for Schools, Colleges & Student Groups",
     metaDescription:
-      "Educational tours for Kerala schools and colleges — study tours, industrial visits and international programmes, with per-student costing and safety in writing.",
+      "Educational tours for Kerala schools and colleges - study tours, industrial visits and international programmes, with per-student costing and safety in writing.",
   },
   {
     slug: "adventure-tours",
@@ -1574,7 +1574,7 @@ export const services = [
         kind: "prose",
         title: "Explore beyond the usual",
         body:
-          "Some trips are measured by what you saw. Others are measured by what you did. If the second sounds more like your holiday, this is the page.\n\nWe are not an activity operator, and we do not pretend to be. We plan the trip, book through operators we have used before, and make sure the parts around the activity — the flights, the acclimatisation days, the transfer to a trailhead at four in the morning — actually work.",
+          "Some trips are measured by what you saw. Others are measured by what you did. If the second sounds more like your holiday, this is the page.\n\nWe are not an activity operator, and we do not pretend to be. We plan the trip, book through operators we have used before, and make sure the parts around the activity - the flights, the acclimatisation days, the transfer to a trailhead at four in the morning - actually work.",
       },
       {
         kind: "cards",
@@ -1622,10 +1622,10 @@ export const services = [
         intro:
           "Most adventure trips are group trips, and groups rarely arrive at the same fitness level.",
         points: [
-          "Friends and colleagues — one plan, one payment, nobody chasing anybody for a number.",
-          "Corporate offsites — activities scaled so the whole team can take part, not just the fit half.",
-          "College groups — supervised, with operators told the age range in advance.",
-          "Families — a lower-intensity option running alongside the main activity.",
+          "Friends and colleagues - one plan, one payment, nobody chasing anybody for a number.",
+          "Corporate offsites - activities scaled so the whole team can take part, not just the fit half.",
+          "College groups - supervised, with operators told the age range in advance.",
+          "Families - a lower-intensity option running alongside the main activity.",
         ],
       },
       {
@@ -1680,7 +1680,7 @@ export const services = [
     closingSecondaryType: "whatsapp",
     metaTitle: "Adventure Tour Packages for Unforgettable Experiences",
     metaDescription:
-      "Adventure tours from Kerala — trekking, rafting, diving, paragliding and desert safaris, planned to the season with licensed operators and cover that fits.",
+      "Adventure tours from Kerala - trekking, rafting, diving, paragliding and desert safaris, planned to the season with licensed operators and cover that fits.",
   },
   {
     slug: "certificate-attestation",
@@ -1688,7 +1688,7 @@ export const services = [
     icon: "FileCheck",
     order: 11,
     shortDescription:
-      "Education, employment and personal documents authenticated for use abroad — we know the sequence by heart.",
+      "Education, employment and personal documents authenticated for use abroad - we know the sequence by heart.",
     heroHeading: "Certificate Attestation Services",
     heroLead:
       "We coordinate certificate attestation for documents going abroad: educational certificates, personal records and commercial documents. Every file is built around two things you are relying on: that the document goes through the route the receiving country actually accepts, and that you know where your originals are at every stage.",
@@ -1838,7 +1838,7 @@ export const services = [
       "Attestation and apostille are issued by the relevant state authorities, the Ministry of External Affairs and foreign embassies. Alisha Tours & Travels assists with documentation and submission and is not an attesting authority. Requirements, fees and processing times are set by these authorities and may change.",
     metaTitle: "Certificate Attestation Services",
     metaDescription:
-      "Certificate attestation in Kerala — educational, personal and commercial documents through NORKA, the Home Department, MEA and embassies, plus apostille.",
+      "Certificate attestation in Kerala - educational, personal and commercial documents through NORKA, the Home Department, MEA and embassies, plus apostille.",
   },
 ];
 

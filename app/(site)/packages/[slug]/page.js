@@ -420,7 +420,7 @@ export default async function PackagePage({ params }) {
                   Day-by-day itinerary
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Every day is here on the page — no PDF to download before you can read it.
+                  Every day is here on the page - no PDF to download before you can read it.
                 </p>
                 <div className="mt-8">
                   <Itinerary days={itinerary} />
@@ -655,7 +655,7 @@ export default async function PackagePage({ params }) {
                     >
                       <Image
                         src={image.url}
-                        alt={image.alt || `${title} — photograph ${index + 1}`}
+                        alt={image.alt || `${title} - photograph ${index + 1}`}
                         fill
                         loading="lazy"
                         sizes="(min-width: 640px) 24rem, 90vw"
@@ -687,7 +687,7 @@ export default async function PackagePage({ params }) {
                       off "Guidelines for travelling" in the document outline. */}
                   <h2 className="text-xl font-semibold text-ink">Terms &amp; conditions</h2>
                   <span className="mt-1 block text-sm text-ink-muted">
-                    The fine print, in full — the same {(terms.length ? terms : PACKAGE_TERMS).length}{" "}
+                    The fine print, in full - the same {(terms.length ? terms : PACKAGE_TERMS).length}{" "}
                     clauses as the proposal
                   </span>
                 </span>

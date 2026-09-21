@@ -20,10 +20,10 @@ const REGIONS = {
   international: {
     label: "International",
     heading: "International group departures.",
-    lead: "Thailand, Malaysia, Azerbaijan and Europe on set dates — visas, group airfare and a tour manager included, so the only thing you organise is your leave.",
+    lead: "Thailand, Malaysia, Azerbaijan and Europe on set dates - visas, group airfare and a tour manager included, so the only thing you organise is your leave.",
     metaTitle: "International Fixed Departures & Group Tours",
     metaDescription:
-      "Upcoming international group departures from Kerala — Thailand, Malaysia, Azerbaijan and Europe on set dates at set prices, with visas, flights and a tour manager.",
+      "Upcoming international group departures from Kerala - Thailand, Malaysia, Azerbaijan and Europe on set dates at set prices, with visas, flights and a tour manager.",
     empty:
       "There are no international group departures on sale right now. Tell us where and roughly when, and we will either open a group or build it privately.",
   },
@@ -33,7 +33,7 @@ const REGIONS = {
     lead: "Ladakh, Kashmir, the Andamans and the hill stations on fixed dates. No visas to worry about, and an itinerary paced by people who have run it before.",
     metaTitle: "Domestic Fixed Departures & Group Tours",
     metaDescription:
-      "Upcoming domestic group departures from Kerala — Ladakh, Kashmir, Andaman and more on set dates at set prices, with flights, hotels and a tour manager.",
+      "Upcoming domestic group departures from Kerala - Ladakh, Kashmir, Andaman and more on set dates at set prices, with flights, hotels and a tour manager.",
     empty:
       "There are no domestic group departures on sale right now. Tell us where and roughly when, and we will either open a group or build it privately.",
   },

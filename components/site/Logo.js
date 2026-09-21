@@ -19,7 +19,7 @@ export default function Logo({ variant = "colour", className = "h-10 w-auto", hr
   const image = (
     <Image
       src={src}
-      alt={`${SITE.name} — ${SITE.tagline}`}
+      alt={`${SITE.name} - ${SITE.tagline}`}
       {...dimensions}
       className={className}
       sizes="240px"

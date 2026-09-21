@@ -37,7 +37,7 @@ export default function NotFound() {
           stamp="Did not depart"
           routeFrom="Your request"
           routeTo="This page"
-          cause="404 — no page at this address"
+          cause="404 - no page at this address"
           heading="This one has departed without us."
           code={["A", "K", "–", "4", "0", "4"]}
           reference="REF-NOT-FOUND"

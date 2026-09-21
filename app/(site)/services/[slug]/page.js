@@ -401,7 +401,7 @@ function StandardBody({ service, others, slug }) {
                 Talk to someone about this
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                You get a named person, not a ticket number. Ask the awkward questions — what it
+                You get a named person, not a ticket number. Ask the awkward questions - what it
                 really costs, how long it really takes, and whether you need it at all.
               </p>
 

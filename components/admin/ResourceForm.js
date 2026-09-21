@@ -310,7 +310,7 @@ function FieldControl({ field, value, onChange, values, refOptions }) {
             {options.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
-                {option.status === "draft" ? " — draft" : ""}
+                {option.status === "draft" ? " - draft" : ""}
               </SelectItem>
             ))}
           </SelectContent>

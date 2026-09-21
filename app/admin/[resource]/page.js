@@ -186,9 +186,9 @@ function renderCell(column, doc) {
 
   switch (column.format) {
     case "inr":
-      return raw ? formatINR(raw) : "—";
+      return raw ? formatINR(raw) : "-";
     case "date":
-      return raw ? formatDate(raw) : "—";
+      return raw ? formatDate(raw) : "-";
     case "status":
       return <StatusBadge status={raw || "draft"} />;
     case "availability":
@@ -196,6 +196,6 @@ function renderCell(column, doc) {
       // the dashboard now, so "upcoming" and "active" look alike on purpose.
       return <StatusBadge status={departureAvailability(doc)} />;
     default:
-      return raw === undefined || raw === null || raw === "" ? "—" : String(raw);
+      return raw === undefined || raw === null || raw === "" ? "-" : String(raw);
   }
 }

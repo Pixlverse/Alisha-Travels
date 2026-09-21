@@ -139,7 +139,7 @@ async function upsertBySlug(Model, doc) {
 /* -------------------------------------------------------------------------- */
 
 async function main() {
-  console.log("\nAlisha Tours & Travels — seeding development content\n");
+  console.log("\nAlisha Tours & Travels - seeding development content\n");
   console.log(
     useCloudinary
       ? "Cloudinary is configured: placeholder images will be uploaded to your account."
@@ -187,7 +187,7 @@ async function main() {
     const { destinationSlug, departures = [], ...rest } = source;
     const destinationId = destinationIdBySlug.get(destinationSlug);
     if (!destinationId) {
-      console.warn(`\n  ! Package "${source.slug}" references unknown destination "${destinationSlug}" — skipped.`);
+      console.warn(`\n  ! Package "${source.slug}" references unknown destination "${destinationSlug}" - skipped.`);
       continue;
     }
 
@@ -294,7 +294,7 @@ async function seedAdminUser() {
 
   if (!email || !password) {
     console.log(
-      "\nAdmin        — skipped.\n" +
+      "\nAdmin        - skipped.\n" +
         "  Set SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD in .env.local and re-run\n" +
         "  to create the first dashboard login."
     );
@@ -316,7 +316,7 @@ async function seedAdminUser() {
 
   // Printed once, here, and never stored anywhere the app can read back.
   console.log("\n" + "─".repeat(64));
-  console.log("  ADMIN LOGIN — shown once, change the password after first use");
+  console.log("  ADMIN LOGIN - shown once, change the password after first use");
   console.log("─".repeat(64));
   console.log(`  URL       http://localhost:3000/admin/login/`);
   console.log(`  Email     ${email}`);

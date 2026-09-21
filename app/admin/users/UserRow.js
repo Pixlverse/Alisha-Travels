@@ -197,7 +197,7 @@ function ResetPasswordDialog({ user, onDone }) {
         <DialogHeader>
           <DialogTitle>Reset password</DialogTitle>
           <DialogDescription>
-            Sets a new password for {user.name}. Tell them out of band — it is not e-mailed, and it
+            Sets a new password for {user.name}. Tell them out of band - it is not e-mailed, and it
             cannot be read back afterwards.
           </DialogDescription>
         </DialogHeader>

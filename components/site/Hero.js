@@ -125,7 +125,7 @@ export default function Hero({ destinations = [], testimonials = [] }) {
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-brand-100 sm:text-lg">
-            {SITE.name} — an IATA-accredited travel agency in Kerala, planning holidays,
+            {SITE.name} - an IATA-accredited travel agency in Kerala, planning holidays,
             honeymoons, flights and corporate journeys for travellers here and across the world
             since {SITE.founded}.
           </p>

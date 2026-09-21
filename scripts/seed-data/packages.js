@@ -52,15 +52,15 @@ const LAND_ONLY_INCLUSIONS = [
 
 const LAND_ONLY_EXCLUSIONS = [
   "Lunch and dinner unless specified in the itinerary",
-  "Personal expenses — laundry, telephone, minibar, tips",
-  "Travel insurance (available separately — see /services/travel-insurance/)",
+  "Personal expenses - laundry, telephone, minibar, tips",
+  "Travel insurance (available separately - see /services/travel-insurance/)",
   "Anything not explicitly listed under inclusions",
 ];
 
 const STANDARD_EXCLUSIONS = [
   "Lunch and dinner unless specified in the itinerary",
-  "Personal expenses — laundry, telephone, minibar, tips",
-  "Travel insurance (available separately — see /services/travel-insurance/)",
+  "Personal expenses - laundry, telephone, minibar, tips",
+  "Travel insurance (available separately - see /services/travel-insurance/)",
   "Anything not explicitly listed under inclusions",
 ];
 
@@ -68,7 +68,7 @@ export const packages = [
   /* ====================== FIXED DEPARTURES (legacy four) ================== */
   {
     slug: "pattaya-bangkok-5d4n",
-    title: "Pattaya & Bangkok — 5 Days / 4 Nights",
+    title: "Pattaya & Bangkok - 5 Days / 4 Nights",
     summary:
       "Two nights on the coast at Pattaya and two in Bangkok, with the Coral Island trip and the Grand Palace both included.",
     destinationSlug: "thailand",
@@ -102,7 +102,7 @@ export const packages = [
     ],
     metaTitle: "Pattaya & Bangkok Group Tour 5D/4N",
     metaDescription:
-      "Fixed departure group tour to Pattaya and Bangkok — 5 days, 4 nights with flights, hotels, Coral Island, Safari World and the Grand Palace.",
+      "Fixed departure group tour to Pattaya and Bangkok - 5 days, 4 nights with flights, hotels, Coral Island, Safari World and the Grand Palace.",
     departures: [
       // The two real 2025 dates from the legacy site. Both expired — kept on
       // purpose so the calendar shows history rather than a blank page.
@@ -116,7 +116,7 @@ export const packages = [
   },
   {
     slug: "ladakh-6d5n",
-    title: "Ladakh — 6 Days / 5 Nights",
+    title: "Ladakh - 6 Days / 5 Nights",
     summary:
       "Leh, Nubra and Pangong at a pace that lets you acclimatise properly, with two full nights in Leh before going any higher.",
     destinationSlug: "ladakh",
@@ -137,8 +137,8 @@ export const packages = [
       "Inner Line Permits arranged for you",
     ],
     itinerary: [
-      { day: 1, title: "Arrive Leh — rest day", description: "Met at the airport and taken to the hotel. Complete rest for the remainder of the day; this is not wasted time, it is what makes the rest of the trip possible.", stay: "Leh", meals: "Dinner" },
-      { day: 2, title: "Leh local sightseeing", description: "A gentle day at low exertion — Shanti Stupa, Leh Palace, Magnetic Hill and the Indus–Zanskar confluence at Sangam.", stay: "Leh", meals: "Breakfast, dinner" },
+      { day: 1, title: "Arrive Leh - rest day", description: "Met at the airport and taken to the hotel. Complete rest for the remainder of the day; this is not wasted time, it is what makes the rest of the trip possible.", stay: "Leh", meals: "Dinner" },
+      { day: 2, title: "Leh local sightseeing", description: "A gentle day at low exertion - Shanti Stupa, Leh Palace, Magnetic Hill and the Indus–Zanskar confluence at Sangam.", stay: "Leh", meals: "Breakfast, dinner" },
       { day: 3, title: "Leh to Nubra over Khardung La", description: "Over the pass at 5,359 m with a short stop only, then down to Hunder for the dunes and the double-humped camels.", stay: "Nubra", meals: "Breakfast, dinner" },
       { day: 4, title: "Nubra to Pangong Tso", description: "The Shyok river road across to Pangong. Afternoon and sunset at the lake, overnight in camp on the shore.", stay: "Pangong", meals: "Breakfast, dinner" },
       { day: 5, title: "Pangong to Leh via Chang La", description: "Sunrise at the lake, then back over Chang La with a stop at Thiksey monastery on the way in.", stay: "Leh", meals: "Breakfast, dinner" },
@@ -156,7 +156,7 @@ export const packages = [
     ],
     metaTitle: "Ladakh Group Tour 6D/5N",
     metaDescription:
-      "Fixed departure Ladakh group tour — Leh, Khardung La, Nubra Valley and an overnight at Pangong Tso, with permits and a properly paced acclimatisation plan.",
+      "Fixed departure Ladakh group tour - Leh, Khardung La, Nubra Valley and an overnight at Pangong Tso, with permits and a properly paced acclimatisation plan.",
     departures: [
       { departureDate: "2024-09-12", price: 44000, seatsTotal: 20, seatsRemaining: 0, boardingCity: "Kochi" },
       { departureDate: "2027-06-18", price: 48500, seatsTotal: 20, seatsRemaining: 14, boardingCity: "Kochi" },
@@ -165,9 +165,9 @@ export const packages = [
   },
   {
     slug: "phuket-krabi-5d4n",
-    title: "Phuket & Krabi — 5 Days / 4 Nights",
+    title: "Phuket & Krabi - 5 Days / 4 Nights",
     summary:
-      "Both of Thailand's island bases in one trip — Phi Phi by speedboat from Phuket, and the Four Islands from Krabi.",
+      "Both of Thailand's island bases in one trip - Phi Phi by speedboat from Phuket, and the Four Islands from Krabi.",
     destinationSlug: "thailand",
     category: "group-tours",
     type: "fixed-departure",
@@ -187,7 +187,7 @@ export const packages = [
     ],
     itinerary: [
       { day: 1, title: "Arrive Phuket", description: "Airport transfer and check-in. Evening at Promthep Cape for the sunset and then Patong at your own pace.", stay: "Phuket", meals: "Dinner" },
-      { day: 2, title: "Phi Phi Islands", description: "Full-day speedboat trip — Maya Bay, Pileh Lagoon, Monkey Beach and Bamboo Island, with lunch on board.", stay: "Phuket", meals: "Breakfast, lunch" },
+      { day: 2, title: "Phi Phi Islands", description: "Full-day speedboat trip - Maya Bay, Pileh Lagoon, Monkey Beach and Bamboo Island, with lunch on board.", stay: "Phuket", meals: "Breakfast, lunch" },
       { day: 3, title: "Phang Nga Bay, transfer to Krabi", description: "James Bond Island and the sea caves by longtail canoe in the morning, then the road transfer across to Krabi.", stay: "Krabi", meals: "Breakfast, lunch" },
       { day: 4, title: "Krabi Four Islands", description: "Tup, Chicken, Poda and Phra Nang by longtail, including the sandbank that appears at low tide. Free evening at Ao Nang.", stay: "Krabi", meals: "Breakfast, lunch" },
       { day: 5, title: "Departure", description: "Transfer to Krabi airport for the flight home.", meals: "Breakfast" },
@@ -195,7 +195,7 @@ export const packages = [
     inclusions: [...STANDARD_INCLUSIONS, "All island trips with national park fees included"],
     exclusions: STANDARD_EXCLUSIONS,
     faqs: [
-      { question: "Are the boat trips suitable for children?", answer: "The Krabi longtail trip is calm and fine for most ages. The Phi Phi speedboat run is faster and choppier — tell us the ages and we will swap it for the slower ferry if that is the better call." },
+      { question: "Are the boat trips suitable for children?", answer: "The Krabi longtail trip is calm and fine for most ages. The Phi Phi speedboat run is faster and choppier - tell us the ages and we will swap it for the slower ferry if that is the better call." },
     ],
     metaTitle: "Phuket & Krabi Group Tour 5D/4N",
     metaDescription:
@@ -208,7 +208,7 @@ export const packages = [
   },
   {
     slug: "langkawi-4d3n",
-    title: "Langkawi — 4 Days / 3 Nights",
+    title: "Langkawi - 4 Days / 3 Nights",
     summary:
       "A short island break with the SkyCab, the island-hopping trip and enough free time to actually sit on the beach.",
     destinationSlug: "malaysia",
@@ -230,7 +230,7 @@ export const packages = [
     itinerary: [
       { day: 1, title: "Arrive Langkawi", description: "Transfer to the hotel at Pantai Cenang. Evening free on the beach.", stay: "Langkawi", meals: "Dinner" },
       { day: 2, title: "SkyCab and island tour", description: "Cable car to the Sky Bridge in the morning while the peak is clear, then the afternoon island-hopping boat trip with the eagle feeding.", stay: "Langkawi", meals: "Breakfast" },
-      { day: 3, title: "Mangrove tour and Kuah", description: "Kilim Geoforest Park by boat — mangroves, bat cave and fish farm — then Eagle Square and the duty-free shops at Kuah.", stay: "Langkawi", meals: "Breakfast, lunch" },
+      { day: 3, title: "Mangrove tour and Kuah", description: "Kilim Geoforest Park by boat - mangroves, bat cave and fish farm - then Eagle Square and the duty-free shops at Kuah.", stay: "Langkawi", meals: "Breakfast, lunch" },
       { day: 4, title: "Departure", description: "Free morning, then transfer to the airport.", meals: "Breakfast" },
     ],
     inclusions: STANDARD_INCLUSIONS,
@@ -248,9 +248,9 @@ export const packages = [
   /* ========================= CUSTOMISED PACKAGES ========================= */
   {
     slug: "dubai-city-escape-5d4n",
-    title: "Dubai City Escape — 5 Days / 4 Nights",
+    title: "Dubai City Escape - 5 Days / 4 Nights",
     summary:
-      "The city done properly in four nights — Burj Khalifa, a desert evening, the Marina by dhow and a full free day for the malls or Abu Dhabi.",
+      "The city done properly in four nights - Burj Khalifa, a desert evening, the Marina by dhow and a full free day for the malls or Abu Dhabi.",
     destinationSlug: "dubai",
     category: "family",
     type: "customized",
@@ -269,7 +269,7 @@ export const packages = [
       "UAE tourist visa handled for you",
     ],
     itinerary: [
-      { day: 1, title: "Arrive Dubai", description: "Airport pickup and hotel check-in. Evening free — the Dubai Mall fountain show runs every half hour after six.", stay: "Dubai", meals: "—" },
+      { day: 1, title: "Arrive Dubai", description: "Airport pickup and hotel check-in. Evening free - the Dubai Mall fountain show runs every half hour after six.", stay: "Dubai", meals: "-" },
       { day: 2, title: "Modern Dubai and the Burj", description: "Dubai Frame, Palm Jumeirah drive and Marina, then the Burj Khalifa observation deck timed for the change of light.", stay: "Dubai", meals: "Breakfast" },
       { day: 3, title: "Desert safari", description: "Morning free. Afternoon pickup for dune bashing, camel ride and a barbecue dinner with entertainment at the desert camp.", stay: "Dubai", meals: "Breakfast, dinner" },
       { day: 4, title: "Old Dubai, free afternoon", description: "Abra crossing over the creek, the gold and spice souks, and the Al Fahidi quarter. Afternoon free for shopping or an Abu Dhabi add-on.", stay: "Dubai", meals: "Breakfast" },
@@ -278,7 +278,7 @@ export const packages = [
     inclusions: [...STANDARD_INCLUSIONS, "UAE tourist visa processing"],
     exclusions: [...STANDARD_EXCLUSIONS, "Optional Abu Dhabi day trip"],
     faqs: [
-      { question: "Can this be run as a honeymoon instead?", answer: "Yes — we swap the desert group safari for a private one and move the hotel to the Marina or Palm. Ask and we will requote." },
+      { question: "Can this be run as a honeymoon instead?", answer: "Yes - we swap the desert group safari for a private one and move the hotel to the Marina or Palm. Ask and we will requote." },
     ],
     metaTitle: "Dubai Tour Package 5D/4N",
     metaDescription:
@@ -287,7 +287,7 @@ export const packages = [
   },
   {
     slug: "dubai-honeymoon-5d4n",
-    title: "Dubai Honeymoon — 5 Days / 4 Nights",
+    title: "Dubai Honeymoon - 5 Days / 4 Nights",
     summary:
       "A Marina-view room, a private desert evening and a dinner cruise, with the sightseeing kept deliberately light.",
     destinationSlug: "dubai",
@@ -308,8 +308,8 @@ export const packages = [
       "Late checkout on the final day",
     ],
     itinerary: [
-      { day: 1, title: "Arrive Dubai", description: "Private transfer, check-in and the rest of the evening free.", stay: "Dubai", meals: "—" },
-      { day: 2, title: "City at your own pace", description: "A half-day private city tour — Palm Jumeirah, the Marina and Jumeirah Beach — with the afternoon left open.", stay: "Dubai", meals: "Breakfast" },
+      { day: 1, title: "Arrive Dubai", description: "Private transfer, check-in and the rest of the evening free.", stay: "Dubai", meals: "-" },
+      { day: 2, title: "City at your own pace", description: "A half-day private city tour - Palm Jumeirah, the Marina and Jumeirah Beach - with the afternoon left open.", stay: "Dubai", meals: "Breakfast" },
       { day: 3, title: "Private desert evening", description: "Private 4x4 to the desert, dune drive, sunset photographs and a quiet dinner at the camp.", stay: "Dubai", meals: "Breakfast, dinner" },
       { day: 4, title: "Burj Khalifa and dinner cruise", description: "A sunset slot at the top of the Burj, then a dhow dinner cruise on the creek.", stay: "Dubai", meals: "Breakfast, dinner" },
       { day: 5, title: "Departure", description: "Late checkout where the hotel allows it, then the airport transfer.", meals: "Breakfast" },
@@ -324,7 +324,7 @@ export const packages = [
   },
   {
     slug: "singapore-sentosa-5d4n",
-    title: "Singapore & Sentosa — 5 Days / 4 Nights",
+    title: "Singapore & Sentosa - 5 Days / 4 Nights",
     summary:
       "Universal Studios, the Night Safari and Gardens by the Bay, with the MRT passes sorted so you are not queuing for tickets.",
     destinationSlug: "singapore",
@@ -345,7 +345,7 @@ export const packages = [
       "Singapore e-visa filed for you",
     ],
     itinerary: [
-      { day: 1, title: "Arrive Singapore", description: "Airport transfer and check-in, with the MRT tourist pass issued on arrival. Evening at Marina Bay for the Spectra light show.", stay: "Singapore", meals: "—" },
+      { day: 1, title: "Arrive Singapore", description: "Airport transfer and check-in, with the MRT tourist pass issued on arrival. Evening at Marina Bay for the Spectra light show.", stay: "Singapore", meals: "-" },
       { day: 2, title: "City tour and Gardens by the Bay", description: "Merlion Park, Chinatown and Little India in the morning, then the Cloud Forest and Flower Dome, staying on for the Supertree light show at 7.45.", stay: "Singapore", meals: "Breakfast" },
       { day: 3, title: "Sentosa and Universal Studios", description: "A full day at Universal Studios, then the cable car across and Wings of Time in the evening.", stay: "Singapore", meals: "Breakfast" },
       { day: 4, title: "Night Safari", description: "Free day for Jurong Bird Park, the Science Centre or Orchard Road, then the Night Safari after dark.", stay: "Singapore", meals: "Breakfast" },
@@ -363,7 +363,7 @@ export const packages = [
   },
   {
     slug: "maldives-overwater-honeymoon-4d3n",
-    title: "Maldives Overwater Honeymoon — 4 Days / 3 Nights",
+    title: "Maldives Overwater Honeymoon - 4 Days / 3 Nights",
     summary:
       "Two nights beach villa, one night overwater, on an island with a real house reef you can swim to.",
     destinationSlug: "maldives",
@@ -377,7 +377,7 @@ export const packages = [
     heroImage: d("maldives"),
     gallery: [d("maldives")],
     highlights: [
-      "Split stay — beach villa then overwater villa",
+      "Split stay - beach villa then overwater villa",
       "Speedboat transfer, so a late flight does not cost you a night in Malé",
       "House reef snorkelling from the beach",
       "Sunset dolphin cruise",
@@ -408,7 +408,7 @@ export const packages = [
   },
   {
     slug: "bali-honeymoon-6d5n",
-    title: "Bali Honeymoon — 6 Days / 5 Nights",
+    title: "Bali Honeymoon - 6 Days / 5 Nights",
     summary:
       "Three nights in Ubud among the rice terraces and two on the coast, with a private pool villa for both halves.",
     destinationSlug: "bali",
@@ -429,7 +429,7 @@ export const packages = [
       "Nusa Penida day trip, optional",
     ],
     itinerary: [
-      { day: 1, title: "Arrive Denpasar, transfer to Ubud", description: "Private transfer inland, about ninety minutes. Evening free at the villa.", stay: "Ubud", meals: "—" },
+      { day: 1, title: "Arrive Denpasar, transfer to Ubud", description: "Private transfer inland, about ninety minutes. Evening free at the villa.", stay: "Ubud", meals: "-" },
       { day: 2, title: "Ubud and the terraces", description: "Tegallalang early, then the Monkey Forest, Tirta Empul and the art villages. Floating breakfast at the villa to start.", stay: "Ubud", meals: "Breakfast" },
       { day: 3, title: "Kintamani and the waterfalls", description: "Mount Batur viewpoint, a coffee plantation and Tegenungan waterfall.", stay: "Ubud", meals: "Breakfast" },
       { day: 4, title: "Transfer south via Tanah Lot", description: "Drive to Seminyak or Nusa Dua, stopping at Tanah Lot for the sunset.", stay: "South coast", meals: "Breakfast" },
@@ -446,7 +446,7 @@ export const packages = [
   },
   {
     slug: "kerala-backwaters-munnar-5d4n",
-    title: "Kerala — Munnar, Thekkady & Alleppey, 5 Days / 4 Nights",
+    title: "Kerala - Munnar, Thekkady & Alleppey, 5 Days / 4 Nights",
     summary:
       "Tea hills, spice forest and a night on a houseboat, with drives kept short enough to enjoy.",
     destinationSlug: "kerala",
@@ -483,16 +483,16 @@ export const packages = [
     ],
     exclusions: [...STANDARD_EXCLUSIONS, "Airfare or train fare to and from Kochi"],
     faqs: [
-      { question: "Can the houseboat be swapped for a day cruise?", answer: "Yes. Some travellers would rather not sleep on the water — we substitute a five-hour day cruise and an extra night at a lakeside resort, usually at a lower cost." },
+      { question: "Can the houseboat be swapped for a day cruise?", answer: "Yes. Some travellers would rather not sleep on the water - we substitute a five-hour day cruise and an extra night at a lakeside resort, usually at a lower cost." },
     ],
-    metaTitle: "Kerala Tour Package 5D/4N — Munnar, Thekkady, Alleppey",
+    metaTitle: "Kerala Tour Package 5D/4N - Munnar, Thekkady, Alleppey",
     metaDescription:
       "Kerala holiday package covering Munnar, Thekkady and an Alleppey houseboat overnight, with a private car and driver throughout.",
     departures: [],
   },
   {
     slug: "kashmir-valley-6d5n",
-    title: "Kashmir Valley — 6 Days / 5 Nights",
+    title: "Kashmir Valley - 6 Days / 5 Nights",
     summary:
       "Srinagar, Gulmarg, Pahalgam and Sonamarg, with two nights on a houseboat and a full day kept for Gulmarg.",
     destinationSlug: "kashmir-srinagar",
@@ -537,7 +537,7 @@ export const packages = [
   },
   {
     slug: "goa-getaway-4d3n",
-    title: "Goa Getaway — 4 Days / 3 Nights",
+    title: "Goa Getaway - 4 Days / 3 Nights",
     summary:
       "A long-weekend South Goa break with the Old Goa churches and a Mandovi sunset cruise, and the beach left alone.",
     destinationSlug: "goa",
@@ -572,7 +572,7 @@ export const packages = [
     ],
     exclusions: [...STANDARD_EXCLUSIONS, "Airfare or train fare", "Optional Dudhsagar jeep safari", "Water sports"],
     faqs: [
-      { question: "Why South Goa and not North?", answer: "Because most families who book Goa want quiet and get sold noise. If you want the markets and the nightlife we will move you north — just say so and we will requote." },
+      { question: "Why South Goa and not North?", answer: "Because most families who book Goa want quiet and get sold noise. If you want the markets and the nightlife we will move you north - just say so and we will requote." },
     ],
     metaTitle: "Goa Package 4D/3N from ₹9,999",
     metaDescription:
@@ -581,7 +581,7 @@ export const packages = [
   },
   {
     slug: "andaman-islands-5d4n",
-    title: "Andaman Islands — 5 Days / 4 Nights",
+    title: "Andaman Islands - 5 Days / 4 Nights",
     summary:
       "Port Blair, Havelock and Neil with every ferry booked in advance, because the ferries are what break this trip.",
     destinationSlug: "andaman",
@@ -624,7 +624,7 @@ export const packages = [
   },
   {
     slug: "baku-discovery-5d4n",
-    title: "Baku Discovery — 5 Days / 4 Nights",
+    title: "Baku Discovery - 5 Days / 4 Nights",
     summary:
       "The old city, the Caspian promenade, Gobustan's mud volcanoes and a day up in the Gabala mountains.",
     destinationSlug: "azerbaijan",
@@ -648,7 +648,7 @@ export const packages = [
       { day: 1, title: "Arrive Baku", description: "Airport transfer and check-in. Evening walk along the boulevard with the Flame Towers lit.", stay: "Baku", meals: "Breakfast" },
       { day: 2, title: "Old and new Baku", description: "Maiden Tower, Shirvanshahs' Palace and the walled city in the morning, Heydar Aliyev Center and Highland Park in the afternoon.", stay: "Baku", meals: "Breakfast" },
       { day: 3, title: "Gobustan and Absheron", description: "Rock carvings, the mud volcanoes by 4x4, then Ateshgah fire temple and Yanar Dag on the way back.", stay: "Baku", meals: "Breakfast, lunch" },
-      { day: 4, title: "Gabala", description: "A long day north into the mountains — the cable car, Nohur lake and the Yeddi Gozel waterfall.", stay: "Baku", meals: "Breakfast, lunch" },
+      { day: 4, title: "Gabala", description: "A long day north into the mountains - the cable car, Nohur lake and the Yeddi Gozel waterfall.", stay: "Baku", meals: "Breakfast, lunch" },
       { day: 5, title: "Departure", description: "Transfer to Heydar Aliyev International.", meals: "Breakfast" },
     ],
     inclusions: [...STANDARD_INCLUSIONS, "ASAN e-visa processing", "4x4 for the mud volcano track"],
@@ -661,7 +661,7 @@ export const packages = [
   },
   {
     slug: "vietnam-highlights-6d5n",
-    title: "Vietnam Highlights — 6 Days / 5 Nights",
+    title: "Vietnam Highlights - 6 Days / 5 Nights",
     summary:
       "Hanoi, an overnight cruise on Ha Long Bay, and the lantern-lit old town at Hoi An.",
     destinationSlug: "vietnam",
@@ -686,7 +686,7 @@ export const packages = [
       { day: 2, title: "Ha Long Bay cruise", description: "Drive out to the bay and board at midday. Kayaking, a cave visit and dinner on board.", stay: "Cruise ship", meals: "Breakfast, lunch, dinner" },
       { day: 3, title: "Back to Hanoi, fly to Da Nang", description: "Morning on the bay, disembark after brunch, then the drive back and the evening flight south.", stay: "Da Nang", meals: "Breakfast, brunch" },
       { day: 4, title: "Ba Na Hills", description: "Cable car up to the Golden Bridge and the French village, back down in the afternoon.", stay: "Da Nang", meals: "Breakfast" },
-      { day: 5, title: "Hoi An", description: "Marble Mountains on the way, then the Ancient Town — a tailor visit in the afternoon and the lanterns after dark.", stay: "Da Nang", meals: "Breakfast" },
+      { day: 5, title: "Hoi An", description: "Marble Mountains on the way, then the Ancient Town - a tailor visit in the afternoon and the lanterns after dark.", stay: "Da Nang", meals: "Breakfast" },
       { day: 6, title: "Departure", description: "Transfer to Da Nang airport.", meals: "Breakfast" },
     ],
     inclusions: [...STANDARD_INCLUSIONS, "Vietnam e-visa processing", "Internal flight Hanoi–Da Nang", "One night aboard a Ha Long Bay cruise, full board"],
@@ -699,9 +699,9 @@ export const packages = [
   },
   {
     slug: "royal-rajasthan-7d6n",
-    title: "Royal Rajasthan — 7 Days / 6 Nights",
+    title: "Royal Rajasthan - 7 Days / 6 Nights",
     summary:
-      "Jaipur, Jodhpur and Udaipur in six nights — three cities, not five, so you are not in the car all week.",
+      "Jaipur, Jodhpur and Udaipur in six nights - three cities, not five, so you are not in the car all week.",
     destinationSlug: "rajasthan",
     category: "family",
     type: "customized",
@@ -738,7 +738,7 @@ export const packages = [
   },
   {
     slug: "bangkok-dealer-meet-4d3n",
-    title: "Bangkok Dealer Meet — 4 Days / 3 Nights",
+    title: "Bangkok Dealer Meet - 4 Days / 3 Nights",
     summary:
       "A turnkey incentive and dealer-meet programme for 40 to 150 delegates, with one coordinator from quote to departure.",
     destinationSlug: "thailand",
@@ -758,7 +758,7 @@ export const packages = [
       "Conference room with AV, stage and branding",
       "Group visa and airfare handled as one block",
       "Gala dinner with entertainment",
-      "Team activity — Coral Island or a city treasure hunt",
+      "Team activity - Coral Island or a city treasure hunt",
       "One named coordinator travelling with the group",
     ],
     itinerary: [
@@ -782,17 +782,17 @@ export const packages = [
       "Anything not explicitly listed under inclusions",
     ],
     faqs: [
-      { question: "What group size do you handle?", answer: "We have run single events for groups of over a hundred. Below about forty the per-head cost rises because the conference and coach costs are fixed — we will tell you where the break points sit." },
+      { question: "What group size do you handle?", answer: "We have run single events for groups of over a hundred. Below about forty the per-head cost rises because the conference and coach costs are fixed - we will tell you where the break points sit." },
       { question: "Do you invoice the company directly?", answer: "Yes, with a GST invoice and a documented payment schedule against milestones." },
     ],
     metaTitle: "Bangkok Corporate & MICE Package 4D/3N",
     metaDescription:
-      "Corporate dealer meet and incentive package in Bangkok — group airfare, conference hall, gala dinner and a dedicated coordinator, for 40 to 150 delegates.",
+      "Corporate dealer meet and incentive package in Bangkok - group airfare, conference hall, gala dinner and a dedicated coordinator, for 40 to 150 delegates.",
     departures: [],
   },
   {
     slug: "dubai-conference-4d3n",
-    title: "Dubai Conference & Incentive — 4 Days / 3 Nights",
+    title: "Dubai Conference & Incentive - 4 Days / 3 Nights",
     summary:
       "Conference facilities in Dubai with a desert gala and an Abu Dhabi excursion, priced per delegate.",
     destinationSlug: "dubai",
@@ -843,7 +843,7 @@ export const packages = [
   },
   {
     slug: "europe-classic-10d9n",
-    title: "Europe Classic — 10 Days / 9 Nights",
+    title: "Europe Classic - 10 Days / 9 Nights",
     summary:
       "Paris, Switzerland and Italy by rail rather than coach, with Schengen visa preparation handled from the start.",
     destinationSlug: "europe",
@@ -896,7 +896,7 @@ export const packages = [
   },
   {
     slug: "darjeeling-gangtok-6d5n",
-    title: "Darjeeling & Gangtok — 6 Days / 5 Nights",
+    title: "Darjeeling & Gangtok - 6 Days / 5 Nights",
     summary:
       "Tiger Hill at dawn, the toy train, and three nights in Sikkim with the Tsomgo Lake permit arranged.",
     destinationSlug: "darjeeling",
@@ -1026,9 +1026,9 @@ export const packages = [
         meals: "Breakfast",
       },
     ],
-    metaTitle: "Charm of Hyderabad — 3 Days / 2 Nights",
+    metaTitle: "Charm of Hyderabad - 3 Days / 2 Nights",
     metaDescription:
-      "Hyderabad in three days from ₹7,999 per adult — Ramoji Film City, the Charminar, Golconda Fort and the Hussain Sagar laser show. Land only.",
+      "Hyderabad in three days from ₹7,999 per adult - Ramoji Film City, the Charminar, Golconda Fort and the Hussain Sagar laser show. Land only.",
   },
   {
     slug: "fascinating-delhi-manali-5d4n",
@@ -1063,9 +1063,9 @@ export const packages = [
       "Rohtang Pass permits and the vehicle for it",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Fascinating Delhi – Manali — 5 Days / 4 Nights",
+    metaTitle: "Fascinating Delhi – Manali - 5 Days / 4 Nights",
     metaDescription:
-      "Delhi and Manali in five days from ₹8,999 per adult — Solang Valley, Hadimba Temple and Kullu, with overnight Volvo transfers. Land only.",
+      "Delhi and Manali in five days from ₹8,999 per adult - Solang Valley, Hadimba Temple and Kullu, with overnight Volvo transfers. Land only.",
   },
   {
     slug: "charm-of-delhi-agra-jaipur-4d3n",
@@ -1096,9 +1096,9 @@ export const packages = [
       "All monument entry tickets, including the Taj Mahal",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Charm of Delhi, Agra & Jaipur — 4 Days / 3 Nights",
+    metaTitle: "Charm of Delhi, Agra & Jaipur - 4 Days / 3 Nights",
     metaDescription:
-      "The Golden Triangle in four days from ₹11,999 per adult — the Red Fort, Akshardham, the Taj Mahal, Hawa Mahal and the City Palace. Land only.",
+      "The Golden Triangle in four days from ₹11,999 per adult - the Red Fort, Akshardham, the Taj Mahal, Hawa Mahal and the City Palace. Land only.",
   },
   {
     slug: "incredible-bali-4d3n",
@@ -1130,9 +1130,9 @@ export const packages = [
       "TCS on the overseas remittance",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Incredible Bali — 4 Days / 3 Nights",
+    metaTitle: "Incredible Bali - 4 Days / 3 Nights",
     metaDescription:
-      "Bali in four days from ₹13,999 per adult — Sea Walker at Benoa, a Phinisi sunset cruise, Kintamani and the jungle swing. Land only.",
+      "Bali in four days from ₹13,999 per adult - Sea Walker at Benoa, a Phinisi sunset cruise, Kintamani and the jungle swing. Land only.",
   },
   {
     slug: "charm-of-pattaya-bangkok-4d3n",
@@ -1166,9 +1166,9 @@ export const packages = [
       "TCS on the overseas remittance",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Charm of Pattaya & Bangkok — 4 Days / 3 Nights",
+    metaTitle: "Charm of Pattaya & Bangkok - 4 Days / 3 Nights",
     metaDescription:
-      "Pattaya and Bangkok in four days from ₹15,999 per adult — the floating market, Coral Island by speedboat, Wat Traimit and Wat Pho. Land only.",
+      "Pattaya and Bangkok in four days from ₹15,999 per adult - the floating market, Coral Island by speedboat, Wat Traimit and Wat Pho. Land only.",
   },
   {
     slug: "fascinating-vietnam-4d3n",
@@ -1201,9 +1201,9 @@ export const packages = [
       "Guide and crew tipping",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Fascinating Vietnam — 4 Days / 3 Nights",
+    metaTitle: "Fascinating Vietnam - 4 Days / 3 Nights",
     metaDescription:
-      "Vietnam in four days from ₹23,999 per adult — Hanoi's Old Quarter, egg coffee and an overnight cruise among the Halong Bay karsts.",
+      "Vietnam in four days from ₹23,999 per adult - Hanoi's Old Quarter, egg coffee and an overnight cruise among the Halong Bay karsts.",
   },
   {
     slug: "fascinating-dubai-4d3n",
@@ -1238,9 +1238,9 @@ export const packages = [
       "TCS on the overseas remittance",
       ...LAND_ONLY_EXCLUSIONS,
     ],
-    metaTitle: "Fascinating Dubai — 4 Days / 3 Nights",
+    metaTitle: "Fascinating Dubai - 4 Days / 3 Nights",
     metaDescription:
-      "Dubai in four days from ₹26,999 per adult — a creek dhow dinner cruise, the Burj Khalifa's 124th floor and a desert safari with BBQ. Land only.",
+      "Dubai in four days from ₹26,999 per adult - a creek dhow dinner cruise, the Burj Khalifa's 124th floor and a desert safari with BBQ. Land only.",
   },
 
   /* =============== PROPOSAL-BACKED PACKAGES (client PDF) ================= */
@@ -1254,9 +1254,9 @@ export const packages = [
     slug: "charm-of-malaysia-3d2n",
     title: "Charm of Malaysia",
     summary:
-      "Three days across Kuala Lumpur — Putrajaya's modern skyline, the golden statue and limestone caves at Batu, a cable-car ride into the hills at Genting, and the city's own landmarks.",
+      "Three days across Kuala Lumpur - Putrajaya's modern skyline, the golden statue and limestone caves at Batu, a cable-car ride into the hills at Genting, and the city's own landmarks.",
     priceNote:
-      "Package cost shown per person; excludes airfare. Quoted rates are not valid on surcharged dates — public holidays, festivals or peak season — when additional charges will apply.",
+      "Package cost shown per person; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "malaysia",
     category: "customized",
     type: "customized",
@@ -1293,7 +1293,7 @@ export const packages = [
     itinerary: [
       {
         day: 1,
-        title: "Arrival — Putrajaya Tour",
+        title: "Arrival - Putrajaya Tour",
         description:
           "Upon arrival at Kuala Lumpur International Airport, you will be met and greeted by our representative and transferred to your hotel in Kuala Lumpur, with a visit to Putrajaya en route. Upon arrival at the hotel, you will proceed with check-in. In the evening, enjoy a 2-hour tour of Bukit Bintang, one of Kuala Lumpur's most vibrant shopping and entertainment districts. After the tour, return to the hotel for an overnight stay.",
         meals: "None",
@@ -1328,9 +1328,9 @@ export const packages = [
       },
     ],
     priceRows: [{ label: "Per adult", amount: 21199 }],
-    metaTitle: "Charm of Malaysia — 3 Days / 2 Nights",
+    metaTitle: "Charm of Malaysia - 3 Days / 2 Nights",
     metaDescription:
-      "Kuala Lumpur in three days from ₹21,199 per adult — Putrajaya, Batu Caves, the Genting Skyway cable car and the KL city tour. Land only.",
+      "Kuala Lumpur in three days from ₹21,199 per adult - Putrajaya, Batu Caves, the Genting Skyway cable car and the KL city tour. Land only.",
   },
 ];
 

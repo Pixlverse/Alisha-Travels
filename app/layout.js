@@ -44,7 +44,7 @@ const body = Figtree({
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — IATA Accredited Travel Agency in Kerala`,
+    default: `${SITE.name} - IATA Accredited Travel Agency in Kerala`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -58,12 +58,12 @@ export const metadata = {
     siteName: SITE.name,
     locale: "en_IN",
     url: SITE.url,
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name} - ${SITE.tagline}`,
     description: SITE.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name} - ${SITE.tagline}`,
     description: SITE.description,
   },
   robots: {

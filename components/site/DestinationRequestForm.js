@@ -114,7 +114,7 @@ export default function DestinationRequestForm({ destinations = [], services = [
             services={services}
             source="/destinations/"
             title="Where would you like to go?"
-            lead="Tell us roughly what you have in mind — dates and budget can be approximate."
+            lead="Tell us roughly what you have in mind - dates and budget can be approximate."
             initialMessage={message}
             renderTrigger={({ open }) => (
               <button

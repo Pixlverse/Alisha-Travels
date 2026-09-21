@@ -55,7 +55,7 @@ export default function PackageActions({ title, pdfUrl, url, className }) {
   const mailtoHref = () => {
     const subject = encodeURIComponent(`Itinerary: ${title}`);
     const body = encodeURIComponent(
-      `Thought this might be worth a look —\n\n${title}\n${url || ""}\n\nAlisha Tours & Travels`
+      `Thought this might be worth a look -\n\n${title}\n${url || ""}\n\nAlisha Tours & Travels`
     );
     return `mailto:?subject=${subject}&body=${body}`;
   };

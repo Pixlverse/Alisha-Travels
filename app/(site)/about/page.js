@@ -17,7 +17,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "About Alisha Tours & Travels — IATA Accredited Since 2013",
+  title: "About Alisha Tours & Travels - IATA Accredited Since 2013",
   description:
     "Ramzi Mohammed Ali founded Alisha Tours & Travels in 2013 on one conviction: a traveller should never have to chase anyone. IATA accredited, 4.8★ on Google reviews, based in Kottayam, Kerala.",
   alternates: { canonical: "/about/" },

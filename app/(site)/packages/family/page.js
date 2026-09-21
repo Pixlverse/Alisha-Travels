@@ -13,7 +13,7 @@ export const revalidate = 600;
 
 export const metadata = {
   title: "Family Tour Packages from Kerala",
-  description: "Family holiday packages to Dubai, Singapore, Kerala, Kashmir, Goa and Rajasthan — paced for children and grandparents, with flights, hotels and transfers arranged.",
+  description: "Family holiday packages to Dubai, Singapore, Kerala, Kashmir, Goa and Rajasthan - paced for children and grandparents, with flights, hotels and transfers arranged.",
   alternates: { canonical: "/packages/family/" },
 };
 

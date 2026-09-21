@@ -19,7 +19,7 @@ export default function EnquiryRowActions({ id, name, editHref = null, onDeleted
       editHref={editHref}
       label="enquiry"
       name={`${name}'s enquiry`}
-      note="This deletes the enquiry and its notes permanently. If the lead simply did not convert, set its status to Lost instead — that keeps the record and the reporting."
+      note="This deletes the enquiry and its notes permanently. If the lead simply did not convert, set its status to Lost instead - that keeps the record and the reporting."
       onDelete={async () => {
         const result = await deleteEnquiry(id);
         if (result?.ok && onDeleted) router.push("/admin/enquiries/");

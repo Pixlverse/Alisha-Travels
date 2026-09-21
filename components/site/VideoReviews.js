@@ -57,7 +57,7 @@ export default function VideoReviews({ reviews = [] }) {
             <div className="p-5">
               <p className="text-sm text-ink-muted">
                 {slot === 0
-                  ? "Filmed reviews from travellers go here — the written ones are above."
+                  ? "Filmed reviews from travellers go here - the written ones are above."
                   : "Coming soon."}
               </p>
             </div>

@@ -27,8 +27,8 @@ export default async function DeniedPage() {
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         You are signed in as <strong className="font-semibold text-ink">{session.name}</strong>{" "}
         with the <strong className="font-semibold text-ink">{session.role}</strong> role. Staff
-        accounts can view and work every enquiry — updating status, adding notes, exporting the
-        list — but content editing and team accounts are restricted to admins.
+        accounts can view and work every enquiry - updating status, adding notes, exporting the
+        list - but content editing and team accounts are restricted to admins.
       </p>
 
       <p className="mt-3 text-sm text-muted-foreground">

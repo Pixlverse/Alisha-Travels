@@ -114,7 +114,7 @@ export default async function EnquiryCta({
             )}
           >
             <ShieldCheck className={cn("size-4 shrink-0", dark ? "text-brand-200" : "text-brand-500")} aria-hidden="true" />
-            IATA accredited — tickets issued directly by us, not resold.
+            IATA accredited - tickets issued directly by us, not resold.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export default async function EnquiryCta({
                 icon={<WhatsAppIcon className="size-5" />}
                 iconClass="bg-whatsapp text-white"
                 label="WhatsApp us"
-                detail="Fastest — the message arrives with this page attached"
+                detail="Fastest - the message arrives with this page attached"
               />
             </a>
           </li>
@@ -161,7 +161,7 @@ export default async function EnquiryCta({
                 icon={<Phone className="size-5" />}
                 iconClass={dark ? "bg-white/15 text-white" : "bg-brand-100 text-brand-800"}
                 label={PRIMARY_PHONE.display}
-                detail="Talk to somebody now — Monday to Saturday, 9:30 to 6:30"
+                detail="Talk to somebody now - Monday to Saturday, 9:30 to 6:30"
               />
             </a>
           </li>
