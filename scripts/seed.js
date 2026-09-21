@@ -47,6 +47,7 @@ const {
   Package,
   Departure,
   Service,
+  CategoryPage,
   Campaign,
   Testimonial,
   GalleryItem,
@@ -58,6 +59,7 @@ const { destinations } = await import("./seed-data/destinations.js");
 const { packages } = await import("./seed-data/packages.js");
 const { services } = await import("./seed-data/services.js");
 const { campaigns, testimonials, galleryItems, offices } = await import("./seed-data/content.js");
+const { categoryPages } = await import("./seed-data/category-pages.js");
 
 const RESET = process.argv.includes("--reset");
 
@@ -155,6 +157,7 @@ async function main() {
       Package.deleteMany({}),
       Departure.deleteMany({}),
       Service.deleteMany({}),
+      CategoryPage.deleteMany({}),
       Campaign.deleteMany({}),
       Testimonial.deleteMany({}),
       GalleryItem.deleteMany({}),
@@ -233,6 +236,15 @@ async function main() {
     await upsertBySlug(Service, { ...source, status: "active" });
   }
   console.log(`Services      ${services.length} ✓`);
+
+  /* --- Package category pages -------------------------------------------- */
+  /* The editorial content above /packages/<category>/ — see
+     models/CategoryPage.js. A category with no document here keeps the
+     original heading-and-grid layout. */
+  for (const source of categoryPages) {
+    await upsertBySlug(CategoryPage, { ...source, status: "active" });
+  }
+  console.log(`Category page ${categoryPages.length} ✓`);
 
   /* --- Campaigns --------------------------------------------------------- */
   for (const source of campaigns) {

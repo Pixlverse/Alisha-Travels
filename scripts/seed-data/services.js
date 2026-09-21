@@ -633,280 +633,531 @@ export const services = [
       "Tourist visa documentation, appointments and supporting bookings prepared by an IATA-accredited agency in Kerala, checked before submission.",
   },
   /*
-    TRAIN & BUS TICKETS — added at the client's instruction ("We can include
-    Train and Bus ticket also").
+    TRAIN & BUS TICKETS, CAB RENTAL, CRUISE HOLIDAYS AND PASSPORT SERVICES.
 
-    THE COPY BELOW IS DRAFTED, NOT SUPPLIED. Every other service on this site
-    carries the client's own words; this one carries ours, written to match
-    their voice and to claim nothing we cannot stand behind — no reservation
-    quotas, no tatkal promises, no named operators. It needs their sign-off,
-    and anything in it that is wrong about how they actually work should be
-    corrected in /admin/ rather than here.
+    These four shipped with DRAFTED copy — ours, written in the client's voice
+    while we waited for theirs. Every word below is now the client's own,
+    supplied page by page, and the drafts are gone. Immigration services is
+    the one that is still ours; its note says so.
   */
   {
     slug: "train-bus-tickets",
-    title: "Train & bus tickets",
+    title: "Train & bus ticket booking services",
     icon: "TrainFront",
     order: 4,
     shortDescription:
-      "Rail and road legs booked alongside the rest of the trip, so the connections actually meet.",
+      "Rail and road legs booked as part of the trip, so the arrival and the onward connection agree.",
     heroLead:
-      "Not every journey is a flight. Train reservations and intercity bus seats are booked from the same desk as the rest of your trip, which means the arrival and the onward leg are checked against each other before anything is confirmed.",
-    ctaLabel: "Ask about a booking",
+      "Not every journey needs a flight. We book the rail and road legs as part of the trip you are already planning — so the arrival time, the hotel check-in and the onward connection agree with one another, instead of being three bookings made at three different times by three different people.",
+    ctaLabel: "Get the options",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
     secondaryCtaType: "whatsapp",
     assurances: [
-      { title: "Booked with the trip", text: "Not a separate errand on a separate app" },
-      { title: "Connections checked", text: "Arrival and onward leg compared before booking" },
-      { title: "One place to ask", text: "The planner who booked it answers about it" },
-      { title: "Groups handled", text: "Seats together, on one payment" },
+      {
+        title: "Booked around your connection",
+        text: "The train that meets your flight, not the one that leaves first",
+      },
+      {
+        title: "Waitlists watched to the chart",
+        text: "You are told either way, in time to change the plan",
+      },
+      {
+        title: "Group travel on one reference",
+        text: "Twenty travellers, one coordinator, one payment",
+      },
+      {
+        title: "Answered when plans move",
+        text: "A cancelled service at 6am. The phone is picked up.",
+      },
     ],
     blocks: [
       {
         kind: "cards",
-        title: "What we are usually asked for",
+        title: "What people come to us for",
         intro:
-          "Rail and road work is rarely the whole trip — it is the part that has to line up with the rest of it.",
+          "Not a list of routes — these are the situations travellers arrive with. Tell us yours even if it isn't here.",
+        linkLabel: "Start an enquiry",
+        linkHref: "/contact/",
         items: [
           {
-            tag: "Rail",
-            title: "Train reservations",
-            text: "Reserved seats and berths on Indian Railways, booked for the class and quota that is actually available on your date.",
+            tag: "Connections",
+            title: "Connecting transportation that connects",
+            text: "Landing at Kochi at 11pm and needing to be in Bengaluru by morning. The connection is checked against the flight before anything is booked.",
           },
           {
-            tag: "Road",
-            title: "Intercity bus seats",
-            text: "Sleeper and seater coaches on interstate routes, including the overnight legs some hill itineraries depend on.",
+            tag: "Pilgrimage",
+            title: "Sabarimala, Velankanni, Tirupati",
+            text: "Season travel where seats disappear months ahead, and where the return date matters as much as the outbound one.",
           },
           {
             tag: "Groups",
-            title: "Groups travelling together",
-            text: "Seats together rather than scattered through the coach, on one booking and one payment.",
+            title: "Group travel arrangements",
+            text: "Group transportation for twenty: seats in the same coach where the quota allows, one booking reference and one payment instead of twenty confirmations.",
           },
           {
-            tag: "Transfers",
-            title: "Station and stand transfers",
-            text: "The car that meets the train, arranged with the arrival time rather than an estimate of it.",
+            tag: "Tour legs",
+            title: "Domestic travel arrangements inside a package",
+            text: "The intercity legs of a tour, timed with the hotels and the cab so nobody is left standing at a bus stand with luggage.",
+          },
+          {
+            tag: "Waitlist",
+            title: "Confirmed, or told early",
+            text: "A waitlisted ticket is watched to the chart. If it is not going to clear, you hear it while there is still time to do something about it.",
+          },
+          {
+            tag: "Elders",
+            title: "Lower berth, short platform walk",
+            text: "Requested where the quota allows, boarding point chosen for the shorter walk, and said plainly when it cannot be promised.",
           },
         ],
         footnote:
-          "Availability on Indian Railways is decided by the reservation system, not by an agent. We will tell you what is open on your date, and what the realistic alternative is when it is not.",
+          "Train ticket booking services across Kerala — Indian Railways, KSRTC and the private operators. Intercity travel, pilgrimage season travel and domestic travel arrangements for families and groups. Tell us the route and the date.",
+      },
+      {
+        kind: "steps",
+        title: "What actually happens after you message us",
+        intro:
+          "No app, no login, no thirty open tabs. You tell a person where you are going and they work out how you get there.",
+        items: [
+          {
+            title: "You tell us the route",
+            text: "Where from, where to, when, and how many of you. WhatsApp, a call or the form. Exact times can come later.",
+          },
+          {
+            title: "We check what actually runs",
+            text: "Trains and buses on that route, with the arrival time set next to your onward plan — not simply the cheapest departure.",
+          },
+          {
+            title: "You pick one",
+            text: "Class, berth preference, operator. What is refundable and what is not, stated before you pay anything.",
+          },
+          {
+            title: "We book it",
+            text: "The ticket reaches you on email and WhatsApp, with the PNR and the boarding point, not just a confirmation screen.",
+          },
+          {
+            title: "And after that",
+            text: "Waitlists watched, cancellations processed, and an alternative found if the service is withdrawn.",
+          },
+        ],
       },
       {
         kind: "prose",
-        title: "Why book a train through us at all",
+        title: "Why a booking agency beats a booking app",
         body:
-          "You can book a train yourself, and on a single straightforward journey you probably should. It is worth asking us when the rail or road leg is part of something larger: a flight landing the same morning, a hotel that has to be held an extra night, a group of twenty who need to arrive together.\n\nThose are the bookings that go wrong in the gaps between them — a connection that looked fine until the arrival terminal was checked, an overnight bus that reaches town four hours before check-in. Booking the legs from one desk is what lets somebody notice that before you have paid for it.",
+          "An app will sell you a seat on any service with availability. It does not know that your flight lands at 11pm, that the last connecting bus left at nine, or that the return you booked falls on the morning of a visa appointment that has since moved.\n\nWe book the leg after looking at the rest of the trip. If the timing does not work, you are told before the money is spent — and if the railways cancel the service a week later, the person who booked it is the person who finds you another one.",
+      },
+      {
+        kind: "list",
+        title: "Travel planning alongside hotel and tour bookings",
+        intro: "Booked through the same desk, so nothing has to be organised twice.",
+        tags: [
+          "Hotel booking",
+          "Customised tour packages",
+          "Cab rental",
+          "Air tickets",
+          "Travel insurance",
+          "Tourist visa assistance",
+        ],
       },
     ],
-    closingTitle: "Tell us the route and the date.",
-    closingText: "We will come back with what is available and what it costs.",
-    closingPrimaryLabel: "Ask about a booking",
+    closingTitle: "Tell us the route and the date. We'll come back with what runs.",
+    closingText: "One planner from your first message to your arrival.",
+    closingPrimaryLabel: "Get the options",
     closingPrimaryType: "enquiry",
     closingSecondaryLabel: "WhatsApp us",
     closingSecondaryType: "whatsapp",
-    metaTitle: "Train & Bus Ticket Booking",
+    metaTitle: "Train & Bus Ticket Booking Services in Kerala",
     metaDescription:
-      "Train reservations and intercity bus tickets booked from Kerala alongside flights, hotels and transfers, with connections checked and groups seated together.",
+      "Train and bus ticket booking across Kerala — Indian Railways, KSRTC and private operators, booked around your flight, your hotel and the rest of the trip.",
   },
-  /*
-    CAB RENTAL, PASSPORT, IMMIGRATION AND CRUISE — added at the client's
-    instruction, alongside train and bus tickets.
-
-    THE COPY ON ALL FOUR IS DRAFTED, NOT SUPPLIED, exactly as it is on the
-    train and bus page. It is written in their voice and it claims nothing
-    that cannot be stood behind — no processing times, no named operators, no
-    suggestion that we decide anything an authority decides. Every one of them
-    needs the client's sign-off, and the specifics (rates, the cruise lines
-    they actually sell, what their immigration desk does and does not handle)
-    have to come from them. Edit in /admin/ rather than here.
-  */
   {
     slug: "cab-rental",
-    title: "Cab rental",
+    title: "Cab rental & car rental services",
     icon: "Car",
     order: 5,
     shortDescription:
-      "Airport transfers, day hire and outstation cars with drivers we have used before.",
+      "Airport transfers, sightseeing days and outstation runs, fixed alongside the rest of the itinerary.",
     heroLead:
-      "A car and a driver for an airport run, a day of sightseeing or a week on the road. The same desk that books the trip books the cars in it, which is what keeps the pickup time matched to the arrival rather than to the scheduled arrival.",
-    ctaLabel: "Ask for a quote",
+      "Cab rental in Kerala, arranged around the trip rather than sold by the kilometre. A cab is the part nobody thinks about until they are standing outside an airport at two in the morning with four suitcases — so we fix the airport transfers, the sightseeing days and the outstation runs alongside your itinerary, with the driver's number in your hand before you land.",
+    ctaLabel: "Get a quote",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
     secondaryCtaType: "whatsapp",
     assurances: [
-      { title: "Quoted before you travel", text: "Kilometres, tolls and driver allowance stated up front" },
-      { title: "Drivers we know", text: "Not whoever the app assigns at 4 a.m." },
-      { title: "Matched to the flight", text: "Pickups tracked against the actual arrival" },
-      { title: "One bill", text: "Cars invoiced with the rest of the trip, not settled in cash" },
+      {
+        title: "The driver's number, in advance",
+        text: "Not a booking ID and a support chat window",
+      },
+      {
+        title: "The quoted fare is the fare",
+        text: "Toll, parking and driver allowance named upfront",
+      },
+      {
+        title: "Vehicle matched to the luggage",
+        text: "Four people with six bags is not a sedan",
+      },
+      { title: "Answered at odd hours", text: "Flights land at 3am. So do the calls we take." },
     ],
     blocks: [
       {
         kind: "cards",
-        title: "What we are usually asked for",
+        title: "What people come to us for",
+        intro:
+          "Not a list of vehicles — these are the situations travellers arrive with. Tell us yours even if it isn't here.",
+        linkLabel: "Start an enquiry",
+        linkHref: "/contact/",
         items: [
           {
             tag: "Airport",
-            title: "Airport pickups and drops",
-            text: "Kochi, Trivandrum and Kozhikode, with the driver's number sent ahead and the pickup held if the flight is late.",
+            title: "Airport transfers at 2am",
+            text: "Airport cab booking for Kochi, Trivandrum and Calicut. A driver waiting with your name and a number you already have, and a pickup that moves when the flight does.",
           },
           {
-            tag: "Day hire",
-            title: "A car for the day",
-            text: "Eight hours and eighty kilometres is the usual basis; anything beyond it is charged at a rate agreed before you set off.",
+            tag: "Sightseeing",
+            title: "Sightseeing transportation",
+            text: "Cab rental for sightseeing through Munnar, Thekkady and Alleppey — one vehicle and one driver for the days you are out, not a fresh negotiation at every stop.",
           },
           {
             tag: "Outstation",
-            title: "Multi-day tours with a driver",
-            text: "The whole itinerary in one vehicle, with the driver's accommodation and allowance included in the quote rather than collected on the road.",
+            title: "Outstation cab services",
+            text: "Outstation travel from Kerala to Bengaluru or Coimbatore, one-way or round trip, with the return leg and the driver's rest inside the quote rather than added to it.",
+          },
+          {
+            tag: "Transfers",
+            title: "Point-to-point transfers",
+            text: "Station to hotel, hotel to port, one town to the next. Local cab rentals for the single legs that otherwise get sorted out on the pavement.",
           },
           {
             tag: "Groups",
-            title: "Tempo travellers and coaches",
-            text: "Twelve to forty-nine seats for family movements, school groups and corporate travel.",
+            title: "Group transportation",
+            text: "Twelve and their luggage: a tempo traveller or a set of cars, costed both ways so you can see which actually suits the route.",
+          },
+          {
+            tag: "Elders",
+            title: "A driver who will wait",
+            text: "Slow boarding, a stop when it is needed and a route with fewer hours in one stretch. Told to the driver in advance, not on the day.",
           },
         ],
         footnote:
-          "Sedans, SUVs and tempo travellers. Tell us the route and the number of people and we will tell you which is the sensible vehicle, not the most expensive one.",
+          "Car rental in Kerala, airport and local transfers, and outstation travel across South India. Sedan to tempo traveller, for a single transfer or for a fortnight. Call it a cab, a taxi or a car rental — the arrangement is the same. Tell us the route and how many of you.",
+      },
+      {
+        kind: "steps",
+        title: "What actually happens after you message us",
+        intro:
+          "You tell a person where you need to be and when. They work out the vehicle, the route and what it costs.",
+        items: [
+          {
+            title: "Tell us the journey",
+            text: "Pickup point, dates, how many travelling and how much luggage. WhatsApp, a call or the form.",
+          },
+          {
+            title: "We come back with the vehicle and the fare",
+            text: "With what is included stated before you pay: toll, parking, permit, driver allowance, night charge.",
+          },
+          {
+            title: "You confirm",
+            text: "Advance or on arrival, whichever suits. Cancellation terms named.",
+          },
+          {
+            title: "Driver details reach you",
+            text: "Name, number and vehicle, before the day of travel rather than on the morning of it.",
+          },
+          {
+            title: "And after that",
+            text: "A delayed flight, a changed plan, an extra stop. One number, and it is answered.",
+          },
+        ],
       },
       {
         kind: "prose",
-        title: "What the quote includes",
+        title: "Why the fare is the part to check",
         body:
-          "A cab quote from us states the vehicle, the kilometre and hour limits, the rate beyond them, and whether tolls, parking, state permits and the driver's allowance are inside the figure or outside it. Those five lines are where hire charges usually go wrong, and they are the reason a fare quoted on the phone turns into an argument at the end of the trip.\n\nWe do not own the cars. What we do is use the same operators repeatedly, quote you what they have quoted us, and take the call ourselves when something goes wrong at the roadside.",
+          "The number an aggregator shows you is rarely the number you pay. Toll, parking, permit for crossing a state line, driver allowance and the night charge are added at the destination, when arguing about them is the last thing you want to do.\n\nWe state the inclusions before you book. If a route needs an interstate permit or a second driver, that is in the quote you agree to — not a conversation at the end of a long day.",
+      },
+      {
+        kind: "list",
+        title: "Arrange it with the rest of the trip",
+        intro: "Booked through the same desk, so nothing has to be organised twice.",
+        tags: [
+          "Hotel booking",
+          "Customised tour packages",
+          "Air tickets",
+          "Train & bus tickets",
+          "Cruise holidays",
+          "Travel insurance",
+        ],
       },
     ],
-    closingTitle: "Tell us the route and the dates.",
-    closingText: "We will come back with the vehicle and the figure it costs.",
-    closingPrimaryLabel: "Ask for a quote",
+    closingTitle: "Tell us where you're travelling. We'll arrange the vehicle.",
+    closingText: "One planner from your first message to your last drop-off.",
+    closingPrimaryLabel: "Get a quote",
     closingPrimaryType: "enquiry",
     closingSecondaryLabel: "WhatsApp us",
     closingSecondaryType: "whatsapp",
-    metaTitle: "Cab Rental & Airport Transfers in Kerala",
+    metaTitle: "Cab Rental & Car Rental Services in Kerala",
     metaDescription:
-      "Airport transfers, day hire and outstation cars with drivers, booked from Kottayam alongside flights, hotels and tour packages. Tolls and allowances quoted up front.",
+      "Cab rental in Kerala — airport transfers at Kochi, Trivandrum and Calicut, sightseeing days and outstation runs, with toll, parking and driver allowance named in the quote.",
   },
   {
     slug: "cruise-holidays",
-    title: "Cruise holidays",
+    title: "Cruise holidays & cruise packages",
     icon: "Ship",
     order: 6,
     shortDescription:
-      "Cabins booked, shore excursions planned and the flights either side arranged with them.",
+      "The cabin, and everything around it — the flight the day before, the port hotel, the visas each port needs.",
     heroLead:
-      "A cruise is the one holiday where the hotel moves overnight. It suits families with a wide age range, first-time international travellers and anyone who would rather unpack once — and it is the trip most often booked without anybody explaining what the fare actually covers.",
-    ctaLabel: "Ask about a cruise",
+      "Cruise packages from Kerala, planned around the sailing date rather than sold off a brochure. A cruise is the one holiday where being late is not recoverable — the ship sails. So we book the cabin and everything around it: the flight that lands the day before, the hotel in the port city, the visas the itinerary quietly needs, and the transfer that puts you at the terminal with hours to spare rather than minutes.",
+    ctaLabel: "Get sailing options",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
     secondaryCtaType: "whatsapp",
     assurances: [
-      { title: "The fare, explained", text: "What is in the cabin rate and what is billed on board" },
-      { title: "Flights either side", text: "Booked to reach the port with a night in hand" },
-      { title: "Cabins chosen, not assigned", text: "Deck, side and position picked for the sailing" },
-      { title: "Shore days planned", text: "Excursions booked before they sell out at the desk" },
+      {
+        title: "Flights that land the day before",
+        text: "Never on the morning of the sailing",
+      },
+      {
+        title: "Visas checked for every port",
+        text: "One itinerary can touch three visa regimes",
+      },
+      { title: "Cabin category explained", text: "What the deck plan is not showing you" },
+      { title: "One planner for the whole trip", text: "Cruise, flights, hotel and transfer" },
     ],
     blocks: [
       {
         kind: "cards",
-        title: "How cruises are usually booked",
+        title: "What people come to us for",
         intro:
-          "Cruise itineraries are fixed by the line and published months ahead, so the work is in choosing the sailing, the cabin and what happens on either side of it.",
+          "Not a list of ships — these are the trips travellers arrive wanting. Tell us yours even if it isn't here.",
+        linkLabel: "Start an enquiry",
+        linkHref: "/contact/",
         items: [
           {
-            tag: "Sailing",
-            title: "Choosing the sailing",
-            text: "The route, the length and the season decide most of the experience. We will say plainly which sailings suit a first cruise and which are better once you know you enjoy them.",
+            tag: "Honeymoon",
+            title: "Customised cruise holidays",
+            text: "Which sailing, which deck, and which dates are not full of school holidays. What the balcony is worth, and when it is not.",
           },
           {
-            tag: "Cabin",
-            title: "Choosing the cabin",
-            text: "Inside, ocean view, balcony or suite, and where on the ship it sits. Deck and position matter more than the category name, particularly for anyone prone to seasickness.",
+            tag: "Family",
+            title: "Three generations on one ship",
+            text: "Connecting cabins, dining times that suit everyone, and what there is to do for a five-year-old and a seventy-year-old on the same afternoon.",
           },
           {
-            tag: "Ports",
-            title: "Shore excursions",
-            text: "Each port day is a choice between the ship's excursion, an independent tour and a day ashore on your own. We book them ahead, because the popular ones close before sailing.",
+            tag: "First cruise",
+            title: "Cruise package selection",
+            text: "What the fare covers and what it quietly does not — drinks, shore excursions, gratuities, wifi — before you are on board finding out.",
           },
           {
-            tag: "Either side",
-            title: "Flights, hotels and transfers",
-            text: "Reaching the port the day before is not caution, it is the difference between a missed sailing and a holiday. Flights, the pre-cruise night and the transfer are booked with the cabin.",
+            tag: "Gulf",
+            title: "International cruise packages",
+            text: "Sailing from Dubai: flights from Kochi, the UAE visa and a night in the city before boarding, arranged as one trip rather than four bookings.",
+          },
+          {
+            tag: "Around the sailing",
+            title: "Pre- and post-cruise travel planning",
+            text: "The night before at the port city and the days after it, so the cruise is the middle of the holiday rather than all of it.",
+          },
+          {
+            tag: "Visas",
+            title: "Ports that need their own visa",
+            text: "A Mediterranean itinerary can call at three countries with three sets of rules. Checked before you book, not after the deposit is paid.",
+          },
+        ],
+        footnote:
+          "Cruise holidays from Kerala: domestic sailings from Mumbai and Chennai, Gulf departures from Dubai and Abu Dhabi, and Mediterranean, Northern European, Alaskan, Caribbean and Southeast Asian itineraries. Tell us roughly when and who is travelling, and we will come back with sailings that fit.",
+      },
+      {
+        kind: "steps",
+        title: "How cruise holiday planning works",
+        intro:
+          "You tell a person what kind of holiday you want it to be. They find the sailing and build the trip around it.",
+        items: [
+          {
+            title: "Tell us about the trip",
+            text: "Who is travelling, roughly when, and what you want the holiday to feel like. Exact dates can come later.",
+          },
+          {
+            title: "We come back with sailings",
+            text: "Two or three, with the cabin categories, what the fare includes and what it does not.",
+          },
+          {
+            title: "You pick one",
+            text: "Deposit, balance date and cancellation terms stated before anything is paid.",
+          },
+          {
+            title: "We build the trip around it",
+            text: "Flights landing a day early, the port hotel, the visas each port calls for, and the transfer to the terminal.",
+          },
+          {
+            title: "And after that",
+            text: "Document deadlines, changes, and one number that is answered while you are travelling.",
           },
         ],
       },
       {
         kind: "prose",
-        title: "What the fare covers, and what it does not",
+        title: "Why the day before matters",
         body:
-          "A cruise fare usually covers the cabin, main dining, most entertainment and getting from port to port. Speciality restaurants, drinks packages, shore excursions, gratuities, spa treatments and Wi-Fi are normally billed on board, and port charges and taxes are often quoted separately from the headline fare.\n\nWe set that out in writing before you pay, with the on-board account explained, so the bill on the last morning is not the first time anybody mentions it.",
+          "Almost every cruise that goes wrong goes wrong at embarkation. A connecting flight that was delayed, a visa for a port nobody checked, a transfer booked to the wrong terminal. The ship does not wait, and a missed sailing is rarely covered when the flight was booked separately from the cruise.\n\nSo we build in the night before. It costs a hotel room and it removes the one risk that can end a holiday before it starts — and because the flights, the visas and the cruise are booked by the same person, there is nobody to point at when something has to move.",
       },
       {
-        kind: "prose",
-        title: "Itineraries",
-        body:
-          "Every sailing has its own day-by-day itinerary, and we send it as a written plan the same way we send a land tour: the ports, the sea days, the times the ship sails, and what is worth doing at each stop.\n\nTell us the month, the region and how many are travelling, and we will come back with the sailings that fit.",
+        kind: "list",
+        title: "Arrange it with the rest of the trip",
+        intro: "Booked through the same desk, so nothing has to be organised twice.",
+        tags: [
+          "Air tickets",
+          "Hotel booking",
+          "Tourist visa assistance",
+          "Cab rental",
+          "Travel insurance",
+          "Customised tour packages",
+        ],
       },
     ],
-    closingTitle: "Thinking about a cruise?",
-    closingText:
-      "Tell us roughly when and where, and whether this is a first cruise. We will come back with two or three sailings, what each cabin grade costs and what the on-board bill is likely to add.",
-    closingPrimaryLabel: "Ask about a cruise",
+    closingTitle: "Tell us when you want to sail. We'll come back with options.",
+    closingText: "One planner from your first message to the gangway.",
+    closingPrimaryLabel: "Get sailing options",
     closingPrimaryType: "enquiry",
     closingSecondaryLabel: "WhatsApp us",
     closingSecondaryType: "whatsapp",
-    metaTitle: "Cruise Holidays & Cruise Bookings from Kerala",
+    metaTitle: "Cruise Holidays & Cruise Packages from Kerala",
     metaDescription:
-      "Cruise holidays booked from Kerala — choosing the sailing and the cabin, shore excursions, and the flights and hotels either side, with the on-board costs explained before you pay.",
+      "Cruise packages from Kerala — domestic, Gulf and international sailings, with the flight the day before, the port hotel, the visas each port needs and the transfer to the terminal.",
   },
   {
     slug: "passport-services",
-    title: "Passport services",
+    title: "Passport services & assistance",
     icon: "BookUser",
     order: 9,
     shortDescription:
-      "Applications filled, documents checked and Passport Seva appointments booked.",
+      "Applications prepared and checked against your documents before an appointment is booked.",
     heroLead:
-      "A passport application is refused or delayed far more often for a mismatched address or a missing document than for anything about the applicant. We prepare the file, check it against what the Passport Seva Kendra asks for, and book the appointment.",
-    ctaLabel: "Ask about a passport",
+      "Passport application assistance in Kottayam, for applicants across Kerala. Applications are held up far more often by a mismatched address or a missing annexure than by anything serious — so we fill the form with your documents in front of us, tell you what is missing before an appointment is booked, and are clear about where our part ends: the Passport Office issues the passport, not us.",
+    ctaLabel: "Get your document list",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
     secondaryCtaType: "whatsapp",
     assurances: [
-      { title: "Checked before submission", text: "Against the current document list, not last year's" },
-      { title: "Appointments booked", text: "At the Kendra that can actually see you soonest" },
-      { title: "Fresh, renewal or reissue", text: "Including damaged, lost and name-change cases" },
-      { title: "One person on your file", text: "Who knows where the application has reached" },
+      { title: "Documents checked first", text: "Before the appointment, not at the counter" },
+      {
+        title: "Address proof that matches",
+        text: "The commonest reason a file comes back",
+      },
+      {
+        title: "Appointment slot watched",
+        text: "Taken when it opens at a Kendra you can reach",
+      },
+      { title: "Plain about the limits", text: "Verification and issue belong to the PSK" },
     ],
     blocks: [
       {
-        kind: "list",
-        title: "What we help with",
-        points: [
-          "Fresh passport applications for adults, children and senior citizens",
-          "Renewal and reissue, including expiry, exhausted pages and damaged books",
-          "Change of name, address or date of birth, with the supporting documents each one needs",
-          "Tatkaal applications where the case qualifies, with the verification documents prepared",
-          "Police clearance certificates for employment and visa purposes",
-          "Appointment booking, form filling and a document check before you go",
+        kind: "prose",
+        title: "What we do, and what we are not",
+        body:
+          "We are not agents of the Passport Seva Kendra and we have no influence over police verification or the issuing decision. Anybody who tells you otherwise is selling something that does not exist.\n\nWhat we do is prepare the application so it does not come back for a correction: the right scheme, the right annexure, documents that agree with one another, and an appointment on a date you can actually attend. The government fee is paid in your name on the Passport Seva portal. Our fee is separate, and stated before you start.",
+      },
+      {
+        kind: "cards",
+        title: "What people come to us for",
+        intro:
+          "Not a list of forms — these are the situations applicants arrive with. Tell us yours even if it isn't here.",
+        linkLabel: "Start an enquiry",
+        linkHref: "/contact/",
+        items: [
+          {
+            tag: "Fresh",
+            title: "New passport application assistance",
+            text: "Birth proof, address proof and the annexure that fits your situation, sorted out before anything is submitted.",
+          },
+          {
+            tag: "Renewal",
+            title: "Passport renewal assistance",
+            text: "Most countries want validity running well past your return date. Renewing early stops it becoming a visa problem later.",
+          },
+          {
+            tag: "Reissue",
+            title: "Reissue-related guidance",
+            text: "Lost or damaged: the police report, the affidavit and the form that goes with them, in the order the Kendra expects to see them.",
+          },
+          {
+            tag: "Minors",
+            title: "A passport for a child",
+            text: "Consent from both parents, the right annexure, and what to do when one parent is working abroad and cannot attend.",
+          },
+          {
+            tag: "Changes",
+            title: "Name or address changed",
+            text: "After a marriage or a move. Documentation guidance on what the Kendra will actually accept as proof, and what it will send back.",
+          },
+          {
+            tag: "Urgent",
+            title: "Travelling in ten days",
+            text: "Whether Tatkal applies to your case at all, and whether it will genuinely be faster — sometimes it is not.",
+          },
+        ],
+        footnote:
+          "Passport services in Kerala: fresh applications, renewals, reissues and changes of particulars. Applicants across Kottayam, Ernakulam, Idukki, Alappuzha and Pathanamthitta, and families applying from the Gulf on behalf of someone here.",
+      },
+      {
+        kind: "steps",
+        title: "Support with passport-related procedures",
+        intro:
+          "Most of the work happens before an appointment is booked, which is the part that decides whether you make one visit or three.",
+        items: [
+          {
+            title: "Tell us what you need",
+            text: "New, renewal, reissue, or a change of details. And when you need to travel, if you do.",
+          },
+          {
+            title: "We list your documents",
+            text: "For your scheme and your situation, not a generic checklist copied off a website.",
+          },
+          {
+            title: "You gather them, we check them",
+            text: "Line by line against your existing papers, while a correction still costs nothing.",
+          },
+          {
+            title: "Form filled, appointment booked",
+            text: "Filled against the documents in front of us, and a slot taken at a Seva Kendra you can actually get to.",
+          },
+          {
+            title: "You attend, we stay reachable",
+            text: "The Kendra visit is yours to attend in person. Questions before and after come back to us.",
+          },
         ],
       },
       {
         kind: "prose",
-        title: "What we cannot do",
+        title: "Why the form is the part that goes wrong",
         body:
-          "A passport is issued by the Regional Passport Office, and nobody outside it can promise an outcome, a date or a police verification result. Anyone who tells you otherwise is selling something they do not control.\n\nWhat we can do is make sure the file that reaches them is complete and consistent, that the appointment is booked for a date that works, and that you know what happens at each stage — which is where most of the delay and nearly all of the anxiety comes from.",
+          "The online form is unforgiving. A name spelled one way on a school certificate and another on an electricity bill, an address the proof does not support, the wrong annexure for your marital status — each one means a second visit, or a file sitting on hold while you work out what happened.\n\nNone of that is difficult to avoid. It just has to be checked by somebody who has seen it go wrong before, with your documents on the desk, before the appointment is booked rather than after you have taken a day off to attend one.",
+      },
+      {
+        kind: "list",
+        title: "Planning to travel abroad?",
+        intro: "Booked through the same desk, so nothing has to be organised twice.",
+        tags: [
+          "Tourist visa assistance",
+          "Immigration documentation",
+          "Certificate attestation",
+          "Air tickets",
+          "Hotel booking",
+          "Travel insurance",
+        ],
       },
     ],
-    closingTitle: "Tell us what you need the passport for.",
-    closingText: "Fresh, renewal or urgent — we will tell you which documents to bring and book the appointment.",
-    closingPrimaryLabel: "Ask about a passport",
+    closingTitle: "Tell us what you're applying for. We'll send the document list.",
+    closingText: "One person on your file, from the first call to the passport in your hand.",
+    closingPrimaryLabel: "Get your document list",
     closingPrimaryType: "enquiry",
-    closingSecondaryLabel: "Call the office",
-    closingSecondaryType: "phone",
-    metaTitle: "Passport Services in Kottayam, Kerala",
+    closingSecondaryLabel: "WhatsApp us",
+    closingSecondaryType: "whatsapp",
+    metaTitle: "Passport Services & Application Assistance in Kottayam",
     metaDescription:
-      "Passport applications, renewals and reissues prepared and checked in Kottayam, with Passport Seva appointments booked and the document list explained before you go.",
+      "Passport application assistance in Kottayam — fresh applications, renewals, reissues and changes of particulars, with documents checked and the Seva Kendra appointment booked.",
   },
   {
     slug: "immigration-services",

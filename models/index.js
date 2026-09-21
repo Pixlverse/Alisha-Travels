@@ -7,6 +7,7 @@ export { default as Destination } from "./Destination.js";
 export { default as Package } from "./Package.js";
 export { default as Departure, departureAvailability } from "./Departure.js";
 export { default as Service } from "./Service.js";
+export { default as CategoryPage } from "./CategoryPage.js";
 export { default as Campaign } from "./Campaign.js";
 export { default as Testimonial } from "./Testimonial.js";
 export { default as GalleryItem } from "./GalleryItem.js";

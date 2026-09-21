@@ -10,7 +10,7 @@ import { imageSchema, faqSchema, seoSchema, registerModel, slugify } from "./_sh
 /** What a button on a service page can do. */
 export const CTA_ACTIONS = ["enquiry", "phone", "whatsapp", "email"];
 
-const serviceCardSchema = new mongoose.Schema(
+export const serviceCardSchema = new mongoose.Schema(
   {
     tag: { type: String, trim: true, default: "" },
     title: { type: String, required: true, trim: true },
@@ -47,7 +47,7 @@ const serviceColumnSchema = new mongoose.Schema(
  *   list   title, intro, points[] or columns[], tagsLabel + tags[], footnote
  *   prose  title, body
  */
-const serviceBlockSchema = new mongoose.Schema(
+export const serviceBlockSchema = new mongoose.Schema(
   {
     kind: { type: String, enum: ["cards", "steps", "list", "prose"], default: "cards" },
     title: { type: String, trim: true, default: "" },
