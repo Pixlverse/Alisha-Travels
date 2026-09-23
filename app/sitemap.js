@@ -2,6 +2,7 @@ import { getDestinations } from "@/lib/data/destinations";
 import { getPackages } from "@/lib/data/packages";
 import { getServices } from "@/lib/data/content";
 import { SITE } from "@/lib/site";
+import { VISA_PAGES } from "@/lib/content/visa-pages";
 
 /**
  * Dynamic sitemap, served at /sitemap.xml.
@@ -42,6 +43,11 @@ export default async function sitemap() {
     { path: "/fixed-departures/international/", priority: 0.7, changeFrequency: "daily" },
     { path: "/fixed-departures/domestic/", priority: 0.7, changeFrequency: "daily" },
     { path: "/services/", priority: 0.8, changeFrequency: "monthly" },
+    // Static routes, not Service documents, so the services loop below does
+    // not list them. Visa rules change often, hence monthly.
+    { path: VISA_PAGES.hub.href, priority: 0.8, changeFrequency: "monthly" },
+    { path: VISA_PAGES.dependant.href, priority: 0.8, changeFrequency: "monthly" },
+    { path: VISA_PAGES.settlement.href, priority: 0.8, changeFrequency: "monthly" },
     { path: "/about/", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about/ramzi-mohammed-ali/", priority: 0.5, changeFrequency: "yearly" },
     { path: "/reviews/", priority: 0.6, changeFrequency: "weekly" },

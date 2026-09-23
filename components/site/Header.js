@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, Plus, X } from "lucide-react";
@@ -99,8 +100,15 @@ export default function Header() {
     };
   }, [mobileOpen]);
 
-  const isActive = (href) =>
+  const matches = (href) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href.replace(/\/$/, ""));
+  // The most specific top-level match wins. Global Visa lives under
+  // /services/global-visa/, so a plain prefix test would underline Services
+  // as well on every visa page.
+  const activeHref = NAV.map((item) => item.href)
+    .filter(matches)
+    .sort((a, b) => b.length - a.length)[0];
+  const isActive = (href) => href === activeHref;
 
   // A short delay on mouse-out stops the panel snapping shut while the pointer
   // crosses the gap between the trigger and the panel.
@@ -234,6 +242,10 @@ export default function Header() {
 }
 
 function MegaPanel({ id, item, open, wide, onMouseEnter }) {
+  // Items with a description (the Global Visa menu) get a wider panel and a
+  // two-line entry with their flags, instead of a bare list of labels.
+  const rich = item.columns.some((column) => column.items.some((link) => link.description));
+
   return (
     <div
       id={id}
@@ -249,7 +261,7 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
       <div
         className={cn(
           "rounded-3xl border border-line bg-white p-6 shadow-[0_28px_70px_-30px_rgba(16,32,42,0.4)]",
-          wide ? "grid w-[44rem] grid-cols-[1.4fr_1fr] gap-8" : "w-[17rem]"
+          wide ? "grid w-[44rem] grid-cols-[1.4fr_1fr] gap-8" : rich ? "w-[24rem]" : "w-[17rem]"
         )}
       >
         {item.columns.map((column) => (
@@ -265,12 +277,29 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
             >
               {column.items.map((link) => (
                 <li key={`${link.label}-${link.href}`}>
-                  <Link
-                    href={link.href}
-                    className="block rounded-xl px-2.5 py-2 text-sm text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-800"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.description ? (
+                    <Link
+                      href={link.href}
+                      className="group flex items-start gap-3 rounded-2xl px-2.5 py-2.5 transition-colors hover:bg-brand-50"
+                    >
+                      <NavFlags codes={link.flags} />
+                      <span className="min-w-0">
+                        <span className="block text-sm font-semibold text-ink group-hover:text-brand-800">
+                          {link.label}
+                        </span>
+                        <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">
+                          {link.description}
+                        </span>
+                      </span>
+                    </Link>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="block rounded-xl px-2.5 py-2 text-sm text-ink-soft transition-colors hover:bg-brand-50 hover:text-brand-800"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -278,6 +307,26 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
         ))}
       </div>
     </div>
+  );
+}
+
+/** Overlapping flag discs beside a menu entry. Decorative: the label says it. */
+function NavFlags({ codes = [] }) {
+  if (!codes.length) return null;
+  return (
+    <span className="mt-0.5 flex w-14 shrink-0 -space-x-1.5" aria-hidden="true">
+      {codes.map((code) => (
+        <Image
+          key={code}
+          src={`/flags/${code}.png`}
+          alt=""
+          width={40}
+          height={40}
+          unoptimized
+          className="size-5 rounded-full object-cover shadow-[0_0_0_3px_rgba(16,32,42,0.12)] ring-2 ring-white"
+        />
+      ))}
+    </span>
   );
 }
 
