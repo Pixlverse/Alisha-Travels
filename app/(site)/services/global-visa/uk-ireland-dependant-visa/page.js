@@ -12,6 +12,7 @@ import {
   RuleRows,
   Situations,
   VisaClosing,
+  VisaCta,
   VisaHeading,
   VisaHero,
   WhyBand,
@@ -104,6 +105,13 @@ export default async function DependantVisaPage() {
               <EnquiryDialog label="Start an enquiry" variant="outline" size="md" {...enquiry} />
             }
           />
+          <VisaCta
+            {...DEPENDANT.ctas.situations}
+            primaryLabel={DEPENDANT.ctas.situations.primary}
+            whatsappHref={whatsappHref}
+            enquiry={enquiry}
+            className="mt-10"
+          />
         </div>
       </Section>
 
@@ -139,6 +147,13 @@ export default async function DependantVisaPage() {
       <Section tone="mist" className="py-10 sm:py-12">
         <div className="container-page">
           <DocChecklist {...DEPENDANT.ieDocs} />
+          <VisaCta
+            {...DEPENDANT.ctas.docs}
+            primaryLabel={DEPENDANT.ctas.docs.primary}
+            whatsappHref={whatsappHref}
+            enquiry={enquiry}
+            className="mt-10"
+          />
         </div>
       </Section>
 

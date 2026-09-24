@@ -15,6 +15,7 @@ import {
   RuleRows,
   Situations,
   VisaClosing,
+  VisaCta,
   VisaHeading,
   VisaHero,
   WhyBand,
@@ -109,6 +110,13 @@ export default async function SettlementVisaPage() {
               <EnquiryDialog label="Start an enquiry" variant="outline" size="md" {...enquiry} />
             }
           />
+          <VisaCta
+            {...SETTLEMENT.ctas.situations}
+            primaryLabel={SETTLEMENT.ctas.situations.primary}
+            whatsappHref={whatsappHref}
+            enquiry={enquiry}
+            className="mt-10"
+          />
         </div>
       </Section>
 
@@ -152,6 +160,13 @@ export default async function SettlementVisaPage() {
               </ol>
             </section>
           </DocChecklist>
+          <VisaCta
+            {...SETTLEMENT.ctas.docs}
+            primaryLabel={SETTLEMENT.ctas.docs.primary}
+            whatsappHref={whatsappHref}
+            enquiry={enquiry}
+            className="mt-10"
+          />
         </div>
       </Section>
 

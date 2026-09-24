@@ -15,6 +15,8 @@ import {
   Info,
   Landmark,
   Languages,
+  MapPin,
+  Phone,
   ShieldCheck,
   Star,
   Stethoscope,
@@ -27,7 +29,7 @@ import Button from "@/components/site/Button";
 import EnquiryDialog from "@/components/site/EnquiryDialog";
 import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import Flag, { FlagStack } from "./Flag";
-import { SITE, SOCIAL } from "@/lib/site";
+import { OFFICES, PRIMARY_PHONE, SITE, SOCIAL } from "@/lib/site";
 import { VISA_PAGES } from "@/lib/content/visa";
 import { cn } from "@/lib/utils";
 
@@ -706,5 +708,117 @@ export function VisaClosing({ title, text, primaryLabel, whatsappHref, enquiry }
         </div>
       </div>
     </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Mid-page call to action                                                    */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The box that follows "What people come to us for" and the document lists:
+ * the two places a reader has just recognised their own case, so the next
+ * step sits right there instead of at the foot of the page.
+ *
+ * Left, the ask, worded per page (the `cta` blocks in lib/content). Right,
+ * the three ways to reach the person who will prepare the file, with the
+ * same hours and reply time the contact page gives.
+ */
+export function VisaCta({ title, text, primaryLabel, whatsappHref, enquiry, className }) {
+  const office = OFFICES[0];
+  const ways = [
+    {
+      href: `tel:${PRIMARY_PHONE.tel}`,
+      icon: <Phone className="size-4" aria-hidden="true" />,
+      iconClass: "bg-brand-50 text-brand-700",
+      label: PRIMARY_PHONE.display,
+      detail: "Monday to Saturday, 9:30 to 6:30",
+    },
+    {
+      href: whatsappHref,
+      external: true,
+      icon: <WhatsAppIcon className="size-4" />,
+      iconClass: "bg-whatsapp/15 text-whatsapp-text",
+      label: "WhatsApp",
+      detail: "Usually replied within the hour",
+    },
+    {
+      href: "/contact/",
+      icon: <MapPin className="size-4" aria-hidden="true" />,
+      iconClass: "bg-sun/15 text-sun-shadow",
+      label: office.locality,
+      detail: office.address,
+    },
+  ];
+
+  return (
+    <aside
+      className={cn(
+        "grid overflow-hidden rounded-[1.75rem] border border-brand-100 bg-white shadow-[0_28px_60px_-40px_rgba(10,68,87,0.55)] lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]",
+        className
+      )}
+    >
+      <div className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 to-brand-900 px-6 py-8 sm:px-9 sm:py-10">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(rgba(255,255,255,0.16)_1px,transparent_1px)] [mask-image:linear-gradient(to_left,black,transparent_70%)] [background-size:20px_20px]"
+        />
+        <p className="flex items-center gap-2 text-xs font-semibold text-sun">
+          <UserRound className="size-3.5" aria-hidden="true" />
+          One person on your file
+        </p>
+        <h2 className="text-balance-heading mt-3 text-2xl leading-tight font-bold text-white sm:text-[1.75rem]">
+          {title}
+        </h2>
+        <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-brand-100/90">{text}</p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <EnquiryDialog label={primaryLabel} variant="white" size="md" {...enquiry} />
+          <Button href={whatsappHref} variant="whatsapp" size="md">
+            <WhatsAppIcon className="size-4" />
+            WhatsApp us
+          </Button>
+        </div>
+      </div>
+
+      <ul className="flex flex-col justify-center divide-y divide-line px-5 py-3 sm:px-7">
+        {ways.map((way) => {
+          const body = (
+            <>
+              <span className={cn("flex size-9 shrink-0 items-center justify-center rounded-full", way.iconClass)}>
+                {way.icon}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-ink group-hover:text-brand-800">
+                  {way.label}
+                </span>
+                <span className="mt-0.5 block text-xs leading-relaxed text-ink-muted">{way.detail}</span>
+              </span>
+              <ArrowRight
+                className="ml-auto size-4 shrink-0 text-mist-300 transition-[transform,color] group-hover:translate-x-0.5 group-hover:text-brand-600"
+                aria-hidden="true"
+              />
+            </>
+          );
+          const cls = "group flex items-center gap-3.5 py-4";
+          return (
+            <li key={way.label}>
+              {way.external ? (
+                <a href={way.href} target="_blank" rel="noopener noreferrer" className={cls}>
+                  {body}
+                </a>
+              ) : way.href.startsWith("tel:") ? (
+                <a href={way.href} className={cls}>
+                  {body}
+                </a>
+              ) : (
+                <Link href={way.href} className={cls}>
+                  {body}
+                </Link>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </aside>
   );
 }

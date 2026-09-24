@@ -46,6 +46,7 @@ export default async function sitemap() {
     // Static routes, not Service documents, so the services loop below does
     // not list them. Visa rules change often, hence monthly.
     { path: VISA_PAGES.hub.href, priority: 0.8, changeFrequency: "monthly" },
+    { path: VISA_PAGES.tourist.href, priority: 0.8, changeFrequency: "monthly" },
     { path: VISA_PAGES.dependant.href, priority: 0.8, changeFrequency: "monthly" },
     { path: VISA_PAGES.settlement.href, priority: 0.8, changeFrequency: "monthly" },
     { path: "/about/", priority: 0.7, changeFrequency: "monthly" },

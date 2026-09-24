@@ -11,6 +11,7 @@ import {
   ProcessSteps,
   Situations,
   VisaClosing,
+  VisaCta,
   VisaHeading,
   VisaHero,
   WhyBand,
@@ -108,6 +109,13 @@ export default async function GlobalVisaPage() {
             action={
               <EnquiryDialog label="Start an enquiry" variant="outline" size="md" {...enquiry} />
             }
+          />
+          <VisaCta
+            {...HUB.ctas.situations}
+            primaryLabel={HUB.ctas.situations.primary}
+            whatsappHref={whatsappHref}
+            enquiry={enquiry}
+            className="mt-10"
           />
         </div>
       </Section>
