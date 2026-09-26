@@ -52,7 +52,7 @@ export default async function CategoryPage() {
 
   if (page) {
     return (
-      <CategoryPageBody page={page} breadcrumbs={breadcrumbs}>
+      <CategoryPageBody page={page} breadcrumbs={breadcrumbs} destinations={destinations}>
         {listing}
       </CategoryPageBody>
     );

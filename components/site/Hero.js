@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ArrowRight, ShieldCheck, Star } from "lucide-react";
 import Button from "./Button";
 import HeroSearch from "./HeroSearch";
+import { TOURIST } from "@/lib/content/tourist-visa";
+import { countryVisaHref } from "@/lib/content/visa-country-pages";
 import { SITE, SOCIAL } from "@/lib/site";
 
 /**
@@ -167,7 +169,7 @@ export default function Hero({ destinations = [], testimonials = [] }) {
             className="pointer-events-none absolute inset-x-0 top-full z-0 hidden w-full motion-reduce:hidden lg:block"
           />
           <div className="relative z-10">
-            <HeroSearch destinations={destinations} />
+            <HeroSearch destinations={destinations} visaCountries={visaCountries()} />
           </div>
         </div>
 
@@ -250,4 +252,20 @@ function PaperPlaneGlyph() {
       <path d="M22 2 15 22l-4-9-9-4 20-7Z" fill="var(--brand-200)" />
     </svg>
   );
+}
+
+/**
+ * Every country in the tourist visa table, slimmed to what the hero's Visa
+ * tab needs. Built here on the server so the page copy in
+ * lib/content/tourist-visa.js stays out of the browser bundle.
+ */
+function visaCountries() {
+  const seen = new Map();
+  for (const region of TOURIST.regions) {
+    for (const [code, name, route] of region.countries) {
+      if (seen.has(code)) continue;
+      seen.set(code, { code, name, route: route.replace(/\*$/, ""), href: countryVisaHref(code) });
+    }
+  }
+  return [...seen.values()];
 }

@@ -334,7 +334,7 @@ export default async function DestinationPage({ params }) {
       */}
       {blocks.length ? (
         <Section className="py-6 sm:py-7">
-          <div className="container-page grid gap-10 lg:grid-cols-[minmax(0,48rem)_1fr]">
+          <div className="container-page">
             <div>
               {blocks.map((block) => {
                 const id = block.title ? blockId(block.title) : undefined;
@@ -347,13 +347,13 @@ export default async function DestinationPage({ params }) {
                     ) : null}
 
                     {block.intro ? (
-                      <p className="mt-3 text-base leading-relaxed text-ink-soft">{block.intro}</p>
+                      <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-soft">{block.intro}</p>
                     ) : null}
 
-                    {/* A bulleted list — "why travellers choose". Two columns
-                        at width, because these run to six or seven lines. */}
+                    {/* A bulleted list — "why travellers choose". Three columns
+                        at full width, because these run to six or seven lines. */}
                     {block.kind === "list" && block.points?.length ? (
-                      <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2">
+                      <ul className="mt-5 grid gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
                         {block.points.map((point) => (
                           <li key={point} className="flex gap-3">
                             <Check
@@ -370,7 +370,7 @@ export default async function DestinationPage({ params }) {
 
                     {/* Named cards — attractions, regions, package types. */}
                     {block.kind === "cards" && block.items?.length ? (
-                      <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+                      <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {block.items.map((item) => (
                           <li
                             key={item.title}
@@ -387,17 +387,32 @@ export default async function DestinationPage({ params }) {
                       </ul>
                     ) : null}
 
-                    {paragraphs(block.body).map((paragraph, index) => (
-                      <p
-                        key={index}
-                        className="mt-4 text-base leading-relaxed text-ink-soft first:mt-5"
+                    {/* Long prose flows into two columns at width, so it fills
+                        the page without running to unreadable line lengths.
+                        A short body stays in one column — two lines split in
+                        half reads worse than a line that stops early. */}
+                    {block.body ? (
+                      <div
+                        className={cn(
+                          "mt-5",
+                          block.body.length > PROSE_COLUMNS_AT
+                            ? "gap-x-12 lg:columns-2"
+                            : "max-w-3xl"
+                        )}
                       >
-                        {paragraph}
-                      </p>
-                    ))}
+                        {paragraphs(block.body).map((paragraph, index) => (
+                          <p
+                            key={index}
+                            className="mb-4 text-base leading-relaxed text-ink-soft last:mb-0"
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    ) : null}
 
                     {block.footnote ? (
-                      <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-muted">
+                      <p className="mt-4 max-w-3xl text-[0.9375rem] leading-relaxed text-ink-muted">
                         {block.footnote}
                       </p>
                     ) : null}
@@ -411,7 +426,7 @@ export default async function DestinationPage({ params }) {
                     <h2 className="text-xl font-bold sm:text-2xl">{closingTitle}</h2>
                   ) : null}
                   {paragraphs(closingText).map((paragraph, index) => (
-                    <p key={index} className="mt-3 text-[0.9375rem] leading-relaxed text-brand-100">
+                    <p key={index} className="mt-3 max-w-3xl text-[0.9375rem] leading-relaxed text-brand-100">
                       {paragraph}
                     </p>
                   ))}
@@ -469,6 +484,9 @@ export default async function DestinationPage({ params }) {
 }
 
 /** Blank-line-separated paragraphs, which is how the client writes them. */
+/** Characters of body copy above which a guide section flows into two columns. */
+const PROSE_COLUMNS_AT = 500;
+
 function paragraphs(value) {
   return String(value || "")
     .split(/\n{2,}/)

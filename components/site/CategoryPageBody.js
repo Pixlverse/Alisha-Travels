@@ -1,10 +1,11 @@
-import { Check, Phone, Star } from "lucide-react";
+import { Phone, Star } from "lucide-react";
 
 import Button from "./Button";
-import ContentBlock from "./ContentBlocks";
 import PageHeader from "./PageHeader";
 import RichText from "./RichText";
 import { Section } from "./Section";
+import Assurances from "./category-guide/Assurances";
+import GuideBlocks from "./category-guide/GuideBlocks";
 import { PRIMARY_PHONE, SITE, SOCIAL } from "@/lib/site";
 
 /**
@@ -15,16 +16,17 @@ import { PRIMARY_PHONE, SITE, SOCIAL } from "@/lib/site";
  * them, in the same shape as a service page, so this renders them through the
  * same block system rather than a second one. See models/CategoryPage.js.
  *
- * ORDER OF THE PAGE. Hero, the four promises, the opening paragraph, then the
- * PACKAGES, and only then the long-form bands. That is deliberate and it is
- * the same decision as on the destination pages: the client's note early on
- * was that prose should not stand between a visitor and a price, so the grid
- * stays high and the argument sits under it for whoever wants it.
+ * ORDER OF THE PAGE. Hero, then the PACKAGES straight away, and only then the
+ * four promises, the opening paragraph and the long-form bands. That is
+ * deliberate and it is the same decision as on the destination pages: the
+ * client's note was that nothing should stand between a visitor and the
+ * trips, so the grid comes first and the argument sits under it for whoever
+ * wants it.
  *
  * `children` is the listing. A category with no document here never reaches
  * this component — the route falls back to its original layout.
  */
-export default function CategoryPageBody({ page, breadcrumbs, children }) {
+export default function CategoryPageBody({ page, breadcrumbs, destinations = [], children }) {
   return (
     <>
       <PageHeader
@@ -73,50 +75,27 @@ export default function CategoryPageBody({ page, breadcrumbs, children }) {
         </ul>
       </PageHeader>
 
-      {page.assurances?.length ? (
-        <Section className="py-6 sm:py-7">
-          <div className="container-page">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {page.assurances.map((card) => (
-                <li
-                  key={card.title}
-                  className="flex h-full flex-col rounded-2xl border border-line bg-white p-5"
-                >
-                  <span className="flex size-9 items-center justify-center rounded-full bg-brand-50 text-brand-700">
-                    <Check className="size-4" aria-hidden="true" />
-                  </span>
-                  <h2 className="mt-4 text-base font-semibold text-ink">{card.title}</h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{card.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
-      ) : null}
+      {/* The target of the "See the packages" buttons further down. */}
+      <div id="packages" className="scroll-mt-28">
+        {children}
+      </div>
+
+      <Assurances items={page.assurances} />
 
       {page.intro ? (
-        <Section className="pt-2 pb-6 sm:pb-7">
+        <Section className="pt-4 pb-10 sm:pb-12">
           <div className="container-page">
-            <RichText text={page.intro} size="lg" className="max-w-[52rem]" />
+            <LeadIntro text={page.intro} />
           </div>
         </Section>
       ) : null}
 
-      {children}
-
-      {/* Bands alternate tone so a page of eight blocks still reads as eight
-          blocks rather than one continuous column. */}
-      {page.blocks?.map((block, index) => (
-        <Section
-          key={`${block.kind}-${index}`}
-          tone={index % 2 === 0 ? "mist" : "default"}
-          className="py-6 sm:py-7"
-        >
-          <div className="container-page">
-            <ContentBlock block={block} />
-          </div>
-        </Section>
-      ))}
+      <GuideBlocks
+        blocks={page.blocks}
+        destinations={destinations}
+        backHref="#packages"
+        backLabel="See the packages"
+      />
 
       {page.closingTitle ? (
         <Section className="py-6 sm:py-7">
@@ -155,5 +134,24 @@ export default function CategoryPageBody({ page, breadcrumbs, children }) {
         </Section>
       ) : null}
     </>
+  );
+}
+
+/**
+ * The opening paragraph, split so its first sentence carries it: that line
+ * large on the left, the rest beside it. One flat 600-character paragraph is
+ * the easiest thing on the page to skip; a pull line is the hardest.
+ */
+function LeadIntro({ text }) {
+  const match = String(text).trim().match(/^([\s\S]+?[.!?])\s+([\s\S]+)$/);
+  if (!match) return <RichText text={text} size="lg" className="max-w-[52rem]" />;
+  const [, first, rest] = match;
+  return (
+    <div className="grid gap-6 border-l-4 border-brand-500 pl-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] lg:gap-12 lg:pl-8">
+      <p className="text-balance-heading text-2xl leading-snug font-semibold tracking-[-0.015em] text-ink sm:text-[1.75rem]">
+        {first}
+      </p>
+      <RichText text={rest} className="text-ink-soft" />
+    </div>
   );
 }

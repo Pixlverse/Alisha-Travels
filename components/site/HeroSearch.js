@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Globe, MapPin, Search, Tag, Wallet } from "lucide-react";
+import HeroVisaSearch from "./HeroVisaSearch";
 import { cn } from "@/lib/utils";
 import { BUDGET_RANGES, PACKAGE_CATEGORIES } from "@/lib/site";
 
@@ -15,9 +16,11 @@ import { BUDGET_RANGES, PACKAGE_CATEGORIES } from "@/lib/site";
  * three stale hardcoded destinations while the site advertised many more; here
  * the destination list comes from the Destination collection every time.
  *
- * Three tabs, because those are the three ways people arrive at this business:
- * they know the kind of trip, they know the place, or they want to join a
- * group departure on a set date.
+ * Four tabs, because those are the ways people arrive at this business: they
+ * know the kind of trip, they know the place, they want to join a group
+ * departure on a set date, or they need a visa. The Visa tab is its own
+ * component (HeroVisaSearch): a country search that opens that country's
+ * visa page.
  */
 
 /** What the button does, which is not the same thing on all three tabs. */
@@ -25,15 +28,17 @@ const SUBMIT_LABEL = {
   packages: "Search packages",
   destinations: "Explore",
   departures: "See dates",
+  visa: "Find visa",
 };
 
 const TABS = [
   { key: "packages", label: "Packages" },
   { key: "destinations", label: "Destinations" },
   { key: "departures", label: "Fixed departures" },
+  { key: "visa", label: "Visa" },
 ];
 
-export default function HeroSearch({ destinations = [] }) {
+export default function HeroSearch({ destinations = [], visaCountries = [] }) {
   const router = useRouter();
   const [tab, setTab] = useState("packages");
   const tabRefs = useRef([]);
@@ -184,110 +189,117 @@ export default function HeroSearch({ destinations = [] }) {
         })}
       </div>
 
-      <form
-        onSubmit={submit}
-        id="hero-search-panel"
-        role="tabpanel"
-        aria-labelledby={`hero-tab-${tab}`}
-        className="relative grid gap-2 rounded-[1.125rem] border border-brand-200 bg-white p-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-0"
-      >
-        {tab === "departures" ? (
-          <>
-            <Field icon={<MapPin className="size-4" />} label="Region">
-              <Select value={region} onChange={setRegion}>
-                <option value="">Anywhere</option>
-                <option value="international">International</option>
-                <option value="domestic">Domestic</option>
-              </Select>
-            </Field>
-            {/* The dead "When: all upcoming dates" field that used to sit here
-                is gone rather than replaced. /fixed-departures/ lists every
-                upcoming date grouped by month, and this component has no way
-                to know which months have departures behind them, so any date
-                control here would be another label dressed as a filter. One
-                real field and a button reading "See dates" is the honest
-                version of this panel. */}
-            <span className="hidden sm:block" />
-            <span className="hidden sm:block" />
-          </>
-        ) : (
-          <>
-            {tab === "destinations" ? (
-              <Field icon={<Globe className="size-4" />} label="Region">
-                <Select value={region} onChange={onRegionChange}>
-                  <option value="">Everywhere we plan</option>
+      {tab === "visa" ? (
+        <HeroVisaSearch
+          countries={visaCountries}
+          panelProps={{ id: "hero-search-panel", role: "tabpanel", "aria-labelledby": "hero-tab-visa" }}
+        />
+      ) : (
+        <form
+          onSubmit={submit}
+          id="hero-search-panel"
+          role="tabpanel"
+          aria-labelledby={`hero-tab-${tab}`}
+          className="relative grid gap-2 rounded-[1.125rem] border border-brand-200 bg-white p-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-0"
+        >
+          {tab === "departures" ? (
+            <>
+              <Field icon={<MapPin className="size-4" />} label="Region">
+                <Select value={region} onChange={setRegion}>
+                  <option value="">Anywhere</option>
                   <option value="international">International</option>
                   <option value="domestic">Domestic</option>
                 </Select>
               </Field>
-            ) : null}
-
-            <Field
-              icon={<MapPin className="size-4" />}
-              label="Where to?"
-              divider={tab === "destinations"}
-            >
-              <Select value={destination} onChange={setDestination}>
-                <option value="">
-                  {tab === "destinations" ? "Browse every destination" : "Anywhere - help me choose"}
-                </option>
-                {international.length ? (
-                  <optgroup label="International">
-                    {international.map((d) => (
-                      <option key={d.slug} value={d.slug}>
-                        {d.name}
-                      </option>
-                    ))}
-                  </optgroup>
-                ) : null}
-                {domestic.length ? (
-                  <optgroup label="Domestic">
-                    {domestic.map((d) => (
-                      <option key={d.slug} value={d.slug}>
-                        {d.name}
-                      </option>
-                    ))}
-                  </optgroup>
-                ) : null}
-              </Select>
-            </Field>
-
-            {tab === "packages" ? (
-              <>
-                <Field icon={<Tag className="size-4" />} label="Kind of trip" divider>
-                  <Select value={category} onChange={setCategory}>
-                    <option value="">Any</option>
-                    {PACKAGE_CATEGORIES.filter((c) => c.slug !== "customized").map((c) => (
-                      <option key={c.slug} value={c.slug}>
-                        {c.label}
-                      </option>
-                    ))}
-                  </Select>
-                </Field>
-                <Field icon={<Wallet className="size-4" />} label="Budget" divider>
-                  <Select value={budget} onChange={setBudget}>
-                    {BUDGET_RANGES.map((b) => (
-                      <option key={b.value} value={b.value}>
-                        {b.label}
-                      </option>
-                    ))}
-                  </Select>
-                </Field>
-              </>
-            ) : (
+              {/* The dead "When: all upcoming dates" field that used to sit here
+                  is gone rather than replaced. /fixed-departures/ lists every
+                  upcoming date grouped by month, and this component has no way
+                  to know which months have departures behind them, so any date
+                  control here would be another label dressed as a filter. One
+                  real field and a button reading "See dates" is the honest
+                  version of this panel. */}
               <span className="hidden sm:block" />
-            )}
-          </>
-        )}
+              <span className="hidden sm:block" />
+            </>
+          ) : (
+            <>
+              {tab === "destinations" ? (
+                <Field icon={<Globe className="size-4" />} label="Region">
+                  <Select value={region} onChange={onRegionChange}>
+                    <option value="">Everywhere we plan</option>
+                    <option value="international">International</option>
+                    <option value="domestic">Domestic</option>
+                  </Select>
+                </Field>
+              ) : null}
 
-        <button
-          type="submit"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:outline-none sm:ml-2"
-        >
-          <Search className="size-4" aria-hidden="true" />
-          {SUBMIT_LABEL[tab]}
-        </button>
-      </form>
+              <Field
+                icon={<MapPin className="size-4" />}
+                label="Where to?"
+                divider={tab === "destinations"}
+              >
+                <Select value={destination} onChange={setDestination}>
+                  <option value="">
+                    {tab === "destinations" ? "Browse every destination" : "Anywhere - help me choose"}
+                  </option>
+                  {international.length ? (
+                    <optgroup label="International">
+                      {international.map((d) => (
+                        <option key={d.slug} value={d.slug}>
+                          {d.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ) : null}
+                  {domestic.length ? (
+                    <optgroup label="Domestic">
+                      {domestic.map((d) => (
+                        <option key={d.slug} value={d.slug}>
+                          {d.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ) : null}
+                </Select>
+              </Field>
+
+              {tab === "packages" ? (
+                <>
+                  <Field icon={<Tag className="size-4" />} label="Kind of trip" divider>
+                    <Select value={category} onChange={setCategory}>
+                      <option value="">Any</option>
+                      {PACKAGE_CATEGORIES.filter((c) => c.slug !== "customized").map((c) => (
+                        <option key={c.slug} value={c.slug}>
+                          {c.label}
+                        </option>
+                      ))}
+                    </Select>
+                  </Field>
+                  <Field icon={<Wallet className="size-4" />} label="Budget" divider>
+                    <Select value={budget} onChange={setBudget}>
+                      {BUDGET_RANGES.map((b) => (
+                        <option key={b.value} value={b.value}>
+                          {b.label}
+                        </option>
+                      ))}
+                    </Select>
+                  </Field>
+                </>
+              ) : (
+                <span className="hidden sm:block" />
+              )}
+            </>
+          )}
+
+          <button
+            type="submit"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-700 px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:outline-none sm:ml-2"
+          >
+            <Search className="size-4" aria-hidden="true" />
+            {SUBMIT_LABEL[tab]}
+          </button>
+        </form>
+      )}
     </div>
   );
 }

@@ -8,7 +8,8 @@ import EnquiryCta from "@/components/site/EnquiryCta";
 import Faqs from "@/components/site/Faqs";
 import JsonLd from "@/components/site/JsonLd";
 import { HeaderMotif } from "@/components/site/PageHeader";
-import ContentBlock from "@/components/site/ContentBlocks";
+import Assurances from "@/components/site/category-guide/Assurances";
+import GuideBlocks from "@/components/site/category-guide/GuideBlocks";
 import RichText from "@/components/site/RichText";
 import { Section } from "@/components/site/Section";
 import ServiceIcon from "@/components/site/ServiceIcon";
@@ -130,40 +131,9 @@ export default async function ServicePage({ params }) {
 function LongFormBody({ service, others, slug }) {
   return (
     <>
-      {service.assurances?.length ? (
-        <Section className="py-6 sm:py-7">
-          <div className="container-page">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {service.assurances.map((card) => (
-                <li
-                  key={card.title}
-                  className="flex h-full flex-col rounded-2xl border border-line bg-white p-5"
-                >
-                  <span className="flex size-9 items-center justify-center rounded-full bg-brand-50 text-brand-700">
-                    <Check className="size-4" aria-hidden="true" />
-                  </span>
-                  <h2 className="mt-4 text-base font-semibold text-ink">{card.title}</h2>
-                  <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{card.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
-      ) : null}
+      <Assurances items={service.assurances} />
 
-      {/* Bands alternate tone so a page of eight blocks still reads as eight
-          blocks rather than one continuous column. */}
-      {service.blocks.map((block, index) => (
-        <Section
-          key={`${block.kind}-${index}`}
-          tone={index % 2 === 0 ? "mist" : "default"}
-          className="py-6 sm:py-7"
-        >
-          <div className="container-page">
-            <ContentBlock block={block} />
-          </div>
-        </Section>
-      ))}
+      <GuideBlocks blocks={service.blocks} />
 
       {service.faqs?.length ? (
         <Section className="py-6 sm:py-7">

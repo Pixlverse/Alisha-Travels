@@ -6,6 +6,7 @@ import { ChevronDown, Search, X } from "lucide-react";
 import Flag from "./Flag";
 import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { routeKinds } from "@/lib/content/visa-routes";
+import { countryVisaHref } from "@/lib/content/visa-country-pages";
 import { VISA_PAGES } from "@/lib/content/visa-pages";
 import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -372,12 +373,26 @@ function RegionCard({ region, isOpen, onToggle, needle, asterisk }) {
 
 function CountryRow({ row, needle, asterisk }) {
   const style = KIND_STYLES[row.kinds[0]] || NEUTRAL;
+  // Countries with their own visa page link to it; the rest stay plain rows.
+  const href = countryVisaHref(row.code);
   return (
     <li className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-brand-50/60">
       <Flag code={row.code} className="size-6" />
-      <span className="min-w-0 flex-1 text-sm font-medium text-ink">
-        <Highlight text={row.name} needle={needle} />
-      </span>
+      {href ? (
+        <Link
+          href={href}
+          className="min-w-0 flex-1 text-sm font-semibold text-brand-800 underline-offset-4 hover:underline"
+        >
+          <Highlight text={row.name} needle={needle} />
+          <span className="ml-2 inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 align-middle text-[0.6875rem] font-semibold text-brand-700 ring-1 ring-brand-100">
+            Full guide →
+          </span>
+        </Link>
+      ) : (
+        <span className="min-w-0 flex-1 text-sm font-medium text-ink">
+          <Highlight text={row.name} needle={needle} />
+        </span>
+      )}
       <span
         className={cn(
           "inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-right text-xs font-semibold ring-1",

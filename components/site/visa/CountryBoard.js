@@ -1,8 +1,10 @@
 "use client";
 
 import { useDeferredValue, useState } from "react";
-import { Search, X } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Search, X } from "lucide-react";
 import Flag from "./Flag";
+import { countryVisaHref } from "@/lib/content/visa-country-pages";
 import { cn } from "@/lib/utils";
 
 /**
@@ -16,6 +18,9 @@ import { cn } from "@/lib/utils";
  *
  * Matching ignores case and accents, so "turkiye" finds Türkiye, and it also
  * searches the small note ("Turkey"), so the old name works too.
+ *
+ * A country with its own visa page (lib/content/visa-country-pages.js) is a
+ * link to it, marked with an arrow and a firmer outline so it reads as one.
  */
 const fold = (value) =>
   value
@@ -93,14 +98,10 @@ export default function CountryBoard({ groups, footnote }) {
                 </span>
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">
-                {group.shown.map(([code, name, note]) => (
-                  <li key={`${group.key}-${code}`}>
-                    <span
-                      className={cn(
-                        "inline-flex items-center gap-2 rounded-full border border-line bg-white py-1 pr-3.5 pl-1 text-sm text-ink-soft",
-                        "transition-[border-color,box-shadow,color] duration-150 hover:border-brand-300 hover:text-ink hover:shadow-[0_6px_18px_-10px_rgba(10,68,87,0.45)]"
-                      )}
-                    >
+                {group.shown.map(([code, name, note]) => {
+                  const href = countryVisaHref(code);
+                  const body = (
+                    <>
                       <Flag code={code} />
                       <span>
                         {name}
@@ -108,9 +109,32 @@ export default function CountryBoard({ groups, footnote }) {
                           <span className="ml-1 text-xs text-ink-muted">({note})</span>
                         ) : null}
                       </span>
-                    </span>
-                  </li>
-                ))}
+                      {href ? (
+                        <ArrowUpRight className="size-3.5 text-brand-600" aria-hidden="true" />
+                      ) : null}
+                    </>
+                  );
+                  const chip = cn(
+                    "inline-flex items-center gap-2 rounded-full border bg-white py-1 pr-3.5 pl-1 text-sm",
+                    "transition-[border-color,box-shadow,color,transform] duration-150 hover:shadow-[0_6px_18px_-10px_rgba(10,68,87,0.45)]"
+                  );
+                  return (
+                    <li key={`${group.key}-${code}`}>
+                      {href ? (
+                        <Link
+                          href={href}
+                          className={cn(chip, "border-brand-200 font-medium text-ink hover:-translate-y-0.5 hover:border-brand-500 hover:text-brand-800")}
+                        >
+                          {body}
+                        </Link>
+                      ) : (
+                        <span className={cn(chip, "border-line text-ink-soft hover:border-brand-300 hover:text-ink")}>
+                          {body}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </section>
           ) : null
