@@ -82,6 +82,7 @@ const FACT_ICONS = {
   route: Route,
   stay: CalendarClock,
   processing: Hourglass,
+  wait: Hourglass,
   start: Clock3,
   validity: CalendarCheck,
   "valid for": CalendarCheck,
@@ -115,7 +116,7 @@ export default async function CountryVisaPage({ params }) {
   };
 
   const nav = [
-    country.intro && { id: "overview", label: "Overview" },
+    (country.intro || country.extra?.length) && { id: "overview", label: "Overview" },
     { id: "documents", label: "Documents" },
     country.pitfalls && { id: "pitfalls", label: "Common mistakes" },
     country.process && { id: "process", label: "How it works" },
@@ -126,6 +127,10 @@ export default async function CountryVisaPage({ params }) {
     return { name, code, href: code ? countryVisaHref(code) : null };
   });
   const others = COUNTRIES.filter((c) => c.slug !== country.slug);
+  // The overview leads with "Do you need a visa at all?". A country whose
+  // page has no such section leads with its first extra section instead.
+  const lead = country.intro || country.extra?.[0];
+  const extras = country.intro ? country.extra || [] : (country.extra || []).slice(1);
 
   return (
     <>
@@ -199,7 +204,7 @@ export default async function CountryVisaPage({ params }) {
       <SectionNav items={nav} />
 
       {/* ---------------------------- Overview ---------------------------- */}
-      {country.intro ? (
+      {lead ? (
         <Section id="overview" className="scroll-mt-36 py-12 sm:py-16">
           <div className="container-page">
             <Reveal>
@@ -209,11 +214,11 @@ export default async function CountryVisaPage({ params }) {
                     <HelpCircle className="size-7" aria-hidden="true" />
                   </span>
                   <h2 className="mt-5 text-balance-heading text-3xl leading-tight font-bold tracking-[-0.02em] text-ink sm:text-4xl">
-                    {country.intro.title}
+                    {lead.title}
                   </h2>
                 </div>
                 <div className="space-y-4">
-                  {paragraphs(country.intro.body).map((paragraph, index) => (
+                  {paragraphs(lead.body).map((paragraph, index) => (
                     <p
                       key={index}
                       className={cn(
@@ -225,7 +230,7 @@ export default async function CountryVisaPage({ params }) {
                       {paragraph}
                     </p>
                   ))}
-                  {(country.extra || []).map((block) => (
+                  {extras.map((block) => (
                     <div key={block.title} className="px-1 sm:px-2">
                       <h3 className="text-lg font-bold text-ink">{block.title}</h3>
                       {paragraphs(block.body).map((paragraph, index) => (
