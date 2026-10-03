@@ -7,6 +7,7 @@ import {
   Clock3,
   HelpCircle,
   Hourglass,
+  IdCard,
   IndianRupee,
   MapPinned,
   Plane,
@@ -86,6 +87,7 @@ const FACT_ICONS = {
   start: Clock3,
   validity: CalendarCheck,
   "valid for": CalendarCheck,
+  passport: IdCard,
   "visa fee": IndianRupee,
   "often paired with": MapPinned,
 };
