@@ -43,7 +43,17 @@ export default function Footer() {
     },
     {
       title: "Services",
-      links: NAV.find((item) => item.label === "Services").columns[0].items.slice(0, 6),
+      // Listed here rather than read from NAV: global tourist visa and MICE
+      // were taken out of the Services dropdown (one has its own Global Visa
+      // menu, the other sits under Packages), but the footer keeps them.
+      links: [
+        { label: "Air ticket booking", href: "/services/air-ticket-booking/" },
+        { label: "Global tourist visa", href: "/services/global-tourist-visa/" },
+        { label: "MICE & corporate travel", href: "/services/mice-corporate-travel/" },
+        { label: "Train & bus tickets", href: "/services/train-bus-tickets/" },
+        { label: "Cab rental", href: "/services/cab-rental/" },
+        { label: "Cruise holidays", href: "/services/cruise-holidays/" },
+      ],
     },
     {
       title: "Company",
