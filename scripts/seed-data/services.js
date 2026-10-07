@@ -637,8 +637,8 @@ export const services = [
 
     These four shipped with DRAFTED copy — ours, written in the client's voice
     while we waited for theirs. Every word below is now the client's own,
-    supplied page by page, and the drafts are gone. Immigration services is
-    the one that is still ours; its note says so.
+    supplied page by page, and the drafts are gone. Our drafted immigration
+    page has gone too, replaced by the client's emigration services page.
   */
   {
     slug: "train-bus-tickets",
@@ -1141,7 +1141,7 @@ export const services = [
         intro: "Booked through the same desk, so nothing has to be organised twice.",
         tags: [
           "Tourist visa assistance",
-          "Immigration documentation",
+          "Emigration services",
           "Certificate attestation",
           "Air tickets",
           "Hotel booking",
@@ -1160,54 +1160,133 @@ export const services = [
       "Passport application assistance in Kottayam - fresh applications, renewals, reissues and changes of particulars, with documents checked and the Seva Kendra appointment booked.",
   },
   {
-    slug: "immigration-services",
-    title: "Immigration services",
+    /*
+      Formerly "Immigration services" at /services/immigration-services/, which
+      carried our drafted copy. The client replaced it with this page — every
+      word is theirs — and narrowed it to emigration clearance for ECR workers
+      going to the Gulf. The old URL 301s here (next.config.mjs).
+    */
+    slug: "emigration-services",
+    title: "Emigration services",
     icon: "PlaneTakeoff",
     order: 10,
     shortDescription:
-      "Documentation support for study, work and family applications, prepared and checked.",
+      "Emigration clearance support for ECR passport holders going to Gulf jobs, with the employer and papers checked first.",
+    heroHeading: "Emigration services for Gulf employment",
     heroLead:
-      "Moving abroad to study, work or join family runs on paperwork, and the paperwork is where applications fail. We prepare and check the documents an application needs, and we are straight with you about which parts of the process are ours to influence and which are not.",
-    ctaLabel: "Ask about an application",
+      "Emigration clearance support for workers heading to Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain and Oman, from Kottayam. If your passport is marked ECR and you are going abroad for a job, India requires an emigration clearance before you can board. We prepare the file, check it against your passport and the employer's papers, and see it through. We do not recruit, place workers or find jobs. That is the work of a licensed recruiting agent, and we will tell you if your situation needs one.",
+    ctaLabel: "Check your documents",
     ctaType: "enquiry",
     secondaryCtaLabel: "WhatsApp us",
     secondaryCtaType: "whatsapp",
     assurances: [
-      { title: "Documents prepared properly", text: "Attested, translated and ordered as the mission asks" },
-      { title: "Appointments and biometrics", text: "Booked, with what to carry set out beforehand" },
-      { title: "Nothing promised for you", text: "The decision is the authority's, and we say so" },
-      { title: "One named person", text: "Who keeps the file and answers about it" },
+      {
+        title: "Contract checked against the visa",
+        text: "Job title, salary and employer that agree on every paper",
+      },
+      {
+        title: "Employer verified first",
+        text: "No file starts until the sponsor's registration is confirmed",
+      },
+      {
+        title: "Straight about the limits",
+        text: "We say when a licensed recruiting agent is what you need",
+      },
+      { title: "One person on your file", text: "The same name from the first call onwards" },
     ],
     blocks: [
       {
-        kind: "list",
-        title: "What we help with",
-        points: [
-          "Document checklists for study, work, visit and family applications",
-          "Certificate attestation, apostille and translation, handled in-house",
-          "Application forms completed and reviewed before anything is submitted",
-          "Appointment and biometrics booking, with the document list confirmed",
-          "Flight and accommodation bookings dated to match the application",
-          "Travel and medical insurance that meets the destination's minimum cover",
+        kind: "prose",
+        title: "What we do, and what we don't",
+        body:
+          "We check whether clearance applies to you, verify that the employer is registered on eMigrate, review the contract against the visa, prepare and track the application, and book your travel once clearance is granted.\n\nWe do not recruit, issue job offers, charge placement fees or act as a recruiting agent. We do not grant clearance; only the Protector of Emigrants can do that, and no agency can promise it.",
+      },
+      {
+        kind: "prose",
+        title: "What emigration clearance is",
+        body:
+          "Official permission to leave India for employment abroad. It applies when three things are true at once: your passport carries ECR (Emigration Check Required) status, you are going to one of the countries on the ECR list, and the purpose of travel is work. All six Gulf countries are on that list.\n\nIt exists to protect Indian workers. Before you leave, the employer, the contract and the visa are checked by the Protector of Emigrants under the Ministry of External Affairs, so that the job you were promised is the job waiting for you.\n\nECR status does not affect holidays, family visits or transit. You only need clearance when you are travelling for employment.",
+      },
+      {
+        kind: "cards",
+        title: "Documents required",
+        intro:
+          "Five papers make the file. Every one is checked against the others before anything is submitted.",
+        items: [
+          {
+            tag: "Yours",
+            title: "Passport",
+            text: "At least six months' validity, with a copy of the ECR page.",
+          },
+          {
+            tag: "Yours",
+            title: "Employment visa",
+            text: "Issued for the destination country, with the job title matching the contract.",
+          },
+          {
+            tag: "Employer",
+            title: "Labour contract",
+            text: "Signed by both the employer and you, showing job title, salary and duration.",
+          },
+          {
+            tag: "Employer",
+            title: "CR copy",
+            text: "The employer's Commercial Registration, confirming the company is real and trading.",
+          },
+          {
+            tag: "Employer",
+            title: "Sponsor ID",
+            text: "A copy of the sponsor's identity document, matched against the visa.",
+          },
+          {
+            tag: "Not sure?",
+            title: "Missing a paper?",
+            text: "Send us what you have and we will tell you what's still needed.",
+          },
+        ],
+        footnote:
+          "Emigration services in Kerala: for ECR passport holders going to Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman. Workers across Kottayam and Kerala.",
+      },
+      {
+        kind: "steps",
+        title: "Emigration services, step by step",
+        intro: "The checks happen before you travel, not at the airport.",
+        items: [
+          {
+            title: "Tell us the job",
+            text: "Country, employer, job title and how you were recruited.",
+          },
+          {
+            title: "We check the employer",
+            text: "Registration on eMigrate is confirmed before anything else. If the employer isn't registered, we tell you not to travel.",
+          },
+          {
+            title: "We check the papers",
+            text: "Name, passport number, job title and salary compared across the passport, visa and contract.",
+          },
+          { title: "Application", text: "Filed and tracked until a decision." },
+          {
+            title: "After clearance",
+            text: "Tickets, travel insurance and anything else for the journey.",
+          },
         ],
       },
       {
         kind: "prose",
-        title: "Where the line is",
+        title: "Why one line matters",
         body:
-          "Immigration decisions belong to the government of the country you are applying to. No agency can guarantee a visa, a permit or a timeline, and anybody quoting you a success rate is describing their own marketing rather than your case.\n\nWe also do not offer legal advice or represent anyone before an immigration authority. Where a case needs a licensed immigration lawyer or a registered consultant, we will say so rather than take the file. What we do is the documentation and the bookings around it, which is the part that is genuinely ours to get right.",
+          "A job title on the visa that doesn't match the contract, a salary that differs between two papers, or an employer that was never registered is enough to stop a clearance, sometimes at the airport. A worker who leaves without proper clearance also leaves without the protection it exists to provide.\n\nNone of this is complicated. We check it before you go, and if an offer looks wrong, we will say so.",
       },
     ],
-    closingTitle: "Tell us where you are going and why.",
-    closingText:
-      "We will tell you what the file needs, what we can prepare, and where you will need somebody else.",
-    closingPrimaryLabel: "Ask about an application",
+    closingTitle: "Tell us where the job is. We'll tell you what the clearance needs.",
+    closingText: "And we'll tell you if the offer needs a closer look before you travel.",
+    closingPrimaryLabel: "Check your documents",
     closingPrimaryType: "enquiry",
-    closingSecondaryLabel: "Call the office",
-    closingSecondaryType: "phone",
-    metaTitle: "Immigration Documentation Services in Kerala",
+    closingSecondaryLabel: "WhatsApp us",
+    closingSecondaryType: "whatsapp",
+    metaTitle: "Emigration Services for Gulf Employment in Kottayam",
     metaDescription:
-      "Documentation support for study, work and family applications from Kerala - checklists, attestation, forms, appointments and the bookings an application needs.",
+      "Emigration clearance support in Kottayam for ECR passport holders going to jobs in Saudi Arabia, UAE, Qatar, Kuwait, Bahrain and Oman - employer, contract and visa checked first.",
   },
   {
     slug: "mice-corporate-travel",

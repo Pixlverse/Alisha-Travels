@@ -235,6 +235,9 @@ async function main() {
   for (const source of services) {
     await upsertBySlug(Service, { ...source, status: "active" });
   }
+  // Services whose slug changed. Upserting by slug would otherwise leave the
+  // old document live beside its replacement.
+  await Service.deleteMany({ slug: { $in: ["immigration-services"] } });
   console.log(`Services      ${services.length} ✓`);
 
   /* --- Package category pages -------------------------------------------- */
