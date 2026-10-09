@@ -123,7 +123,10 @@ export default function ScrollRow({
 
   const header =
     title || link || arrows ? (
-      <div className="flex items-end justify-between gap-4">
+      // Stacked below sm: a phone cannot fit a heading, a link and two 44px
+      // arrows on one line, and squeezing them in wrapped the heading one word
+      // per line and pushed the arrows off the edge of the screen.
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         {title ? (
           <div className="max-w-2xl">
             {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
@@ -134,7 +137,7 @@ export default function ScrollRow({
         ) : (
           <span />
         )}
-        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+        <div className="flex shrink-0 items-center justify-between gap-3 sm:justify-start sm:gap-4">
           {link ? (
             <Link
               href={link}

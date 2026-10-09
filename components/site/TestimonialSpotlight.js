@@ -151,7 +151,7 @@ export default function TestimonialSpotlight({ testimonials = [], rating, classN
           // stretched to whichever of the two is taller, so its height is NOT
           // the height of its content — without this the attribution floated
           // wherever the quote ended and left slack under it.
-          className="relative flex min-w-0 flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-brand-50 via-white to-white p-7 ring-1 ring-brand-100/80 sm:p-9"
+          className="relative flex min-w-0 flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-brand-50 via-white to-white p-5 ring-1 ring-brand-100/80 max-sm:rounded-[1.25rem] sm:p-9"
         >
           {/* Same corner-mark idea as the services cards: sized past the box and
               hung off the corner so the panel crops it, rather than dropped in
@@ -257,7 +257,9 @@ export default function TestimonialSpotlight({ testimonials = [], rating, classN
           ) : null}
 
           {/*
-            Horizontal and scrollable below lg, a vertical list above it. Same
+            Horizontal and scrollable below lg, a vertical list above it. The
+            bleed (-mx-3 / sm:-mx-4) matches the CARD's padding, not the page
+            gutter: at -mx-5 it ran past the card's edge and clipped. Same
             buttons either way — a second markup path for mobile is how the two
             drift apart.
           */}
@@ -266,7 +268,7 @@ export default function TestimonialSpotlight({ testimonials = [], rating, classN
             aria-label="Customer reviews"
             aria-orientation="vertical"
             onKeyDown={onKeyDown}
-            className="order-1 -mx-5 flex gap-2 overflow-x-auto px-5 pb-1 lg:order-2 lg:mx-0 lg:flex-1 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="order-1 -mx-3 flex gap-2 overflow-x-auto px-3 pb-1 sm:-mx-4 sm:px-4 lg:order-2 lg:mx-0 lg:flex-1 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {items.map((item, position) => {
               const selected = position === index;

@@ -219,9 +219,12 @@ export default function EnquiryForm({
       </fieldset>
 
       {/* --- Branch: tours or other services -------------------------------- */}
-      <fieldset>
+      {/* @container: the form is used in a page column, a sidebar and a dialog,
+          so the two cards size to the FORM, not the screen. Side by side in a
+          narrow form, each body ran one word to a line. */}
+      <fieldset className="@container">
         <legend className={LABEL}>What is this about?</legend>
-        <div className="mt-2 grid grid-cols-2 gap-3">
+        <div className="mt-2 grid gap-3 @[24rem]:grid-cols-2">
           <Choice
             name="enquiryType"
             value="tours"
@@ -351,9 +354,9 @@ export default function EnquiryForm({
       </Field>
 
       {/* --- Channel -------------------------------------------------------- */}
-      <fieldset>
+      <fieldset className="@container">
         <legend className={LABEL}>How would you like us to reply?</legend>
-        <div className="mt-2 grid grid-cols-2 gap-3">
+        <div className="mt-2 grid gap-3 @[24rem]:grid-cols-2">
           <Choice
             name="channel"
             value="whatsapp"
@@ -483,7 +486,7 @@ function Choice({ name, value, checked, onChange, title, body, icon }) {
   return (
     <label
       className={cn(
-        "flex cursor-pointer flex-col gap-1 rounded-2xl border p-4 transition-colors",
+        "flex min-w-0 cursor-pointer flex-col gap-1 rounded-2xl border p-4 transition-colors",
         checked ? "border-brand-500 bg-brand-50" : "border-line bg-white hover:border-brand-300"
       )}
     >
@@ -497,7 +500,7 @@ function Choice({ name, value, checked, onChange, title, body, icon }) {
           className="size-4 accent-brand-500"
         />
         {icon}
-        <span className="text-sm font-semibold text-ink">{title}</span>
+        <span className="min-w-0 text-sm font-semibold text-ink">{title}</span>
       </span>
       <span className="pl-6 text-xs leading-snug text-ink-muted">{body}</span>
     </label>

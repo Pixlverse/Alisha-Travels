@@ -191,11 +191,12 @@ export default function HeroVisaSearch({ countries = [], panelProps }) {
           <span className="mr-1 text-[0.6875rem] font-semibold tracking-wide text-ink-muted uppercase">
             Popular
           </span>
-          {guides.slice(0, 10).map((country) => (
+          {/* Six on a phone — ten wrapped to six rows and doubled the card. */}
+          {guides.slice(0, 10).map((country, index) => (
             <Link
               key={country.code}
               href={country.href}
-              className="inline-flex items-center gap-1.5 rounded-full py-0.5 pr-2.5 pl-0.5 text-xs font-medium text-ink-soft ring-1 ring-line transition-colors hover:bg-brand-50 hover:text-brand-800 hover:ring-brand-200"
+              className={`${index >= 6 ? "max-sm:hidden " : ""}inline-flex items-center gap-1.5 rounded-full py-0.5 pr-2.5 pl-0.5 text-xs font-medium text-ink-soft ring-1 ring-line transition-colors hover:bg-brand-50 hover:text-brand-800 hover:ring-brand-200`}
             >
               <Flag code={country.code} className="size-5" />
               {country.name}

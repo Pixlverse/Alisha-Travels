@@ -395,7 +395,9 @@ function CountryRow({ row, needle, asterisk }) {
       )}
       <span
         className={cn(
-          "inline-flex shrink-0 items-center rounded-full px-2.5 py-0.5 text-right text-xs font-semibold ring-1",
+          // Capped and allowed to wrap on a phone: routes like "Pre-arrival
+          // registration / visa" made the row ~17px wider than a 320px screen.
+          "inline-flex max-w-[45%] shrink-0 items-center rounded-2xl px-2.5 py-0.5 text-right text-xs leading-snug font-semibold ring-1 sm:max-w-none sm:rounded-full",
           style.badge
         )}
       >

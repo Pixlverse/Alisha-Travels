@@ -191,6 +191,9 @@ function renderCell(column, doc) {
       return raw ? formatDate(raw) : "-";
     case "status":
       return <StatusBadge status={raw || "draft"} />;
+    case "mediaType":
+      // Items saved before video support have no resourceType: they are images.
+      return raw === "video" ? "Video" : "Photo";
     case "availability":
       // Was three ad-hoc text colours here. Same badge as every other state in
       // the dashboard now, so "upcoming" and "active" look alike on purpose.

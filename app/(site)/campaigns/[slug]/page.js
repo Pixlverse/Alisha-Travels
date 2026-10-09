@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import Breadcrumbs from "@/components/site/Breadcrumbs";
+import CampaignMedia from "@/components/site/CampaignMedia";
 import EnquiryCta from "@/components/site/EnquiryCta";
 import JsonLd from "@/components/site/JsonLd";
 import RichText from "@/components/site/RichText";
@@ -83,42 +84,46 @@ export default async function CampaignPage({ params }) {
         </div>
       </section>
 
+      {/*
+        The story with the campaign's photos and reels beside it. The media
+        column FLOATS rather than sitting in a grid column: a grid keeps the
+        right-hand column for the whole length of the story, which left a
+        tall white gap once the media ran out. Floated, the story wraps
+        under it and takes the full width from there.
+      */}
       <Section className="py-10 sm:py-14">
-        <div className="container-page grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
-          <div>
-            <p className="text-lg leading-relaxed text-ink sm:text-xl">{campaign.summary}</p>
+        <div className="container-page">
+          <aside className="mb-9 lg:float-right lg:mb-8 lg:ml-14 lg:w-[22rem]">
+            <CampaignMedia
+              media={campaign.media}
+              reelLinks={campaign.reelLinks}
+              title={campaign.title}
+            />
 
-            {campaign.body && campaign.body !== campaign.summary ? (
-              <RichText text={campaign.body} className="mt-7" size="lg" />
-            ) : null}
-
-            {campaign.pullQuote ? (
-              <p className="mt-10 border-t border-line pt-9 font-display text-[1.75rem] leading-snug text-ink italic sm:text-[2.25rem]">
-                {campaign.pullQuote}
-              </p>
-            ) : null}
-          </div>
-
-          <aside className="lg:sticky lg:top-28 lg:self-start">
             {campaign.imageNote ? (
-              <p className="rounded-2xl bg-mist-50 p-5 text-xs leading-relaxed text-ink-muted ring-1 ring-line">
+              <p className="mt-5 rounded-2xl bg-mist-50 p-5 text-xs leading-relaxed text-ink-muted ring-1 ring-line first:mt-0">
                 {campaign.imageNote}
               </p>
             ) : null}
 
-            <p className={campaign.imageNote ? "mt-5" : undefined}>
-              <Link
-                href="/campaigns/"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline"
-              >
-                <ArrowLeft
-                  className="size-4 transition-transform group-hover:-translate-x-0.5"
-                  aria-hidden="true"
-                />
-                All campaigns
-              </Link>
-            </p>
+            <AllCampaignsLink className="mt-5 hidden lg:block" />
           </aside>
+
+          <p className="text-lg leading-relaxed text-ink sm:text-xl">{campaign.summary}</p>
+
+          {campaign.body && campaign.body !== campaign.summary ? (
+            <RichText text={campaign.body} className="mt-7" size="lg" />
+          ) : null}
+
+          {campaign.pullQuote ? (
+            // overflow-hidden keeps the rule from running behind the float.
+            <p className="mt-10 overflow-hidden border-t border-line pt-9 font-display text-[1.75rem] leading-snug text-ink italic sm:text-[2.25rem]">
+              {campaign.pullQuote}
+            </p>
+          ) : null}
+
+          <AllCampaignsLink className="mt-9 lg:hidden" />
+          <div className="clear-both" />
         </div>
       </Section>
 
@@ -154,5 +159,22 @@ export default async function CampaignPage({ params }) {
         </div>
       </Section>
     </>
+  );
+}
+
+function AllCampaignsLink({ className }) {
+  return (
+    <p className={className}>
+      <Link
+        href="/campaigns/"
+        className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline"
+      >
+        <ArrowLeft
+          className="size-4 transition-transform group-hover:-translate-x-0.5"
+          aria-hidden="true"
+        />
+        All campaigns
+      </Link>
+    </p>
   );
 }

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { imageSchema, registerModel } from "./_shared.js";
+import { imageSchema, mediaSchema, registerModel } from "./_shared.js";
 
 /**
  * Manually entered by admins. There is deliberately no live Google Reviews API
@@ -20,7 +20,7 @@ const testimonialSchema = new mongoose.Schema(
     /**
      * A video review.
      *
-     * The URL is a YouTube or Vimeo watch/share link — the site turns it into
+     * The URL is a YouTube, Vimeo or Instagram link — the site turns it into
      * an embed rather than storing an iframe, so nothing an admin pastes can
      * inject markup. `videoThumbnail` is the still the homepage shows before
      * anybody presses play: without it the grid would have to load one iframe
@@ -32,6 +32,13 @@ const testimonialSchema = new mongoose.Schema(
      */
     videoUrl: { type: String, trim: true, default: "" },
     videoThumbnail: { type: imageSchema },
+    /**
+     * Or the video itself, uploaded to Cloudinary — most of these are reels
+     * filmed on a phone and never posted anywhere. Used when there is no
+     * videoUrl. mediaSchema, as the gallery uses, so the upload keeps its
+     * width and height.
+     */
+    videoFile: { type: mediaSchema },
     source: {
       type: String,
       enum: ["google", "justdial", "direct"],

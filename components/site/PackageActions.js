@@ -61,28 +61,31 @@ export default function PackageActions({ title, pdfUrl, url, className }) {
   };
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-2", className)}>
-      <Action onClick={share} icon={copied ? Check : Share2} label={copied ? "Link copied" : "Share"} />
+    // Three equal buttons in one row on a phone, with short labels — the full
+    // labels wrapped the three onto two rows at 320px.
+    <div className={cn("grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:items-center", className)}>
+      <Action onClick={share} icon={copied ? Check : Share2} label={copied ? "Link copied" : "Share"} short={copied ? "Copied" : "Share"} />
 
       {pdfUrl ? (
         <Action
           href={pdfUrl}
           icon={Download}
           label="Download PDF"
+          short="PDF"
           external
         />
       ) : (
-        <Action onClick={() => window.print()} icon={Download} label="Save as PDF" />
+        <Action onClick={() => window.print()} icon={Download} label="Save as PDF" short="PDF" />
       )}
 
-      <Action href={mailtoHref()} icon={Mail} label="Email itinerary" />
+      <Action href={mailtoHref()} icon={Mail} label="Email itinerary" short="Email" />
     </div>
   );
 }
 
-function Action({ href, onClick, icon: Icon, label, external }) {
+function Action({ href, onClick, icon: Icon, label, short, external }) {
   const classes =
-    "inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-2 text-[0.8125rem] font-semibold text-ink-soft transition-colors hover:border-brand-300 hover:text-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none";
+    "inline-flex items-center justify-center gap-1.5 rounded-full border border-line bg-white px-2 py-2 whitespace-nowrap sm:gap-2 sm:px-3.5 text-[0.8125rem] font-semibold text-ink-soft transition-colors hover:border-brand-300 hover:text-brand-700 focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none";
 
   if (href) {
     return (
@@ -92,7 +95,7 @@ function Action({ href, onClick, icon: Icon, label, external }) {
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         <Icon className="size-4 text-brand-500" aria-hidden="true" />
-        {label}
+        <ActionLabel label={label} short={short} />
       </a>
     );
   }
@@ -100,7 +103,16 @@ function Action({ href, onClick, icon: Icon, label, external }) {
   return (
     <button type="button" onClick={onClick} className={classes}>
       <Icon className="size-4 text-brand-500" aria-hidden="true" />
-      {label}
+      <ActionLabel label={label} short={short} />
     </button>
+  );
+}
+
+function ActionLabel({ label, short }) {
+  return (
+    <>
+      <span className="sm:hidden">{short || label}</span>
+      <span className="hidden sm:inline">{label}</span>
+    </>
   );
 }

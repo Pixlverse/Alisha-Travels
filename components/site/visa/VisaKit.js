@@ -732,7 +732,7 @@ export function VisaCta({ title, text, primaryLabel, whatsappHref, enquiry, clas
       icon: <Phone className="size-4" aria-hidden="true" />,
       iconClass: "bg-brand-50 text-brand-700",
       label: PRIMARY_PHONE.display,
-      detail: "Monday to Saturday, 9:30 to 6:30",
+      detail: "Monday to Saturday, 9:30 to 6:00",
     },
     {
       href: whatsappHref,

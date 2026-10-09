@@ -279,7 +279,7 @@ function TrustStrip() {
 
 /**
  * A button whose action is chosen in the dashboard: the enquiry form, a phone
- * call, WhatsApp or an email to the sales address.
+ * call, WhatsApp or an email to the enquiries address.
  */
 function CtaButton({ type, label, service, size = "md", primary = false, onDark = false, className }) {
   const config = {
@@ -290,7 +290,7 @@ function CtaButton({ type, label, service, size = "md", primary = false, onDark 
       variant: "whatsapp",
     },
     email: {
-      href: `mailto:${EMAILS.sales}?subject=${encodeURIComponent(service.title)}`,
+      href: `mailto:${EMAILS.primary}?subject=${encodeURIComponent(service.title)}`,
       icon: <Mail className="size-4" aria-hidden="true" />,
     },
     enquiry: { href: "/contact/", icon: null },

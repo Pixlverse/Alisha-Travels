@@ -1,19 +1,22 @@
 import mongoose from "mongoose";
-import { imageSchema, registerModel } from "./_shared.js";
+import { mediaSchema, registerModel } from "./_shared.js";
 
 /**
  * One consolidated gallery. The legacy site ran two competing systems (the
  * "Memory Book" page and a portfolio custom post type) with a duplicated image
  * across them; /gallery/ replaces both and /portfolio/* 301s here.
  *
- * Categories are a real taxonomy: a filter tab is only rendered when at least
- * one item carries that category, so there are no dead tabs.
+ * An item is a photograph or a video. The field is still called `image` so
+ * documents written before video support keep loading unchanged.
+ *
+ * Categories are kept for organising items in the dashboard; the public page
+ * no longer renders filter tabs.
  */
 export const GALLERY_CATEGORIES = ["ads", "memories", "office", "tours", "events"];
 
 const galleryItemSchema = new mongoose.Schema(
   {
-    image: { type: imageSchema, required: true },
+    image: { type: mediaSchema, required: true },
     caption: { type: String, trim: true, default: "" },
     category: {
       type: String,

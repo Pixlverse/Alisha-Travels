@@ -22,6 +22,29 @@ export const imageSchema = new mongoose.Schema(
   { _id: false }
 );
 
+/**
+ * An image OR a video. Only the gallery takes video, so this is a separate
+ * schema rather than a widening of `imageSchema` — a destination hero should
+ * never be able to turn into a video by accident.
+ *
+ * `resourceType` defaults to "image" so every gallery item saved before video
+ * support existed still reads correctly without a migration. `width` and
+ * `height` are what the public gallery uses to render each item at the
+ * aspect ratio it was uploaded at.
+ */
+export const mediaSchema = new mongoose.Schema(
+  {
+    url: { type: String, required: true, trim: true },
+    publicId: { type: String, trim: true },
+    resourceType: { type: String, enum: ["image", "video"], default: "image" },
+    alt: { type: String, trim: true, default: "" },
+    width: Number,
+    height: Number,
+    duration: Number,
+  },
+  { _id: false }
+);
+
 export const faqSchema = new mongoose.Schema(
   {
     question: { type: String, required: true, trim: true },

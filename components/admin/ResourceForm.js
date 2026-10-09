@@ -341,10 +341,26 @@ function FieldControl({ field, value, onChange, values, refOptions }) {
       );
 
     case "image":
-      return <ImageField id={id} value={value} onChange={onChange} folder={field.folder} />;
+      return (
+        <ImageField
+          id={id}
+          value={value}
+          onChange={onChange}
+          folder={field.folder}
+          allowVideo={field.allowVideo}
+        />
+      );
 
     case "imageList":
-      return <ImageListField id={id} value={value} onChange={onChange} folder={field.folder} />;
+      return (
+        <ImageListField
+          id={id}
+          value={value}
+          onChange={onChange}
+          folder={field.folder}
+          allowVideo={field.allowVideo}
+        />
+      );
 
     case "stringList":
       return <StringListField id={id} value={value} onChange={onChange} />;

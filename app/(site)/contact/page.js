@@ -149,7 +149,6 @@ export default async function ContactPage() {
               <ul className="mt-5 space-y-3 border-t border-line pt-5">
                 {[
                   { email: EMAILS.primary, label: "General enquiries" },
-                  { email: EMAILS.sales, label: "Sales" },
                 ].map((item) => (
                   <li key={item.email}>
                     <a href={`mailto:${item.email}`} className="group flex items-center gap-3 text-[0.9375rem]">

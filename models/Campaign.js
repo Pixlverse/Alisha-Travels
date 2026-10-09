@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { imageSchema, seoSchema, registerModel, slugify } from "./_shared.js";
+import { imageSchema, mediaSchema, seoSchema, registerModel, slugify } from "./_shared.js";
 
 /**
  * A campaign — the trips and sponsorships the agency runs that are not for
@@ -50,6 +50,15 @@ const campaignSchema = new mongoose.Schema(
      */
     videoUrl: { type: String, trim: true, default: "" },
     videoThumbnail: { type: imageSchema },
+
+    /**
+     * Photographs and reels from the campaign, shown down the right of the
+     * campaign page beside the story. Uploads (image or video) and reel LINKS
+     * (Instagram, YouTube Shorts, Vimeo) are separate lists because a link has
+     * no file to store — the page shows uploads first, then links.
+     */
+    media: { type: [mediaSchema], default: [] },
+    reelLinks: { type: [String], default: [] },
 
     order: { type: Number, default: 100, index: true },
     status: { type: String, enum: ["active", "draft"], default: "active", index: true },

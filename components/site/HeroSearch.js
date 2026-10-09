@@ -31,11 +31,16 @@ const SUBMIT_LABEL = {
   visa: "Find visa",
 };
 
+/**
+ * `short` is the label on a phone. Four full labels need ~380px and a phone's
+ * search card has ~270px, so "Fixed departures" was cut off at the card's edge
+ * and the Visa tab was pushed out of sight entirely.
+ */
 const TABS = [
-  { key: "packages", label: "Packages" },
-  { key: "destinations", label: "Destinations" },
-  { key: "departures", label: "Fixed departures" },
-  { key: "visa", label: "Visa" },
+  { key: "packages", label: "Packages", short: "Packages" },
+  { key: "destinations", label: "Destinations", short: "Places" },
+  { key: "departures", label: "Fixed departures", short: "Departures" },
+  { key: "visa", label: "Visa", short: "Visa" },
 ];
 
 export default function HeroSearch({ destinations = [], visaCountries = [] }) {
@@ -158,7 +163,7 @@ export default function HeroSearch({ destinations = [], visaCountries = [] }) {
         role="tablist"
         aria-label="What are you looking for?"
         onKeyDown={onTabKeyDown}
-        className="relative z-10 flex gap-1"
+        className="relative z-10 flex sm:gap-1"
       >
         {TABS.map((item, position) => {
           const selected = tab === item.key;
@@ -176,14 +181,18 @@ export default function HeroSearch({ destinations = [], visaCountries = [] }) {
               tabIndex={selected ? 0 : -1}
               onClick={() => setTab(item.key)}
               className={cn(
-                "-mb-px rounded-t-[0.9rem] border px-4 py-2.5 text-[0.8125rem] font-semibold transition-colors",
+                // flex-auto, not flex-1: equal quarters gave "Departures" less room
+                // than its word and it ran under the Visa tab. Sized by content,
+                // the spare width is shared out and nothing overlaps.
+                "-mb-px flex-auto rounded-t-[0.9rem] border px-2 py-2.5 text-center text-[0.75rem] font-semibold whitespace-nowrap transition-colors max-[359px]:px-1.5 max-[359px]:text-[0.6875rem] sm:flex-none sm:px-4 sm:text-[0.8125rem]",
                 "focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:outline-none",
                 selected
                   ? "border-brand-200 border-b-white bg-white text-brand-700"
                   : "border-transparent text-ink-muted hover:bg-mist-100 hover:text-ink"
               )}
             >
-              {item.label}
+              <span className="sm:hidden">{item.short}</span>
+              <span className="hidden sm:inline">{item.label}</span>
             </button>
           );
         })}

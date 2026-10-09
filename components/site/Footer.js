@@ -130,7 +130,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
             {columns.map((column) => (
               <nav key={column.title} aria-label={column.title}>
                 <h2 className="font-sans text-[0.6875rem] font-semibold tracking-[0.18em] text-brand-300 uppercase">
@@ -201,7 +201,7 @@ export default function Footer() {
             <p className="mt-3 text-sm leading-relaxed text-brand-100/75">
               Monday to Saturday
               <br />
-              9:30 am – 6:30 pm IST
+              9:30 am – 6:00 pm IST
             </p>
             <p className="mt-3 text-sm leading-relaxed text-brand-100/75">
               Travelling and something has gone wrong? Call the number on your itinerary at any
@@ -212,14 +212,14 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page flex flex-col gap-3 py-6 text-xs text-brand-100/80 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col items-center gap-4 py-7 text-center text-xs leading-relaxed text-brand-100/80 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-6 sm:text-left">
           {/* The client's own credit line, in their order: accreditation,
               founding, copyright. */}
           <p>
             IATA accredited · Founded {SITE.founded} by {SITE.founder} · © {year}{" "}
             {SITE.legalName}
           </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             <Link href="/reviews/" className="underline-offset-4 hover:text-white hover:underline">
               Read our reviews
             </Link>

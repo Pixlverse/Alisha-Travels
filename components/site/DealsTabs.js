@@ -70,7 +70,7 @@ export default function DealsTabs({ groups, title, eyebrow, lead, link, linkLabe
       link={link || current.href}
       linkLabel={linkLabel}
       label={`${current.label} packages`}
-      itemClassName="w-[19rem] shrink-0 sm:w-[21rem]"
+      itemClassName="w-[82vw] max-w-[19rem] shrink-0 sm:w-[21rem] sm:max-w-none"
       beforeRail={tablist}
       railWrapper={(rail) => (
         <div

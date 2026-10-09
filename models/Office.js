@@ -38,7 +38,7 @@ const officeSchema = new mongoose.Schema(
      *  anchor pointed at "#". */
     mapLink: { type: String, trim: true, default: "" },
 
-    hours: { type: String, trim: true, default: "Mon–Sat, 9:30 am – 6:30 pm" },
+    hours: { type: String, trim: true, default: "Mon–Sat, 9:30 am – 6:00 pm" },
     order: { type: Number, default: 100 },
     status: { type: String, enum: ["active", "draft"], default: "active" },
   },

@@ -55,6 +55,22 @@ import { getDepartures } from "@/lib/data/departures";
  * visitor in between is served a cached page.
  */
 /**
+ * The homepage's campaign band, in short. The full story is the campaign
+ * record at /campaigns/<slug>/ and is edited in the dashboard; this is the
+ * client's own copy cut down to fit a band, so it lives here.
+ */
+const TRAVEL_BEYOND_SIGHT = {
+  slug: "school-for-the-blind-kottayam",
+  title: "Travel Beyond Sight",
+  heading: "What does a journey look like to someone who has never seen one?",
+  paragraphs: [
+    "We took the children of the Government School for the Blind, Olassa, to Sambranikodi — a patch of sand in the middle of Ashtamudi Lake where the water comes up to your knees. We planned the day for what they would hear, hold and taste: the boat engine coughing awake, sand giving way underfoot, the twisted roots of the mangroves, pearl spot for lunch.",
+    "Everything except the view. It turned out that is what our work has always been made of.",
+  ],
+  pullQuote: "Every travel is a blessing.",
+};
+
+/**
  * The four kinds of trip, in the client's words. These are filter views over
  * the same package collection — see the note in PackagesBrowser — but they are
  * how people describe the trip they want, so the homepage leads with them.
@@ -230,11 +246,12 @@ export default async function HomePage() {
     getDepartures({ includePast: false }),
   ]);
 
-  // The band below Services. It was hardcoded copy about one trip; it is a
-  // collection now. The newest campaign leads the band and the others sit
-  // beside it — the client's note was that the area should not be given over
-  // to a single campaign when they have run several.
-  const [campaign, ...otherCampaigns] = campaigns;
+  // The band below Services. Its COPY is hardcoded (a short version of Travel
+  // Beyond Sight — see TRAVEL_BEYOND_SIGHT); the photograph, film and link
+  // still come from that campaign's record, so the client can change those in
+  // the dashboard. Every other campaign is listed beside it.
+  const campaign = campaigns.find((item) => item.slug === TRAVEL_BEYOND_SIGHT.slug);
+  const otherCampaigns = campaigns.filter((item) => item.slug !== TRAVEL_BEYOND_SIGHT.slug);
 
   /*
     TWO tabs, not four.
@@ -537,7 +554,7 @@ export default async function HomePage() {
             link="/destinations/"
             linkLabel="All destinations"
             label="Destinations"
-            itemClassName="w-[17rem] shrink-0 sm:w-[19rem]"
+            itemClassName="w-[78vw] max-w-[17rem] shrink-0 sm:w-[19rem] sm:max-w-none"
           >
             {trending.map((destination) => (
               <DestinationCard key={destination.slug} destination={destination} size="tall" />
@@ -603,13 +620,13 @@ export default async function HomePage() {
       */}
       <Section>
         <div className="container-page">
-          <SectionHeading
+          <VideoReviews
+            reviews={videoReviews}
             eyebrow="On camera"
             title="Some of them said it out loud."
             link="/reviews/"
             linkLabel="All reviews"
           />
-          <VideoReviews reviews={videoReviews} />
         </div>
       </Section>
 
@@ -635,7 +652,8 @@ export default async function HomePage() {
         Same family as the boarding pass on the 404 and the passport page on
         /about/: the site explains a trip using the objects a trip is made of.
 
-        The route and the stagger are desktop-only. Below lg the cards stack,
+        The route and the stagger are xl-only. Below that the cards sit in a
+        plain grid,
         and a curve through a vertical stack is a line through nothing.
       */}
       <Section tone="mist">
@@ -673,7 +691,7 @@ export default async function HomePage() {
               viewBox="0 0 400 120"
               preserveAspectRatio="none"
               fill="none"
-              className="pointer-events-none absolute inset-x-10 top-16 hidden h-40 lg:block"
+              className="pointer-events-none absolute inset-x-10 top-16 hidden h-40 xl:block"
             >
               <path
                 d="M50 24 C 100 24, 100 96, 150 96 S 200 24, 250 24 S 300 96, 350 96"
@@ -685,9 +703,12 @@ export default async function HomePage() {
               />
             </svg>
 
-            <ul className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {/* Three across on a laptop, four (staggered on the route) from
+                xl: four columns at 1024px left each card ~200px wide and the
+                copy wrapped every two or three words. */}
+            <ul className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4">
               {PACKAGE_KINDS.map((kind, index) => (
-                <li key={kind.title} className={index % 2 ? "lg:mt-16" : undefined}>
+                <li key={kind.title} className={index % 2 ? "xl:mt-16" : undefined}>
                   <Link
                     href={kind.href}
                     className="group flex h-full flex-col rounded-[1.25rem] bg-white p-6 ring-1 ring-brand-100 shadow-[0_20px_45px_-35px_rgba(16,32,42,0.6)] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_28px_55px_-30px_rgba(10,68,87,0.5)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
@@ -771,15 +792,15 @@ export default async function HomePage() {
         TWO — hands on a braille page, not a face. A stock portrait of an
         identifiable blind child reads as a claim that this is one of them.
 
-        THREE — the payoff is the campaign's own pull quote, which for this one
-        is the site tagline. If the client writes a different campaign with a
-        different line, the band follows.
+        THREE — the payoff is the site tagline, which is also where the Travel
+        Beyond Sight story ends. The band's copy is hardcoded (TRAVEL_BEYOND_SIGHT,
+        above); only the photograph, film and link come from the record.
       */}
       {campaign ? (
         <section className="relative isolate flex min-h-[30rem] items-end overflow-hidden sm:min-h-[34rem]">
           <Image
             src={campaign.heroImage.url}
-            alt={campaign.heroImage.alt || campaign.title}
+            alt={campaign.heroImage.alt || TRAVEL_BEYOND_SIGHT.title}
             fill
             sizes="100vw"
             quality={60}
@@ -804,33 +825,34 @@ export default async function HomePage() {
               <p className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 ring-1 ring-white/25">
                 <HandHeart className="size-4 text-brand-200" aria-hidden="true" />
                 <span className="text-[0.6875rem] font-semibold tracking-[0.18em] text-white uppercase">
-                  {campaigns.length > 1 ? "Our campaigns" : "Our campaign"}
+                  Our campaign · {TRAVEL_BEYOND_SIGHT.title}
                 </span>
               </p>
 
               <h2 className="mt-6 text-balance-heading text-2xl leading-tight font-bold tracking-[-0.015em] text-white sm:text-[2rem]">
-                {campaign.title}
+                {TRAVEL_BEYOND_SIGHT.heading}
               </h2>
 
-              <p className="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
-                {campaign.summary}
+              {TRAVEL_BEYOND_SIGHT.paragraphs.map((text) => (
+                <p key={text} className="mt-5 text-base leading-relaxed text-white/85 sm:text-lg">
+                  {text}
+                </p>
+              ))}
+
+              <p className="mt-8 border-t border-white/20 pt-7 font-display text-[1.875rem] leading-tight text-white italic sm:text-[2.75rem]">
+                {TRAVEL_BEYOND_SIGHT.pullQuote}
               </p>
 
-              {campaign.pullQuote ? (
-                <p className="mt-8 border-t border-white/20 pt-7 font-display text-[1.875rem] leading-tight text-white italic sm:text-[2.75rem]">
-                  {campaign.pullQuote}
-                </p>
-              ) : null}
-
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Button href={campaign.href} variant="white" size="lg">
+              {/* One row at every width: on a phone the pair is a two-column
+                  grid at the md size, where lg buttons wrapped onto two lines. */}
+              <div className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center">
+                <Button href={campaign.href} variant="white" className="px-3 sm:h-13 sm:px-8 sm:text-base">
                   Read the story
                 </Button>
                 <Button
                   href="/campaigns/"
                   variant="outline"
-                  size="lg"
-                  className="border-white/50 bg-transparent text-white hover:border-white hover:bg-white/10"
+                  className="border-white/50 bg-transparent px-3 text-white hover:border-white hover:bg-white/10 sm:h-13 sm:px-8 sm:text-base"
                 >
                   All campaigns
                 </Button>
@@ -847,7 +869,7 @@ export default async function HomePage() {
                 videoUrl={campaign.videoUrl}
                 still={campaign.videoThumbnail?.url || campaign.heroImage?.url}
                 alt={campaign.videoThumbnail?.alt || ""}
-                title={campaign.title}
+                title={TRAVEL_BEYOND_SIGHT.title}
               />
 
               {otherCampaigns.length ? (

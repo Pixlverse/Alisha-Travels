@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
 /** An ordered set of Cloudinary assets — a destination or package gallery. */
-export default function ImageListField({ id, value = [], onChange, folder, help }) {
+export default function ImageListField({ id, value = [], onChange, folder, help, allowVideo = false }) {
   const items = Array.isArray(value) ? value : [];
 
   const update = (index, next) => {
@@ -23,6 +23,7 @@ export default function ImageListField({ id, value = [], onChange, folder, help 
             id={`${id}-${index}`}
             value={item}
             folder={folder}
+            allowVideo={allowVideo}
             onChange={(next) => update(index, next)}
           />
         </div>
@@ -33,6 +34,7 @@ export default function ImageListField({ id, value = [], onChange, folder, help 
           id={`${id}-new`}
           value={null}
           folder={folder}
+          allowVideo={allowVideo}
           onChange={(next) => next && onChange([...items, next])}
           help="Pick a file to add it to the gallery."
         />
