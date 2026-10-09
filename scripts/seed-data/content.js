@@ -17,38 +17,48 @@ const x = (key) => ({ ...EXTRA_IMAGES[key] });
  * Google Reviews API sync in this phase.
  */
 /**
- * Campaigns.
+ * Campaigns - the "Beyond Destinations" stories.
  *
- * ONE entry, and it is not invented: "Travel Beyond Sight" is the client's own
- * write-up of the day at Sambranikodi with the Government School for the
- * Blind, Olassa. The body is their copy, with the section breaks marked as
- * "## " lines (RichText renders those as subheadings).
+ * TWO entries, and neither is invented: both are the client's own write-ups.
+ * Each body is their copy, with the section breaks marked as "## " lines
+ * (RichText renders those as subheadings).
  *
- * The homepage band does NOT read this copy — it carries a short, hardcoded
- * version of the same story and links here for the rest.
+ * The fields map onto the /campaigns/ page the client wrote:
+ *   title     "STORY 01 · TRAVEL BEYOND SIGHT" (the number is the order)
+ *   headline  the card's heading - "A journey beyond what the eyes can see"
+ *   subtitle  the line under the title, on the card and the story's header
+ *   summary   the card's paragraph
  *
- * The photograph is a freely licensed Pexels image of hands reading braille
- * (photo 7695406 — commercial use, no attribution required). It is NOT from
- * the trip, which is why `imageNote` says so on the page: /gallery/ promises
- * visitors that nothing on this site is from a stock library, and an
- * unlabelled stand-in would make that a lie. Replace both when the client
- * supplies their own photograph, and the note goes with it.
+ * The homepage shows Travel Beyond Sight only, from short hardcoded copy
+ * (TRAVEL_BEYOND_SIGHT in app/(site)/page.js) that links here for the rest.
  *
- * The slug predates the title and is kept so existing links still resolve —
- * Olassa is in Kottayam, so it is still true.
+ * Neither photograph is from the trip, which is why each `imageNote` says so on
+ * the page: /gallery/ promises visitors that nothing on this site is from a
+ * stock library, and an unlabelled stand-in would make that a lie. Replace both
+ * when the client supplies their own photographs, and the notes go with them.
+ *  - Travel Beyond Sight: a freely licensed Pexels image of hands reading
+ *    braille (photo 7695406 - commercial use, no attribution required).
+ *  - When a Wish Found Its Wings: the Cochin International Airport photograph
+ *    from Wikimedia Commons that the seed already uses elsewhere.
+ *
+ * The first slug predates the title and is kept so existing links still
+ * resolve - Olassa is in Kottayam, so it is still true.
  */
 export const campaigns = [
   {
     slug: "school-for-the-blind-kottayam",
     title: "Travel Beyond Sight",
+    headline: "A journey beyond what the eyes can see",
+    subtitle:
+      "A day at Sambranikodi with the children of the Government School for the Blind, Olassa.",
     summary:
-      "A day at Sambranikodi with the children of the Government School for the Blind, Olassa - and what it taught us about our own work.",
+      "What does a destination mean when you cannot see it? We set out to discover the answer with a group of children, through the sounds, textures and experiences of a day on Ashtamudi Lake.",
     body: [
       "What does a journey look like to someone who has never seen one?",
-      "## It began with a question we couldn’t answer",
-      "Every travel agency in the world sells the same thing first: a picture. The sunset from the houseboat. Snow on a mountain pass. The hotel pool, photographed from above so the water looks bluer than it is. For thirteen years we have put those pictures in front of people and watched their faces as they decide. It is how this business works. It is how we work. So when the idea came up of taking the children of Olassa on a trip, the first question in our office wasn’t about money, or buses, or dates.",
+      "## It began with a question we couldn’t answer first",
       "If you take the view away, what is left for a travel agency to give?",
-      "So we went to Olassa. We started where we always start. We listened.",
+      "Every travel agency in the world sells the same thing first: a picture. The sunset from the houseboat. Snow on a mountain pass. The hotel pool, photographed from above so the water looks bluer than it is. For thirteen years we have put those pictures in front of people and watched their faces as they decide. It is how this business works. It is how we work. So when the idea came up of taking the children of Olassa on a trip, the first question in our office wasn’t about money, or buses, or dates.",
+      "## So we went to Olassa. We started where we always start. We listened.",
       "It is the first thing we do for every traveller. We listen, then we plan. For a couple saving two years for a honeymoon. For a grandmother whose knees won’t manage the steps. For a company sending a hundred people to a conference. This time we sat in a classroom in Olassa with the teachers and asked the children what they love.",
       "One boy said his favourite sound in the world was rain on the school roof. A girl in the second row wanted to know what it feels like to stand in water that goes on and on. Someone else had never been on a boat and wanted to know if it rocks.",
       "Not one of them asked what anything would look like.",
@@ -56,16 +66,15 @@ export const campaigns = [
       "And somewhere in that classroom, we realised the answer to our question.",
       "We also knew where we wanted to take them. About ten kilometres from Kollam town, in the middle of Ashtamudi Lake, there is a patch of sand that was never meant to be there. It rose from soil dredged for the national waterway and left in the backwaters, and over the years the mangroves moved in. Today the water around it comes up to your knees. You can step off a boat and walk in the middle of a lake.",
       "For children who know the world through their feet and their hands, we couldn’t think of a better place.",
-      "## Everything except the view",
+      "## Everything except the view.",
       "For thirteen years, our real work has never been the picture. It has been the part nobody photographs.",
       "The route. The timing. Who will be waiting at the other end. Whether the hotel is what it promised to be. Who picks up the phone at 2 a.m. when something changes.",
       "For most travellers, those details stay in the background, and the view takes the credit. For these children, the details were the journey. Every single one.",
       "Somebody has to handle the details. On this trip, the details were everything.",
       "So we planned it the only way we know how. Exactly like any other departure. Only more carefully.",
-      "## A trip planned for the ears, the hands and the heart",
+      "## A trip planned for the ears, the hands and the heart.",
       "We planned the day for what it would sound like. The boat engine coughing awake at the jetty. Water slapping against the hull. Wind coming across the backwaters. Birds somewhere in the mangroves. And we asked everyone in the group to do something guides rarely do: stop pointing, and start describing.",
       "We planned it for what they could touch. Lake water around their knees. Soft sand giving way under their feet. The twisted roots of the mangroves. Wherever we could, the children held the thing instead of being told about it.",
-      "We built lunch into the day instead of squeezing it in, because food is the one part of a place you can take in completely. In Kollam, that means seafood - the pearl spot, from the same backwaters they had just walked in.",
       "We walked it before they did. We checked the jetty, the boat, and the footing on the island, and planned the visit around the tide so the water would be shallow enough to walk in. A life jacket on every child before anyone stepped aboard. And we left time. Time to stand still in the water. Time to listen. Time to go back to something twice.",
       "In their world, destinations are not just places. They are stories written in the language of touch.",
       "## We went to give something. We came back having learnt something.",
@@ -90,6 +99,49 @@ export const campaigns = [
     metaTitle: "Travel Beyond Sight - A Day With the School for the Blind, Olassa",
     metaDescription:
       "Alisha Tours & Travels took the children of the Government School for the Blind, Olassa, to Sambranikodi on Ashtamudi Lake - a trip planned for the ears, the hands and the heart.",
+  },
+  {
+    slug: "when-a-wish-found-its-wings",
+    title: "When a Wish Found Its Wings",
+    headline: "Three people. One wish. A first flight.",
+    subtitle: "They had a wish. We helped them take off.",
+    summary:
+      "Three members of a tribal community in Kerala had always wished to travel by aeroplane. In May 2024, they flew from Kochi and Alisha Tours & Travels was glad to make it possible.",
+    body: [
+      "For some people, flying is just another way to get somewhere. You book a ticket, pack a bag and head to the airport.",
+      "For three members of a tribal community in Kerala, it meant something more.",
+      "They had a wish to travel in an aeroplane. Not just to watch one pass overhead or hear someone talk about flying, but to experience it themselves.",
+      "So we decided to make it happen.",
+      "Alisha Tours & Travels sponsored a flight experience for the three of them, from Kochi to Trivandrum.",
+      "And one day, a wish that had lived in their minds became a journey they could finally call their own.",
+      "## The day the wish became real",
+      "There is something special about an airport. The announcements, the luggage moving across the floor, the sight of aircraft waiting on the runway. For someone about to fly for the first time, every little thing can feel new.",
+      "When they reached the airport, all three of them lit up with joy. It was their first time on an escalator, and even that short ride felt like part of the adventure.",
+      "As they walked up to the aircraft, there was a slight hesitation among the three of them. But the moment they stepped inside, every hesitation was gone.",
+      "Then came the moment they found their seats and realised that this was really happening.",
+      "Soon, the aircraft left the ground. The familiar world began to look different. And for the first time, they were travelling through the sky.",
+      "And the day did not end there. For the return journey, they boarded the Vande Bharat. It was their first time on a train as well.",
+      "As the train moved out of the station, they settled into their seats and watched the world pass by the window. The same land they had seen from the sky earlier that day was now rushing past, up close.",
+      "Two firsts in a single day, one in the sky and one on the rails. That made the day doubly special.",
+      "## More than a flight",
+      "The journey from Kochi to Trivandrum was short in distance. But the meaning of a journey cannot always be measured in kilometres.",
+      "Sometimes, it is measured by a first experience. A wish fulfilled. A memory that stays long after the journey ends.",
+      "We were happy to sponsor this experience. But the wish belonged to them, and so did the journey.",
+      "## Every journey is a blessing",
+      "At Alisha Tours & Travels, we have always believed that travel is about more than reaching a destination.",
+      "It is about the experiences we carry with us, the things we discover and the moments we might otherwise never have known.",
+      "This time, we got to be a part of three people's first flight, and their first train journey too.",
+      "And that is a journey worth remembering.",
+    ].join("\n\n"),
+    pullQuote: "",
+    period: "May 2024",
+    location: "Kochi to Trivandrum",
+    heroImage: x("airport"),
+    imageNote: "Photograph illustrative - Cochin International Airport. Not taken on the day.",
+    order: 2,
+    metaTitle: "When a Wish Found Its Wings - A First Flight, Kochi to Trivandrum",
+    metaDescription:
+      "Three members of a tribal community in Kerala had always wished to fly. In May 2024 Alisha Tours & Travels sponsored their first flight, from Kochi to Trivandrum - and their first train ride home.",
   },
 ];
 

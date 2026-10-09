@@ -11,7 +11,6 @@ import {
   HandHeart,
   Heart,
   PhoneCall,
-  Play,
   PlaneLanding,
   Scale,
   Star,
@@ -62,10 +61,10 @@ import { getDepartures } from "@/lib/data/departures";
 const TRAVEL_BEYOND_SIGHT = {
   slug: "school-for-the-blind-kottayam",
   title: "Travel Beyond Sight",
-  heading: "What does a journey look like to someone who has never seen one?",
+  heading: "A journey beyond what the eyes can see",
   paragraphs: [
-    "We took the children of the Government School for the Blind, Olassa, to Sambranikodi — a patch of sand in the middle of Ashtamudi Lake where the water comes up to your knees. We planned the day for what they would hear, hold and taste: the boat engine coughing awake, sand giving way underfoot, the twisted roots of the mangroves, pearl spot for lunch.",
-    "Everything except the view. It turned out that is what our work has always been made of.",
+    "A day at Sambranikodi with the children of the Government School for the Blind, Olassa.",
+    "What does a destination mean when you cannot see it? We set out to discover the answer with a group of children, through the sounds, textures and experiences of a day on Ashtamudi Lake.",
   ],
   pullQuote: "Every travel is a blessing.",
 };
@@ -249,9 +248,9 @@ export default async function HomePage() {
   // The band below Services. Its COPY is hardcoded (a short version of Travel
   // Beyond Sight — see TRAVEL_BEYOND_SIGHT); the photograph, film and link
   // still come from that campaign's record, so the client can change those in
-  // the dashboard. Every other campaign is listed beside it.
+  // the dashboard. The other stories live on /campaigns/ only, at the
+  // client's instruction - the homepage shows this one.
   const campaign = campaigns.find((item) => item.slug === TRAVEL_BEYOND_SIGHT.slug);
-  const otherCampaigns = campaigns.filter((item) => item.slug !== TRAVEL_BEYOND_SIGHT.slug);
 
   /*
     TWO tabs, not four.
@@ -778,8 +777,8 @@ export default async function HomePage() {
         The campaign band, now DATA. It was the blind-school trip written into
         this file, which meant a band about the company's most human piece of
         work could only be changed by a deploy — and a second campaign could not
-        be added at all. It reads the newest campaign from the collection and
-        links to /campaigns/ for the rest.
+        be added at all. It reads Travel Beyond Sight's record from the
+        collection and links to /campaigns/ for the rest.
 
         Three things about it are unchanged and deliberate.
 
@@ -816,16 +815,16 @@ export default async function HomePage() {
 
           <div className="relative z-10 container-page py-12 sm:py-16 lg:py-20">
             {/* TWO COLUMNS now. This was one campaign at full width with the
-                photograph behind it, which the client's note called out: they
-                have run several, and the band gave the area to one of them and
-                left no room for a film. The lead campaign keeps the left, and
-                the right carries the film and the other campaigns. */}
+                photograph behind it, which left no room for a film. The story
+                keeps the left and the film takes the right. Only Travel Beyond
+                Sight shows here, at the client's instruction; the other
+                stories are on /campaigns/. */}
             <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-14">
             <div className="max-w-2xl">
               <p className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3.5 py-1.5 ring-1 ring-white/25">
                 <HandHeart className="size-4 text-brand-200" aria-hidden="true" />
                 <span className="text-[0.6875rem] font-semibold tracking-[0.18em] text-white uppercase">
-                  Our campaign · {TRAVEL_BEYOND_SIGHT.title}
+                  Beyond Destinations · {TRAVEL_BEYOND_SIGHT.title}
                 </span>
               </p>
 
@@ -863,7 +862,7 @@ export default async function HomePage() {
               ) : null}
             </div>
 
-            {/* The film, and the campaigns this band is not leading with. */}
+            {/* The campaign film. */}
             <div className="lg:pt-4">
               <CampaignFilm
                 videoUrl={campaign.videoUrl}
@@ -871,55 +870,6 @@ export default async function HomePage() {
                 alt={campaign.videoThumbnail?.alt || ""}
                 title={TRAVEL_BEYOND_SIGHT.title}
               />
-
-              {otherCampaigns.length ? (
-                <>
-                  <p className="mt-8 font-sans text-[0.6875rem] font-bold tracking-[0.18em] text-brand-200 uppercase">
-                    More of our work
-                  </p>
-                  <ul className="mt-4 divide-y divide-white/15 border-y border-white/15">
-                    {otherCampaigns.map((item) => (
-                      <li key={item.slug}>
-                        <Link
-                          href={item.href}
-                          className="group flex items-center gap-4 py-4 focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:outline-none"
-                        >
-                          <span className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-brand-900">
-                            {item.heroImage?.url ? (
-                              <Image
-                                src={item.heroImage.url}
-                                alt=""
-                                fill
-                                sizes="3.5rem"
-                                quality={60}
-                                className="object-cover"
-                              />
-                            ) : null}
-                            {item.videoUrl ? (
-                              <span
-                                aria-hidden="true"
-                                className="absolute inset-0 flex items-center justify-center bg-brand-900/45 text-white"
-                              >
-                                <Play className="size-4 fill-current" />
-                              </span>
-                            ) : null}
-                          </span>
-                          <span className="min-w-0">
-                            <span className="line-clamp-2 text-[0.9375rem] leading-snug font-semibold text-white underline-offset-4 group-hover:underline">
-                              {item.title}
-                            </span>
-                            {item.period || item.location ? (
-                              <span className="mt-1 block text-xs text-white/60">
-                                {[item.period, item.location].filter(Boolean).join(" · ")}
-                              </span>
-                            ) : null}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
             </div>
             </div>
           </div>

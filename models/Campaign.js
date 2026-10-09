@@ -23,7 +23,12 @@ const campaignSchema = new mongoose.Schema(
   {
     slug: { type: String, required: true, unique: true, lowercase: true, trim: true, index: true },
     title: { type: String, required: true, trim: true },
-    /** One line for the card and the homepage band. */
+    /** The heading on the /campaigns/ card - "A journey beyond what the eyes
+     *  can see". The title becomes the label above it. Falls back to the title. */
+    headline: { type: String, trim: true, default: "" },
+    /** The line under the title, on the card and the story's header. */
+    subtitle: { type: String, trim: true, default: "" },
+    /** The paragraph on the /campaigns/ card. */
     summary: { type: String, required: true, trim: true },
     /** The full story. Plain text, blank line between paragraphs. */
     body: { type: String, default: "" },

@@ -81,6 +81,12 @@ export default async function CampaignPage({ params }) {
           <h1 className="mt-4 max-w-4xl text-balance-heading text-[1.875rem] leading-[1.1] font-extrabold tracking-[-0.02em] text-white sm:text-[2.5rem]">
             {campaign.title}
           </h1>
+
+          {campaign.subtitle ? (
+            <p className="mt-4 max-w-3xl text-lg leading-snug text-white/85 sm:text-xl">
+              {campaign.subtitle}
+            </p>
+          ) : null}
         </div>
       </section>
 
@@ -109,11 +115,18 @@ export default async function CampaignPage({ params }) {
             <AllCampaignsLink className="mt-5 hidden lg:block" />
           </aside>
 
-          <p className="text-lg leading-relaxed text-ink sm:text-xl">{campaign.summary}</p>
-
-          {campaign.body && campaign.body !== campaign.summary ? (
-            <RichText text={campaign.body} className="mt-7" size="lg" />
-          ) : null}
+          {/* The summary is the card copy on /campaigns/; the story opens on
+              its own first line, so the summary shows only when there is no
+              story yet. */}
+          {campaign.body ? (
+            <RichText
+              text={campaign.body}
+              size="lg"
+              className="[&>p:first-child]:text-xl [&>p:first-child]:text-ink sm:[&>p:first-child]:text-2xl"
+            />
+          ) : (
+            <p className="text-lg leading-relaxed text-ink sm:text-xl">{campaign.summary}</p>
+          )}
 
           {campaign.pullQuote ? (
             // overflow-hidden keeps the rule from running behind the float.
@@ -130,7 +143,7 @@ export default async function CampaignPage({ params }) {
       {others.length ? (
         <Section tone="mist" className="py-8 sm:py-10">
           <div className="container-page">
-            <h2 className="eyebrow">More campaigns</h2>
+            <h2 className="eyebrow">More stories</h2>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {others.map((item) => (
                 <li key={item.slug}>
