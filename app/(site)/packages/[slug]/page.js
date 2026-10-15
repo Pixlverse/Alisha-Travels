@@ -31,7 +31,7 @@ import WhatsAppIcon from "@/components/site/icons/WhatsAppIcon";
 import { getPackageBySlug, getPackageSlugs, getPackages } from "@/lib/data/packages";
 import { getDestinations } from "@/lib/data/destinations";
 import { getServices } from "@/lib/data/content";
-import { durationLabel, formatDate, formatDateRange, formatINR } from "@/lib/format";
+import { durationLabel, formatDate, formatDateRange, formatINR, formatPackagePrice } from "@/lib/format";
 import { PACKAGE_CATEGORIES, SITE } from "@/lib/site";
 import {
   BOOKING_POLICY,
@@ -94,6 +94,7 @@ export default async function PackagePage({ params }) {
     gallery = [],
     destination,
     category,
+    featured,
     type,
     durationDays,
     durationNights,
@@ -128,11 +129,19 @@ export default async function PackagePage({ params }) {
     getServices(),
   ]);
 
+  // The shelf this package sits on. A promotional offer has none of its own
+  // (its category is the neutral "customized", which has no page - linking
+  // /packages/customized/ was a 404), so it points at the offers view; the
+  // occasion categories keep their own pages.
+  const shelf = featured
+    ? { label: "Promotional", href: "/packages/?type=promotional" }
+    : category && category !== "customized" && CATEGORY_LABEL[category]
+      ? { label: CATEGORY_LABEL[category], href: `/packages/${category}/` }
+      : null;
+
   const crumbs = [
     { label: "Packages", href: "/packages/" },
-    ...(CATEGORY_LABEL[category]
-      ? [{ label: CATEGORY_LABEL[category], href: `/packages/${category}/` }]
-      : []),
+    ...(shelf ? [shelf] : []),
     { label: title },
   ];
 
@@ -208,10 +217,10 @@ export default async function PackagePage({ params }) {
                   {itinerary.length}-day itinerary
                 </li>
               ) : null}
-              {CATEGORY_LABEL[category] ? (
+              {shelf ? (
                 <li className="inline-flex items-center gap-2">
                   <Users className="size-4 text-brand-200" aria-hidden="true" />
-                  {CATEGORY_LABEL[category]}
+                  {featured ? "Promotional offer" : shelf.label}
                 </li>
               ) : null}
               {/* The proposal's cover carries the window the quote is built
@@ -744,10 +753,15 @@ export default async function PackagePage({ params }) {
 
               <div className="relative z-10">
                 <p className="text-[0.6875rem] font-semibold tracking-wide text-sun uppercase">
-                  Starting from
+                  {priceFrom > 0 ? "Starting from" : "Price"}
                 </p>
-                <p className="mt-1 text-4xl font-extrabold tracking-tight text-white">
-                  {formatINR(priceFrom)}
+                <p
+                  className={cn(
+                    "mt-1 font-extrabold tracking-tight text-white",
+                    priceFrom > 0 ? "text-4xl" : "text-2xl"
+                  )}
+                >
+                  {formatPackagePrice(priceFrom)}
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-brand-100/90">
                   {priceNote || "per person on twin sharing"} ·{" "}
@@ -878,7 +892,7 @@ function DepartureRow({ departure, price }) {
       </div>
 
       <p className={cn("font-sans font-semibold", expired ? "text-ink-muted" : "text-ink")}>
-        {formatINR(departure.price ?? price)}
+        {formatPackagePrice(departure.price ?? price)}
       </p>
 
       {expired ? (

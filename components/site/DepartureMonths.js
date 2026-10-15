@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArmchairIcon, MapPin } from "lucide-react";
-import { durationLabel, formatDate, formatINR, groupByMonth } from "@/lib/format";
+import { durationLabel, formatDate, formatPackagePrice, groupByMonth } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 /**
@@ -258,7 +258,7 @@ export default function DepartureMonths({ departures = [] }) {
 
                   <span className="hidden shrink-0 text-right sm:block">
                     <span className="block font-sans text-2xl leading-none font-extrabold text-ink">
-                      {formatINR(departure.price ?? departure.package?.priceFrom)}
+                      {formatPackagePrice(departure.price ?? departure.package?.priceFrom)}
                     </span>
                     <span className="mt-1.5 block text-[0.6875rem] text-ink-muted">per person</span>
                     <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">

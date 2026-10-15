@@ -70,6 +70,15 @@ const TRAVEL_BEYOND_SIGHT = {
 };
 
 /**
+ * Service cards that the homepage names and links differently, at the
+ * client's request: the tourist visa card stands for all of Global Visa.
+ * Keyed by service slug.
+ */
+const HOME_SERVICE_OVERRIDES = {
+  "global-tourist-visa": { title: "Global visa", href: "/services/global-visa/" },
+};
+
+/**
  * The four kinds of trip, in the client's words. These are filter views over
  * the same package collection — see the note in PackagesBrowser — but they are
  * how people describe the trip they want, so the homepage leads with them.
@@ -931,7 +940,7 @@ export default async function HomePage() {
             {otherServices.map((service) => (
               <li key={service.slug}>
                 <Link
-                  href={service.href}
+                  href={HOME_SERVICE_OVERRIDES[service.slug]?.href || service.href}
                   className="group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-white p-6 shadow-[0_18px_40px_-32px_rgba(16,32,42,0.5)] ring-1 ring-brand-100/70 transition-[box-shadow,transform] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:ring-brand-200 hover:shadow-[0_26px_48px_-30px_rgba(10,68,87,0.45)] focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:outline-none motion-reduce:transition-none motion-reduce:hover:translate-y-0"
                 >
                   {/*
@@ -978,7 +987,7 @@ export default async function HomePage() {
                     <ServiceIcon name={service.icon} />
                   </span>
                   <h3 className="relative z-10 mt-5 text-lg leading-snug font-semibold text-ink">
-                    {service.title}
+                    {HOME_SERVICE_OVERRIDES[service.slug]?.title || service.title}
                   </h3>
                   <p className="relative z-10 mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">
                     {service.shortDescription}

@@ -202,6 +202,9 @@ export default function HeroSearch({ destinations = [], visaCountries = [] }) {
         <HeroVisaSearch
           countries={visaCountries}
           panelProps={{ id: "hero-search-panel", role: "tabpanel", "aria-labelledby": "hero-tab-visa" }}
+          // On a phone the tabs fill the row, so Visa sits on the panel's
+          // right edge - square that corner for the same reason as below.
+          className="max-sm:rounded-tr-none"
         />
       ) : (
         <form
@@ -209,7 +212,12 @@ export default function HeroSearch({ destinations = [], visaCountries = [] }) {
           id="hero-search-panel"
           role="tabpanel"
           aria-labelledby={`hero-tab-${tab}`}
-          className="relative grid gap-2 rounded-[1.125rem] border border-brand-200 bg-white p-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-0"
+          className={cn(
+            "relative grid gap-2 rounded-[1.125rem] border border-brand-200 bg-white p-2 sm:grid-cols-[1fr_1fr_1fr_auto] sm:items-center sm:gap-0",
+            // The first tab sits on the panel's left edge. With the corner
+            // rounded, the curve showed as a notch under the selected tab.
+            tab === TABS[0].key && "rounded-tl-none"
+          )}
         >
           {tab === "departures" ? (
             <>

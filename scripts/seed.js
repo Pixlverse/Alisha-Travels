@@ -56,7 +56,7 @@ const {
 } = await import("../models/index.js");
 
 const { destinations } = await import("./seed-data/destinations.js");
-const { packages } = await import("./seed-data/packages.js");
+const { packages, RETIRED_PACKAGE_SLUGS } = await import("./seed-data/packages.js");
 const { services } = await import("./seed-data/services.js");
 const { campaigns, testimonials, galleryItems, offices } = await import("./seed-data/content.js");
 const { categoryPages } = await import("./seed-data/category-pages.js");
@@ -196,7 +196,8 @@ async function main() {
       destination: destinationId,
       heroImage: await resolveImage(source.heroImage, CLOUDINARY_FOLDERS.packages),
       gallery: await resolveGallery(source.gallery, CLOUDINARY_FOLDERS.packages),
-      status: "active",
+      // An entry can hold itself back as a draft until its details are in.
+      status: rest.status || "active",
     };
     const savedPackage = await upsertBySlug(Package, doc);
 
@@ -230,6 +231,18 @@ async function main() {
     }
   }
   console.log(` ${packages.length} ✓  (${departureCount} departures)`);
+
+  // Packages taken out of the seed data. Upserting by slug never removes
+  // anything, so without this they would stay live on any database that was
+  // seeded before. Only these named slugs go: a package added in /admin/ is
+  // never touched.
+  const retired = await Package.find({ slug: { $in: RETIRED_PACKAGE_SLUGS } }, "_id").lean();
+  if (retired.length) {
+    const ids = retired.map((doc) => doc._id);
+    await Departure.deleteMany({ package: { $in: ids } });
+    await Package.deleteMany({ _id: { $in: ids } });
+    console.log(`Retired      ${retired.length} old packages removed`);
+  }
 
   /* --- Services ---------------------------------------------------------- */
   for (const source of services) {

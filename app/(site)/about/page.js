@@ -287,14 +287,15 @@ export default async function AboutPage() {
               />
 
               <div className="flex items-center gap-4">
-                {/* Photo placeholder — replaced from /admin/ once the client
-                    supplies a portrait. Deliberately an initial rather than a
-                    stock photograph of somebody who is not him. */}
-                <span
-                  aria-hidden="true"
-                  className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 font-display text-2xl font-semibold text-brand-700"
-                >
-                  R
+                {/* The portrait is a file - see SITE.founderPhoto. */}
+                <span className="relative size-14 shrink-0 overflow-hidden rounded-2xl bg-brand-100">
+                  <Image
+                    src={SITE.founderPhoto.src}
+                    alt=""
+                    fill
+                    sizes="3.5rem"
+                    className="object-cover object-top"
+                  />
                 </span>
                 <span>
                   <span className="block text-lg font-semibold text-ink">{SITE.founder}</span>

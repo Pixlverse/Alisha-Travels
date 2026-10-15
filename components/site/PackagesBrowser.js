@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowRight,
+  BadgePercent,
+  CalendarDays,
   Briefcase,
   CalendarRange,
   ChevronDown,
@@ -14,6 +16,7 @@ import {
   Users,
   UsersRound,
   Wallet,
+  PencilRuler,
   X,
 } from "lucide-react";
 import PackageCard from "./PackageCard";
@@ -23,6 +26,7 @@ import {
   DURATION_RANGES,
   PACKAGE_CATEGORIES,
   PACKAGE_SORTS,
+  PACKAGE_TYPES,
 } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +39,12 @@ const CATEGORY_ICONS = {
   family: Users,
   "group-tours": UsersRound,
   corporate: Briefcase,
+};
+
+const TYPE_ICONS = {
+  promotional: BadgePercent,
+  customized: PencilRuler,
+  "fixed-departure": CalendarDays,
 };
 
 /**
@@ -73,6 +83,7 @@ export default function PackagesBrowser({
   const searchParams = useSearchParams();
 
   const [filters, setFilters] = useState(() => ({
+    type: typeFromParams(searchParams),
     category: lockedCategory || searchParams.get("category") || "",
     destination: searchParams.get("destination") || "",
     budget: budgetFromParams(searchParams),
@@ -81,11 +92,24 @@ export default function PackagesBrowser({
   }));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  // The Promotional / Customized chips at the top of /packages/ are links to
+  // this same page with ?type=, so the filter has to follow the URL after the
+  // first render too - the state above is only read from it once.
+  // (Adjusted during render rather than in an effect - React's pattern for
+  // state that follows a changing input.)
+  const urlType = typeFromParams(searchParams);
+  const [seenUrlType, setSeenUrlType] = useState(urlType);
+  if (urlType !== seenUrlType) {
+    setSeenUrlType(urlType);
+    setFilters((current) => ({ ...current, type: urlType }));
+  }
+
   const update = (patch) => {
     const next = { ...filters, ...patch };
     setFilters(next);
 
     const params = new URLSearchParams();
+    if (next.type) params.set("type", next.type);
     if (!lockedCategory && next.category) params.set("category", next.category);
     if (next.destination) params.set("destination", next.destination);
     if (next.duration) params.set("duration", next.duration);
@@ -103,7 +127,7 @@ export default function PackagesBrowser({
   };
 
   const clearAll = () =>
-    update({ category: lockedCategory || "", destination: "", budget: "", duration: "" });
+    update({ type: "", category: lockedCategory || "", destination: "", budget: "", duration: "" });
 
   const results = useMemo(
     () => [...packages.filter((pkg) => matches(pkg, filters))].sort(SORTERS[filters.sort] || SORTERS.recommended),
@@ -123,11 +147,16 @@ export default function PackagesBrowser({
   const facets = useMemo(() => {
     const pool = (skip) => packages.filter((pkg) => matches(pkg, filters, skip));
 
+    const typePool = pool("type");
     const categoryPool = pool("category");
     const budgetPool = pool("budget");
     const durationPool = pool("duration");
 
     return {
+      typeAll: typePool.length,
+      type: Object.fromEntries(
+        PACKAGE_TYPES.map((t) => [t.value, typePool.filter((p) => isType(p, t.value)).length])
+      ),
       categoryAll: categoryPool.length,
       category: Object.fromEntries(
         PACKAGE_CATEGORIES.map((c) => [c.slug, categoryPool.filter((p) => p.category === c.slug).length])
@@ -142,12 +171,20 @@ export default function PackagesBrowser({
   }, [packages, filters]);
 
   const activeCount =
+    (filters.type ? 1 : 0) +
     (!lockedCategory && filters.category ? 1 : 0) +
     (filters.destination ? 1 : 0) +
     (filters.budget ? 1 : 0) +
     (filters.duration ? 1 : 0);
 
   const activeChips = [
+    filters.type
+      ? {
+          key: "type",
+          label: PACKAGE_TYPES.find((t) => t.value === filters.type)?.label,
+          clear: () => update({ type: "" }),
+        }
+      : null,
     !lockedCategory && filters.category
       ? {
           key: "category",
@@ -429,6 +466,33 @@ function FilterGroups({
 
   return (
     <div className="divide-y divide-line border-t border-line">
+      <Group label="Package type" icon={<BadgePercent className="size-3.5" />}>
+        <fieldset>
+          <legend className="sr-only">Package type</legend>
+          <Option
+            name={`${idPrefix}-type`}
+            checked={!filters.type}
+            onSelect={() => onChange({ type: "" })}
+            count={facets.typeAll ?? totalCount}
+            icon={LayoutGrid}
+          >
+            All types
+          </Option>
+          {PACKAGE_TYPES.map((t) => (
+            <Option
+              key={t.value}
+              name={`${idPrefix}-type`}
+              checked={filters.type === t.value}
+              onSelect={() => onChange({ type: t.value })}
+              count={facets.type[t.value] || 0}
+              icon={TYPE_ICONS[t.value]}
+            >
+              {t.label}
+            </Option>
+          ))}
+        </fieldset>
+      </Group>
+
       {!lockedCategory ? (
         <Group label="Kind of trip" icon={<LayoutGrid className="size-3.5" />}>
           <fieldset>
@@ -633,9 +697,9 @@ const SORTERS = {
   recommended: (a, b) =>
     Number(b.featured) - Number(a.featured) ||
     (a.order ?? 100) - (b.order ?? 100) ||
-    a.priceFrom - b.priceFrom,
-  "price-asc": (a, b) => a.priceFrom - b.priceFrom,
-  "price-desc": (a, b) => b.priceFrom - a.priceFrom,
+    priceKey(a) - priceKey(b),
+  "price-asc": (a, b) => priceKey(a) - priceKey(b),
+  "price-desc": (a, b) => (b.priceFrom || 0) - (a.priceFrom || 0),
   "duration-asc": (a, b) => a.durationDays - b.durationDays,
   "duration-desc": (a, b) => b.durationDays - a.durationDays,
 };
@@ -646,12 +710,15 @@ const SORTERS = {
  * each of its options rather than what you already have.
  */
 function matches(pkg, filters, skip = null) {
+  if (skip !== "type" && filters.type && !isType(pkg, filters.type)) return false;
   if (skip !== "category" && filters.category && pkg.category !== filters.category) return false;
   if (skip !== "destination" && filters.destination && pkg.destination?.slug !== filters.destination)
     return false;
 
   if (skip !== "budget") {
     const [minPrice, maxPrice] = splitRange(filters.budget);
+    // A tour with no price yet ("Price on request") is in no budget band.
+    if ((minPrice != null || maxPrice != null) && !(pkg.priceFrom > 0)) return false;
     if (minPrice != null && pkg.priceFrom < minPrice) return false;
     if (maxPrice != null && pkg.priceFrom > maxPrice) return false;
   }
@@ -671,8 +738,14 @@ function countInRange(pool, value, field) {
   if (!value) return pool.length;
   const [min, max] = splitRange(value);
   return pool.filter(
-    (pkg) => (min == null || pkg[field] >= min) && (max == null || pkg[field] <= max)
+    (pkg) =>
+      pkg[field] > 0 && (min == null || pkg[field] >= min) && (max == null || pkg[field] <= max)
   ).length;
+}
+
+/** Unpriced ("Price on request") tours sort after every priced one. */
+function priceKey(pkg) {
+  return pkg.priceFrom > 0 ? pkg.priceFrom : Number.MAX_SAFE_INTEGER;
 }
 
 /** "25000-50000" → [25000, 50000]; an empty side becomes null. */
@@ -680,6 +753,21 @@ function splitRange(value) {
   if (!value) return [null, null];
   const [min, max] = value.split("-");
   return [min ? Number(min) : null, max ? Number(max) : null];
+}
+
+/**
+ * Promotional = the featured offers; Fixed departure = the dated group tours;
+ * Customized = every other package.
+ */
+function isType(pkg, type) {
+  if (type === "promotional") return Boolean(pkg.featured);
+  if (type === "fixed-departure") return !pkg.featured && pkg.type === "fixed-departure";
+  return !pkg.featured && pkg.type !== "fixed-departure";
+}
+
+function typeFromParams(searchParams) {
+  const type = searchParams.get("type") || "";
+  return PACKAGE_TYPES.some((t) => t.value === type) ? type : "";
 }
 
 /** Rebuild the budget control's value from the minPrice/maxPrice deep link. */

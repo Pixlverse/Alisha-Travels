@@ -7,7 +7,7 @@ import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import { getDestinations } from "@/lib/data/destinations";
 import { getPackages } from "@/lib/data/packages";
-import { PACKAGE_CATEGORIES } from "@/lib/site";
+import { PACKAGE_CATEGORIES, PACKAGE_TYPES } from "@/lib/site";
 import Link from "next/link";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
@@ -37,7 +37,21 @@ export default async function PackagesPage() {
         lead="Filter by where you want to go, what kind of trip it is, how long you have and what you want to spend. Every one of these can be rebuilt around your dates and your family - ask, and we will requote."
         breadcrumbs={[{ label: "Packages" }]}
       >
-        <nav aria-label="Package categories" className="mt-8 flex flex-wrap gap-2">
+        {/* Promotional and Customized lead: they are the two kinds of package
+            the client sells. They filter this page (?type=); the occasion
+            chips after the divider go to their own category pages. */}
+        <nav aria-label="Package types and categories" className="mt-8 flex flex-wrap items-center gap-2">
+          {PACKAGE_TYPES.map((type) => (
+            <Link
+              key={type.value}
+              href={type.href}
+              scroll={false}
+              className="rounded-full border border-brand-300 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-800 transition-colors hover:border-brand-500 hover:bg-brand-100"
+            >
+              {type.label} packages
+            </Link>
+          ))}
+          <span aria-hidden="true" className="mx-1 h-6 w-px bg-line max-sm:hidden" />
           {PACKAGE_CATEGORIES.filter((c) => c.slug !== "customized").map((category) => (
             <Link
               key={category.slug}

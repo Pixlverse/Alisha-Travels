@@ -3,7 +3,7 @@ import { ArmchairIcon, ArrowRight, Clock, MapPin } from "lucide-react";
 import Button from "./Button";
 import EnquiryDialog from "./EnquiryDialog";
 import WhatsAppIcon from "./icons/WhatsAppIcon";
-import { durationLabel, formatDate, formatDateRange, formatINR } from "@/lib/format";
+import { durationLabel, formatDate, formatDateRange, formatPackagePrice } from "@/lib/format";
 import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
@@ -196,7 +196,7 @@ export default function DepartureCard({ departure, destinations = [], services =
               expired ? "text-ink-muted line-through" : "text-ink"
             )}
           >
-            {formatINR(price)}
+            {formatPackagePrice(price)}
           </p>
         </div>
 

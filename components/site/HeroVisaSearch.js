@@ -36,7 +36,7 @@ const fold = (value) =>
 const ALL_DESTINATIONS = "/services/global-visa/tourist-visa/#every-destination";
 const MAX_RESULTS = 6;
 
-export default function HeroVisaSearch({ countries = [], panelProps }) {
+export default function HeroVisaSearch({ countries = [], panelProps, className }) {
   const router = useRouter();
   const listId = useId();
   const [query, setQuery] = useState("");
@@ -88,7 +88,7 @@ export default function HeroVisaSearch({ countries = [], panelProps }) {
     <form
       onSubmit={submit}
       {...panelProps}
-      className="relative rounded-[1.125rem] border border-brand-200 bg-white p-2"
+      className={cn("relative rounded-[1.125rem] border border-brand-200 bg-white p-2", className)}
     >
       <div className="grid gap-2 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-0">
         <label className="flex min-w-0 cursor-text items-center gap-3 rounded-2xl px-3.5 py-2.5 sm:rounded-full">

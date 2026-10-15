@@ -1,7 +1,7 @@
 import { DESTINATION_IMAGES } from "./images.js";
 
 /**
- * All 21 destinations, 13 international and 8 domestic.
+ * All 24 destinations, 13 international and 11 domestic.
  *
  * `order` is DEMAND order, not alphabetical — the SEO/nav specification fixes
  * the sequence and the site sorts by this field everywhere. Dubai, Singapore,
@@ -1806,6 +1806,59 @@ export const destinations = [
     metaTitle: "Delhi & Manali Tour Packages",
     metaDescription:
       "Delhi and Manali holiday packages from Kerala - Solang Valley, Hadimba Temple and Kullu, with overnight Volvo transfers and a day in Delhi.",
+  },
+  /*
+    GEORGIA, ALBANIA AND LAKSHADWEEP were added with the customized proposals
+    for them (customizedpackage/), because a package cannot exist without its
+    destination. There is NO client document for any of the three yet: the
+    tagline and intro are plain facts drawn from what those proposals cover,
+    and the page falls back to its default sections. Replace with the client's
+    copy in /admin/ (Destinations) when it arrives.
+  */
+  {
+    slug: "georgia",
+    name: "Georgia",
+    country: "Georgia",
+    region: "international",
+    order: 12,
+    priceFrom: 34900,
+    heroImage: img("georgia"),
+    tagline: "Tbilisi's old town and the Caucasus mountain road to Kazbegi",
+    intro:
+      "Georgia's capital, Tbilisi, has the Narikala Fortress, the sulphur-bath district of Abanotubani, Sameba Cathedral, Rustaveli Avenue and a cable car over the Mtkvari River.\n\nNorth of the city, the road into the Caucasus passes Zhinvali Reservoir, Ananuri Fortress and the ski resort of Gudauri before reaching Kazbegi (Stepantsminda), where Gergeti Trinity Church stands below Mount Kazbek.",
+    metaTitle: "Georgia Tour Packages",
+    metaDescription:
+      "Georgia tour packages from Kerala - Tbilisi's old town, Narikala Fortress and the mountain road to Kazbegi and Gergeti Trinity Church.",
+  },
+  {
+    slug: "albania",
+    name: "Albania",
+    country: "Albania",
+    region: "international",
+    order: 13,
+    priceFrom: 44400,
+    heroImage: img("albania"),
+    tagline: "Tirana's city centre and the castles of northern Albania",
+    intro:
+      "Tirana, Albania's capital, is centred on Skanderbeg Square, with the Et'hem Bey Mosque, the Clock Tower and the National History Museum close by.\n\nTo the north, Lezha has a hilltop castle, and Shkoder, one of the country's oldest cities, has Rozafa Castle above Lake Shkoder.",
+    metaTitle: "Albania Tour Packages",
+    metaDescription:
+      "Albania tour packages from Kerala - Tirana and Skanderbeg Square, with day trips to the castles of Lezha and Shkoder.",
+  },
+  {
+    slug: "lakshadweep",
+    name: "Lakshadweep",
+    country: "India",
+    region: "domestic",
+    order: 11,
+    priceFrom: 15500,
+    heroImage: img("lakshadweep"),
+    tagline: "Lagoon beaches and coral reefs around Agatti Island",
+    intro:
+      "Lakshadweep is an Indian island territory in the Arabian Sea. Agatti Island has the territory's airport, lagoon beaches such as Lagoon Beach and Hamdan Beach, and jetties looking over the lagoon.\n\nVisitors snorkel, kayak and take glass-bottom boat rides over the coral reefs, and make boat trips to nearby Kalpetti Island, where sea turtles are often seen.",
+    metaTitle: "Lakshadweep Tour Packages",
+    metaDescription:
+      "Lakshadweep packages from Kerala - Agatti Island's lagoon beaches, snorkelling and glass-bottom boat rides, and a boat trip to Kalpetti Island.",
   },
 ];
 

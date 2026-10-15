@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, Quote, ShieldCheck } from "lucide-react";
 
@@ -31,7 +32,7 @@ const { story, visionMission } = ABOUT_SECTIONS;
  * page rather than an anchor into /about/. The narrative is the client's own
  * Our Story copy, reproduced verbatim; the surrounding material is the
  * expansion the brief asks for — role, the principles the company runs on, and
- * a photograph placeholder.
+ * his portrait.
  */
 export default function FounderPage() {
   return (
@@ -46,26 +47,17 @@ export default function FounderPage() {
           />
 
           <div className="grid gap-10 lg:grid-cols-[1fr_1.7fr] lg:items-center lg:gap-14">
-            {/*
-              Photograph placeholder. Deliberately a monogram rather than stock
-              photography of somebody who is not him — a fake portrait on a
-              founder page is worse than none. Replace from /admin/ once the
-              client supplies a real photograph (Cloudinary, alisha/team).
-            */}
-            <div className="relative aspect-[4/5] max-w-xs overflow-hidden rounded-[2rem] bg-brand-100">
-              <div
-                className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.7),transparent_60%)]"
-                aria-hidden="true"
+            {/* The portrait is a file, not a dashboard field - see
+                SITE.founderPhoto in lib/site.js for how to replace it. */}
+            <div className="relative aspect-[4/5] w-full max-w-xs overflow-hidden rounded-[2rem] bg-brand-100">
+              <Image
+                src={SITE.founderPhoto.src}
+                alt={SITE.founderPhoto.alt}
+                fill
+                priority
+                sizes="20rem"
+                className="object-cover"
               />
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 flex items-center justify-center font-display text-8xl font-semibold text-brand-700/60 italic"
-              >
-                R
-              </span>
-              <span className="absolute inset-x-0 bottom-0 bg-white/85 px-5 py-3 text-center text-xs text-ink-muted backdrop-blur-sm">
-                Photograph to follow
-              </span>
             </div>
 
             <div>
@@ -90,75 +82,84 @@ export default function FounderPage() {
         </div>
       </header>
 
-      <Section className="py-14 sm:py-20">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">The story</p>
+      {/*
+        ONE SECTION, TWO COLUMNS. The story and "What he built it on" were two
+        stacked bands, each capped at max-w-3xl in the middle of the page,
+        which left wide empty margins on a laptop. The story keeps a readable
+        measure on the left; mission, vision and the contact buttons sit beside
+        it and stay in view while it is read. Below lg it is one column again.
+      */}
+      <Section className="py-12 sm:py-16">
+        <div className="container-page grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_24rem] xl:gap-20">
+          <div>
+            <p className="eyebrow">The story</p>
 
-          <div className="mt-6 space-y-6 text-lg leading-relaxed text-ink-soft sm:text-xl sm:leading-relaxed">
-            {story.body.map((paragraph, index) =>
-              // The third paragraph is a single line and the pivot of the whole
-              // story, so it is set as a pull-quote rather than buried.
-              index === 2 ? (
-                <p
-                  key={paragraph.slice(0, 40)}
-                  className="flex gap-4 border-l-2 border-brand-400 py-2 pl-6 font-display text-2xl leading-snug font-semibold text-ink italic sm:text-3xl"
+            <div className="mt-6 max-w-3xl space-y-6 text-lg leading-relaxed text-ink-soft sm:text-xl sm:leading-relaxed">
+              {story.body.map((paragraph, index) =>
+                // The third paragraph is a single line and the pivot of the whole
+                // story, so it is set as a pull-quote rather than buried.
+                index === 2 ? (
+                  <p
+                    key={paragraph.slice(0, 40)}
+                    className="flex gap-4 border-l-2 border-brand-400 py-2 pl-6 font-display text-2xl leading-snug font-semibold text-ink italic sm:text-3xl"
+                  >
+                    <Quote className="mt-1.5 size-6 shrink-0 text-brand-300" aria-hidden="true" />
+                    {paragraph}
+                  </p>
+                ) : (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                )
+              )}
+            </div>
+          </div>
+
+          <aside className="lg:sticky lg:top-28 lg:self-start">
+            <div className="rounded-[1.75rem] bg-mist-50 p-6 ring-1 ring-line sm:p-7">
+              <p className="eyebrow">What he built it on</p>
+              <h2 className="mt-3 text-xl leading-snug font-semibold text-ink">
+                The arrangement has not changed since {SITE.founded}.
+              </h2>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                <article className="rounded-2xl bg-white p-5 ring-1 ring-line">
+                  <h3 className="text-base font-semibold text-ink">Our Mission</h3>
+                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {visionMission.mission}
+                  </p>
+                </article>
+                <article className="rounded-2xl bg-white p-5 ring-1 ring-line">
+                  <h3 className="text-base font-semibold text-ink">Our Vision</h3>
+                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {visionMission.vision}
+                  </p>
+                </article>
+              </div>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                <Button href={`tel:${PRIMARY_PHONE.tel}`}>
+                  <Phone className="size-4" aria-hidden="true" />
+                  {PRIMARY_PHONE.display}
+                </Button>
+                <Button href={whatsappLink()} variant="whatsapp">
+                  <WhatsAppIcon className="size-5" />
+                  WhatsApp us
+                </Button>
+              </div>
+
+              <p className="mt-6 text-sm">
+                <Link
+                  href="/about/"
+                  className="group inline-flex items-center gap-2 font-semibold text-brand-700 underline-offset-4 hover:underline"
                 >
-                  <Quote className="mt-1.5 size-6 shrink-0 text-brand-300" aria-hidden="true" />
-                  {paragraph}
-                </p>
-              ) : (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              )
-            )}
-          </div>
-        </div>
-      </Section>
-
-      <Section tone="mist" className="py-14 sm:py-18">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">What he built it on</p>
-          <h2 className="mt-4 text-2xl leading-tight font-semibold text-ink sm:text-3xl">
-            The arrangement has not changed since {SITE.founded}.
-          </h2>
-
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            <article className="rounded-3xl border border-line bg-white p-7">
-              <h3 className="text-lg font-semibold text-ink">Our Mission</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-                {visionMission.mission}
+                  Read the full company story
+                  <ArrowRight
+                    className="size-4 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </Link>
               </p>
-            </article>
-            <article className="rounded-3xl border border-line bg-white p-7">
-              <h3 className="text-lg font-semibold text-ink">Our Vision</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-                {visionMission.vision}
-              </p>
-            </article>
-          </div>
-
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Button href={`tel:${PRIMARY_PHONE.tel}`} size="lg">
-              <Phone className="size-4" aria-hidden="true" />
-              {PRIMARY_PHONE.display}
-            </Button>
-            <Button href={whatsappLink()} variant="whatsapp" size="lg">
-              <WhatsAppIcon className="size-5" />
-              WhatsApp us
-            </Button>
-          </div>
-
-          <p className="mt-8 text-sm text-ink-muted">
-            <Link
-              href="/about/"
-              className="group inline-flex items-center gap-2 font-semibold text-brand-700 underline-offset-4 hover:underline"
-            >
-              Read the full company story
-              <ArrowRight
-                className="size-4 transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
-            </Link>
-          </p>
+            </div>
+          </aside>
         </div>
       </Section>
 

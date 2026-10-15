@@ -112,6 +112,19 @@ export const DESTINATION_IMAGES = {
     url: `${C}/a/a5/Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg/1920px-Aerial_view_of_Hussain_Sagar_from_Bansalipet.jpg`,
     alt: "Hussain Sagar lake seen from above, Hyderabad",
   },
+  // Added with the customized proposals for these three. CC BY 2.0 / CC BY-SA 4.0.
+  georgia: {
+    url: `${C}/6/66/Old_Tbilisi_--_Armenian_Quarter.jpg/1920px-Old_Tbilisi_--_Armenian_Quarter.jpg`,
+    alt: "Balconied houses of the old Armenian quarter in Tbilisi, Georgia",
+  },
+  albania: {
+    url: `${C}/c/ce/Berat_-_view_from_castle.JPG/1920px-Berat_-_view_from_castle.JPG`,
+    alt: "The old town of Berat seen from its castle, Albania",
+  },
+  lakshadweep: {
+    url: `${C}/f/f0/Agatti_Island_Lakshadweep.jpg/1920px-Agatti_Island_Lakshadweep.jpg`,
+    alt: "Turquoise lagoon and white sand on Agatti Island, Lakshadweep",
+  },
 };
 
 /** Extra frames used for package heroes, galleries and the /gallery/ page. */

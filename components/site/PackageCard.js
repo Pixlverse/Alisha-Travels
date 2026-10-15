@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
-import { durationLabel, formatDateRange, formatDateShort, formatINR } from "@/lib/format";
+import { durationLabel, formatDateRange, formatDateShort, formatPackagePrice } from "@/lib/format";
 import { PACKAGE_CATEGORIES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -112,13 +112,28 @@ export default function PackageCard({ pkg, className, eager = false }) {
 
         <div className="mt-auto flex items-end justify-between gap-3 pt-5">
           <div>
-            <p className="text-[0.6875rem] tracking-wide text-ink-muted uppercase">Starting from</p>
-            <p className="font-sans text-xl font-semibold text-ink">{formatINR(pkg.priceFrom)}</p>
-            <p className="text-[0.6875rem] text-ink-muted">per person</p>
+            {pkg.priceFrom > 0 ? (
+              <>
+                <p className="text-[0.6875rem] tracking-wide text-ink-muted uppercase">Starting from</p>
+                <p className="font-sans text-xl font-semibold text-ink">{formatPackagePrice(pkg.priceFrom)}</p>
+                <p className="text-[0.6875rem] text-ink-muted">per person</p>
+              </>
+            ) : (
+              <p className="font-sans text-base font-semibold text-ink">{formatPackagePrice(0)}</p>
+            )}
           </div>
-          <span className="rounded-full bg-mist-100 px-3 py-1 text-[0.6875rem] font-semibold text-ink-soft">
-            {CATEGORY_LABEL[pkg.category] || pkg.category}
-          </span>
+          {/* A promotional offer says so: it sits on no occasion shelf (its
+              category is the neutral "customized"), so the category label
+              would call an offer "Customized" - the opposite of what it is. */}
+          {pkg.featured ? (
+            <span className="rounded-full bg-brand-50 px-3 py-1 text-[0.6875rem] font-semibold text-brand-800 ring-1 ring-brand-200">
+              Promotional
+            </span>
+          ) : (
+            <span className="rounded-full bg-mist-100 px-3 py-1 text-[0.6875rem] font-semibold text-ink-soft">
+              {CATEGORY_LABEL[pkg.category] || pkg.category}
+            </span>
+          )}
         </div>
       </div>
     </article>
