@@ -58,8 +58,8 @@ export const services = [
         items: [
           {
             tag: "Gulf",
-            title: "Joining tickets",
-            text: "Visa in hand, date fixed, needs issuing today.",
+            title: "Flying out for a new job",
+            text: "Visa approved, start date set, and you need the ticket now.",
           },
           {
             tag: "Family",
