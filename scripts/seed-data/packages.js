@@ -39,6 +39,12 @@ import { DESTINATION_IMAGES, EXTRA_IMAGES } from "./images.js";
 const d = (key) => ({ ...DESTINATION_IMAGES[key] });
 const x = (key) => ({ ...EXTRA_IMAGES[key] });
 
+/**
+ * CUSTOMIZED PROPOSALS carry no price, at the client's instruction: each was
+ * quoted for one party, so every one is "Price on request" (`priceFrom: 0`,
+ * no priceRows or priceNote - see formatPackagePrice in lib/format.js) and the
+ * visitor enquires for a quote of their own.
+ */
 const entries = [
   // 004577 - 6D 5N - BHUTAN - NOV - 2 ADULTS.pdf
   {
@@ -46,14 +52,12 @@ const entries = [
     title: "Magical Bhutan - A Himalayan Adventure",
     summary:
       "Discover the enchanting beauty of Bhutan, exploring its majestic Himalayan landscapes, ancient monasteries, vibrant culture, and peaceful valleys. Experience the charm of Paro, Thimphu, and Punakha while enjoying Bhutan's unique traditions, breathtaking scenery, and warm hospitality.",
-    priceNote:
-      "Land cost shown per adult, based on sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "bhutan",
     category: "honeymoon",
     type: "customized",
     durationDays: 6,
     durationNights: 5,
-    priceFrom: 32900,
+    priceFrom: 0,
     heroImage: d("bhutan"),
     highlights: ["Phuentsholing", "Thimphu", "Paro"],
     inclusions: [
@@ -133,10 +137,6 @@ const entries = [
       { destination: "Thimphu", hotel: "Hotel Starlight / Hotel Tsenden / Boutique Hotel Ugyen or similar", nights: 1, meals: "Breakfast" },
       { destination: "Paro", hotel: "Hotel Penchu Boutique / Hotel Center Point / Hotel Dorjeeling or similar", nights: 2, meals: "Breakfast" },
     ],
-    priceRows: [
-      { label: "Per adult", amount: 32900 },
-      { label: "Party of 2", amount: 65800 },
-    ],
     faqs: [
       {
         question: "What documents are required for Bhutan?",
@@ -156,7 +156,7 @@ const entries = [
     ],
     metaTitle: "Magical Bhutan - A Himalayan Adventure - 6 Days / 5 Nights",
     metaDescription:
-      "Bhutan in six days from ₹32,900 per adult - by road from Bagdogra through Phuentsholing to Thimphu and Paro, with Kuensel Phodrang, Tashichho Dzong and the Tiger's Nest. Land only.",
+      "Bhutan in six days - by road from Bagdogra through Phuentsholing to Thimphu and Paro, with Kuensel Phodrang, Tashichho Dzong and the Tiger's Nest. Land only.",
   },
   // 004682 BALI 4N 5D 3A NOV.pdf
   {
@@ -164,14 +164,12 @@ const entries = [
     title: "Fascinating Bali",
     summary:
       "Five days in Bali - Padang Padang Beach and the Uluwatu sunset, a full day on Nusa Penida's west coast, and Kintamani's volcano views with a coffee plantation, Tegalalang and the jungle swing.",
-    priceNote:
-      "Land cost shown per adult; excludes airfare and the on-arrival visa / levy charges. Flight fare per adult is approx. INR 47,000 - 54,000 and is subject to change. Exchange-rate movement at the time of full payment may result in adjustments.",
     destinationSlug: "bali",
     category: "family",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 20300,
+    priceFrom: 0,
     heroImage: d("bali"),
     highlights: [
       "Nusa Penida",
@@ -247,10 +245,9 @@ const entries = [
     referenceNo: "004682",
     travelWindow: "November 2026",
     travellers: "3 adults",
-    priceRows: [{ label: "Per adult", amount: 20300 }],
     metaTitle: "Fascinating Bali - 5 Days / 4 Nights",
     metaDescription:
-      "Bali in five days from ₹20,300 per adult - Padang Padang and the Uluwatu sunset, a full day on Nusa Penida, and Kintamani with the jungle swing. Land only.",
+      "Bali in five days - Padang Padang and the Uluwatu sunset, a full day on Nusa Penida, and Kintamani with the jungle swing. Land only.",
   },
   // 004752 VIETNAM 3N4D 2A NOV 2026.pdf
   {
@@ -258,14 +255,12 @@ const entries = [
     title: "Fascinating Vietnam",
     summary:
       "Four days in Hanoi - explore the capital's historic landmarks, Old Quarter and Train Street, discover the scenic beauty of Ninh Binh, and enjoy a day cruise through the spectacular Halong Bay.",
-    priceNote:
-      "Land cost and visa cost shown per person; excludes flights. Exchange-rate movement at the time of full payment may result in adjustments.",
     destinationSlug: "vietnam",
     category: "honeymoon",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 24000,
+    priceFrom: 0,
     heroImage: d("vietnam"),
     highlights: [
       "Hanoi City Tour",
@@ -334,13 +329,9 @@ const entries = [
         meals: "Breakfast",
       },
     ],
-    priceRows: [
-      { label: "Per adult", amount: 24000 },
-      { label: "Visa cost", amount: 3800 },
-    ],
     metaTitle: "Fascinating Vietnam - 4 Days / 3 Nights",
     metaDescription:
-      "Vietnam in four days from ₹24,000 per adult - a Hanoi city tour with the Old Quarter and Train Street, Ninh Binh's Trang An and Mua Cave, and a Halong Bay day cruise. Land only.",
+      "Vietnam in four days - a Hanoi city tour with the Old Quarter and Train Street, Ninh Binh's Trang An and Mua Cave, and a Halong Bay day cruise. Land only.",
   },
   // 4N5D VIETNAM  2A NOV.pdf
   {
@@ -348,14 +339,12 @@ const entries = [
     title: "Fascinating Vietnam",
     summary:
       "Five days in Vietnam - the capital's Old Quarter and Train Street, a day cruise through Halong Bay, and Ninh Binh with the Hoa Lu ancient capital.",
-    priceNote:
-      "Land cost and visa cost shown per person; excludes flights. Price is valid for 3 days from the date of this proposal and may change thereafter; exchange-rate movement at the time of full payment may result in adjustments.",
     destinationSlug: "vietnam",
     category: "honeymoon",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 38100,
+    priceFrom: 0,
     heroImage: d("vietnam"),
     highlights: ["Hanoi", "Ninh Binh", "Halong Bay"],
     inclusions: [
@@ -428,13 +417,9 @@ const entries = [
     ],
     stayNote:
       "Hotel categories are confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
-    priceRows: [
-      { label: "Per adult - land cost", amount: 38100 },
-      { label: "Per adult - visa cost", amount: 3800 },
-    ],
     metaTitle: "Fascinating Vietnam - 5 Days / 4 Nights",
     metaDescription:
-      "Vietnam in five days from ₹38,100 per adult - Hanoi's Old Quarter and Train Street, Hoa Lu and Tam Coc at Ninh Binh, and a night aboard a Halong Bay cruise. Land only.",
+      "Vietnam in five days - Hanoi's Old Quarter and Train Street, Hoa Lu and Tam Coc at Ninh Binh, and a night aboard a Halong Bay cruise. Land only.",
   },
   // 004946 MALAYSIA 2A 3N4D JANUARY 2027.pdf
   {
@@ -442,14 +427,12 @@ const entries = [
     title: "Charm of Malaysia",
     summary:
       "Four days across Kuala Lumpur - Putrajaya's modern skyline, the golden statue and limestone caves at Batu, a cable-car ride into the hills at Genting, and the city's own landmarks.",
-    priceNote:
-      "Package cost shown per person; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "malaysia",
     category: "honeymoon",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 28699,
+    priceFrom: 0,
     heroImage: x("kualaLumpur"),
     highlights: ["Putrajaya", "Batu Caves", "Genting Highlands"],
     inclusions: [
@@ -511,10 +494,9 @@ const entries = [
     stays: [
       { destination: "Kuala Lumpur", hotel: "Howard Johnson or similar", nights: 3, meals: "Breakfast" },
     ],
-    priceRows: [{ label: "Per adult", amount: 28699 }],
     metaTitle: "Charm of Malaysia - 4 Days / 3 Nights",
     metaDescription:
-      "Kuala Lumpur in four days from ₹28,699 per adult - Putrajaya, Batu Caves, the Genting Skyway cable car, the KL city tour and the KLCC Aquarium. Land only.",
+      "Kuala Lumpur in four days - Putrajaya, Batu Caves, the Genting Skyway cable car, the KL city tour and the KLCC Aquarium. Land only.",
   },
   // 004947 DUBAI 2A 3N4D NOVEMBER 2026.pdf
   {
@@ -522,14 +504,12 @@ const entries = [
     title: "Dubai - The City of Dreams",
     summary:
       "Experience the dazzling city of Dubai, featuring iconic landmarks, breathtaking skyline views, vibrant shopping destinations, cultural experiences, and the spectacular Dubai Miracle Garden. Enjoy unforgettable adventures including a Desert Safari with BBQ Dinner, Dubai Creek Cruise, Burj Khalifa, Global Village, and Sharjah City Tour for a perfect blend of luxury, culture, and adventure.",
-    priceNote:
-      "Land cost shown per adult, based on 1 room; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "dubai",
     category: "honeymoon",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 50599,
+    priceFrom: 0,
     heroImage: d("dubai"),
     highlights: ["Dhow Cruise", "Miracle Garden", "Sharjah City", "Desert Safari"],
     inclusions: [
@@ -592,13 +572,9 @@ const entries = [
     stays: [
       { destination: "Bur Dubai", hotel: "Hotel City Max or similar", nights: 3, meals: "Breakfast" },
     ],
-    priceRows: [
-      { label: "Land part per adult", amount: 50599 },
-      { label: "Visa cost per person", amount: 8100 },
-    ],
     metaTitle: "Dubai - The City of Dreams - 4 Days / 3 Nights",
     metaDescription:
-      "Dubai in four days from ₹50,599 per adult - a creek dinner cruise, the Burj Khalifa, Global Village, the Miracle Garden, a desert safari with BBQ and an Abu Dhabi city tour. Land only.",
+      "Dubai in four days - a creek dinner cruise, the Burj Khalifa, Global Village, the Miracle Garden, a desert safari with BBQ and an Abu Dhabi city tour. Land only.",
   },
   // THAILAND 3N4D JAN.pdf
   {
@@ -606,14 +582,12 @@ const entries = [
     title: "Charm of Pattaya & Bangkok",
     summary:
       "Four days across Thailand's vibrant coast and capital - enjoy Tiger Topia, Coral Island, Pattaya's Floating Market and Alcazar Show before exploring Bangkok's iconic temples and Safari World & Marine Park. A family-friendly holiday blending wildlife, culture and entertainment with private transfers and selected shared experiences.",
-    priceNote:
-      "Land cost shown per adult, based on a minimum of 2 travellers sharing 1 room; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "thailand",
     category: "family",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 26800,
+    priceFrom: 0,
     heroImage: x("pattaya"),
     highlights: ["Floating Market", "Coral Island", "Safari World"],
     inclusions: [
@@ -677,10 +651,9 @@ const entries = [
       { destination: "Pattaya", hotel: "Golden Beach Hotel or similar", nights: 2, meals: "Breakfast" },
       { destination: "Bangkok", hotel: "Seasons Siam Hotel or similar", nights: 1, meals: "Breakfast" },
     ],
-    priceRows: [{ label: "Per adult", amount: 26800 }],
     metaTitle: "Charm of Pattaya & Bangkok - 4 Days / 3 Nights",
     metaDescription:
-      "Pattaya and Bangkok in four days from ₹26,800 per adult - Tiger Topia, the Alcazar show, Coral Island, the floating market, Safari World and Bangkok's temples. Land only.",
+      "Pattaya and Bangkok in four days - Tiger Topia, the Alcazar show, Coral Island, the floating market, Safari World and Bangkok's temples. Land only.",
   },
 
   // 004676 MANALI 2A NOV 4N 5D.pdf
@@ -689,14 +662,12 @@ const entries = [
     title: "Fascinating Delhi - Manali",
     summary:
       "Five days between the capital and the Himalayas - an overnight Volvo journey each way, local sightseeing and temples in Manali, the meadows of Solang Valley, and a half-day sweep of Delhi's landmarks before departure. A limited-period summer package, priced for groups of four or more.",
-    priceNote:
-      "The package price offered is valid for 3 days only and may change thereafter. Vehicle is used strictly as per the itinerary and not for disposal. Vehicle will run only till the point it is allowed in a particular destination; if the guest wants to travel/visit beyond that point, local transport will have to be arranged by the guest.",
     destinationSlug: "delhi-manali",
     category: "honeymoon",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 14500,
+    priceFrom: 0,
     heroImage: d("delhi-manali"),
     highlights: ["Hadimba Devi Temple", "Solang Valley", "Kullu & Naggar"],
     inclusions: [
@@ -776,13 +747,9 @@ const entries = [
     ],
     stayNote:
       "2 nights are on an overnight Volvo bus (Delhi–Manali and Manali–Delhi); hotel category is confirmed at time of booking.",
-    priceRows: [
-      { label: "Per adult", amount: 14500 },
-      { label: "Party of 2", amount: 29000 },
-    ],
     metaTitle: "Fascinating Delhi - Manali - 5 Days / 4 Nights",
     metaDescription:
-      "Delhi and Manali in five days from ₹14,500 per adult - overnight Volvo both ways, Hadimba Devi Temple, Solang Valley, Kullu and Naggar Castle, with breakfast and dinner in Manali.",
+      "Delhi and Manali in five days - overnight Volvo both ways, Hadimba Devi Temple, Solang Valley, Kullu and Naggar Castle, with breakfast and dinner in Manali.",
   },
   // 004929 DELHI AGRA 2N3D NOV 2026.pdf
   {
@@ -790,14 +757,12 @@ const entries = [
     title: "Charm of Delhi & Agra",
     summary:
       "Three days across Delhi and Agra - Rajghat, India Gate and Akshardham on arrival, a day trip to the Taj Mahal, Agra Fort and the Baby Taj, and the Red Fort, Qutub Minar and Lotus Temple before you fly.",
-    priceNote:
-      "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "golden-triangle",
     category: "honeymoon",
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 14499,
+    priceFrom: 0,
     heroImage: d("golden-triangle"),
     highlights: ["Red Fort", "Taj Mahal", "Qutub Minar"],
     inclusions: [
@@ -852,13 +817,9 @@ const entries = [
         meals: "Breakfast",
       },
     ],
-    priceRows: [
-      { label: "Per adult", amount: 14499 },
-      { label: "2 adults", amount: 28998 },
-    ],
     metaTitle: "Charm of Delhi & Agra - 3 Days / 2 Nights",
     metaDescription:
-      "Delhi and Agra in three days from ₹14,499 per adult - India Gate and Akshardham, the Taj Mahal and Agra Fort, then the Red Fort, Qutub Minar and Lotus Temple. Land only.",
+      "Delhi and Agra in three days - India Gate and Akshardham, the Taj Mahal and Agra Fort, then the Red Fort, Qutub Minar and Lotus Temple. Land only.",
   },
   // 004931 GOA 2N3D 5A October 2026..pdf
   {
@@ -866,14 +827,12 @@ const entries = [
     title: "Goa",
     summary:
       "Three days across Goa's two coasts - a beach-hopping tour of the north from Aguada Fort to Baga, then Old Goa's churches, temples and a spice garden in the south.",
-    priceNote:
-      "Land cost shown per adult; excludes train fare. Price is valid for a limited period and may change thereafter.",
     destinationSlug: "goa",
     category: "family",
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 4999,
+    priceFrom: 0,
     heroImage: d("goa"),
     highlights: ["North Goa Beaches", "Old Goa Churches", "Spice Gardens"],
     inclusions: [
@@ -935,13 +894,9 @@ const entries = [
         meals: "Breakfast",
       },
     ],
-    priceRows: [
-      { label: "Per adult, 2 star hotel", amount: 4999 },
-      { label: "Per adult, 3 star hotel", amount: 5999 },
-    ],
     metaTitle: "Goa - 3 Days / 2 Nights",
     metaDescription:
-      "Goa in three days from ₹4,999 per adult - Aguada Fort and the North Goa beaches to Baga, then Old Goa's churches, a spice garden and sunset at Miramar. Train fare extra.",
+      "Goa in three days - Aguada Fort and the North Goa beaches to Baga, then Old Goa's churches, a spice garden and sunset at Miramar. Train fare extra.",
   },
   // 004944 RAJASTHAN 4N5D 2A  NOVEMBER 2026.pdf
   {
@@ -949,14 +904,12 @@ const entries = [
     title: "Charm of Rajasthan",
     summary:
       "Arrive in Jaipur and explore the vibrant Pink City for two days, followed by a journey to Jaisalmer for an unforgettable desert camp experience with a camel safari and cultural evening. Continue to Udaipur, the City of Lakes, for sightseeing and leisure before concluding the trip with departure from Udaipur.",
-    priceNote:
-      "The offered package price is valid for 3 days only and may change thereafter.",
     destinationSlug: "rajasthan",
     category: "honeymoon",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 20499,
+    priceFrom: 0,
     heroImage: d("rajasthan"),
     highlights: ["Pink City", "Jal Mahal", "Desert Camp", "Fateh Sagar Lake"],
     inclusions: [
@@ -1043,10 +996,9 @@ const entries = [
         meals: "Breakfast",
       },
     ],
-    priceRows: [{ label: "Per adult", amount: 20499 }],
     metaTitle: "Charm of Rajasthan - 5 Days / 4 Nights",
     metaDescription:
-      "Rajasthan in five days from ₹20,499 per adult - two days in Jaipur's Pink City, a Jaisalmer desert camp with camel safari and cultural evening, then Udaipur's lakes. Land only.",
+      "Rajasthan in five days - two days in Jaipur's Pink City, a Jaisalmer desert camp with camel safari and cultural evening, then Udaipur's lakes. Land only.",
   },
   // 004011 KUL LGK PACKAGE 2 ADULTS.pdf
   {
@@ -1054,14 +1006,12 @@ const entries = [
     title: "Charm of Langkawi & Malaysia",
     summary:
       "Five days from Langkawi to Kuala Lumpur - Eagle Square and Pantai Cenang, island hopping and the SkyCab and Sky Bridge, then Putrajaya, Batu Caves, the Genting Skyway and a Kuala Lumpur city tour, with return flights included.",
-    priceNote:
-      "Package cost shown per adult, including round-trip airfare. The offered package price is valid for 7 days only and may change thereafter. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
     destinationSlug: "malaysia",
     category: "honeymoon",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 91300,
+    priceFrom: 0,
     heroImage: x("kualaLumpur"),
     highlights: [
       "Langkawi Island Hopping",
@@ -1152,10 +1102,9 @@ const entries = [
     ],
     stayNote:
       "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply.",
-    priceRows: [{ label: "Per adult", amount: 91300 }],
     metaTitle: "Charm of Langkawi & Malaysia - 5 Days / 4 Nights",
     metaDescription:
-      "Langkawi and Kuala Lumpur in five days from ₹91,300 per adult - island hopping, the SkyCab and Sky Bridge, Batu Caves and the Genting Skyway. Flights included.",
+      "Langkawi and Kuala Lumpur in five days - island hopping, the SkyCab and Sky Bridge, Batu Caves and the Genting Skyway. Flights included.",
   },
   // 004149 - 5D 4N - THAILAND - SEP - 9 ADULTS.pdf
   {
@@ -1163,14 +1112,12 @@ const entries = [
     title: "Charm of Thailand",
     summary:
       "Five days across Thailand - a Phuket city tour and Tiger Kingdom, a big-boat day to the Phi Phi Islands, the Emerald Pool and Krabi Hot Springs on the way to Krabi, then Bangkok's Amphawa Floating Market, the Maeklong Railway Market and Safari World.",
-    priceNote:
-      "Land cost per adult, based on 9 adults sharing 3 double rooms and 1 triple room; excludes airfare - flight fare approx. INR 34,000 - 42,000 per adult ex Kochi. The package price offered is valid for 3 days only and may change thereafter; the offered flight fare is valid for today only and is subject to change thereafter. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
     destinationSlug: "thailand",
     category: "group-tours",
     type: "customized",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 27900,
+    priceFrom: 0,
     heroImage: x("phuket"),
     highlights: ["Phuket", "Krabi", "Bangkok"],
     inclusions: [
@@ -1248,14 +1195,13 @@ const entries = [
     ],
     stayNote:
       "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Vehicle will run only till the point it is allowed in a particular destination; if the guest wants to travel/visit beyond that point, local transport will have to be arranged by the guest. Vehicle is used strictly as per the itinerary and not for disposal. The sightseeing mentioned in the itinerary will definitely be covered as planned; however, the exact timings and days of the sightseeing will be confirmed only one day prior to departure through the confirmation voucher, as the schedule may be adjusted to ensure smooth and efficient transportation.",
-    priceRows: [{ label: "Per adult - land cost", amount: 27900 }],
     bookingPolicy:
       "Tour: 50% at the time of confirmation, 50% at 30 days prior to departure date. Air: 100% at the time of confirmation.",
     cancellationPolicy:
       "Tour: 50% before 30 days of travel date, 100% within 30 days of travel date. Air: As per airline policy.",
     metaTitle: "Charm of Thailand - 5 Days / 4 Nights",
     metaDescription:
-      "Phuket, Krabi and Bangkok in five days from ₹27,900 per adult - a Phi Phi Islands day trip, the Emerald Pool, Amphawa Floating Market and Safari World. Land only.",
+      "Phuket, Krabi and Bangkok in five days - a Phi Phi Islands day trip, the Emerald Pool, Amphawa Floating Market and Safari World. Land only.",
   },
   // 004645 HYDERABAD 3A AUG 2N 3D.pdf
   {
@@ -1263,14 +1209,12 @@ const entries = [
     title: "Charm of Hyderabad",
     summary:
       "Three days Hyderabad - temples and lakeside parks, a full day at the world's largest film studio complex, Hyderabad's Mughal-era heritage, and a visit to Nehru Charminar before departure.",
-    priceNote:
-      "Total land cost shown per adult; excludes airfare/train fare. Price is valid for 3 days from the date of this proposal and may change thereafter.",
     destinationSlug: "hyderabad",
     category: "family",
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 11800,
+    priceFrom: 0,
     heroImage: d("hyderabad"),
     highlights: ["Birla Mandir", "Ramoji Film City", "Charminar"],
     inclusions: [
@@ -1324,13 +1268,9 @@ const entries = [
     stays: [
       { destination: "Hyderabad", hotel: "Hotel Central Park or similar", nights: 2, meals: "Breakfast" },
     ],
-    priceRows: [
-      { label: "Per adult", amount: 11800 },
-      { label: "Party of 3", amount: 35400 },
-    ],
     metaTitle: "Charm of Hyderabad - 3 Days / 2 Nights",
     metaDescription:
-      "Hyderabad in three days from ₹11,800 per adult - Birla Mandir and Hussain Sagar, a full day at Ramoji Film City, then Charminar and Golconda Fort. Land only.",
+      "Hyderabad in three days - Birla Mandir and Hussain Sagar, a full day at Ramoji Film City, then Charminar and Golconda Fort. Land only.",
   },
   // 004946 MALAYSIA 4A 2N3D JANUARY 2027.pdf
   {
@@ -1338,14 +1278,12 @@ const entries = [
     title: "Charm of Malaysia",
     summary:
       "Three days across Kuala Lumpur - Putrajaya's modern skyline, the golden statue and limestone caves at Batu, a cable-car ride into the hills at Genting, and the city's own landmarks.",
-    priceNote:
-      "Package cost shown per person; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "malaysia",
     category: "family",
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 21199,
+    priceFrom: 0,
     heroImage: x("kualaLumpur"),
     highlights: ["Putrajaya", "Batu Caves", "Genting Highlands"],
     inclusions: [
@@ -1399,10 +1337,9 @@ const entries = [
     stays: [
       { destination: "Kuala Lumpur", hotel: "Howard Johnson or similar", nights: 2, meals: "Breakfast" },
     ],
-    priceRows: [{ label: "Per adult", amount: 21199 }],
     metaTitle: "Charm of Malaysia - 3 Days / 2 Nights",
     metaDescription:
-      "Kuala Lumpur in three days from ₹21,199 per adult - Putrajaya, Batu Caves, the Genting Skyway cable car, the KL city tour and the KLCC Aquarium. Land only.",
+      "Kuala Lumpur in three days - Putrajaya, Batu Caves, the Genting Skyway cable car, the KL city tour and the KLCC Aquarium. Land only.",
   },
   // 004579 - 4D 3N - GEORGIA - OCT - 2 ADULTS.pdf
   {
@@ -1410,14 +1347,12 @@ const entries = [
     title: "Incredible Georgia",
     summary:
       "Explore the vibrant city of Tbilisi, followed by the scenic mountain landscapes of Gudauri and the breathtaking beauty of Kazbegi. Experience Georgia's stunning Caucasus Mountains, picturesque valleys, and charming mountain towns on this memorable journey.",
-    priceNote:
-      "Land cost shown per adult; excludes air fare. Price is valid for a limited period (3 days) and may change thereafter.",
     destinationSlug: "georgia",
     category: "honeymoon",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 34900,
+    priceFrom: 0,
     heroImage: d("georgia"),
     highlights: ["Tbilisi", "Gudauri", "Kazbegi"],
     inclusions: [
@@ -1485,13 +1420,9 @@ const entries = [
         meals: "Breakfast",
       },
     ],
-    priceRows: [
-      { label: "Per adult", amount: 34900 },
-      { label: "Party of 2 (package)", amount: 69800 },
-    ],
     metaTitle: "Incredible Georgia - 4 Days / 3 Nights",
     metaDescription:
-      "Georgia in four days from ₹34,900 per adult - Tbilisi's Narikala Fortress and cableway, then Ananuri, Gudauri and Kazbegi in the Caucasus. Land only.",
+      "Georgia in four days - Tbilisi's Narikala Fortress and cableway, then Ananuri, Gudauri and Kazbegi in the Caucasus. Land only.",
   },
   // 004588 - 4D 3N - ALBANIA - NOV - 5 ADULTS, 3 CHILDREN.pdf
   {
@@ -1499,14 +1430,12 @@ const entries = [
     title: "Albania - The Pulse of Tirana",
     summary:
       "Explore Tirana, Albania, discovering its vibrant city life, historic landmarks, colourful streets, cultural attractions, and beautiful surrounding landscapes.",
-    priceNote:
-      "Land cost shown per adult, based on sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply. The package price offered is valid for 3 days only and may change thereafter.",
     destinationSlug: "albania",
     category: "family",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 44400,
+    priceFrom: 0,
     heroImage: d("albania"),
     highlights: ["Tirana", "Lezha and Shkoder"],
     inclusions: [
@@ -1575,13 +1504,9 @@ const entries = [
     ],
     stayNote:
       "Hotel category is confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
-    priceRows: [
-      { label: "Per adult (land part)", amount: 44400 },
-      { label: "Per child (land part)", amount: 32900 },
-    ],
     metaTitle: "Albania - The Pulse of Tirana - 4 Days / 3 Nights",
     metaDescription:
-      "Albania in four days from ₹44,400 per adult - a guided walk around Tirana's Skanderbeg Square, then Lezha Castle and Shkoder's Rozafa Castle. Land only.",
+      "Albania in four days - a guided walk around Tirana's Skanderbeg Square, then Lezha Castle and Shkoder's Rozafa Castle. Land only.",
   },
   // LAKSHADWEEP 15A OCT 3N 4D.pdf
   {
@@ -1589,14 +1514,12 @@ const entries = [
     title: "Charm of Lakshadweep",
     summary:
       "Four days on Agatti Island - lagoon beaches and jetty views, a full day of water sports and beach activities, and a glass-bottom boat excursion to Kalpetti Island with the chance of spotting sea turtles. Three accommodation tiers are quoted below.",
-    priceNote:
-      "Land cost shown per adult across three accommodation tiers; excludes airfare (approx. INR 25,100 return, subject to change). Meal timings: breakfast 8:00-8:45am, lunch 12:30-1:30pm, evening tea 4:00-4:30pm, dinner 8:00-9:00pm.",
     destinationSlug: "lakshadweep",
     category: "group-tours",
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 15500,
+    priceFrom: 0,
     heroImage: d("lakshadweep"),
     highlights: ["Agatti Island", "Water Sports", "Kalpetti Island"],
     inclusions: [
@@ -1678,14 +1601,1272 @@ const entries = [
     ],
     stayNote:
       "Each accommodation tier is priced separately on the Investment page - the itinerary and inclusions are the same regardless of which you choose.",
-    priceRows: [
-      { label: "Per adult, beach cottage", amount: 20500 },
-      { label: "Per adult, beach homestay", amount: 17500 },
-      { label: "Per adult, normal homestay", amount: 15500 },
-    ],
     metaTitle: "Charm of Lakshadweep - 4 Days / 3 Nights",
     metaDescription:
-      "Lakshadweep in four days from ₹15,500 per adult - Agatti's lagoon beaches and jetties, a day of water sports, and a glass-bottom boat trip to Kalpetti Island. Land only.",
+      "Lakshadweep in four days - Agatti's lagoon beaches and jetties, a day of water sports, and a glass-bottom boat trip to Kalpetti Island. Land only.",
+  },
+  // 001337 - 6D 5N - CHINA - APR 07 - 4 ADULTS.pdf
+  {
+    slug: "charm-of-china-6d5n-001337",
+    title: "Charm of China",
+    summary:
+      "Six days from Beijing to Shanghai - Tiananmen Square, the Forbidden City and the Temple of Heaven, the Mutianyu Great Wall by cable car and a hutong walk, the Summer Palace, then a bullet train south for Yuyuan Garden, the Bund, Shanghai Tower and the Former French Concession, with an English-speaking guide throughout.",
+    destinationSlug: "china",
+    category: "family",
+    type: "customized",
+    durationDays: 6,
+    durationNights: 5,
+    priceFrom: 0,
+    heroImage: d("china"),
+    highlights: ["Forbidden City", "Mutianyu Great Wall", "Summer Palace", "The Bund", "Shanghai Tower"],
+    inclusions: [
+      "English speaking tour guide",
+      "Entrance fees",
+      "Private transfers between airports, railway stations, hotels and scenic spots, unless otherwise stated",
+      "Flights or trains as specified in the itinerary",
+      "Meals as specified in the itinerary",
+      "Hotels as specified in the itinerary",
+      "Service charge and government taxes (Except European countries)",
+    ],
+    exclusions: [
+      "International travel expenses from home to destination or back",
+      "Visa Fees",
+      "Excess Baggage Charges",
+      "Personal Expenses",
+      "Gratuities, Tips to Guides or Drivers",
+      "Insurance",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrive in Beijing",
+        description:
+          "Arrival at Beijing Airport. Our representative will pick you from Airport and drop you in the above mentioned Hotel. Free for leisure.",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 2,
+        title: "Tiananmen Square, The Forbidden City, Temple of Heaven",
+        description:
+          "Tiananmen Square (30 minutes): Tian'anmen Square is the largest city square in the centre of Beijing, named after the Tiananmen (literally, Gate of Heavenly Peace) which sits to its north, separating it from the Forbidden City. It has great cultural significance as it was the site of several key events in Chinese history. As the world's largest city square and enduring symbol of China's national pride, it is surrounded by many imposing buildings including the Heavenly Gate (entry to the Forbidden City), Museums, government buildings and Chairman Mao's Mausoleum.\n\nThe Forbidden City (3 hours): The Forbidden City, in the very heart of Beijing, was home to 24 emperors during the Ming (1368-1644) and Qing (1644-1911) dynasties. It is the largest and best preserved ancient imperial architectural complex in the world, featuring a great square, halls and gates, in contrast to intricate halls, gardens, courtyards and living quarters. The exhibitions, both permanent and temporary, are important treasures of ancient China. You will be walking for about 2 hours (2 kilometers). The walks in the Forbidden City are graded moderate.\n\nTemple of Heaven (1.5 hours): Built in 1420 during the Ming dynasty, the Temple of Heaven is a complex of Taoist buildings where emperors of the Ming and Qing dynasties visited for annual ceremonies to pray for good harvests. The park of the temple of Heaven is full of life. In the morning lots of local elderly people meet there to sing, exercise, and do tai chi. The park covers an area of 273 hectares in the south of Central Beijing. You will be walking for about 1-1½ hour (1½ kilometers) there. The walk is graded easy. Lunch is at a popular local restaurant recommended by your guide - typical Beijing dishes include shredded pork in Beijing sauce, noodles with soybean paste, Mongolian hot pot, Beijing roast duck and donkey burger.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 3,
+        title: "The Mutianyu Great Wall (with round way cable car), Hutong Walking Tour in Dongcheng District",
+        description:
+          "The Mutianyu Great Wall (with round way cable car) (2 hours): The Mutianyu section of the Great Wall is ranked top on TripAdvisor among all the Great Wall sections, for its picturesque scenery and beautifully-restored architecture. This is the most child-friendly section, with various ways of visiting. It is about 1.5 hours' drive from downtown Beijing. A 2½-kilometer section was fully restored in 1986.\n\nIn order to save time for you, we arrange a round-trip cable car to ascend and descend the Wall, instead of spending about 40 minutes climbing steps. At the Wall, you have free time to walk around, after your guide does some introductions. The cable car ascends to and descends from tower 14. Hike \"the most beautiful and interesting part of the Great Wall\" - between the 14th and 23rd watch towers - acknowledged by hikers as \"the golden route\". It normally takes about 2 hours to complete the hike. Then descend and take a bus to transfer back to our vehicle. Tips: Compared with the Badaling section, walking sticks may be desirable for Mutianyu section, especially for people who don't have strong legs or steady balance.\n\nHutong Walking Tour in Dongcheng District (1 hour): Hutongs are a maze of historic alleyways with traditional single-story courtyard houses, which are now fast disappearing. They are a remnant of the old Beijing. In this tour, you will walk through the narrow alleys, as well as visit a local family to discover the traditional lifestyle and how these unique residential houses and culture are protected. You can also ascend the Bell Tower to have a bird's-eye view of the hutong area. The total walking distance in this tour is about 800 meters. Lunch is at a popular local restaurant recommended by your guide.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 4,
+        title: "Summer Palace with the Garden of Virtue and Harmony, Hotel to Train station Transfer (Beijing), Train station to Hotel Transfer (Shanghai)",
+        description:
+          "Transport: Train No. G15 (Beijing Nan (south) Railway Station - Shanghai Hongqiao Railway Station) Dep 14:00 - Arr 18:32 (second-class).\n\nSummer Palace with the Garden of Virtue and Harmony: The palace is about 12 kilometers northwest of the city center and is equally as famous as the Forbidden City, the Summer Palace is called 'Yiheyuan' (Garden of Nurtured Harmony) in Chinese. It is the best preserved and the largest imperial gardens in China and one of Beijing's premier attractions. The Garden of Virtue and Harmony was built as a theater for the Empress Dowager. Its construction began in the 17th year of Emperor Guangxu's reign (1891) and lasted for five years. The three-storey theater stage is the biggest and best-preserved wooden stage of delicate design and magnificent structure, and is therefore of much scientific and artistic value. Famous opera singers of the day performed for the Empress Dowager at the theater, which was regarded as the \"Cradle of Beijing Opera\". The Empress Dowager granted special permission for some of the princes, dukes and cabinet ministers also to watch the Beijing opera at the theater.\n\nLunch is at a popular local restaurant recommended by your guide, before the transfer to the station for the afternoon train to Shanghai and a transfer to your hotel on arrival.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Shanghai",
+      },
+      {
+        day: 5,
+        title: "Yuyuan Garden, The Bund, Shanghai Tower (including 118th Floor Observation Deck), Former French Concession Precinct",
+        description:
+          "Yuyuan Garden (1 hour): Yuyuan Garden is located in the center of Shanghai old quarters. It was a private garden built in 1559 during the Ming Dynasty, with typical Chinese classic architecture and style. The complex covers an area of 2 hectares, with rockeries, pavilions, ponds and corridors. Yuyuan Garden is surrounded by a busy market place, where visitors can find everything from popular local snacks, handicrafts, antiques and souvenirs to some famous time-honored restaurants. Tips: It will be most crowded during the Chinese holiday, when many Chinese people travel at these times. There are many hawkers at the entrance of Yuyuan Market. If you don't want to buy anything, the most effective way to deal with them is simply ignore them.\n\nThe Bund (40 minutes): This 1.5-kilometer-long embankment runs along the western bank of Huangpu River. On its west side it is the \"architecture gallery\" with 52 well-preserved old European style buildings. Once the major trading and commercial center of old Shanghai, the Bund has now taken on new vitality, with futuristic developments, chic restaurants, top end shops and bars offer plenty to see and do - and by night it's magic! Tips: Mornings in the Bund are foggy. The best time to visit the Bund is in the afternoon or evening. Lights will be turned off at 22:00. Shanghai Tower (including 118th Floor Observation Deck) (1 hour): It is the world's second-tallest building, with 128 stories or 632 meters (2,073 feet) tall and is a premier Shanghai tourist highlight - 123 floors above ground and 5 below ground, with the world's highest observation deck (561 meters) and the world's fastest elevators.\n\nFormer French Concession Precinct (1 hour): The former French concession covers the area including Huaihai Road, Fuxing Road, Huashan Road, Ruijin Road, Yandang Road, Taikang Road and Sinan Road. A walking tour in the former French concession will take you to important historical buildings and countless French colonial style buildings. Most buildings are over 100 years old. On clear, warm days, the shadows of the Chenar trees add a romantic feeling. At night, café, bars and restaurants lure their customers with coffee fragrance. Lunch is at a popular local restaurant - typical Shanghai dishes include xiaolongbao (steamed buns), braised pork in brown sauce and duck stuffed with the eight treasures.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Shanghai",
+      },
+      {
+        day: 6,
+        title: "Departure",
+        description: "After breakfast, we will drop you to Shanghai airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "001337",
+    travelWindow: "April 2025",
+    travellers: "4 adults",
+    rooms: 2,
+    stays: [
+      { destination: "Beijing", hotel: "Qianyuan Hotel (Comfy Room) or similar (option 1, 3 star)", nights: 3, meals: "Breakfast & Lunch" },
+      { destination: "Shanghai", hotel: "Holiday Inn Express Shanghai Putuo or similar (option 1, 3 star)", nights: 2, meals: "Breakfast & Lunch" },
+      { destination: "Beijing", hotel: "SSAW Garden Hotel (Comfy Room) or similar (option 2, 4 star)", nights: 3, meals: "Breakfast & Lunch" },
+      { destination: "Shanghai", hotel: "Sunrise On The Bund Hotel or similar (option 2, 4 star)", nights: 2, meals: "Breakfast & Lunch" },
+    ],
+    bookingPolicy:
+      "Tour: 50% at the time of confirmation. Remaining 50% due 30 days prior to departure. Air: 100% at the time of confirmation.",
+    cancellationPolicy:
+      "Tour: 50% charge before 30 days of travel date. 100% charge within 30 days of travel date. Air: as per airline policy.",
+    metaTitle: "Charm of China - 6 Days / 5 Nights",
+    metaDescription:
+      "Beijing and Shanghai in six days - the Forbidden City, the Great Wall, the Summer Palace, the Bund and Shanghai Tower. Built around your dates; price on request.",
+  },
+  // 002409 - 5D 4N - KENYA - SEP - 2 ADULTS.pdf
+  {
+    slug: "charm-of-kenya-5d4n",
+    title: "Charm of Kenya",
+    summary:
+      "Five days on safari in Kenya - a night in Nairobi, two nights in the Maasai Mara with unlimited game drives in an exclusive 4x4 Land Cruiser, and a night by Lake Naivasha with Hell's Gate and Crescent Island close at hand.",
+    destinationSlug: "kenya",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 5,
+    durationNights: 4,
+    priceFrom: 0,
+    heroImage: d("kenya"),
+    highlights: ["Maasai Mara", "Lake Naivasha", "Hell's Gate National Park", "Nairobi"],
+    inclusions: [
+      "01-night accommodation at Dusit Princess Hotel Residence on a bed and breakfast basis",
+      "02 nights' accommodation at Maisha Mara Camp or Muthu Keekorok Lodge on a full board basis",
+      "01 night at Lake Naivasha Country Club on a full-board basis",
+      "05 days Exclusive use of a 4*4 Land cruiser",
+      "Unlimited game drives",
+      "Services of English-speaking driver guide",
+      "Complimentary bottled water while in the vehicle",
+    ],
+    exclusions: [
+      "Roundtrip Air fare",
+      "Late departure after 2 pm (includes lunch & game drive). Guests must vacate their tent by 10 am",
+      "Visit to a Masai village to be booked and paid for in advance",
+      "Balloon Safaris; price on request - USD 480",
+      "Masai Mara National Reserve fees will be charged additionally; currently $100 per adult per day and USD 50 Per child",
+      "Community fee at Maasai Mara National Reserve at USD 80 per person per stay",
+      "Boat rides at Lake Naivasha per person",
+      "Entrance Park fee at Hells Gate National Reserve at USD 20 per adult and USD 15 per child respectively",
+      "The geothermal fee is not included",
+      "Additional meals; packed lunch and extra Lunch",
+      "International flights",
+      "Travel insurance, Inoculations and personal insurance",
+      "ETA visa",
+      "Tips, optional activities, and excursions",
+      "Items of personal nature i.e., telephone, internet usage, laundry, alcoholic and non-alcoholic beverages, etc.",
+      "Additional sightseeing or deviation from the itinerary on arrival",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival at Nairobi",
+        description:
+          "Arrive at JKIA after your flight. Our representative will meet you after you disembark off your flights, and pass through immigration and customs formalities to transfer you to your hotel.\n\nOvernight at Dusit Princess Hotel Residences.",
+        meals: "None",
+        stay: "Overnight, Nairobi",
+      },
+      {
+        day: 2,
+        title: "Nairobi - Maasai Mara",
+        description:
+          "Maasai Mara National Reserve is an area of preserved savannah wilderness in southwestern Kenya, along the Tanzanian border. Its animals include lions, cheetahs, elephants, zebras, and hippos. Wildebeest traverses its plains during their annual migration. The landscape has grassy plains and rolling hills and is crossed by the Mara and Talek rivers. The area nearby is dotted with villages (enkangs) of Maasai people. This Park is famous for its spectacular wildebeest migration, is also part of the vast Serengeti plains, and is a home for the BIG 5.\n\nYou will arrive in time for lunch and have a few minutes of leisure before you proceed to have the evening game drive. The enormous landscape of the Mara and its concentration of many wilds makes it fit to be the climax of your safari.\n\nOvernight at Maisha Mara Camp/ Muthu Keekorok Lodge on a full board basis.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Overnight, Maasai Mara",
+      },
+      {
+        day: 3,
+        title: "Maasai Mara - Full Day",
+        description:
+          "After Breakfast explore the Maasai Mara National Reserve. A full day at Maasai Mara promises an immersive safari experience amidst the breathtaking landscapes and diverse wildlife. Start your day before sunrise for a thrilling morning game drive or balloon safari (at an extra cost). Witness the awakening of the savannah and the predators beginning their day. Enjoy a packed breakfast at a scenic spot within the reserve, surrounded by the sounds of the wild. (To be requested the night before)\n\nIn the afternoon take a cultural detour to a nearby Maasai village to learn about their traditions, customs, and daily life. (The cost is separate and is paid directly to the Maasais). Head back to the lodge or have a picnic lunch at a designated spot within the reserve. Spend the early afternoon relaxing at the lodge or opt for additional activities such as a nature walk. Venture out for another game drive in the late afternoon. This time provides a different perspective, with the chance to spot nocturnal animals beginning their activities.\n\nWitness the spectacular Mara sunset while sipping sundowner drinks at a picturesque location. Return to the lodge for a well-deserved dinner, sharing stories and experiences from the day with fellow travelers. Overnight at Maisha Mara Camp/ Muthu Keekorok Lodge on a full board basis.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Overnight, Maasai Mara",
+      },
+      {
+        day: 4,
+        title: "Maasai Mara - Naivasha",
+        description:
+          "After breakfast check out and head to Naivasha. Get to the hotel in time for lunch. After lunch, you can choose to relax at the hotel or head to Hell's Gate National Park. You can hike or cycle through the stunning landscapes, including the Hell's Gate Gorge. Don't miss the geothermal hot springs.\n\nRelax in the geothermal hot springs around Lake Naivasha, such as those in Hell's Gate National Park. It's a great way to unwind and soothe your muscles. Visit Crescent Island, a private sanctuary on the lake. It's a great place for walking safaris among the wildlife, including zebras, giraffes, and wildebeests.\n\nOvernight at Lake Naivasha Country Club on a full board basis.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Overnight, Naivasha",
+      },
+      {
+        day: 5,
+        title: "Naivasha - Nairobi",
+        description:
+          "After breakfast, our driver will then pick you up and head to Nairobi for your flight home depending on your flight timings. You can choose to do a Nairobi Excursion as you wait for your flights or stay at the airport and have lunch as you wait for your flight.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "002409",
+    travelWindow: "September 2025",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      { destination: "Nairobi", hotel: "Dusit Princess Hotel Residences (Deluxe)", nights: 1, meals: "Breakfast" },
+      {
+        destination: "Maasai Mara Reserve",
+        hotel: "Maisha Mara Camp / Muthu Keekorok Lodge or similar",
+        nights: 2,
+        meals: "Full board",
+      },
+      { destination: "Naivasha", hotel: "Lake Naivasha Country Club or similar", nights: 1, meals: "Full board" },
+    ],
+    stayNote:
+      "Accommodation is subject to availability at the time of booking. Proof of identification i.e., passport or ID is required at the camp during check-in & at the park gate. If there is any reduction/increase in the number of travelers, a different quote may apply. All special requests like interconnecting rooms, rooms next to each other or on the same floor, early check-in or late check-out will be strictly subject to availability at the time of arrival and complete discretion of hotel management, and hence not guaranteed.",
+    metaTitle: "Charm of Kenya - 5 Days / 4 Nights",
+    metaDescription:
+      "Kenya in five days - Nairobi, Maasai Mara game drives in a private 4x4 Land Cruiser and Lake Naivasha. Built around your dates; price on request.",
+  },
+  // 002884 - 5D 4N - MAURITIUS -JAN 2026 - 02 ADULTS + 1 CHILD.pdf
+  {
+    slug: "charm-of-mauritius-5d4n",
+    title: "Charm of Mauritius",
+    summary:
+      "Five days in Mauritius with breakfast and dinner daily - a full-day Ile Aux Cerf tour by speed boat, then full-day tours of the island's north and south.",
+    destinationSlug: "mauritius",
+    category: "family",
+    type: "customized",
+    durationDays: 5,
+    durationNights: 4,
+    priceFrom: 0,
+    heroImage: d("mauritius"),
+    highlights: ["Ile Aux Cerf", "North Mauritius", "South Mauritius"],
+    inclusions: [
+      "04 nights accommodation in above mentioned hotel",
+      "Breakfast and Dinner",
+      "Meet & Greet at the airport",
+      "Sightseeing as per the above mentioned itinerary",
+      "All entry tickets as per the Itinerary",
+      "All tours and transfers on private & SIC basis",
+      "Transfers from Airport to hotel and return",
+      "GST",
+    ],
+    exclusions: [
+      "Round Trip Air Fare",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check in time in Hotel is after 1400/1500 hours and check out is before 1100/1200 hours",
+      "Visa",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival",
+        description: "Arrival at Airport. Pick up from Airport and drop at hotel. Night stay at Mauritius Hotel.",
+        meals: "Dinner",
+        stay: "Overnight, Mauritius",
+      },
+      {
+        day: 2,
+        title: "Full Day Ile Aux Cerf Tour",
+        description:
+          "Breakfast at Hotel. Full Day Ile Aux Cerf Tour with speed boat transfer. Drop at hotel. Night stay at Mauritius Hotel.",
+        meals: "Breakfast & Dinner",
+        stay: "Overnight, Mauritius",
+      },
+      {
+        day: 3,
+        title: "Full Day North Tour",
+        description: "Breakfast at Hotel. Full Day North Tour. Drop at Hotel. Night stay at Mauritius Hotel.",
+        meals: "Breakfast & Dinner",
+        stay: "Overnight, Mauritius",
+      },
+      {
+        day: 4,
+        title: "Full Day South Tour",
+        description: "Breakfast at Hotel. Full Day South Tour. Drop at Hotel. Overnight stay at Mauritius.",
+        meals: "Breakfast & Dinner",
+        stay: "Overnight, Mauritius",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        description: "Breakfast at Hotel. Drop at Mauritius airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "002884",
+    travelWindow: "January 2026",
+    travellers: "2 adults + 1 child",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Mauritius",
+        hotel: "Ocean's Creek Beach Hotel or similar (option 1)",
+        nights: 4,
+        meals: "Breakfast & Dinner",
+      },
+      {
+        destination: "Mauritius",
+        hotel: "Laguna Beach Hotel & Spa or similar (option 2)",
+        nights: 4,
+        meals: "Breakfast & Dinner",
+      },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments. A charge of EUR 3 per person, per day will be levied for all guests aged 12 years and above; this fee will be collected at the property during check-in, as per local regulations.",
+    bookingPolicy:
+      "Tour: 50% at the time of confirmation, 50% at 30 days prior to departure date. Air: 100% at the time of confirmation.",
+    cancellationPolicy:
+      "Tour: 50% before 30 days of travel date, 100% within 30 days of travel date. Air: As per airline policy.",
+    metaTitle: "Charm of Mauritius - 5 Days / 4 Nights",
+    metaDescription:
+      "Mauritius in five days - an Ile Aux Cerf speed boat day, full-day North and South tours, breakfast and dinner daily. Built around your dates; price on request.",
+  },
+  // 002888-4D 3N- ARMENIA- DEC- 02 ADULTS.pdf
+  {
+    slug: "charm-of-armenia-4d3n",
+    title: "Charm of Armenia",
+    summary:
+      "Four days based in Yerevan - a city tour of the Armenian capital, a day out to Tsaghkadzor and Lake Sevan, then the Garni temple, Geghard monastery and the Symphony of Stones.",
+    destinationSlug: "armenia",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 0,
+    heroImage: d("armenia"),
+    highlights: ["Yerevan", "Tsaghkadzor", "Lake Sevan", "Garni", "Geghard"],
+    inclusions: [
+      "3 Nights' accommodation in Yerevan in selected category Hotel",
+      "Daily Breakfast at your Hotel",
+      "Round Airport Transfers",
+      "All Tours & Transfers on Private Basis",
+      "Entrance fees",
+      "English speaking driver service (not professional guide)",
+      "24 Hours Emergency Assistance",
+      "Local Taxes & Charges",
+      "Armenian visa",
+      "GST",
+    ],
+    exclusions: [
+      "Round Trip Air Fare",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check in time in Hotel is after 1400/1500 hours and check out is before 1100/1200 hours",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Yerevan - City Tour",
+        description:
+          "Pick up from the airport and city tour in Yerevan. Drop at the hotel and overnight stay at the hotel.",
+        meals: "None",
+        stay: "Overnight, Yerevan",
+      },
+      {
+        day: 2,
+        title: "Yerevan, Tsaghkadzor & Lake Sevan",
+        description:
+          "Breakfast at the hotel. Visit Yerevan, Tsaghkadzor and Lake Sevan. Drop at the hotel and overnight stay at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Yerevan",
+      },
+      {
+        day: 3,
+        title: "Garni, Geghard & Symphony of Stones",
+        description:
+          "Breakfast at the hotel. Visit Garni, Geghard and the Symphony of Stones. Drop at the hotel and overnight stay at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Yerevan",
+      },
+      {
+        day: 4,
+        title: "Departure",
+        description:
+          "Breakfast at the hotel. Check out from the hotel and transfer to the airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "002888",
+    travelWindow: "December 2025",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      { destination: "Yerevan", hotel: "Primer Hotel or similar", nights: 3, meals: "Breakfast" },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
+    bookingPolicy:
+      "Tour: 50% at the time of confirmation, 50% at 30 days prior to departure date. Air: 100% at the time of confirmation.",
+    cancellationPolicy:
+      "Tour: 50% before 30 days of travel date, 100% within 30 days of travel date. Air: As per airline policy.",
+    metaTitle: "Charm of Armenia - 4 Days / 3 Nights",
+    metaDescription:
+      "Armenia in four days - a Yerevan city tour, Tsaghkadzor and Lake Sevan, then Garni, Geghard and the Symphony of Stones. Built around your dates; price on request.",
+  },
+  // 002918- 4D 3N- KAZAKHSTAN- 16 DEC- 02 ADULTS.pdf
+  {
+    slug: "charm-of-kazakhstan-4d3n",
+    title: "Charm of Kazakhstan",
+    summary:
+      "Four days in and around Almaty - an evening on Arbat Street, Shymbulak and Kok Tobe Hill, a day out to Kolsai Lake, Charyn Canyon and Moon Canyon, and a city tour on the way to the airport.",
+    destinationSlug: "kazakhstan",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 0,
+    heroImage: d("kazakhstan"),
+    highlights: ["Almaty", "Shymbulak", "Kok Tobe Hill", "Kolsai Lake", "Charyn Canyon"],
+    inclusions: [
+      "03 nights accommodation in above mentioned hotel",
+      "Daily Breakfast (Except on Arrival Day)",
+      "Meet & Greet at the airport",
+      "Sightseeing as per the above mentioned itinerary",
+      "All entry tickets as per the Itinerary",
+      "All tours and transfers on private basis",
+      "GST",
+    ],
+    exclusions: [
+      "Round trip Airfare",
+      "Visa",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check in time in Hotel is after 1400/1500 hours and check out is before 1100/1200 hours",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Almaty - Arbat Street",
+        description:
+          "Arrival at Almaty Airport. Pick up from the airport and drop at the hotel. Evening Arbat Street strolling. Night stay at the hotel.",
+        meals: "None",
+        stay: "Overnight, Almaty",
+      },
+      {
+        day: 2,
+        title: "Shymbulak & Kok Tobe Hill",
+        description:
+          "Breakfast at the hotel. Visit Shymbulak and Kok Tobe Hill. Drop at the hotel and night stay at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Almaty",
+      },
+      {
+        day: 3,
+        title: "Kolsai Lake, Charyn Canyon & Moon Canyon",
+        description:
+          "Breakfast at the hotel. Visit Kolsai Lake and Charyn Canyon + Moon Canyon. Drop at the hotel and night stay at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Almaty",
+      },
+      {
+        day: 4,
+        title: "Almaty City Tour - Departure",
+        description:
+          "Breakfast at the hotel. Check out from the hotel. Visit Ascension Cathedral + Panfilov Park + Zelyony Bazaar + Rahat Chocolate Factory. Drop at the airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "002918",
+    travelWindow: "December 2025",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      { destination: "Almaty", hotel: "Regardal or similar", nights: 3, meals: "Breakfast" },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
+    metaTitle: "Charm of Kazakhstan - 4 Days / 3 Nights",
+    metaDescription:
+      "Almaty in four days - Arbat Street, Shymbulak and Kok Tobe, Kolsai Lake and Charyn Canyon, and a city tour. Built around your dates; price on request.",
+  },
+  // 002996 TURKEY.docx
+  {
+    slug: "turkey-6d5n",
+    title: "Turkey",
+    summary:
+      "Six days across Turkey - three nights in Istanbul for the Sultanahmet sights and a cruise to the Princes' Islands, then a flight to Cappadocia for the Red Tour of its valleys and fairy chimneys.",
+    destinationSlug: "turkey",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 6,
+    durationNights: 5,
+    priceFrom: 0,
+    heroImage: d("turkey"),
+    highlights: ["Istanbul", "Princes' Islands", "Cappadocia"],
+    inclusions: [
+      "05 nights' accommodation in the above mentioned hotels",
+      "Assistance upon arrival & departure",
+      "All tours are on SIC Basis & English Speaking",
+      "Airport Transfers are on Private Basis",
+      "Hotel Taxes",
+      "Entrance Fee",
+      "FD Princess Island tour with Lunch",
+      "FD Istanbul City tour with lunch",
+      "FD Cappadocia Red Tour with lunch",
+      "GST",
+    ],
+    exclusions: [
+      "Roundtrip Air fare",
+      "Turkey Tourist Visa",
+      "Domestic Ticket",
+      "Hot Air Balloon",
+      "Personal Tips",
+      "Early Check in at hotel, late checkout at hotel",
+      "Other meals not mentioned",
+      "Laundry, telephone calls and incidentals",
+      "Any personal expenses, room service and special orders. Alcoholic and nonalcoholic beverages",
+      "Any extra excursion apart from the itinerary",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Istanbul Arrival",
+        description:
+          "Arrival at Istanbul or SAW Airport, transfer to the hotel. Check in & free time. Overnight in Istanbul.",
+        meals: "None",
+        stay: "Overnight, Istanbul",
+      },
+      {
+        day: 2,
+        title: "Full Day Istanbul City Tour",
+        description:
+          "After breakfast, full-day Istanbul city tour with lunch.\n\nSightseeing: Sultanahmet area, Blue Mosque, Hagia Sophia Mosque, Hippodrome, Obelisk, Topkapi Palace and Grand Bazaar.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Istanbul",
+      },
+      {
+        day: 3,
+        title: "Full Day Princes' Islands Tour",
+        description:
+          "After breakfast, full-day Princes' Islands tour with lunch.\n\nCruise on the Marmara Sea to go to Heybeliada for a sightseeing tour and soon after that, we meet in the ferry again to go to the biggest island (Büyükada). While you are cruising to Büyükada, you will have lunch in the boat as open buffet. Followed by lunch we will reach the island and you will have your free time to enjoy it. Return to Istanbul by ferry and transfer back to the hotel.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Istanbul",
+      },
+      {
+        day: 4,
+        title: "Transfer to Cappadocia",
+        description:
+          "After breakfast, transfer to the airport for departure to ASR or Nevsehir Airport. On arrival at the airport, transfer to the hotel by private car. Check in & free time. Overnight in Cappadocia.",
+        meals: "Breakfast",
+        stay: "Overnight, Cappadocia",
+      },
+      {
+        day: 5,
+        title: "Cappadocia Red Tour",
+        description:
+          "After breakfast, full-day Cappadocia Red Tour with lunch. Our vehicle and guide will pick you up from your hotel. Our first stop is Pigeon Valley, which is home to countless pigeons in natural pigeon houses. These pigeons contribute to the livelihood of the local people with the fertilizers they provide for vineyards. Then we will visit Uçhisar Castle, where you will have time to take photos. Our tour continues with Göreme Panorama, where you can enjoy the breathtaking view of the fairy chimneys and rock formations that define the silhouette of Cappadocia.\n\nNext, we will visit the Onyx Workshop and learn about the craftsmanship involved in making jewelry and ornaments from onyx, a natural stone found abundantly in the volcanic region of Cappadocia. We will then visit Paşabağ (Zelve) Open Air Museum, where you can discover churches, chapels, and monasteries dating from the 10th to the 13th centuries AD, carved into fairy chimneys and adorned with frescoes on their walls. Afterward, we will head towards Avanos, where we will visit a pottery workshop and witness demonstrations of traditional pottery-making techniques dating back to the Hittite period.\n\nFinally, we will visit Devrent Valley, where the unusual rock formations and small fairy chimneys create a lunar landscape due to their strange appearance. At the end of the tour, the vehicle will drop you off at the hotel. Optional hot air balloon.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Cappadocia",
+      },
+      {
+        day: 6,
+        title: "Departure",
+        description: "After breakfast, transfer to the airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "002996",
+    travelWindow: "November 2025",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Istanbul (Taksim)",
+        hotel: "The Central Palace Hotel or similar",
+        nights: 3,
+        meals: "Breakfast",
+      },
+      {
+        destination: "Cappadocia",
+        hotel: "Alfa Cave Hotel, Stone Room with Jacuzzi or similar",
+        nights: 2,
+        meals: "Breakfast",
+      },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
+    bookingPolicy:
+      "Tour: 50% at the time of confirmation, 50% at 30 days prior to departure date. Air: 100% at the time of confirmation.",
+    cancellationPolicy:
+      "Tour: 50% before 30 days of travel date, 100% within 30 days of travel date. Air: As per airline policy.",
+    metaTitle: "Turkey - 6 Days / 5 Nights",
+    metaDescription:
+      "Turkey in six days - Istanbul's Blue Mosque and Hagia Sophia, a Princes' Islands cruise, then Cappadocia's Red Tour. Built around your dates; price on request.",
+  },
+  // 003044 - 5D 4N - CHINA - JAN - 2 ADULTS, 1 CHILD.pdf
+  {
+    slug: "charm-of-china-5d4n-003044",
+    title: "Charm of China",
+    summary:
+      "Five days in Beijing with a family room throughout - the Forbidden City, Tiananmen Square and the Temple of Heaven, a hutong tour, the Mutianyu Great Wall by cable car and the 798 Art District, then the Summer Palace by boat, Xiushui Street and Nanluoguxiang, with an English-speaking guide and private transfers.",
+    destinationSlug: "china",
+    category: "family",
+    type: "customized",
+    durationDays: 5,
+    durationNights: 4,
+    priceFrom: 0,
+    heroImage: d("china"),
+    highlights: ["Forbidden City", "Temple of Heaven", "Mutianyu Great Wall", "Summer Palace", "Nanluoguxiang"],
+    inclusions: [
+      "04 nights accommodation in above mentioned hotel",
+      "Daily Breakfast except on arrival day",
+      "Meet & Greet at the airport",
+      "Sightseeing as per the above mentioned itinerary",
+      "English speaking tour guide",
+      "Entrance fees",
+      "Private transfers between airports, railway stations, hotels and scenic spots, unless otherwise stated. (Luggage Quantity Reminder: Each traveler is allowed to carry 1 suitcase. If you have more than 1 large suitcase per traveler, please consult your travel advisor to confirm any additional charges that may apply.)",
+      "Service charge and government taxes (Except European countries)",
+      "All tours and transfers on private",
+      "GST",
+    ],
+    exclusions: [
+      "Round Trip Air Fare",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check in time in Hotel is after 1400/1500 hours and check out is before 1100/1200 hours",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+      "Gratuities, Tips to Guides or Drivers",
+      "Insurance",
+      "Visa",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Beijing",
+        description: "Arrival in Beijing. Pick up from Airport. Transfer to Hotel. Night stay at Beijing Hotel.",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 2,
+        title: "The Forbidden City, Tiananmen Square, Temple of Heaven",
+        description:
+          "Breakfast at Hotel. The Forbidden City, Tiananmen Square, Temple of Heaven. Drop at Hotel. Night stay at Beijing Hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 3,
+        title: "Hutong Tour, The Mutianyu Great Wall, 798 Art District",
+        description:
+          "Breakfast at Hotel. Hutong Tour in Xicheng District, The Mutianyu Great Wall (with round way cable car), 798 Art District. Drop at Hotel. Night stay at Beijing Hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 4,
+        title: "Summer Palace, Xiushui Street, The Southern Gong and Drum Lane",
+        description:
+          "Breakfast at Hotel. Summer Palace with Boat Ride and the Garden of Virtue and Harmony, Xiushui Street, The Southern Gong and Drum Lane (Nanluoguxiang). Drop at Beijing Hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Beijing",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        description: "Breakfast at Hotel. Drop at Airport. Departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "003044",
+    travelWindow: "January 2026",
+    travellers: "2 adults + 1 child",
+    rooms: 1,
+    stays: [
+      { destination: "Beijing", hotel: "Novotel Peace (Family Room) or similar", nights: 4, meals: "Breakfast" },
+    ],
+    metaTitle: "Charm of China - 5 Days / 4 Nights",
+    metaDescription:
+      "Beijing in five days - the Forbidden City, the Temple of Heaven, the Mutianyu Great Wall and the Summer Palace. Built around your dates; price on request.",
+  },
+  // 003239 - 3D 2N - PONDICHERRY - APR - 4 ADULTS.pdf
+  {
+    slug: "charm-of-pondicherry-3d2n",
+    title: "Charm of Pondicherry",
+    summary:
+      "Three days in Pondicherry by private vehicle, from the railway station to Auroville, the Aurobindo Ashram, White Town and its beaches.",
+    destinationSlug: "pondicherry",
+    category: "family",
+    type: "customized",
+    durationDays: 3,
+    durationNights: 2,
+    priceFrom: 0,
+    heroImage: d("pondicherry"),
+    highlights: ["Auroville", "Aurobindo Ashram", "White Town", "Paradise Beach", "Rock Beach"],
+    inclusions: [
+      "02 nights' accommodation on above mentioned hotel",
+      "Meal plan (Breakfast) as per the itinerary (except on arrival day)",
+      "All tours & transfers by PVT Vehicle",
+      "Railway Station Pick up & Airport Drop",
+      "GST",
+    ],
+    exclusions: [
+      "Round trip Air Fare/ Train Fare",
+      "Lunch & Dinner",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check-in : 12:00 PM, Check-out : 10:00 AM",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders.",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival at Pondicherry - Half Day Sightseeing",
+        description:
+          "Arrival at Pondicherry Railway Station. Pick up and drop at Hotel. Hotel Check In as per the Hotel Policy. Half Day Pondicherry Sightseeing. Drop at Hotel. Overnight stay at Pondicherry Hotel.",
+        meals: "No meals",
+        stay: "Overnight, Pondicherry",
+      },
+      {
+        day: 2,
+        title: "Pondicherry Full Day Sightseeing",
+        description:
+          "Breakfast at Hotel. Pondicherry Full Day Sightseeing. Drop at Hotel. Overnight stay at Pondicherry Hotel.\n\nSightseeing places & suggestions: Auroville, Pondicherry boat house & Paradise beach, Manakula vinayak temple, Aurobindo Ashram, Pondicherry Museum, Pondy Light house & Pondy Marina beach, Rock beach, White town visit, Sacred heart Church.\n\nNote: All the sightseeing mentioned in the itinerary will be covered if time permits. If not, you may cut down and choose the places that interest you most. First day last day Sightseeing will cover depending on the arrival & departure timings.",
+        meals: "Breakfast",
+        stay: "Overnight, Pondicherry",
+      },
+      {
+        day: 3,
+        title: "Half Day Sightseeing - Departure",
+        description:
+          "Breakfast at Hotel. Pondicherry Half Day Sightseeing. Drop at Railway Station. Departure with sweet memories.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "003239",
+    travelWindow: "April 2026",
+    travellers: "4 adults",
+    rooms: 2,
+    stays: [
+      { destination: "Pondicherry", hotel: "Hotel Jayaram or similar", nights: 2, meals: "Breakfast" },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply.",
+    metaTitle: "Charm of Pondicherry - 3 Days / 2 Nights",
+    metaDescription:
+      "Pondicherry in three days - Auroville, the Aurobindo Ashram, White Town, Paradise Beach and Rock Beach by private car. Built around your dates; price on request.",
+  },
+  // 003887 HONGKONG MACAU 4N 5D 7A APRIL.docx
+  {
+    slug: "macau-hong-kong-5d4n",
+    title: "Macau Hong Kong",
+    summary:
+      "Five days across the Pearl River Delta - over the Hong Kong-Zhuhai-Macau Bridge for a night in Macau and its city tour, then the ferry to Hong Kong for Victoria Peak and the Symphony of Lights, a full day at Disneyland and the Ngong Ping 360 cable car to the Big Buddha.",
+    destinationSlug: "hong-kong",
+    category: "group-tours",
+    type: "customized",
+    durationDays: 5,
+    durationNights: 4,
+    priceFrom: 0,
+    heroImage: d("hong-kong"),
+    highlights: ["Macau", "Victoria Peak", "Hong Kong Disneyland", "Ngong Ping 360", "Big Buddha"],
+    inclusions: [
+      "04 night Accommodation on above mentioned Hotels",
+      "01 night in Macau, 03 night in Hong Kong",
+      "All Entry Tickets",
+      "GST",
+    ],
+    exclusions: [
+      "Roundtrip Airfare",
+      "Early Check in at hotel, late checkout at hotel",
+      "Laundry, telephone calls and incidentals",
+      "Any personal expenses, room service and special orders. Alcoholic and nonalcoholic beverages",
+      "Any extra excursion apart from the itinerary",
+      "These rates are not valid for blackout dates in Hong Kong like: Easter Day, Eid-Ul-Fitr, and Festival Dates",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrive in Hong Kong",
+        description:
+          "Arrive in Hong Kong and take direct bus from HKIA to Macau Border via HZMB Bridge. Arrive in Macau and clear immigration. Pick up from Macau Border and drop to hotel one way private transfer using 1 coach. Check in to the hotel (1500 hrs standard check in time). Overnight at the hotel.",
+        stay: "Overnight, Macau",
+      },
+      {
+        day: 2,
+        title: "Macau City Tour, Macau Ferry Terminal to Hong Kong Terminal, Victoria Peak",
+        description:
+          "Breakfast at the hotel, Check out from hotel (1100 hrs standard check out time). Pick up from hotel and leave for Macau city tour covering Ruins of St. Paul, Ana Cha Temple, Fortress, Lover Lane, Golden Lotus, Fisherman's Wharf - PVT Basis - 4 Hrs - 1 coach (No Macau Tower).\n\nDrop to Macau Ferry Terminal. Direct Ferry from Macau Ferry Terminal to Hong Kong Terminal - Economy Class. Pick up from Hong Kong Ferry Terminal and leave for half day city tour of Hong Kong using 1 van hired for 5 Hrs. Victoria Peak Tram ride one way. Madame Tussauds, Avenue of Stars, Clock Tower, Enjoy the famous Symphony of Light Show. Drop to the hotel and check in (1500 hrs standard check in time). Overnight at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 3,
+        title: "Full Day Visit to Disneyland",
+        description:
+          "Breakfast at the hotel, Full day visit to Disneyland one way private transfer 1 van. Disneyland 1 day pass - Regular Pass Day. Pick up from Disneyland and drop to hotel one way private transfer using 1 van. Overnight at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 4,
+        title: "Full Day Visit to Ngong Ping 360",
+        description:
+          "Breakfast at the hotel, Full day visit to Ngong Ping 360 one way private transfer 1 van. Ngong Ping 360 - Standard Cable Car - Roundtrip, Big Buddha Statue, Po Lin Monastery. Pick up from Ngong Ping and drop to hotel one way private transfer using 1 van. Overnight at the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        description:
+          "Breakfast at the hotel, Check out from hotel (1100 hrs standard check out time). Pick up from hotel and drop to HKIA one way private transfer using 2 vans.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "003887",
+    travelWindow: "April 2026",
+    travellers: "7 adults",
+    rooms: 3,
+    stays: [
+      { destination: "Macau", hotel: "Regency Art Macau or similar (3 star)", nights: 1, meals: "Breakfast" },
+      { destination: "Hong Kong", hotel: "Harbour Plaza Metropolis or similar", nights: 3, meals: "Breakfast" },
+    ],
+    metaTitle: "Macau Hong Kong - 5 Days / 4 Nights",
+    metaDescription:
+      "Macau and Hong Kong in five days - a Macau city tour, Victoria Peak, Symphony of Lights, Disneyland and Ngong Ping 360. Built around your dates; price on request.",
+  },
+  // 003952 6D 5N JAPAN APRIL 3 ADULTS.pdf
+  {
+    slug: "charm-of-japan-6d5n",
+    title: "Charm of Japan",
+    summary:
+      "Six days between Tokyo and Kyoto - Sensoji, Meiji Jingu, Tokyo Skytree and a sushi-making lunch with a private guide, then the bullet train to Kyoto for Arashiyama's bamboo grove, the Golden Pavilion, Kiyomizudera, Heian Shrine and Nijo Castle.",
+    destinationSlug: "japan",
+    category: "family",
+    type: "customized",
+    durationDays: 6,
+    durationNights: 5,
+    priceFrom: 0,
+    heroImage: d("japan"),
+    highlights: ["Tokyo", "Tokyo Skytree", "Arashiyama Bamboo Grove", "Kinkakuji", "Kyoto"],
+    inclusions: [
+      "English speaking tour guide",
+      "Entrance fees",
+      "Private transfers between airports, railway stations, hotels and scenic spots, unless otherwise stated. (Luggage Quantity Reminder: Each traveler is allowed to carry 1 suitcase. If you have more than 1 large suitcase per traveler, please consult your travel advisor to confirm any additional charges that may apply.)",
+      "Meals as specified in the itinerary",
+      "Hotels as specified in the itinerary",
+    ],
+    exclusions: [
+      "International travel expenses from home to destination or back",
+      "Visa Fees",
+      "Excess Baggage Charges",
+      "Personal Expenses",
+      "Gratuities, Tips to Guides or Drivers",
+      "Insurance",
+      "Taxes (e.g. from hotel, local government etc.)",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrive in Tokyo",
+        description:
+          "One way private transfer between hotel and Airport in Tokyo (driver only): Upon your arrival in Tokyo, your private driver will pick you up at the airport and transfer you to the hotel.\n\nNote: 1 suitcase per person. Please confirm surcharge with your travel advisor if you have more than 1 big luggage per person.",
+        stay: "Overnight, Tokyo",
+      },
+      {
+        day: 2,
+        title: "Tokyo",
+        description:
+          "A day city tour via public transportation with a private guide. Sensoji Asakusa: Tokyo's oldest temple, Sensoji contains a sacred statue of Kannon, the goddess of mercy. Surrounded by imposing gates, a five-story pagoda, and the vibrant stalls of Nakamise Dori, Sensoji is a must-see destination during your trip in Japan. Also a lively marketplace (Nakamise-dori Street), holy smoke and fortunes at Tokyo's most iconic temple.\n\nMeiji Jingu Shrine: Meiji Jingu Shrine grounds offer walking paths that are great for a relaxing stroll. At the middle of the forest, Meiji Jingu's buildings also have an air of tranquility distinct from the surrounding city. You can take part in typical Shinto activities, such as making offerings at the main hall, buying charms and amulets or writing out one's wish on an ema. On Sunday mornings you are likely to see a traditional wedding procession (or two) through the courtyard - the bride in a white kimono and hood and the groom in his formal black robe, walking together under a big red parasol, with Shinto priests leading the way and the rest of the wedding party trailing behind. Shrines, big or small, can get interesting on festival days. Meiji Jingu Shrine is located inside Yoyogi Park, we suggest you bring some snacks so that after the visit at the shrine you can have a small picnic in the park along with the locals.\n\nTokyo Skytree: Towering above the capital's skyline, Tokyo Skytree soars 634 meters high and gives incredible, panoramic views of Tokyo. On a clear day, you can't quite see infinity, but it's one of the few spots you can see Mt. Fuji from Tokyo. Sushi-making Experience with lunch: Take a closer look at the fascinating world of sushi, extending from the ocean to your plate, during the sushi-making class. Learn how fish is caught and distributed, then turn your attention to sushi-making, where you'll prepare nigiri sushi with the help of a sushi master. Finish your experience by enjoying your creations for lunch. Due to high demand, the specific arrangements will be subject to the actual situation. This is not a private activity; there could be some other travelers doing the activity together with you.",
+        meals: "Breakfast, Lunch",
+        stay: "Overnight, Tokyo",
+      },
+      {
+        day: 3,
+        title: "Tokyo to Kyoto",
+        description:
+          "Tokyo to Kyoto by Bullet Train in Standard Class (2 h 21 minutes; ticket only, no transfer or guiding). Make your own way to the station, using your ticket to board the Shinkansen bullet train.\n\nOn arrival at Kyoto Station, make your own way to your hotel. The rest of the day is free for your leisure.",
+        meals: "Breakfast",
+        stay: "Overnight, Kyoto",
+      },
+      {
+        day: 4,
+        title: "Kyoto",
+        description:
+          "A day city tour via public transportation with a private guide. Arashiyama: Arashiyama is a nationally designated Historic Site and Place of Scenic Beauty. It also refers to the mountain across the Ōi River, which forms a backdrop to the district. Arashiyama is incredibly beautiful in autumn. You can enjoy it in a variety of ways, there's the Sagano train, Hozugawa River Boat Ride or walk through the bamboo grove. Tenryuji and Jojakukoji temples are also nearby and are also very tranquil and beautiful.\n\nNonomiya Shrine: Amidst the beautiful bamboo forest in Arashiyama, Kyoto, lies a small shrine called Nonomiya-Jinja. The shrine was formerly known as a temporary sanctuary for princesses. Back in the early days, emperors often sent their unmarried daughters to serve as high priestesses at the Grand Shrine of Ise. Nonomiya-Jinja was the place where those princesses first spent one to three years of their lives to undergo purification before they were taken in a procession at Ise Shrine. Bamboo Grove: The Arashiyama Bamboo Grove is one of Kyoto's most iconic sights, and a walk through it will be one of your most lasting impressions of this city. Located in the village of Sagano on the west side of the city, the path through the Arashiyama bamboo grove is short yet immersive. There's something almost magical about the light dappling on the forest floor.\n\nKinkakuji Temple (Golden Pavilion): Kinkakuji (Golden Pavilion) is a Zen temple in northern Kyoto whose top two floors are completely covered in gold leaf. Formally known as Rokuonji, the temple was the retirement villa of the shogun Ashikaga Yoshimitsu, and according to his will it became a Zen temple of the Rinzai sect after his death in 1408. Kinkakuji is an impressive structure built overlooking a large pond, and is the only building left of Yoshimitsu's former retirement complex. It has burned down numerous times throughout its history including twice during the Onin War, a civil war that destroyed much of Kyoto; and once again more recently in 1950 when it was set on fire by a fanatic monk.",
+        meals: "Breakfast",
+        stay: "Overnight, Kyoto",
+      },
+      {
+        day: 5,
+        title: "Kyoto",
+        description:
+          "A day city tour via public transportation with a private guide. Pure Water Temple: Situated atop a small mountain on the east side of Kyoto, Pure Water Temple (Kiyomizudera in Japanese) offers a commanding view of the city. The temple's stage, supported by massive pillars, is one of the most famous images of Japan. But Kiyomizudera offers more than just a pretty view, with the experience of visiting beginning long before you reach the temple itself. Ninenzaka and Sannenzaka: Ninen-zaka Slope and Sannen-zaka Slope are iconic streets of Kyoto City, which represent Japan's good old days. Once you get there, you can't help taking pictures of this nostalgic and dreamy scenery. These two slopes are the approach to the famous Kiyomizudera Temple and also one of the main attractions of the city for the beautiful scenery.\n\nHeian Shrine: Built to commemorate the 1,100th anniversary of Kyoto's reign as the capital of Japan, Heian-jingu Shrine's most recognizable feature is its towering red torii gate. With its vibrant colors and immaculate grounds, the shrine is an iconic symbol of Kyoto and a major tourist attraction. Nijo Castle: Nijo Castle in Kyoto is one of the seven Historic Monuments of Ancient Kyoto which have been designated by UNESCO as a World Heritage Site. This massive site consists of several major parts including two concentric rings (Kuruwa) of fortifications, the Ninomaru Palace, the ruins of the Honmaru Palace and some beautifully-structured gardens.",
+        meals: "Breakfast",
+        stay: "Overnight, Kyoto",
+      },
+      {
+        day: 6,
+        title: "Kyoto to Tokyo to Departure City",
+        description:
+          "Make your own way to Kyoto Station, using your ticket to board the Shinkansen bullet train. Kyoto to Tokyo by Bullet Train in Standard Class (2 h 21 minutes), then Tokyo to Narita Airport by train in Standard Class (58 minutes) for your departure. Tickets only; no transfer or guiding.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "003952",
+    travelWindow: "April 2026",
+    travellers: "3 adults",
+    rooms: 1,
+    stays: [
+      { destination: "Tokyo", hotel: "Mitsui Garden Hotel Shiodome Italia-Gai or similar (3 star, triple room)", nights: 2, meals: "Breakfast" },
+      { destination: "Kyoto", hotel: "Hotel Gracery Kyoto Sanjo or similar (3 star, triple room)", nights: 3, meals: "Breakfast" },
+    ],
+    metaTitle: "Charm of Japan - 6 Days / 5 Nights",
+    metaDescription:
+      "Tokyo and Kyoto in six days - Sensoji, Tokyo Skytree, a sushi class, the bullet train, Arashiyama, the Golden Pavilion and Kiyomizudera. Price on request.",
+  },
+  // 003952 7D 6N EUROPE APRIL 3 ADULTS.pdf
+  {
+    slug: "a-piece-of-europe-7d6n",
+    title: "A Piece of Europe",
+    summary:
+      "A seven-day escorted coach tour of Central and Eastern Europe (Europamundo) - Vienna and Grinzing, Budapest on the Danube, Bratislava, Prague's Castle District and Old Town, then Pilsen and Rothenburg on the way to Frankfurt.",
+    destinationSlug: "europe",
+    category: "family",
+    type: "customized",
+    durationDays: 7,
+    durationNights: 6,
+    priceFrom: 0,
+    heroImage: d("europe"),
+    highlights: ["Vienna", "Budapest", "Bratislava", "Prague", "Rothenburg"],
+    inclusions: [
+      "Europamundo General Services: Travel by bus with English speaking guide, basic travel insurance, hotel and breakfast buffet.",
+      "Includes arrival transfer",
+      "City tour in: Vienna, Budapest, Prague",
+      "Boat: Danube River in Budapest, Vltava River in Prague",
+      "Evening transfer: Grinzing district in Vienna, Old Town Square in Prague",
+      "Ticket admission: Prague Castle",
+    ],
+    exclusions: [
+      "Round trip Air Fare",
+      "Early Check in at hotel, late Check-out at hotel",
+      "Check in time in Hotel is after 1400/1500 hours and check out is before 1100/1200 hours",
+      "Any extra excursion or sightseeing apart from suggested tour itinerary",
+      "Any personal expenses, room service and special orders.",
+      "Alcoholic and non-alcoholic beverages",
+      "Other meals not mentioned, laundry, telephone calls, incidentals",
+      "TCS",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Vienna",
+        description:
+          "Welcome to Europamundo! We'll transfer you to the hotel and you'll have some free time. In the afternoon, you'll find information about the start of your tour on the boards located at the hotel reception.\n\nImportant - Check-in: Please note that hotel check-in time is usually at 03:00 p.m. If you require earlier room availability, consider booking an additional night at the beginning of your trip. Additional Nights: If you requested additional nights, your room will be ready upon arrival at the hotel, but your trip guide will only contact you when the included activities begin. At the reception, you will find an information board with our staff's telephone number and hours of assistance. Until then, you have free time to enjoy at your leisure. The hotel staff can assist you with any information you need.\n\nOptional Activities: During your trip, your guide may offer optional activities. If these activities are available on the Europamundo app or through your \"My Trip\" link, we strongly recommend booking them as early as possible to ensure availability. Waiting until the last minute may result in missed opportunities due to limited tickets, bus seats, or other factors. Note: The schedules provided in this itinerary are indicative. The guide may adjust them as needed to enhance the trip experience.",
+        meals: "None",
+        stay: "Overnight, Vienna",
+      },
+      {
+        day: 2,
+        title: "Vienna",
+        description:
+          "09:00 a.m. - We'll start with a panoramic tour of Vienna, lasting about two and a half hours, with a local guide. During the tour, we'll see the Ringstrasse, the main boulevard of Vienna, the Opera, the exterior of the Hofburg Palace, Prater Park, the Belvedere, and Schönbrunn Palace.\n\n07:00 p.m. - In the evening, we'll include a transfer to the Grinzing district, an old wine-growing village now part of the city, known for its traditional taverns. Enjoy free time to dine in the area. 09:30 p.m. - Return to the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Vienna",
+      },
+      {
+        day: 3,
+        title: "Vienna - Budapest",
+        description:
+          "Total distance covered: 245 km. Scenery: We'll travel through the beautiful Pannonian Basin to the Hungarian capital. Note: The currency of Hungary is the Forint. It is advisable to pay in local currency during your stay. If the group is very small, we may take the train.\n\n08:30 a.m. - Departure from Vienna, following the course of the Danube to Hungary. The trip to the capital will take just under three hours. 11:30 a.m. - Budapest. We'll first visit Váci utca, one of the main pedestrian areas and probably the most famous and lively commercial street in the center of Budapest. Free time.\n\n02:30 p.m. - After lunch, we'll kick off our exploration of Budapest with a boat trip on the Danube River. The views of the city and its parliament from the river are breathtaking. Afterwards, we'll embark on a three-hour guided tour of the \"Queen of the Danube,\" where we'll see the many bridges over the Danube, the district of Pest with its bustling commercial activity, Buda's Old Town, and the Fisherman's Bastion. After the tour, you'll have free time to continue exploring the city before we return to the hotel. In the evening, we'll offer an optional outing to a Magyar show, with dinner included.",
+        meals: "Breakfast",
+        stay: "Overnight, Budapest",
+      },
+      {
+        day: 4,
+        title: "Budapest - Bratislava - Prague",
+        description:
+          "Total distance covered: 530 km.\n\n08:00 a.m. - Departure from Budapest. 10:30 a.m. - Bratislava, the capital of Slovakia, located along the Danube with a charming historic center. You'll have time to explore the city and enjoy lunch. 01:30 p.m. - Departure from Bratislava as we continue our journey to the Czech Republic.\n\n06:30 p.m. - Prague. Arrival in the beautiful Czech capital. We'll provide a transfer to the Old Town Square, a lively area brimming with energy and tourist activities. It's a fantastic place to get familiar with Prague. You'll find numerous restaurants offering a variety of cuisines, including Czech, Chinese, Indian, and Italian. Return to the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Prague",
+      },
+      {
+        day: 5,
+        title: "Prague",
+        description:
+          "07:45 a.m. - We'll begin our city tour with a local guide, lasting approximately three and a half hours. On foot, we'll explore the Castle District, the oldest part of Prague, featuring the citadel with its churches and palaces. From here, you'll enjoy panoramic views of the \"City of 100 Spires.\" We'll continue our walk to the Lesser Town, the city's Baroque jewel known as Malá Strana, crossing the Vltava River on the famous Charles Bridge, an architectural and sculptural masterpiece. We'll admire the beautiful cityscape and enter the Old Town of Prague with its renowned Old Town Square, one of the most beautiful in central Europe, featuring the Church of Our Lady before Týn and the famous Town Hall with its astronomical clock and chimes. The tour will include admission to Prague Castle, built in the 9th century and the former residence of the kings of Bohemia.\n\nAfter the city tour, you'll enjoy a cruise along the Vltava River. The afternoon is free for you to continue exploring the city. In the evening, you'll have some time to spend in the historic city center, where you'll have the opportunity to enjoy cuisines from around the world.",
+        meals: "Breakfast",
+        stay: "Overnight, Prague",
+      },
+      {
+        day: 6,
+        title: "Prague - Pilsen - Rothenburg - Frankfurt",
+        description:
+          "Total distance covered: 555 km. Scenery: Forests and hills in Czech Republic, pleasant landscapes in Germany.\n\n07:30 a.m. - Departure from Prague. 09:00 a.m. - Pilsen. Time to visit this city in western Bohemia, renowned for its beers. Enjoy a walk through its historic center, where you'll find its breweries, the Great Square, the cathedral, the Plague Column, and a Renaissance-era town hall. 10:00 a.m. - Departure from Pilsen. We'll travel to Germany to explore one of the stops on the famous Romantic Road.\n\n01:30 p.m. - Rothenburg. This fairytale-like city is considered one of the most beautiful towns in the country. Enjoy a stroll through its medieval old town and have lunch. 03:30 p.m. - Departure from Rothenburg. 06:00 p.m. - Frankfurt. We'll cross the wide, modern avenues that showcase the financial district. Later, you'll have free time in the historic city center, where you'll find a wide variety of restaurants offering Indian, Asian, Italian, and international cuisines. Transfer to the hotel.",
+        meals: "Breakfast",
+        stay: "Overnight, Frankfurt",
+      },
+      {
+        day: 7,
+        title: "Frankfurt",
+        description:
+          "After breakfast, our journey will come to an end, leaving you with wonderful lasting memories.\n\nNote: Please be aware that the hotel check-out time is usually 10:00 a.m. You can leave your luggage in reception upon check-out, allowing you to explore the city without carrying your bags. You can retrieve your luggage at your convenience later in the day. If you require additional time to use your room, we recommend booking an extra night at the end of your tour.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "003952",
+    travelWindow: "April 2026",
+    travellers: "3 adults",
+    rooms: 1,
+    stays: [
+      { destination: "Vienna", hotel: "Rainers Hotel Vienna (4 star)", nights: 2, meals: "Breakfast" },
+      { destination: "Budapest", hotel: "Radisson Budapest Budapart (4 star)", nights: 1, meals: "Breakfast" },
+      { destination: "Prague", hotel: "Panorama Hotel Prague (4 star, option 1)", nights: 2, meals: "Breakfast" },
+      { destination: "Prague", hotel: "Olympik Congress (4 star, option 2)", nights: 2, meals: "Breakfast" },
+      { destination: "Frankfurt", hotel: "Ibis Frankfurt City Messe (3 star, option 1)", nights: 1, meals: "Breakfast" },
+      { destination: "Frankfurt", hotel: "Crowne Plaza Frankfurt Congress (4 star, option 2)", nights: 1, meals: "Breakfast" },
+    ],
+    stayNote:
+      "These are the tour operator's planned hotels. Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
+    metaTitle: "A Piece of Europe - 7 Days / 6 Nights",
+    metaDescription:
+      "Central Europe in seven days - Vienna, Budapest, Bratislava, Prague Castle, Pilsen and Rothenburg to Frankfurt. Built around your dates; price on request.",
+  },
+  // 004414 EGYPT 3N4D 2A OCT 2026.......pdf
+  {
+    slug: "fascinating-egypt-4d3n",
+    title: "Fascinating Egypt",
+    summary:
+      "Experience the timeless wonders of Egypt with a captivating journey through Cairo and Alexandria. Explore the magnificent Giza Pyramids and Sphinx, discover Egypt's fascinating ancient treasures at the Grand Egyptian Museum. Enjoy a full-day excursion to the historic Mediterranean city of Alexandria, visiting its remarkable ancient landmarks and cultural attractions. The journey is complemented by a memorable dinner cruise on the Nile, offering a perfect blend of history, culture, and Egyptian hospitality.",
+    destinationSlug: "egypt",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 0,
+    heroImage: d("egypt"),
+    highlights: ["Nile Cruise", "Alexandria", "Grand Egyptian Museum"],
+    inclusions: [
+      "Accommodation in Cairo for 03 Nights on Bed & Breakfast Basis.",
+      "Tour in Cairo for 01 Day as mentioned at the above itinerary.",
+      "Tour in Alexandria for 01 Day as mentioned at the above itinerary.",
+      "Private English-speaking Egyptologist in Cairo & Alexandria.",
+      "Transfer Cairo / Alexandria / Cairo by A/C Private vehicle.",
+      "Visa Charge",
+      "Meet & assist at Cairo International Airport plus transfer to hotel by air-conditioned new model Van.",
+      "Transfer to Cairo International airport on your final departure.",
+      "A Bottle of Mineral Water to each person.",
+      "Entrance fees to the above-mentioned sites as mentioned in the itinerary.",
+      "Service charges and all taxes.",
+      "GST",
+    ],
+    exclusions: [
+      "Round-trip airfare",
+      "TCS",
+      "Early check-in or late check-out",
+      "Laundry, telephone calls and incidentals",
+      "Personal expenses, room service, special orders, and alcoholic/non-alcoholic beverages",
+      "Lunch, Dinner",
+      "Entrance inside any of the pyramids will be with extra fees (Tickets can be booked on the Spot): 1st Great Pyramid 35.00 USD$ - 2nd Pyramid OR 3rd Pyramid 15.00 USD$",
+      "Tipping USD$ 07.00 per person per day to be collected upon arrival (Cover Porters, Ground Staff, Drivers, during the tour & exclude tipping to your tour guide).",
+      "Any extra excursion beyond the itinerary",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Cairo & Nile Dinner Cruise",
+        description:
+          "After your flight arrives at Cairo International Airport, Egypt representative will be waiting for you in the international arrival hall holding a sign with your name to meet & greet you before the passport control and finish all formalities with you, transfer to your hotel, check-in @ 15:00 PM, where we spend the night.\n\nIn the evening transfer to Dinner Cruise on the magic Nile River where you can enjoy watching real Belly Dancer and watching Folklore show.",
+        meals: "Dinner",
+        stay: "Overnight, Cairo",
+      },
+      {
+        day: 2,
+        title: "Cairo Day at Leisure",
+        description:
+          "Enjoy a relaxed morning with breakfast at the hotel. The rest of the day is free at leisure to explore Cairo independently, relax at the hotel, or enjoy optional activities.",
+        meals: "Breakfast",
+        stay: "Overnight, Cairo",
+      },
+      {
+        day: 3,
+        title: "Alexandria Day Tour",
+        description:
+          "After an early breakfast, you will travel by new model vehicle to Alexandria, your guide will lead you through the highlights of Alexandria, including visits to the Catacombs of Kom El-Shokafa, Qaitbay Citadel, then visit the ancient Library of Alexandria, the world's most famous library of Classical antiquity. The building is extraordinary, not only for its priceless collection of Classical literature, but also for its incredible architecture.\n\nSee Pompey Pillar from outside and visit El-Mursi Abu Abbas Mosque. At the end of your tour transfer back to your hotel, where we spend the night.",
+        meals: "Breakfast",
+        stay: "Overnight, Cairo",
+      },
+      {
+        day: 4,
+        title: "Cairo Day Tour - Pyramids of Giza, Grand Egyptian Museum - Departure",
+        description:
+          "After Breakfast at hotel, visit the Pyramids of Giza and the magnificent monolith of the Sphinx; the Great Pyramid of Cheops, Chephren and Mykerinus listed as one of the Seven Wonders of the World, the whole complex a UNESCO World Heritage site, as are the ruins around the Old Kingdom capital. Our next discovery, visit the Grand Egyptian Museum.\n\nAt the end of your tour, Egypt representative will accompany you to Cairo International Airport for your departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "004414",
+    travelWindow: "October 2026",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Cairo",
+        hotel: "Soluxe Cairo Hotel (Pyramids view as per availability) or similar",
+        nights: 3,
+        meals: "Breakfast",
+      },
+    ],
+    stayNote:
+      "Hotel category is confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
+    metaTitle: "Fascinating Egypt - 4 Days / 3 Nights",
+    metaDescription:
+      "Egypt in four days - a Nile dinner cruise, Alexandria's catacombs and library, the Pyramids of Giza and the Grand Egyptian Museum. Price on request.",
+  },
+  // 004470-4D 3N-MALDIVES-JULY-02 ADULTS.pdf
+  {
+    slug: "charm-of-maldives-4d3n",
+    title: "Charm of Maldives",
+    summary:
+      "Three nights at Villa Nautica Paradise Island in the Maldives on full board, with round-trip speed boat transfers from the airport - all in a beach villa, or two nights in a beach villa and one in a water villa.",
+    destinationSlug: "maldives",
+    category: "honeymoon",
+    type: "customized",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 0,
+    heroImage: d("maldives"),
+    highlights: ["Villa Nautica Paradise Island", "Beach Villa", "Water Villa"],
+    inclusions: [
+      "3N Beach Villa (option 1)",
+      "2N Beach Villa + 1N Water Villa (option 2)",
+      "Breakfast, Lunch & Dinner",
+      "Round trip Airport transfers on Speed Boat",
+      "All taxes including Green Tax",
+    ],
+    exclusions: [],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Maldives",
+        description:
+          "On arrival at the airport, transfer by speed boat to Villa Nautica Paradise Island and check in to your villa.",
+        meals: "Lunch, Dinner",
+        stay: "Overnight, Maldives",
+      },
+      {
+        day: 2,
+        title: "Day at Leisure",
+        description: "A day at leisure at the resort.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Overnight, Maldives",
+      },
+      {
+        day: 3,
+        title: "Day at Leisure",
+        description: "A day at leisure at the resort.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Overnight, Maldives",
+      },
+      {
+        day: 4,
+        title: "Departure",
+        description: "After breakfast, check out and transfer by speed boat to the airport for departure.",
+        meals: "Breakfast",
+      },
+    ],
+    referenceNo: "004470",
+    travelWindow: "July 2026",
+    travellers: "2 adults",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Maldives",
+        hotel: "Villa Nautica Paradise Island or similar (option 1: 3N Beach Villa)",
+        nights: 3,
+        meals: "Breakfast, Lunch & Dinner",
+      },
+      {
+        destination: "Maldives",
+        hotel: "Villa Nautica Paradise Island or similar (option 2: 2N Beach Villa + 1N Water Villa)",
+        nights: 3,
+        meals: "Breakfast, Lunch & Dinner",
+      },
+    ],
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply. Exchange rate fluctuations at the time of full payment will be applicable and may result in price adjustments.",
+    bookingPolicy:
+      "Tour: 50% at the time of confirmation, 50% at 30 days prior to departure date. Air: 100% at the time of confirmation.",
+    cancellationPolicy:
+      "Tour: 50% before 30 days of travel date, 100% within 30 days of travel date. Air: As per airline policy.",
+    metaTitle: "Charm of Maldives - 4 Days / 3 Nights",
+    metaDescription:
+      "The Maldives in four days - three nights at Villa Nautica Paradise Island on full board, beach or water villa, with speed boat transfers. Price on request.",
+  },
+  // 004777-4D 3N-HONG KONG-02 ADULT+1 INFANT-OCT 2026.docx
+  {
+    slug: "charm-of-hong-kong-4d3n",
+    title: "Charm of Hong Kong",
+    summary:
+      "Four days in Hong Kong, starting with a private airport transfer to your hotel, followed by a half-day city tour covering the Peak Tram, Madame Tussauds, Avenue of Stars, Clock Tower, and Night Market. The next few days include private transfers and visits to Disneyland and Ocean Park, followed by hotel check-out and a private transfer to Hong Kong Airport.",
+    destinationSlug: "hong-kong",
+    category: "family",
+    type: "customized",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 0,
+    heroImage: d("hong-kong"),
+    highlights: ["Madame Tussauds", "Disneyland", "Ocean Park"],
+    inclusions: [
+      "3 nights' accommodation at the above-mentioned hotels",
+      "Double sharing basis room",
+      "Daily breakfast (except on arrival day)",
+      "Meet & greet at the airport",
+      "Sightseeing as per the above-mentioned itinerary",
+      "All entry tickets",
+      "All tours and transfers on private/SIC vehicles",
+      "GST",
+    ],
+    exclusions: [
+      "Round-trip airfare",
+      "TCS",
+      "Lunch & dinner (except where noted)",
+      "Early check-in or late check-out (standard check-in after 1400/1500 hrs, check-out before 1100/1200 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Hong Kong, clear immigration",
+        description:
+          "Upon arrival at Hong Kong International Airport, you will be met and transferred privately to your hotel by van for check-in at 1500 hrs.\n\nLater, proceed for a 5-hour private half-day city tour covering the one-way Peak Tram ride, Madame Tussauds, Avenue of Stars, Clock Tower, and the vibrant Night Market, after which you will be dropped back at the hotel for an overnight stay.",
+        meals: "None",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 2,
+        title: "Full Day Disneyland",
+        description:
+          "After breakfast at the hotel, proceed by private van for a full-day visit to Hong Kong Disneyland, where you can enjoy the park's attractions, themed areas, rides, entertainment, and shows with a regular 1-day admission pass.\n\nIn the evening, meet your private transfer at Disneyland for a comfortable return journey to the hotel, followed by an overnight stay.",
+        meals: "Breakfast",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 3,
+        title: "Visit Ocean Park",
+        description:
+          "After breakfast at the hotel, proceed by private van for a full-day visit to Ocean Park Hong Kong with a 1-day admission pass, enjoying its exciting rides, attractions, marine exhibits, and entertainment.\n\nIn the evening, after completing the visit, return to the hotel by private van and relax for the remainder of the evening, followed by an overnight stay.",
+        meals: "Breakfast only",
+        stay: "Overnight, Hong Kong",
+      },
+      {
+        day: 4,
+        title: "Departure",
+        description:
+          "After breakfast at the hotel, complete the check-out formalities by 1100 hrs and prepare for departure. You will then be picked up from the hotel by a private van and transferred comfortably to Hong Kong International Airport for your onward journey.",
+        meals: "Breakfast only",
+      },
+    ],
+    referenceNo: "004777",
+    travelWindow: "October 2026",
+    travellers: "2 adults + 1 infant",
+    rooms: 1,
+    stays: [
+      { destination: "Hong Kong", hotel: "Regal Kowloon", nights: 3, meals: "Breakfast" },
+    ],
+    stayNote:
+      "Hotel categories are confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
+    metaTitle: "Charm of Hong Kong - 4 Days / 3 Nights",
+    metaDescription:
+      "Hong Kong in four days - the Peak Tram, Madame Tussauds and Avenue of Stars, a full day at Disneyland and Ocean Park. Built around your dates; price on request.",
   },
 ];
 
@@ -3047,7 +4228,6 @@ export const RETIRED_PACKAGE_SLUGS = [
   "charm-of-phu-quoc-4d3n",
   "fascinating-vietnam-5d4n",
   "charm-of-malaysia-langkawi-5d4n",
-  "charm-of-maldives-4d3n",
   "fascinating-dubai-5d4n",
   "explore-varkala-2d1n",
   "incredible-sikkim-darjeeling-5d4n",

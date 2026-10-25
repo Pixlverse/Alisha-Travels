@@ -67,8 +67,8 @@ const nextConfig = {
       { source: "/tour/malaysia", destination: "/destinations/international/malaysia/", permanent: true },
       // The drafted immigration page was replaced by the client's emigration one.
       { source: "/services/immigration-services", destination: "/services/emigration-services/", permanent: true },
-      // No payment module in this phase — send the traffic to a human instead.
-      { source: "/payment", destination: "/contact/", permanent: false },
+      // The legacy payment URL now goes to the Razorpay page.
+      { source: "/payment", destination: "/pay/", permanent: false },
     ];
   },
 };

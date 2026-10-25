@@ -1,6 +1,7 @@
-import { Mail, Phone } from "lucide-react";
+import { ArrowRight, CreditCard, Mail, Phone } from "lucide-react";
 
 import Breadcrumbs from "@/components/site/Breadcrumbs";
+import Button from "@/components/site/Button";
 import EnquiryForm from "@/components/site/EnquiryForm";
 import JsonLd from "@/components/site/JsonLd";
 import OfficeCard from "@/components/site/OfficeCard";
@@ -94,6 +95,31 @@ export default async function ContactPage() {
           </ul>
         </div>
       </header>
+
+      {/* ------------------------------ Payment ------------------------------ */}
+      <Section className="pt-6 pb-0 sm:pt-7 sm:pb-0 lg:pt-8 lg:pb-0">
+        <div className="container-page">
+          <div className="flex flex-col gap-5 rounded-3xl bg-brand-800 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div className="flex items-start gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white/12 text-sun">
+                <CreditCard className="size-6" aria-hidden="true" />
+              </span>
+              <div>
+                <h2 className="text-xl leading-tight font-semibold sm:text-2xl">
+                  Already booked? Pay securely.
+                </h2>
+                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-brand-100">
+                  Pay your advance or balance online via UPI, card or net banking.
+                </p>
+              </div>
+            </div>
+            <Button href="/pay/" variant="white" size="lg" className="shrink-0 self-start sm:self-auto">
+              Pay Now
+              <ArrowRight className="size-5" aria-hidden="true" />
+            </Button>
+          </div>
+        </div>
+      </Section>
 
       {/* ------------------------------- Form -------------------------------- */}
       <Section id="enquiry" className="py-6 sm:py-7">

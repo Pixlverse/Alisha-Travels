@@ -14,4 +14,5 @@ export { default as GalleryItem } from "./GalleryItem.js";
 export { default as Office } from "./Office.js";
 export { default as Enquiry } from "./Enquiry.js";
 export { default as AdminUser } from "./AdminUser.js";
+export { default as Payment } from "./Payment.js";
 export { slugify } from "./_shared.js";

@@ -126,6 +126,18 @@ async function resolveGallery(list, folder) {
 /*  Upsert helpers                                                             */
 /* -------------------------------------------------------------------------- */
 
+const PACKAGE_OPTIONAL_DEFAULTS = {
+  priceNote: "",
+  priceRows: [],
+  stayNote: "",
+  paymentOptions: [],
+  bookingPolicy: "",
+  cancellationPolicy: "",
+  guidelines: [],
+  terms: [],
+  offerEndsOn: null,
+};
+
 async function upsertBySlug(Model, doc) {
   return Model.findOneAndUpdate(
     { slug: doc.slug },
@@ -192,6 +204,10 @@ async function main() {
     }
 
     const doc = {
+      // Optional proposal fields default to empty, so taking one out of the
+      // seed data (e.g. the prices on a customized proposal) clears it in
+      // the database too - a $set alone would leave the old value behind.
+      ...PACKAGE_OPTIONAL_DEFAULTS,
       ...rest,
       destination: destinationId,
       heroImage: await resolveImage(source.heroImage, CLOUDINARY_FOLDERS.packages),

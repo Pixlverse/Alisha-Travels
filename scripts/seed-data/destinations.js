@@ -1,7 +1,7 @@
 import { DESTINATION_IMAGES } from "./images.js";
 
 /**
- * All 24 destinations, 13 international and 11 domestic.
+ * All 34 destinations, 22 international and 12 domestic.
  *
  * `order` is DEMAND order, not alphabetical — the SEO/nav specification fixes
  * the sequence and the site sorts by this field everywhere. Dubai, Singapore,
@@ -1859,6 +1859,167 @@ export const destinations = [
     metaTitle: "Lakshadweep Tour Packages",
     metaDescription:
       "Lakshadweep packages from Kerala - Agatti Island's lagoon beaches, snorkelling and glass-bottom boat rides, and a boat trip to Kalpetti Island.",
+  },
+  /*
+    CHINA, KENYA, MAURITIUS, ARMENIA, KAZAKHSTAN, TURKEY, HONG KONG & MACAU,
+    JAPAN, EGYPT AND PONDICHERRY were added with the customized proposals for
+    them (customized package/), because a package cannot exist without its
+    destination. There is NO client document for any of them yet: the tagline
+    and intro are drafted plain facts drawn from what those proposals cover
+    and the places most visited, NOT the client's copy, and the page falls
+    back to its default sections. priceFrom is 0 because these packages are
+    price on request. Replace with the client's copy in /admin/
+    (Destinations) when it arrives.
+  */
+  {
+    slug: "china",
+    name: "China",
+    country: "China",
+    region: "international",
+    order: 14,
+    priceFrom: 0,
+    heroImage: img("china"),
+    tagline: "Beijing's imperial sights, the Great Wall and Shanghai's Bund",
+    intro:
+      "Beijing has Tiananmen Square, the Forbidden City, the Temple of Heaven and the Summer Palace, with the Great Wall at Mutianyu, reached by cable car, about two hours' drive from the city. The old hutong lanes are seen on foot or by rickshaw.\n\nShanghai is around four and a half hours from Beijing by high-speed train. Its riverfront, the Bund, faces the towers of Pudong across the Huangpu River, and the city also has Yu Garden and the observation deck of the Shanghai Tower.",
+    metaTitle: "China Tour Packages",
+    metaDescription:
+      "China tour packages from Kerala - Beijing's Forbidden City and Temple of Heaven, the Great Wall at Mutianyu, and Shanghai's Bund and Yu Garden.",
+  },
+  {
+    slug: "kenya",
+    name: "Kenya",
+    country: "Kenya",
+    region: "international",
+    order: 15,
+    priceFrom: 0,
+    heroImage: img("kenya"),
+    tagline: "Safari in the Masai Mara and the Rift Valley lakes",
+    intro:
+      "Kenya's best-known reserve is the Masai Mara, in the south-west on the border with Tanzania's Serengeti. Game drives there look for lions, cheetahs, elephants and hippos, and between July and October the reserve sees the wildebeest migration and its river crossings.\n\nIn the Rift Valley, Lake Naivasha has boat rides and walking safaris on Crescent Island, and Lake Nakuru National Park is known for flamingos and rhinos. In Nairobi, visitors go to the Giraffe Centre and the David Sheldrick Wildlife Trust's elephant orphanage.",
+    metaTitle: "Kenya Tour Packages",
+    metaDescription:
+      "Kenya safari packages from Kerala - game drives in the Masai Mara, Lake Naivasha and Lake Nakuru, and Nairobi's Giraffe Centre and elephant orphanage.",
+  },
+  {
+    slug: "mauritius",
+    name: "Mauritius",
+    country: "Mauritius",
+    region: "international",
+    order: 16,
+    priceFrom: 0,
+    heroImage: img("mauritius"),
+    tagline: "Beaches, lagoons and island tours in the Indian Ocean",
+    intro:
+      "Mauritius is an island nation in the Indian Ocean, east of Madagascar. Off its east coast, Ile aux Cerfs is reached by speedboat for its beach and lagoon, and in the south-west Le Morne Brabant, a mountain listed by UNESCO, rises above Le Morne beach.\n\nThe north of the island has the capital, Port Louis, with its Caudan Waterfront, the beach town of Grand Baie and the Pamplemousses botanical garden. The south has the Seven Coloured Earths and waterfall at Chamarel, the Trou aux Cerfs crater and Grand Bassin, a crater lake with a Hindu temple.",
+    metaTitle: "Mauritius Tour Packages",
+    metaDescription:
+      "Mauritius tour packages from Kerala - beach hotels, a speedboat trip to Ile aux Cerfs, and full-day tours of the north and the south of the island.",
+  },
+  {
+    slug: "armenia",
+    name: "Armenia",
+    country: "Armenia",
+    region: "international",
+    order: 17,
+    priceFrom: 0,
+    heroImage: img("armenia"),
+    tagline: "Yerevan, Garni and Geghard, and Lake Sevan",
+    intro:
+      "Armenia's capital, Yerevan, has Republic Square, the Cascade steps and the Matenadaran manuscript library, and on clear days a view of Mount Ararat across the Turkish border.\n\nEast of the city are Garni, a first-century temple in the Greco-Roman style above a gorge of basalt columns known as the Symphony of Stones, and Geghard Monastery, partly carved into the rock. To the north-east are the mountain resort of Tsaghkadzor, with its ropeway, and Lake Sevan with the Sevanavank Monastery.",
+    metaTitle: "Armenia Tour Packages",
+    metaDescription:
+      "Armenia tour packages from Kerala - a Yerevan city tour, Garni Temple, Geghard Monastery and the Symphony of Stones, Tsaghkadzor and Lake Sevan.",
+  },
+  {
+    slug: "kazakhstan",
+    name: "Kazakhstan",
+    country: "Kazakhstan",
+    region: "international",
+    order: 18,
+    priceFrom: 0,
+    heroImage: img("kazakhstan"),
+    tagline: "Almaty and the mountains, lakes and canyons around it",
+    intro:
+      "Almaty, Kazakhstan's largest city, sits at the foot of the Tian Shan mountains. In the city are Panfilov Park with the wooden Ascension Cathedral, the Green Bazaar, and Kok Tobe hill, reached by cable car. Above it are the Medeu ice rink and the Shymbulak ski resort, and Big Almaty Lake.\n\nLonger day trips from Almaty go east to Charyn Canyon and its Valley of Castles, and to the Kolsai Lakes and Lake Kaindy in the mountains near the border with Kyrgyzstan.",
+    metaTitle: "Kazakhstan Tour Packages",
+    metaDescription:
+      "Kazakhstan tour packages from Kerala - Almaty's Kok Tobe and Panfilov Park, Shymbulak in the mountains, and day trips to Charyn Canyon and Kolsai Lake.",
+  },
+  {
+    slug: "turkey",
+    name: "Turkey",
+    country: "Turkey",
+    region: "international",
+    order: 19,
+    priceFrom: 0,
+    heroImage: img("turkey"),
+    tagline: "Istanbul's old city and the rock valleys of Cappadocia",
+    intro:
+      "Istanbul's old city has Hagia Sophia, the Blue Mosque, Topkapi Palace and the Grand Bazaar, and boat trips run along the Bosphorus and across the Sea of Marmara to the Princes' Islands, Heybeliada and Buyukada.\n\nIn central Turkey, Cappadocia is a landscape of rock cones known as fairy chimneys, with cave churches at Goreme and Pasabag, Uchisar Castle and the pottery town of Avanos. Hot air balloon flights go up over the valleys at sunrise.",
+    metaTitle: "Turkey Tour Packages",
+    metaDescription:
+      "Turkey tour packages from Kerala - an Istanbul city tour, a cruise to the Princes' Islands, and Cappadocia's fairy chimneys, cave churches and balloons.",
+  },
+  {
+    slug: "hong-kong",
+    name: "Hong Kong & Macau",
+    country: "Hong Kong",
+    region: "international",
+    order: 20,
+    priceFrom: 0,
+    heroImage: img("hong-kong"),
+    tagline: "Victoria Peak, Disneyland and Lantau, and a day in Macau",
+    intro:
+      "In Hong Kong, the Peak Tram climbs to Victoria Peak for the view over the harbour, and the Avenue of Stars and the Clock Tower at Tsim Sha Tsui face the Symphony of Lights show each evening. Hong Kong Disneyland and Ocean Park take a full day each, and on Lantau Island the Ngong Ping 360 cable car leads to the Tian Tan Buddha and Po Lin Monastery.\n\nMacau, a former Portuguese territory, is about an hour from Hong Kong by ferry. Its sights include the Ruins of St. Paul's, Senado Square, the A-Ma Temple, Fisherman's Wharf and the Golden Lotus Square.",
+    metaTitle: "Hong Kong & Macau Tour Packages",
+    metaDescription:
+      "Hong Kong and Macau packages from Kerala - Victoria Peak, Disneyland, Ocean Park and the Ngong Ping cable car, with a Macau city tour by ferry.",
+  },
+  {
+    slug: "japan",
+    name: "Japan",
+    country: "Japan",
+    region: "international",
+    order: 21,
+    priceFrom: 0,
+    heroImage: img("japan"),
+    tagline: "Tokyo, Mount Fuji, Kyoto and Osaka by bullet train",
+    intro:
+      "Tokyo has Senso-ji temple in Asakusa, Meiji Jingu shrine, the Shibuya crossing and the Tokyo Skytree. Mount Fuji is seen on day trips to Lake Kawaguchiko and the Chureito Pagoda, or to Hakone.\n\nThe bullet train reaches Kyoto from Tokyo in a little over two hours. Kyoto has the Golden Pavilion (Kinkaku-ji), Fushimi Inari shrine, Kiyomizu-dera, Nijo Castle and the Arashiyama bamboo grove. Nearby Osaka has Osaka Castle, the Dotonbori food street and Universal Studios Japan, and Nara has its deer park and Todai-ji temple.",
+    metaTitle: "Japan Tour Packages",
+    metaDescription:
+      "Japan tour packages from Kerala - Tokyo's temples and Skytree, Mount Fuji, Kyoto's Golden Pavilion and bamboo grove, and Osaka, by bullet train.",
+  },
+  {
+    slug: "egypt",
+    name: "Egypt",
+    country: "Egypt",
+    region: "international",
+    order: 22,
+    priceFrom: 0,
+    heroImage: img("egypt"),
+    tagline: "The Pyramids of Giza, Cairo and Alexandria",
+    intro:
+      "On the edge of Cairo, the Giza plateau has the pyramids of Khufu, Khafre and Menkaure and the Great Sphinx, and the Grand Egyptian Museum nearby holds the Tutankhamun collection. In the city are the Khan el-Khalili bazaar and dinner cruises on the Nile.\n\nAlexandria, on the Mediterranean coast, has the Qaitbay Citadel, the Catacombs of Kom el-Shoqafa, the Bibliotheca Alexandrina and the Abu al-Abbas al-Mursi Mosque. Further south, Luxor and Aswan are linked by Nile cruises.",
+    metaTitle: "Egypt Tour Packages",
+    metaDescription:
+      "Egypt tour packages from Kerala - the Pyramids of Giza and the Sphinx, the Grand Egyptian Museum, a Nile dinner cruise and a day tour of Alexandria.",
+  },
+  {
+    slug: "pondicherry",
+    name: "Pondicherry",
+    country: "India",
+    region: "domestic",
+    order: 12,
+    priceFrom: 0,
+    heroImage: img("pondicherry"),
+    tagline: "The French Quarter, Promenade Beach and Auroville",
+    intro:
+      "Pondicherry (Puducherry) is a union territory on the Bay of Bengal coast and was a French colony until 1954. Its White Town, the old French Quarter, has the Promenade along Rock Beach, the old lighthouse, the Sri Aurobindo Ashram, the Manakula Vinayagar Temple, the Basilica of the Sacred Heart of Jesus and the Pondicherry Museum.\n\nAuroville, an international township with the Matrimandir at its centre, is about 10 km north of the town. To the south, boats from the Chunnambar boat house cross the backwater to Paradise Beach.",
+    metaTitle: "Pondicherry Tour Packages",
+    metaDescription:
+      "Pondicherry packages from Kerala - the French Quarter, Rock Beach and the Aurobindo Ashram, Auroville and the Matrimandir, and a boat to Paradise Beach.",
   },
 ];
 

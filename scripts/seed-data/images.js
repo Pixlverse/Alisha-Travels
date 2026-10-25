@@ -125,6 +125,48 @@ export const DESTINATION_IMAGES = {
     url: `${C}/f/f0/Agatti_Island_Lakshadweep.jpg/1920px-Agatti_Island_Lakshadweep.jpg`,
     alt: "Turquoise lagoon and white sand on Agatti Island, Lakshadweep",
   },
+  /* Added with the customized proposals (customized package/). Freely licensed
+     Wikimedia Commons photos, each checked to return a 1920px JPEG. */
+  china: {
+    url: `${C}/6/64/The_Mutianyu_section_of_the_Great_Wall_of_China.jpg/1920px-The_Mutianyu_section_of_the_Great_Wall_of_China.jpg`,
+    alt: "The Great Wall of China at Mutianyu, winding over the hills north of Beijing",
+  },
+  kenya: {
+    url: `${C}/7/74/Acacia_tree_on_Maasai_Mara_landscape%2C_Kenya.jpg/1920px-Acacia_tree_on_Maasai_Mara_landscape%2C_Kenya.jpg`,
+    alt: "An acacia tree on the open grassland of the Masai Mara, Kenya",
+  },
+  mauritius: {
+    url: `${C}/b/b5/Le_Morne_Beach_with_Le_Morne_Brabant_Mountain_in_the_background%2C_Mauritius_%2853698223315%29.jpg/1920px-Le_Morne_Beach_with_Le_Morne_Brabant_Mountain_in_the_background%2C_Mauritius_%2853698223315%29.jpg`,
+    alt: "Palms and beach loungers at Le Morne, below Le Morne Brabant mountain, Mauritius",
+  },
+  armenia: {
+    url: `${C}/8/8a/Mount_Ararat_and_the_Yerevan_skyline.jpg/1920px-Mount_Ararat_and_the_Yerevan_skyline.jpg`,
+    alt: "Mount Ararat rising behind the Yerevan skyline, Armenia",
+  },
+  kazakhstan: {
+    url: `${C}/a/a3/Big_Almaty_Lake_from_pass.jpg/1920px-Big_Almaty_Lake_from_pass.jpg`,
+    alt: "Big Almaty Lake in the Tian Shan mountains above Almaty, Kazakhstan",
+  },
+  turkey: {
+    url: `${C}/9/94/Hot_air_balloon_over_Cappadocia%2C_Turkey.JPG/1920px-Hot_air_balloon_over_Cappadocia%2C_Turkey.JPG`,
+    alt: "A hot air balloon over the rock valleys of Cappadocia, Turkey",
+  },
+  "hong-kong": {
+    url: `${C}/a/a4/Hong_Kong_Harbour_Night_2019-06-11.jpg/1920px-Hong_Kong_Harbour_Night_2019-06-11.jpg`,
+    alt: "Victoria Harbour and the Hong Kong skyline at night, seen from Victoria Peak",
+  },
+  japan: {
+    url: `${C}/3/3b/Chureito_Pagoda_and_Mount_Fuji_20241022.jpg/1920px-Chureito_Pagoda_and_Mount_Fuji_20241022.jpg`,
+    alt: "The Chureito Pagoda with Mount Fuji behind it, Japan",
+  },
+  egypt: {
+    url: `${C}/a/af/All_Gizah_Pyramids.jpg/1920px-All_Gizah_Pyramids.jpg`,
+    alt: "The Pyramids of Giza on the edge of Cairo, Egypt",
+  },
+  pondicherry: {
+    url: `${C}/8/8c/Pondicherry-Rock_beach_aerial_view.jpg/1920px-Pondicherry-Rock_beach_aerial_view.jpg`,
+    alt: "Rock Beach and the seafront of Pondicherry from above",
+  },
 };
 
 /** Extra frames used for package heroes, galleries and the /gallery/ page. */

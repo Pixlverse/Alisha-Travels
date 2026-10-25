@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import {
   Building2,
   CalendarDays,
+  CreditCard,
   HandHeart,
   Images,
   Inbox,
@@ -37,6 +38,7 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { href: "/admin/", label: "Overview", icon: LayoutDashboard, exact: true },
   { href: "/admin/enquiries/", label: "Enquiries", icon: Inbox, badge: "enquiries" },
+  { href: "/admin/payments/", label: "Payments", icon: CreditCard },
   { section: "Content" },
   { href: "/admin/destinations/", label: "Destinations", icon: MapPin, adminOnly: true },
   { href: "/admin/packages/", label: "Packages", icon: Package, adminOnly: true },

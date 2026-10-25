@@ -764,7 +764,9 @@ export default async function PackagePage({ params }) {
                   {formatPackagePrice(priceFrom)}
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-brand-100/90">
-                  {priceNote || "per person on twin sharing"} ·{" "}
+                  {priceFrom > 0
+                    ? `${priceNote || "per person on twin sharing"} · `
+                    : "Quoted for your dates and party · "}
                   {durationLabel(durationDays, durationNights)}
                 </p>
 
