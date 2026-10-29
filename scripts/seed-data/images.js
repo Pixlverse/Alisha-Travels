@@ -167,6 +167,18 @@ export const DESTINATION_IMAGES = {
     url: `${C}/8/8c/Pondicherry-Rock_beach_aerial_view.jpg/1920px-Pondicherry-Rock_beach_aerial_view.jpg`,
     alt: "Rock Beach and the seafront of Pondicherry from above",
   },
+  // Laos: Kuang Si Falls near Luang Prabang (CC BY-SA 4.0)
+  laos: { url: `${C}/6/61/Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg/1920px-Kuang_Si_Falls_and_its_turquoise_tiered_water_pools_in_Luang_Prabang_province_Laos.jpg`, alt: "The turquoise tiered pools of Kuang Si Falls near Luang Prabang, Laos" },
+  // Philippines: limestone-walled lagoon in Bacuit Bay, El Nido, Palawan (CC BY 4.0)
+  philippines: { url: `${C}/4/4f/Island_lagoon_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1920px-Island_lagoon_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg`, alt: "Clear turquoise water between limestone cliffs in Bacuit Bay, El Nido, Palawan" },
+  // South Korea: Gyeonghoeru pavilion at Gyeongbokgung Palace, Seoul (CC BY-SA 4.0)
+  "south-korea": { url: `${C}/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg/1920px-Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg`, alt: "Gyeonghoeru pavilion reflected in its pond at Gyeongbokgung Palace, Seoul" },
+  // Sri Lanka: Sigiriya Lion Rock above the jungle (CC BY-SA 2.0)
+  "sri-lanka": { url: `${C}/9/9d/Sigir%C3%AEya_Lion_Rock_%2836231936082%29.jpg/1920px-Sigir%C3%AEya_Lion_Rock_%2836231936082%29.jpg`, alt: "The Sigiriya Lion Rock fortress rising above the forest, Sri Lanka" },
+  // Uzbekistan: the three madrasas of the Registan, Samarkand (CC0)
+  uzbekistan: { url: `${C}/4/46/Registan_01.jpg/1920px-Registan_01.jpg`, alt: "The three tiled madrasas of the Registan in Samarkand, Uzbekistan" },
+  // Tawang: Tawang Monastery below the peaks, Arunachal Pradesh (CC BY-SA 4.0)
+  tawang: { url: `${C}/5/54/Tawang_Monastery_from_a_distance.jpg/1920px-Tawang_Monastery_from_a_distance.jpg`, alt: "Tawang Monastery on its ridge beneath a Himalayan peak, Arunachal Pradesh" },
 };
 
 /** Extra frames used for package heroes, galleries and the /gallery/ page. */

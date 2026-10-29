@@ -1,7 +1,7 @@
 import { DESTINATION_IMAGES } from "./images.js";
 
 /**
- * All 34 destinations, 22 international and 12 domestic.
+ * All 40 destinations, 27 international and 13 domestic.
  *
  * `order` is DEMAND order, not alphabetical — the SEO/nav specification fixes
  * the sequence and the site sorts by this field everywhere. Dubai, Singapore,
@@ -10,7 +10,8 @@ import { DESTINATION_IMAGES } from "./images.js";
  * the nav, the grids and the homepage all follow.
  *
  * THE COPY IS THE CLIENT'S OWN, transcribed from the Word documents they
- * supplied — one per destination, in destination/. It replaced the credible
+ * supplied — one per destination, in destination/ (and, for the later
+ * additions, the PDFs in DESTINATION/). It replaced the credible
  * placeholder prose this file shipped with, and it is why `blocks` exists on
  * the Destination model: their documents are a sequence of sections (why
  * travellers choose it, the regions inside it, the packages they ask for, when
@@ -1864,12 +1865,12 @@ export const destinations = [
     CHINA, KENYA, MAURITIUS, ARMENIA, KAZAKHSTAN, TURKEY, HONG KONG & MACAU,
     JAPAN, EGYPT AND PONDICHERRY were added with the customized proposals for
     them (customized package/), because a package cannot exist without its
-    destination. There is NO client document for any of them yet: the tagline
-    and intro are drafted plain facts drawn from what those proposals cover
-    and the places most visited, NOT the client's copy, and the page falls
-    back to its default sections. priceFrom is 0 because these packages are
-    price on request. Replace with the client's copy in /admin/
-    (Destinations) when it arrives.
+    destination. All but JAPAN now carry the client's own copy, transcribed
+    from the PDFs in DESTINATION/; Japan's tagline and intro are still drafted
+    plain facts, and its page falls back to the default sections until the
+    client's document arrives. LAOS, PHILIPPINES, SOUTH KOREA, SRI LANKA,
+    UZBEKISTAN and TAWANG (at the end) came with that same batch of PDFs.
+    priceFrom is 0: these destinations' packages are price on request.
   */
   {
     slug: "china",
@@ -1879,12 +1880,87 @@ export const destinations = [
     order: 14,
     priceFrom: 0,
     heroImage: img("china"),
-    tagline: "Beijing's imperial sights, the Great Wall and Shanghai's Bund",
+    tagline: "The Great Wall, imperial palaces and skylines of the future",
     intro:
-      "Beijing has Tiananmen Square, the Forbidden City, the Temple of Heaven and the Summer Palace, with the Great Wall at Mutianyu, reached by cable car, about two hours' drive from the city. The old hutong lanes are seen on foot or by rickshaw.\n\nShanghai is around four and a half hours from Beijing by high-speed train. Its riverfront, the Bund, faces the towers of Pudong across the Huangpu River, and the city also has Yu Garden and the observation deck of the Shanghai Tower.",
+      "China is a country of extraordinary scale, and nothing prepares you for it. In Beijing, the Forbidden City stretches for courtyard after courtyard, and the Great Wall winds across the mountains as far as you can see. In Shanghai, colonial buildings along the Bund face one of the most dramatic skylines on earth. Between them are terracotta warriors, mist-covered peaks, giant pandas and high-speed trains that cross the country in a few hours.\n\nFor Indian travellers, China is open again. Direct flights between India and China have resumed, tourist visas are issued quickly, and the links between the two countries run back centuries, from the monk Xuanzang's journey to Nalanda to the Buddhist pagodas built to house the scriptures he carried home. At Alisha Tours & Travels, an IATA-accredited China travel agency based in Kottayam, we arrange the flights, visa, hotels, guides, trains and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose China",
+        points: [
+          "The Great Wall, the Forbidden City and the Terracotta Army, sights known around the world",
+          "Futuristic cities, with Shanghai's skyline among the most spectacular anywhere",
+          "Fast, comfortable high-speed trains between the major cities",
+          "China holiday packages that combine history, cities and natural scenery",
+          "Safe, clean cities with excellent hotels at good prices",
+          "Theme parks and pandas that make it a favourite with families",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Beijing",
+        items: [
+          { title: "The Forbidden City", text: "The imperial palace of the Ming and Qing emperors, the largest ancient palace complex in the world." },
+          { title: "Tiananmen Square", text: "The vast square at the heart of Beijing, facing the gate of the Forbidden City." },
+          { title: "The Great Wall at Mutianyu", text: "A beautifully restored section of the wall among forested hills, reached by cable car, with a toboggan ride down. The most family-friendly section to visit." },
+          { title: "Temple of Heaven", text: "Where emperors prayed for good harvests, set in a park where locals gather each morning for tai chi, dancing and music." },
+          { title: "Summer Palace", text: "An imperial garden of lakes, pavilions and covered walkways, best seen on a boat ride across Kunming Lake." },
+          { title: "Hutongs & Nanluoguxiang", text: "Old lanes of courtyard houses, explored on foot or by rickshaw, with cafés and craft shops along the way." },
+          { title: "798 Art District", text: "Former factories turned into galleries, studios and cafés." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Shanghai",
+        items: [
+          { title: "The Bund", text: "A riverside promenade of grand colonial buildings facing the towers of Lujiazui across the Huangpu River." },
+          { title: "Shanghai Tower & Lujiazui", text: "Observation decks high above the city, with the skyline at its most dramatic after dark." },
+          { title: "Yu Garden & Old Town", text: "A classical Chinese garden of rockeries and ponds, surrounded by lanes of shops and dumpling stalls." },
+          { title: "Huangpu River Cruise", text: "An evening cruise past the illuminated Bund and skyline." },
+          { title: "Shanghai Disneyland & Zhujiajiao", text: "A full day of rides and shows, and a canal-side water town an hour from the city. An easy pairing on any China family tour package." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Beyond Beijing and Shanghai",
+        items: [
+          { title: "Xi'an & the Terracotta Army", text: "Thousands of life-size clay warriors guarding the tomb of China's first emperor, and the Big Wild Goose Pagoda built for Xuanzang's scriptures from India." },
+          { title: "Zhangjiajie", text: "Towering sandstone pillars that inspired the floating mountains of Avatar, with glass walkways and cable cars." },
+          { title: "Guilin & the Li River", text: "A river cruise through limestone peaks and rice fields, the landscape of Chinese paintings." },
+          { title: "Chengdu", text: "The giant panda breeding centre and some of the best spicy food in the country." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "China honeymoon packages",
+        body:
+          "China suits couples who want a honeymoon full of wonder. The sights are on a scale found nowhere else, the cities are vibrant and glamorous, and the scenery outside them is straight out of a painting.\n\nThe route most couples take is Beijing and Shanghai across six or seven nights, travelling between them on the high-speed train, with Guilin or Zhangjiajie added for those with time. Shanghai is the romantic centre of it, with a river-view hotel, a night cruise on the Huangpu and evenings on the Bund.\n\nOur China honeymoon packages cover river-view and boutique hotels rather than standard stays, private guides and transfers throughout, a Huangpu dinner cruise, an acrobatic show and first-class train travel between cities. Spring and autumn book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "China tour packages from Kerala",
+        body:
+          "China takes one connection from Kerala, and the options are improving. Direct flights now link Delhi and Kolkata with Shanghai and Beijing, and travellers can also connect through Singapore, Kuala Lumpur, Bangkok or Hong Kong, all well served from Kochi. Inside China, the high-speed train links Beijing and Shanghai in around four and a half hours.\n\nIndian passport holders need a tourist visa for China, applied for in advance through the Chinese Visa Application Service Centre, with standard processing usually taking a few working days. We confirm the current rules at the time of booking, prepare the visa documents with you, and arrange the hotels, trains, guides and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "April to May is the finest season. Mild weather, spring blossom and clear days for the Great Wall and the gardens.\n\nSeptember to October is the second peak, with comfortable temperatures and autumn colours. The national holiday week at the start of October is extremely busy and best avoided.\n\nJune to August is hot and humid in Beijing and Shanghai, with summer rains. Sightseeing is best planned for mornings and evenings.\n\nNovember to March is cold, especially in Beijing, with dry, clear days and occasional snow on the Great Wall. Outside the Chinese New Year period, China tour packages cost noticeably less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "China is two and a half hours ahead of India. The currency is the yuan, and payments are made mostly through Alipay and WeChat Pay, both of which now accept international cards, so set them up before travel and carry some cash as back-up. Google, WhatsApp and many international apps do not work on local networks, so an international roaming plan or travel eSIM is essential.\n\nEnglish is limited outside hotels and major sights, so a translation app helps, and our guides handle the rest. Vegetarian food needs planning, so let us know and we will flag suitable restaurants and Indian options along the route. Carry your passport at all times, as it is needed for train tickets and many attractions.",
+      },
+    ],
+    closingTitle: "Ready to plan your China holiday?",
+    closingText:
+      "Beijing across five days, Beijing and Shanghai across six, or a longer journey to Xi'an, Guilin or Zhangjiajie - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
     metaTitle: "China Tour Packages",
     metaDescription:
-      "China tour packages from Kerala - Beijing's Forbidden City and Temple of Heaven, the Great Wall at Mutianyu, and Shanghai's Bund and Yu Garden.",
+      "China holiday packages from Kerala with Beijing, the Great Wall, Shanghai and Xi'an, visa, hotels and trains. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "kenya",
@@ -1894,12 +1970,82 @@ export const destinations = [
     order: 15,
     priceFrom: 0,
     heroImage: img("kenya"),
-    tagline: "Safari in the Masai Mara and the Rift Valley lakes",
+    tagline: "The great safari, on the plains of the Maasai Mara",
     intro:
-      "Kenya's best-known reserve is the Masai Mara, in the south-west on the border with Tanzania's Serengeti. Game drives there look for lions, cheetahs, elephants and hippos, and between July and October the reserve sees the wildebeest migration and its river crossings.\n\nIn the Rift Valley, Lake Naivasha has boat rides and walking safaris on Crescent Island, and Lake Nakuru National Park is known for flamingos and rhinos. In Nairobi, visitors go to the Giraffe Centre and the David Sheldrick Wildlife Trust's elephant orphanage.",
+      "Kenya is where the word safari comes from, and it still does it better than almost anywhere. Lions rest in the shade of acacia trees, elephants cross the plains in long family lines, and every year from July to October more than a million wildebeest pour into the Maasai Mara on the Great Migration. Beyond the reserves there are flamingo lakes, snow-capped Kilimanjaro on the horizon at Amboseli and the white beaches of the Indian Ocean coast.\n\nFor Indian travellers, Kenya is closer and more familiar than most expect. There are direct flights from Mumbai, a long-established Indian community, and Indian food is easy to find in Nairobi and Mombasa. At Alisha Tours & Travels, an IATA-accredited Kenya travel agency based in Kottayam, we arrange the flights, travel authorisation, lodges and camps, safari vehicles and guides as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Kenya",
+        points: [
+          "The Big Five and the Great Migration in the Maasai Mara",
+          "Safari lodges and tented camps right in the middle of the wilderness",
+          "Private safari vehicles with pop-up roofs and experienced driver-guides",
+          "Kenya holiday packages that combine safari with lakes, mountains and beaches",
+          "A short flight from Mumbai, with Indian food and vegetarian meals widely available",
+          "Hot air balloon safaris at sunrise and visits to Maasai villages",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Maasai Mara",
+        items: [
+          { title: "Game Drives", text: "Morning and evening drives across the plains in search of lions, leopards, cheetahs, elephants, buffalo, giraffes and hippos." },
+          { title: "The Great Migration", text: "Herds of wildebeest and zebra crossing the Mara River between July and October, with crocodiles waiting in the water." },
+          { title: "Hot Air Balloon Safari", text: "A sunrise flight over the savannah, followed by a champagne breakfast in the bush." },
+          { title: "Maasai Village", text: "A visit to a traditional homestead to learn about Maasai customs, dance and daily life." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The lakes and Rift Valley",
+        items: [
+          { title: "Lake Naivasha", text: "A freshwater lake with boat rides among hippos and fish eagles, and walking safaris on Crescent Island among giraffes and zebras." },
+          { title: "Hell's Gate National Park", text: "Cliffs, gorges and geothermal springs, explored on foot or by bicycle." },
+          { title: "Lake Nakuru", text: "A lake famous for its flamingos and one of the best places in Kenya to see rhinos." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Beyond the Mara",
+        items: [
+          { title: "Amboseli National Park", text: "Large elephant herds with Mount Kilimanjaro rising behind them, the classic African photograph." },
+          { title: "Samburu", text: "A dry northern reserve with rare species such as the Grevy's zebra and reticulated giraffe." },
+          { title: "Nairobi", text: "The Giraffe Centre, the elephant orphanage and Nairobi National Park, with wildlife against the city skyline. An easy favourite on any Kenya family tour package." },
+          { title: "Diani Beach & Mombasa", text: "White sand and coral reefs on the Indian Ocean, the perfect way to end a safari." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Kenya honeymoon packages",
+        body:
+          "Kenya suits couples who want a honeymoon that is truly once in a lifetime. There is nothing quite like waking in a tented camp to the sound of the savannah, watching the sun rise from a balloon, or sitting by a campfire under a sky full of stars.\n\nThe route most couples take is Nairobi, the Maasai Mara and Lake Naivasha across five or six nights, adding the Diani coast for a few days of beach to finish. The Maasai Mara is the romantic centre of it, with a luxury tented camp, sundowners on the plains and a bush dinner after the evening game drive.\n\nOur Kenya honeymoon packages cover luxury tented camps and lodges rather than standard stays, a private safari vehicle and guide, a balloon safari, a bush breakfast or dinner and the honeymoon touches the camps offer. The migration months from July to October book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Kenya tour packages from Kerala",
+        body:
+          "Kenya takes one connection from Kerala, and the routing is straightforward. Most travellers fly through Mumbai on a direct flight to Nairobi, or connect through Dubai, Doha or Abu Dhabi. From Nairobi, the Maasai Mara is reached by road in around five to six hours, or by a short light-aircraft flight to an airstrip in the reserve.\n\nIndian passport holders need an Electronic Travel Authorisation (eTA) for Kenya, applied for online before travel. India also requires a yellow fever vaccination certificate from travellers returning from Kenya, so the vaccination should be taken well before departure. We confirm the current rules at the time of booking, help with the eTA and arrange the lodges, safari, transfers and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "July to October is the peak season, with the Great Migration in the Maasai Mara, dry weather and excellent game viewing. Rates are at their highest.\n\nJanuary to February is hot and dry, with very good game viewing and fewer visitors than the migration months.\n\nNovember to December brings the short rains, with green landscapes, newborn animals and quieter parks.\n\nMarch to May is the long rains. Some camps close, roads can be muddy, and Kenya tour packages cost noticeably less, with the parks at their greenest.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Kenya is two and a half hours behind India. The currency is the Kenyan shilling, cards are accepted in lodges and city hotels, and US dollars are useful for tips. Tipping safari guides and camp staff is customary.\n\nPlastic carrier bags are banned in Kenya, so pack in fabric or reusable bags. Wear neutral colours on safari, carry a light jacket for early morning drives, and bring binoculars, sunscreen and insect repellent. Consult your doctor about malaria precautions before travel. Soft-sided bags are recommended if flying to the Mara, as light aircraft have strict luggage limits.",
+      },
+    ],
+    closingTitle: "Ready to plan your Kenya holiday?",
+    closingText:
+      "Nairobi, the Maasai Mara and Lake Naivasha across five days, a honeymoon in a tented camp, or a migration safari timed for the river crossings - we will shape it around what you want. Flights, eTA, lodges, safari and transfers arranged from one place.",
     metaTitle: "Kenya Tour Packages",
     metaDescription:
-      "Kenya safari packages from Kerala - game drives in the Masai Mara, Lake Naivasha and Lake Nakuru, and Nairobi's Giraffe Centre and elephant orphanage.",
+      "Kenya safari packages from Kerala with the Maasai Mara, Lake Naivasha and Amboseli, lodges and game drives. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "mauritius",
@@ -1909,12 +2055,83 @@ export const destinations = [
     order: 16,
     priceFrom: 0,
     heroImage: img("mauritius"),
-    tagline: "Beaches, lagoons and island tours in the Indian Ocean",
+    tagline: "An island of lagoons, mountains and a familiar welcome",
     intro:
-      "Mauritius is an island nation in the Indian Ocean, east of Madagascar. Off its east coast, Ile aux Cerfs is reached by speedboat for its beach and lagoon, and in the south-west Le Morne Brabant, a mountain listed by UNESCO, rises above Le Morne beach.\n\nThe north of the island has the capital, Port Louis, with its Caudan Waterfront, the beach town of Grand Baie and the Pamplemousses botanical garden. The south has the Seven Coloured Earths and waterfall at Chamarel, the Trou aux Cerfs crater and Grand Bassin, a crater lake with a Hindu temple.",
+      "Mauritius looks like a postcard from every angle. Turquoise lagoons are ringed by coral reefs, volcanic peaks rise behind the beaches, and sugar cane fields roll inland towards waterfalls and rainforest. It has some of the finest resorts in the Indian Ocean, yet there is far more to do than lie by a pool, from catamaran cruises and dolphin swims to coloured earth, crater lakes and botanical gardens.\n\nFor Indian travellers, it feels surprisingly familiar. Most Mauritians trace their roots to India, Hindi and Bhojpuri are widely understood, and temples and festivals are part of daily life on the island. At Alisha Tours & Travels, an IATA-accredited Mauritius travel agency based in Kottayam, we arrange the flights, resort, transfers and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Mauritius",
+        points: [
+          "No visa to arrange in advance for Indian passport holders",
+          "Lagoons, beaches and mountain scenery on one small island",
+          "A large community of Indian origin, with familiar food, temples and festivals",
+          "Mauritius holiday packages that combine resort time with full-day island tours",
+          "Water sports, catamaran trips and undersea walks for every age",
+          "One of the most popular honeymoon destinations for Indian couples",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions: Île aux Cerfs and the east",
+        items: [
+          { title: "Île aux Cerfs", text: "An island of white beaches and calm lagoons off the east coast, reached by speedboat, with parasailing, glass-bottom boats and a stop at the Grand River South East waterfall." },
+          { title: "Belle Mare", text: "Long, quiet beaches and some of the island's finest resorts." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The north",
+        items: [
+          { title: "Port Louis & Caudan Waterfront", text: "The capital's harbourfront of shops, cafés and the Central Market." },
+          { title: "Aapravasi Ghat", text: "The UNESCO-listed immigration depot where indentured labourers from India first arrived, a moving visit for Indian travellers." },
+          { title: "Pamplemousses Botanical Garden", text: "Giant water lilies, spice trees and tall palms in one of the oldest botanical gardens in the southern hemisphere." },
+          { title: "Grand Baie", text: "A lively bay of beaches, restaurants and boat trips to the northern islets. An easy favourite on any Mauritius family tour package." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The south and west",
+        items: [
+          { title: "Ganga Talao (Grand Bassin)", text: "A sacred crater lake with towering statues of Shiva and Durga, the heart of the Maha Shivaratri pilgrimage." },
+          { title: "Chamarel Seven Coloured Earth", text: "Dunes of red, purple and yellow volcanic earth, with the tallest waterfall on the island nearby." },
+          { title: "Black River Gorges", text: "Rainforest, viewpoints and walking trails in the island's national park." },
+          { title: "Trou aux Cerfs", text: "A dormant volcanic crater with views over the island from its rim." },
+          { title: "Le Morne & the Underwater Waterfall", text: "A dramatic mountain above the lagoon, and the famous optical illusion offshore, best seen on a seaplane or helicopter flight." },
+          { title: "Casela Nature Park", text: "Safari drives, zip lines and walks with big cats, a good day out for families." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Mauritius honeymoon packages",
+        body:
+          "Mauritius suits couples who want a beach honeymoon with variety. The resorts are among the best in the Indian Ocean, the island is small enough to explore in a day, and every evening ends with a sunset over the lagoon.\n\nMost couples take five or six nights, often at a beachfront resort on the east or west coast with two or three days of touring. The west coast is the romantic centre of it, with sunset cruises, swimming with dolphins off Tamarin and dinners on the beach at Flic en Flac or Le Morne.\n\nOur Mauritius honeymoon packages cover beachfront resorts and villa stays rather than standard hotels, private transfers and tours, a catamaran cruise, a candlelit dinner and the honeymoon extras resorts offer. October to December and the Christmas weeks book up early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Mauritius tour packages from Kerala",
+        body:
+          "Mauritius takes one connection from Kerala, and the routing is simple. Air Mauritius flies directly from Mumbai, Delhi and Chennai, and travellers can also connect through Bengaluru or the Gulf. The flight from the Indian mainland takes around six hours, and resorts are within an hour or so of the airport.\n\nIndian passport holders do not need a visa in advance and are granted entry on arrival for tourist stays, with a return ticket, hotel booking and proof of funds. Travellers complete the free online All-in-One Travel Digital Form shortly before arrival. We confirm the current rules at the time of booking and arrange the resort, transfers, tours and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "May to December is the finest season, with warm, dry days and cooler evenings. September to December is especially pleasant, with calm seas and sunny weather.\n\nJanuary to April is hot and humid, the summer season, with more rain and a chance of cyclones from January to March. Lagoons are at their warmest, and Mauritius tour packages often cost less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Mauritius is one and a half hours behind India. The currency is the Mauritian rupee, cards are widely accepted, and some cash is useful at markets and roadside stalls. English and French are official, Creole is spoken everywhere, and Hindi is widely understood.\n\nCars drive on the left, as in India. Beachwear is fine at resorts and beaches but should be covered in towns and at temples. Pack reef-safe sunscreen, a hat and water shoes for the lagoons, and a light jacket for cooler evenings in the hills between June and September.",
+      },
+    ],
+    closingTitle: "Ready to plan your Mauritius holiday?",
+    closingText:
+      "Île aux Cerfs, the north and south tours across five days, a honeymoon on the west coast, or a family trip with Casela and the beaches - we will shape it around what you want. Flights, resort, transfers and sightseeing arranged from one place.",
     metaTitle: "Mauritius Tour Packages",
     metaDescription:
-      "Mauritius tour packages from Kerala - beach hotels, a speedboat trip to Ile aux Cerfs, and full-day tours of the north and the south of the island.",
+      "Mauritius holiday packages from Kerala with Île aux Cerfs, north and south tours, Chamarel and Grand Bassin. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "armenia",
@@ -1924,12 +2141,85 @@ export const destinations = [
     order: 17,
     priceFrom: 0,
     heroImage: img("armenia"),
-    tagline: "Yerevan, Garni and Geghard, and Lake Sevan",
+    tagline: "Ancient monasteries in the shadow of Mount Ararat",
     intro:
-      "Armenia's capital, Yerevan, has Republic Square, the Cascade steps and the Matenadaran manuscript library, and on clear days a view of Mount Ararat across the Turkish border.\n\nEast of the city are Garni, a first-century temple in the Greco-Roman style above a gorge of basalt columns known as the Symphony of Stones, and Geghard Monastery, partly carved into the rock. To the north-east are the mountain resort of Tsaghkadzor, with its ropeway, and Lake Sevan with the Sevanavank Monastery.",
+      "Armenia is one of the oldest countries on earth, and it wears its history lightly. It became the first nation to adopt Christianity, and its monasteries still stand on clifftops and in mountain gorges across the country. Yerevan, the capital, is built in pink volcanic stone and full of cafés, fountains and wine bars, with the snow-capped peak of Mount Ararat rising over the city on a clear day.\n\nFor Indian travellers, it is an undiscovered corner of the Caucasus that feels both European and familiar. The visa is simple to arrange online, the food is generous, and the country is small enough that a short trip covers a great deal. At Alisha Tours & Travels, an IATA-accredited Armenia travel agency based in Kottayam, we arrange the flights, visa, hotels, transfers, guides and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Armenia",
+        points: [
+          "Monasteries, temples and mountain views that see a fraction of Europe's crowds",
+          "A simple online visa for Indian passport holders",
+          "Safe, welcoming and easy to explore, with Yerevan as a comfortable base",
+          "Armenia holiday packages that cost far less than Europe for a similar feel",
+          "Snow and skiing in winter, lakes and green valleys in summer",
+          "Short enough to cover the highlights in four or five days",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Yerevan",
+        items: [
+          { title: "Republic Square", text: "The grand central square of pink and yellow stone, with singing fountains in the evenings through the warmer months." },
+          { title: "The Cascade", text: "A giant stairway of terraces and sculptures climbing a hillside, with views over the city to Mount Ararat from the top." },
+          { title: "Matenadaran", text: "A museum of ancient manuscripts, illuminated books and the history of the Armenian alphabet." },
+          { title: "Armenian Genocide Memorial", text: "A hilltop memorial and museum at Tsitsernakaberd, a moving and important visit." },
+          { title: "Vernissage Market", text: "An open-air weekend market of carpets, woodwork, paintings and souvenirs." },
+          { title: "Yerevan Brandy Company", text: "Tours and tastings at the home of Armenia's famous Ararat brandy." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Garni, Geghard and the south",
+        items: [
+          { title: "Garni Temple", text: "A first-century Greco-Roman temple standing on the edge of a gorge, unique in the region." },
+          { title: "Symphony of Stones", text: "Giant hexagonal basalt columns lining the walls of the Garni gorge, like the pipes of an organ." },
+          { title: "Geghard Monastery", text: "A UNESCO-listed monastery partly carved into the rock of the mountain, with candlelit chambers and remarkable acoustics." },
+          { title: "Khor Virap", text: "A monastery facing Mount Ararat across the border, with the most famous view in the country." },
+          { title: "Tatev Monastery", text: "A clifftop monastery in the south, reached by the Wings of Tatev, one of the longest cable cars in the world." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Lake Sevan and the north",
+        items: [
+          { title: "Lake Sevan & Sevanavank", text: "A vast high-altitude lake, with a ninth-century monastery on the peninsula above the water." },
+          { title: "Tsaghkadzor", text: "A mountain resort with a ropeway and ski slopes in winter, and pine forests and meadows in summer. An easy favourite on any Armenia family tour package." },
+          { title: "Dilijan", text: "A forested town known as the Switzerland of Armenia, with old craft streets and nearby monasteries." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Armenia honeymoon packages",
+        body:
+          "Armenia suits couples who want a honeymoon with character rather than a resort. Evenings in Yerevan are relaxed and romantic, with wine bars, open-air cafés and the fountains in Republic Square, and the countryside offers mountain views, monasteries and quiet lakes.\n\nThe route most couples take is Yerevan, Garni and Geghard, Lake Sevan and Tsaghkadzor across four to six nights, adding Tatev in the south for those with time. Lake Sevan and Tsaghkadzor are the romantic centre of it, with mountain air, sunset over the water and snow in the winter months.\n\nOur Armenia honeymoon packages cover boutique hotels in central Yerevan rather than standard stays, private transfers and guides throughout, a wine tasting, a traditional dinner with live music and a day in the mountains. Spring and autumn are the most popular months, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Armenia tour packages from Kerala",
+        body:
+          "Armenia takes one connection from Kerala, and the routing is straightforward. Most travellers fly through the Gulf, connecting in Dubai, Sharjah or Abu Dhabi for a short flight to Yerevan, with total travel time comparable to a trip to Europe but at a lower fare.\n\nIndian passport holders need a visa for Armenia, which can be applied for online as an e-visa and is usually issued within a few days. We confirm the current rules at the time of booking, apply for the e-visa, and arrange the hotels, transfers, guides and the full itinerary from our office, so nothing needs arranging after you land.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "May to June is the finest season. Green valleys, wildflowers and comfortable temperatures for sightseeing, with Ararat often visible in the clear mornings.\n\nSeptember to October is the second peak, with warm days, autumn colours and the grape harvest in the wine regions.\n\nJuly and August are hot in Yerevan, often above 35°C, but pleasant around Lake Sevan and in the mountains, where this is the main summer season.\n\nDecember to March is cold and snowy, with skiing at Tsaghkadzor, festive lights in Yerevan and snow-covered monasteries. Armenia tour packages cost noticeably less outside the holiday weeks.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Armenia is one and a half hours behind India. The currency is the dram, and cards are widely accepted in Yerevan, though cash is useful in the countryside and at markets. Armenian and Russian are the main languages, and English is increasingly spoken by younger people.\n\nDress modestly in churches and monasteries, and women may wish to cover their heads. Many sites are on hillsides or reached by uneven paths, so wear comfortable shoes. Yerevan's tap water is good to drink, and the city's small stone drinking fountains are safe to use. Winter evenings are cold even when days are bright, so pack warm layers between November and March.",
+      },
+    ],
+    closingTitle: "Ready to plan your Armenia holiday?",
+    closingText:
+      "Yerevan, Garni, Geghard and Lake Sevan across four days, a honeymoon through the mountains, or a winter trip to the snow at Tsaghkadzor - we will shape it around what you want. Flights, visa, hotels, transfers, guides and sightseeing arranged from one place.",
     metaTitle: "Armenia Tour Packages",
     metaDescription:
-      "Armenia tour packages from Kerala - a Yerevan city tour, Garni Temple, Geghard Monastery and the Symphony of Stones, Tsaghkadzor and Lake Sevan.",
+      "Armenia holiday packages from Kerala with Yerevan, Garni, Geghard, Lake Sevan and Tsaghkadzor, e-visa and hotels. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "kazakhstan",
@@ -1939,12 +2229,84 @@ export const destinations = [
     order: 18,
     priceFrom: 0,
     heroImage: img("kazakhstan"),
-    tagline: "Almaty and the mountains, lakes and canyons around it",
+    tagline: "Snow peaks, canyons and alpine lakes at the edge of Almaty",
     intro:
-      "Almaty, Kazakhstan's largest city, sits at the foot of the Tian Shan mountains. In the city are Panfilov Park with the wooden Ascension Cathedral, the Green Bazaar, and Kok Tobe hill, reached by cable car. Above it are the Medeu ice rink and the Shymbulak ski resort, and Big Almaty Lake.\n\nLonger day trips from Almaty go east to Charyn Canyon and its Valley of Castles, and to the Kolsai Lakes and Lake Kaindy in the mountains near the border with Kyrgyzstan.",
+      "Kazakhstan is the largest country most people know very little about, and that is part of its appeal. Almaty, the old capital, sits right beneath a wall of snow-capped mountains, so you can have breakfast in a leafy city café and be standing in snow at a ski resort within the hour. Beyond the city there are red canyons, turquoise mountain lakes and a forest growing out of the water, with wide-open steppe in between.\n\nFor Indian travellers, it has become one of the easiest new destinations to visit. Indian passport holders can enter without a visa for short stays, direct flights from Delhi take around four hours, and the cost of a holiday is a fraction of Europe or Switzerland for similar mountain scenery. At Alisha Tours & Travels, an IATA-accredited Kazakhstan travel agency based in Kottayam, we arrange the flights, hotels, transfers, guides and excursions as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Kazakhstan",
+        points: [
+          "Visa-free entry for Indian passport holders for short stays",
+          "Alpine scenery and snow within an hour of the city, without the cost of Europe",
+          "Charyn Canyon, Kolsai and Kaindy lakes, landscapes that look like nowhere else in Asia",
+          "Kazakhstan holiday packages that fit a full trip into four or five days",
+          "Skiing and snow at Shymbulak in winter, green meadows and hiking in summer",
+          "A modern, safe city with good hotels, cafés and shopping",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Almaty city",
+        items: [
+          { title: "Kok Tobe Hill", text: "A cable car up from the city centre to a hilltop with sweeping views over Almaty and the mountains, plus rides and cafés at the top." },
+          { title: "Panfilov Park & Zenkov Cathedral", text: "A brightly painted wooden cathedral in a leafy park, built in the early twentieth century and famous for surviving a major earthquake." },
+          { title: "Green Bazaar", text: "The city's great covered market, full of dried fruit, nuts, cheeses, spices and local honey." },
+          { title: "Arbat (Zhibek Zholy)", text: "A pedestrian street of street artists, musicians, cafés and souvenir shops, best for an evening stroll." },
+          { title: "Rahat Chocolate Factory", text: "The country's best-known chocolate maker, with a shop selling its sweets at factory prices." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The mountains",
+        items: [
+          { title: "Shymbulak", text: "A ski resort high in the Zailiyskiy Alatau, reached by gondola. Snow from winter into spring and cool mountain air in summer. An easy favourite on any Kazakhstan family tour package." },
+          { title: "Medeu", text: "A famous high-altitude ice rink at the foot of the gondola, open for skating through the winter." },
+          { title: "Big Almaty Lake", text: "A turquoise lake in a mountain bowl, at its most vivid colour in summer. Access depends on the season and local conditions." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Beyond Almaty",
+        items: [
+          { title: "Charyn Canyon", text: "Red rock walls and towering formations along the Valley of Castles, often compared to the Grand Canyon on a smaller scale." },
+          { title: "Kolsai Lakes", text: "A chain of mountain lakes surrounded by spruce forest, with clear water and walking trails." },
+          { title: "Kaindy Lake", text: "A lake formed by an earthquake, with the trunks of drowned spruce trees still standing out of the water." },
+          { title: "Moon Canyon", text: "Grey, eroded formations that look like a lunar landscape, often combined with Charyn on the same day." },
+          { title: "Astana", text: "The futuristic capital, with the Baiterek Tower and Khan Shatyr, an hour and a half by air from Almaty." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Kazakhstan honeymoon packages",
+        body:
+          "Kazakhstan suits couples who want mountains and snow without the long flight or the price of Switzerland. It feels new and undiscovered, the scenery is dramatic, and the city has enough good restaurants and cafés to fill the evenings.\n\nThe route most couples take is four or five nights based in Almaty, with a day in the mountains at Shymbulak, a day out to Charyn Canyon and the lakes, and the rest of the time in the city. In winter, the snow is the romantic centre of it, with ski-in cafés, frozen lakes and the city under white. In summer, it is the green valleys and the turquoise water of Kolsai and Big Almaty Lake.\n\nOur Kazakhstan honeymoon packages cover boutique and mountain-view hotels rather than standard stays, private transfers and guides throughout, a candlelit dinner and an evening at Kok Tobe for the city lights. December and January book out early around the festive season, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Kazakhstan tour packages from Kerala",
+        body:
+          "Kazakhstan takes one connection from Kerala, and the routing is simple. Most travellers fly through Delhi on a direct service to Almaty, which takes around four hours, or connect through Dubai or Sharjah, both short flights from Kochi. Almaty works best as the base for a short trip, with day excursions to the mountains, canyons and lakes.\n\nIndian passport holders can visit Kazakhstan without a visa for up to 14 days per visit, which covers almost every holiday itinerary. We confirm the current rules at the time of booking, and arrange the hotels, transfers, guides, excursions and the full itinerary from our office, so nothing needs arranging after you land.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "May to September is the finest season for sightseeing. Green mountains, wildflowers and clear lakes, with comfortable days for Charyn Canyon, Kolsai and Kaindy.\n\nDecember to March is the winter season. Snow covers the city and the mountains, Shymbulak is open for skiing and snow play, and Medeu is open for skating. Days are cold and bright, so warm clothing is essential.\n\nApril and October to November are the shoulder months, with fewer visitors and changeable weather. Mountain roads and lakes can be affected by early or late snow, and Kazakhstan tour packages cost less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Kazakhstan is thirty minutes behind India. The currency is the tenge, and cards are widely accepted in Almaty, though some cash is useful for markets and smaller towns. Kazakh and Russian are the main languages; guides speak English, and translation apps help elsewhere.\n\nDistances to Charyn and the lakes are long, so excursion days start early and involve several hours on the road. Winter temperatures in Almaty regularly fall below freezing and are colder still in the mountains, so pack thermals, gloves and waterproof boots. Local food is meat-heavy, but vegetarian options and Indian restaurants are available in Almaty, so let us know and we will plan around it.",
+      },
+    ],
+    closingTitle: "Ready to plan your Kazakhstan holiday?",
+    closingText:
+      "Almaty, Shymbulak and Charyn Canyon across four days, a winter honeymoon in the snow, or a summer trip to Kolsai and Kaindy - we will shape it around what you want. Flights, hotels, transfers, guides and sightseeing arranged from one place.",
     metaTitle: "Kazakhstan Tour Packages",
     metaDescription:
-      "Kazakhstan tour packages from Kerala - Almaty's Kok Tobe and Panfilov Park, Shymbulak in the mountains, and day trips to Charyn Canyon and Kolsai Lake.",
+      "Kazakhstan holiday packages from Kerala with Almaty, Shymbulak, Charyn Canyon and Kolsai Lakes, visa-free entry. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "turkey",
@@ -1954,12 +2316,87 @@ export const destinations = [
     order: 19,
     priceFrom: 0,
     heroImage: img("turkey"),
-    tagline: "Istanbul's old city and the rock valleys of Cappadocia",
+    tagline: "Where Europe and Asia meet over the Bosphorus",
     intro:
-      "Istanbul's old city has Hagia Sophia, the Blue Mosque, Topkapi Palace and the Grand Bazaar, and boat trips run along the Bosphorus and across the Sea of Marmara to the Princes' Islands, Heybeliada and Buyukada.\n\nIn central Turkey, Cappadocia is a landscape of rock cones known as fairy chimneys, with cave churches at Goreme and Pasabag, Uchisar Castle and the pottery town of Avanos. Hot air balloon flights go up over the valleys at sunrise.",
+      "Turkey is a country of crossroads, and you feel it everywhere. In Istanbul, Byzantine churches stand beside Ottoman mosques and the call to prayer drifts over ferries crossing between two continents. In Cappadocia, hundreds of hot air balloons rise at dawn over a valley of fairy chimneys and cave churches. Further south there are white travertine terraces, Roman cities and the turquoise coast of the Mediterranean. It is history, scenery and food on a grand scale.\n\nAt Alisha Tours & Travels, we have been putting together Turkey tour packages from Kerala for years, from short Istanbul and Cappadocia breaks to the full circuit down to the coast. A honeymoon needs a different pace from a family trip or a group of friends. As an IATA-accredited Turkey travel agency based in Kottayam, we build the itinerary around your dates, your budget and the people travelling with you.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Turkey",
+        points: [
+          "Two continents in one city, with Istanbul's mosques, palaces and bazaars at every turn",
+          "The Cappadocia balloon ride, one of the great travel experiences in the world",
+          "Cave hotels, Ottoman mansions and seaside resorts to suit every kind of trip",
+          "Turkey holiday packages that offer European-style travel at a gentler price",
+          "Food that wins everyone over, from kebabs and mezze to baklava and Turkish tea",
+          "Easy to combine with domestic flights, so you see more in fewer days",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Istanbul",
+        items: [
+          { title: "Hagia Sophia", text: "Built in the sixth century as a cathedral, later a mosque, its great dome has dominated the city skyline for nearly fifteen hundred years." },
+          { title: "Blue Mosque", text: "Six minarets and an interior lined with thousands of blue Iznik tiles, facing Hagia Sophia across the old Hippodrome." },
+          { title: "Topkapi Palace", text: "The home of the Ottoman sultans for four centuries, with courtyards, the harem and the treasury overlooking the Bosphorus." },
+          { title: "Basilica Cistern", text: "A vast underground hall of marble columns rising from the water, with two Medusa heads hidden at the far end." },
+          { title: "Grand Bazaar & Spice Bazaar", text: "Thousands of shops selling carpets, lamps, ceramics, sweets and spices. Bargaining is expected and half the fun." },
+          { title: "Bosphorus Cruise", text: "Palaces, mansions and fortresses along the strait between Europe and Asia, best at sunset." },
+          { title: "Princes' Islands", text: "A ferry ride across the Sea of Marmara to car-free islands of wooden mansions and pine-scented lanes. An easy day out on any Turkey family tour package." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Cappadocia",
+        items: [
+          { title: "Hot Air Balloon Ride", text: "Drifting over the valleys at sunrise with the sky full of balloons. The reason most people come to Cappadocia." },
+          { title: "Göreme Open Air Museum", text: "Rock-cut churches and chapels painted with frescoes, carved by monks a thousand years ago." },
+          { title: "Paşabağ & Devrent Valley", text: "Fairy chimneys and strange rock formations that make the landscape look like the surface of the moon." },
+          { title: "Uçhisar Castle & Pigeon Valley", text: "A rock citadel honeycombed with rooms, and the best viewpoint over the whole region." },
+          { title: "Derinkuyu Underground City", text: "A city carved deep beneath the ground, where whole communities once sheltered with their animals and stores." },
+          { title: "Avanos", text: "A riverside town known for pottery, with workshops still using techniques dating back to the Hittites." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The west and south coast",
+        items: [
+          { title: "Pamukkale", text: "White travertine terraces filled with warm mineral pools, with the ruins of Hierapolis on the hill above." },
+          { title: "Ephesus", text: "One of the best preserved Roman cities in the Mediterranean, with the Library of Celsus and a great theatre." },
+          { title: "Antalya", text: "The Turkish Riviera, with a walled old town, waterfalls and long beaches backed by mountains." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Turkey honeymoon packages",
+        body:
+          "Turkey suits couples who want a honeymoon with a sense of occasion. Istanbul brings the romance of a great old city, Cappadocia brings the balloons and cave hotels, and the coast adds beaches and long sunset dinners for those with time.\n\nThe route most couples take is Istanbul and Cappadocia across five or six nights, with Cappadocia as the romantic centre of it. A cave suite with a private terrace, a sunrise balloon flight with breakfast afterwards and evenings watching the valleys turn pink are what most people remember. Antalya or Bodrum adds three nights on the coast for couples with time.\n\nOur Turkey honeymoon packages cover boutique cave hotels and Bosphorus-view stays rather than standard hotels, a private balloon basket or a premium flight, a Bosphorus dinner cruise, a traditional hammam experience and a photo shoot among the fairy chimneys. Spring and autumn book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Turkey tour packages from Kerala",
+        body:
+          "Turkey takes one connection from Kerala, and there are plenty of good options. Most travellers fly through the Gulf on Emirates, Qatar Airways, Etihad or flydubai, or connect in Delhi or Mumbai for a direct flight to Istanbul. Within Turkey, a domestic flight of a little over an hour links Istanbul with Kayseri or Nevşehir for Cappadocia.\n\nIndian passport holders need a visa for Turkey, arranged before travel. Travellers who already hold a valid US, UK, Schengen or Irish visa or residence permit can usually apply for an e-visa online; others apply for a sticker visa through the visa application centre. We prepare the documents and confirm the current rules at the time of booking, and arrange the flights, hotels, transfers, tours and the full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "April to June is the finest season. Mild temperatures for walking around Istanbul, tulips in the parks in April and clear mornings for balloon flights in Cappadocia.\n\nSeptember to November is the second peak, with warm seas on the coast, fewer crowds in the cities and comfortable sightseeing weather everywhere.\n\nJuly and August are hot and busy, especially along the coast and in Istanbul, but this is the height of the beach season on the Turkish Riviera.\n\nDecember to March is cold, with snow in Cappadocia turning the fairy chimneys white. Balloons fly whenever the weather allows, the cities are quiet and Turkey tour packages cost noticeably less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Turkey is two and a half hours behind India. The local currency is the Turkish lira, cards are widely accepted, and some tourist services quote prices in euros. Balloon flights depend on the wind and are sometimes cancelled on the morning, so we plan two mornings in Cappadocia wherever possible.\n\nDress modestly at mosques. Women should cover their hair, and everyone should cover shoulders and knees and remove shoes before entering. Mosques close to visitors during prayer times, particularly at midday on Friday, so we schedule visits around them. Bottled water is recommended, and comfortable shoes are essential for Istanbul's hills and cobbled streets.",
+      },
+    ],
+    closingTitle: "Ready to plan your Turkey holiday?",
+    closingText:
+      "Istanbul and Cappadocia across six days, a honeymoon with a balloon flight and a cave suite, or the full circuit to Pamukkale, Ephesus and the coast - we will shape it around what you want. Flights, visa, hotels, transfers and sightseeing arranged from one place.",
     metaTitle: "Turkey Tour Packages",
     metaDescription:
-      "Turkey tour packages from Kerala - an Istanbul city tour, a cruise to the Princes' Islands, and Cappadocia's fairy chimneys, cave churches and balloons.",
+      "Turkey holiday packages from Kerala with Istanbul, Cappadocia balloon rides, Pamukkale, Ephesus and visa. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "hong-kong",
@@ -1969,12 +2406,86 @@ export const destinations = [
     order: 20,
     priceFrom: 0,
     heroImage: img("hong-kong"),
-    tagline: "Victoria Peak, Disneyland and Lantau, and a day in Macau",
+    tagline: "Two cities, one harbour of lights",
     intro:
-      "In Hong Kong, the Peak Tram climbs to Victoria Peak for the view over the harbour, and the Avenue of Stars and the Clock Tower at Tsim Sha Tsui face the Symphony of Lights show each evening. Hong Kong Disneyland and Ocean Park take a full day each, and on Lantau Island the Ngong Ping 360 cable car leads to the Tian Tan Buddha and Po Lin Monastery.\n\nMacau, a former Portuguese territory, is about an hour from Hong Kong by ferry. Its sights include the Ruins of St. Paul's, Senado Square, the A-Ma Temple, Fisherman's Wharf and the Golden Lotus Square.",
+      "Hong Kong is a city built upwards, and the energy is the first thing you notice. Skyscrapers climb straight out of the harbour, green ferries cross between Kowloon and the Island every few minutes, and at night the whole skyline lights up over the water. Yet a short ride away there are mountain trails, fishing villages, a giant bronze Buddha on a hilltop and two of the best theme parks in Asia. An hour across the water, Macau adds Portuguese lanes, baroque churches and the glitter of the Cotai Strip.\n\nFor Indian travellers, it is one of the easiest short-haul holidays to plan. Entry is straightforward, the cities are compact, and four or five days are enough to see the highlights of both. At Alisha Tours & Travels, an IATA-accredited Hong Kong travel agency based in Kottayam, we arrange the flights, entry registration, hotels, transfers, park tickets and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Hong Kong",
+        points: [
+          "Disneyland and Ocean Park in one trip, which makes it a favourite with families",
+          "A skyline, a harbour and mountain views packed into a city that is easy to get around",
+          "Safe, clean and efficient, with English widely spoken and signs in English everywhere",
+          "Hong Kong holiday packages that combine easily with Macau in four to six days",
+          "Shopping on every scale, from street markets to designer malls",
+          "Food from dim sum and roast goose to Indian restaurants in Tsim Sha Tsui",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Hong Kong Island and Kowloon",
+        items: [
+          { title: "Victoria Peak & the Peak Tram", text: "A steep tram ride up to the best view in the city, with Madame Tussauds and the Sky Terrace at the top. Go late afternoon and stay for the lights." },
+          { title: "Avenue of Stars & Clock Tower", text: "The Tsim Sha Tsui waterfront, with film legends along the promenade and the old railway clock tower at the end." },
+          { title: "A Symphony of Lights", text: "The nightly light and music show across the skyline, best watched from the Kowloon side of the harbour." },
+          { title: "Star Ferry", text: "A ten-minute crossing of Victoria Harbour on a ferry that has been running for over a century. The cheapest great view in Hong Kong." },
+          { title: "Temple Street & Ladies' Market", text: "Night markets for bargains, street food, fortune tellers and souvenirs. Bargaining is expected." },
+          { title: "Man Mo & Wong Tai Sin Temples", text: "Incense coils, lanterns and fortune sticks in two of the city's best-known temples." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Theme parks and Lantau Island",
+        items: [
+          { title: "Hong Kong Disneyland", text: "Castle, parades, fireworks and themed lands sized just right for younger children. The highlight of almost every Hong Kong family tour package we plan." },
+          { title: "Ocean Park", text: "Rides along the cliffs, a cable car over the sea, an aquarium and giant pandas. A full day that suits teenagers and adults as much as children." },
+          { title: "Ngong Ping 360", text: "A cable car ride over the sea and hills of Lantau to the Tian Tan Buddha and Po Lin Monastery. Book the glass-bottomed crystal cabin for the full effect." },
+          { title: "Tai O", text: "A fishing village of stilt houses over the water, with dried seafood stalls and boat rides to look for pink dolphins." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Macau",
+        items: [
+          { title: "Ruins of St. Paul's", text: "The carved stone facade of a seventeenth-century church at the top of a grand staircase. The symbol of Macau." },
+          { title: "Senado Square & the Historic Centre", text: "Wave-patterned Portuguese pavements, pastel buildings and churches, all part of a UNESCO World Heritage Site." },
+          { title: "A-Ma Temple & Monte Fortress", text: "The temple that gave Macau its name, and an old fort with views over the city." },
+          { title: "The Cotai Strip", text: "Resorts modelled on Venice and Paris, gondola rides on indoor canals and shows every evening." },
+          { title: "Taipa Village & Coloane", text: "Narrow lanes, street food and the famous Portuguese egg tarts, best eaten warm." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Hong Kong honeymoon packages",
+        body:
+          "Hong Kong suits couples who want energy and glamour rather than a quiet beach. The evenings are the romantic part of it, with harbour views from a high-floor room, rooftop bars, dinner cruises and the city lit up below the Peak.\n\nThe route most couples take is three nights in Hong Kong and one or two in Macau, travelling between them by ferry or across the sea bridge. Macau is the romantic centre of it for many, with a gondola ride on the Cotai Strip, sunset over the old town and a resort stay that feels far from the Hong Kong crowds.\n\nOur Hong Kong honeymoon packages cover harbour-view hotels and Macau resorts rather than standard stays, private transfers throughout, a harbour dinner cruise, the crystal cabin on Ngong Ping 360 and evenings left free for the city. Christmas, New Year and Chinese New Year book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Hong Kong tour packages from Kerala",
+        body:
+          "Hong Kong takes one connection from Kerala, and there are several good routes. Most travellers connect through a major Indian metro such as Bengaluru, Delhi or Mumbai for a direct flight, or fly from Kochi through Singapore, Kuala Lumpur or Bangkok. From Hong Kong International Airport, Macau is about an hour by bus across the Hong Kong-Zhuhai-Macau Bridge, so the two cities fit easily into one trip.\n\nIndian passport holders can visit Hong Kong for up to 14 days without a visa after completing a free online Pre-Arrival Registration, and Macau allows Indian visitors to stay without a visa for up to 30 days. We confirm the current rules at the time of booking, complete the registration for you, and arrange the hotels, transfers, park tickets and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "October to December is the finest season. Clear skies, comfortable temperatures and low humidity, with Christmas lights and festive shows at the theme parks.\n\nJanuary to March is cool and mostly dry, with Chinese New Year bringing fireworks, parades and decorations across both cities. Hotels fill quickly around the holiday itself.\n\nApril to May is warm and increasingly humid, with spring festivals and fewer crowds than the winter months.\n\nJune to September is hot, humid and the season for typhoons and heavy showers. Plans need a little flexibility, but hotel rates drop and Hong Kong tour packages offer good value.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Hong Kong is two and a half hours ahead of India. The currency is the Hong Kong dollar, which is also widely accepted in Macau alongside the local pataca. An Octopus card makes the MTR, buses, ferries and convenience stores far easier, and cards are accepted almost everywhere.\n\nHong Kong is very safe, but pavements are crowded and walking distances add up, so comfortable shoes matter. Disneyland and Ocean Park are best visited on weekdays, when queues are shorter. Indoor spaces are heavily air-conditioned even in summer, so carry a light layer. Keep your passport with you when travelling between Hong Kong and Macau, because there is an immigration check in both directions.",
+      },
+    ],
+    closingTitle: "Ready to plan your Hong Kong holiday?",
+    closingText:
+      "Disneyland, Ocean Park and the Peak across four days, a honeymoon split between the harbour and Macau, or a family trip timed for the Christmas lights - we will shape it around what you want. Flights, registration, hotels, transfers, park tickets and sightseeing arranged from one place.",
     metaTitle: "Hong Kong & Macau Tour Packages",
     metaDescription:
-      "Hong Kong and Macau packages from Kerala - Victoria Peak, Disneyland, Ocean Park and the Ngong Ping cable car, with a Macau city tour by ferry.",
+      "Hong Kong and Macau holiday packages from Kerala with Disneyland, Ocean Park, Victoria Peak and Ngong Ping 360. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "japan",
@@ -1999,12 +2510,86 @@ export const destinations = [
     order: 22,
     priceFrom: 0,
     heroImage: img("egypt"),
-    tagline: "The Pyramids of Giza, Cairo and Alexandria",
+    tagline: "Five thousand years along the Nile",
     intro:
-      "On the edge of Cairo, the Giza plateau has the pyramids of Khufu, Khafre and Menkaure and the Great Sphinx, and the Grand Egyptian Museum nearby holds the Tutankhamun collection. In the city are the Khan el-Khalili bazaar and dinner cruises on the Nile.\n\nAlexandria, on the Mediterranean coast, has the Qaitbay Citadel, the Catacombs of Kom el-Shoqafa, the Bibliotheca Alexandrina and the Abu al-Abbas al-Mursi Mosque. Further south, Luxor and Aswan are linked by Nile cruises.",
+      "Egypt is the journey every traveller dreams of at least once. The Pyramids of Giza rise at the edge of Cairo exactly as they appear in every schoolbook, the Sphinx keeps watch below them, and the treasures of Tutankhamun are now displayed in one of the greatest museums in the world. Further south, the Nile carries you past temples, tombs and palm-lined villages, while Alexandria looks out over the Mediterranean with a history all of its own.\n\nFor Indian travellers, Egypt is closer than it looks, with a straightforward e-visa and good connections through the Gulf. At Alisha Tours & Travels, an IATA-accredited Egypt travel agency based in Kottayam, we arrange the flights, visa, hotels, Egyptologist guides, Nile cruises and transfers as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Egypt",
+        points: [
+          "The Pyramids, the Sphinx and the tombs of the pharaohs, seen with your own eyes",
+          "The Grand Egyptian Museum, home to the complete treasures of Tutankhamun",
+          "A Nile cruise between Luxor and Aswan, one of the classic journeys of the world",
+          "Egypt holiday packages that combine history, the Mediterranean and the Red Sea",
+          "Expert Egyptologist guides who bring every site to life",
+          "Short trips that cover Cairo and Alexandria in four days, or longer journeys up the Nile",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Cairo and Giza",
+        items: [
+          { title: "Pyramids of Giza & the Sphinx", text: "The Great Pyramid of Khufu, the last surviving wonder of the ancient world, with the pyramids of Khafre and Menkaure and the Sphinx below. Stay for sunset or the evening sound and light show." },
+          { title: "Grand Egyptian Museum", text: "A vast new museum beside the pyramids, with the complete Tutankhamun collection and a giant statue of Ramesses II in the atrium." },
+          { title: "Saqqara & Memphis", text: "The Step Pyramid of Djoser, the oldest pyramid in Egypt, and the remains of the first capital." },
+          { title: "Khan el-Khalili", text: "Cairo's great bazaar of lanterns, spices, perfume and brass, with traditional coffee houses in its lanes." },
+          { title: "Citadel of Saladin & Islamic Cairo", text: "A medieval fortress with the Muhammad Ali Mosque and views across the city of a thousand minarets." },
+          { title: "Nile Dinner Cruise", text: "An evening on the river with dinner, a belly dancer and a whirling tanoura show." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Alexandria",
+        items: [
+          { title: "Bibliotheca Alexandrina", text: "A striking modern library built in tribute to the great library of the ancient world." },
+          { title: "Qaitbay Citadel", text: "A fifteenth-century fortress on the site of the ancient Lighthouse of Alexandria, one of the Seven Wonders." },
+          { title: "Catacombs of Kom el-Shoqafa & Pompey's Pillar", text: "Underground tombs mixing Egyptian, Greek and Roman styles, and a towering Roman column." },
+          { title: "The Corniche", text: "A long seafront promenade along the Mediterranean, best for an evening walk and fresh seafood." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Luxor, Aswan and the Red Sea",
+        items: [
+          { title: "Karnak & Luxor Temples", text: "Colossal columns, avenues of sphinxes and the great temple complexes of ancient Thebes." },
+          { title: "Valley of the Kings", text: "Painted royal tombs cut deep into the desert hills on the west bank of the Nile." },
+          { title: "Hot Air Balloon over Luxor", text: "A sunrise flight over temples, fields and the river. An easy favourite on any Egypt family tour package with older children." },
+          { title: "Abu Simbel & Philae", text: "The colossal temples of Ramesses II and the island temple of Isis near Aswan." },
+          { title: "Hurghada & Sharm el-Sheikh", text: "Red Sea resorts with some of the best snorkelling and diving in the world." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Egypt honeymoon packages",
+        body:
+          "Egypt suits couples who want a honeymoon that feels like a true adventure. It combines wonder and romance in equal measure, with sunsets over the pyramids, candlelit dinners on the Nile and evenings in old palace hotels.\n\nThe route most couples take is Cairo, a three or four-night Nile cruise between Luxor and Aswan, and a few days at a Red Sea resort to finish. The Nile cruise is the romantic centre of it, with temples by day, sundowners on the top deck and the river sliding past villages and palm groves. A sunrise balloon flight over Luxor adds a morning neither of you will forget.\n\nOur Egypt honeymoon packages cover pyramid-view and heritage hotels rather than standard stays, a deluxe Nile cruise, private Egyptologist guides, a balloon flight and a candlelit dinner. October to April is the most popular season, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Egypt tour packages from Kerala",
+        body:
+          "Egypt takes one connection from Kerala, and the routing is straightforward. Most travellers fly through the Gulf, connecting in Dubai, Doha, Abu Dhabi or Sharjah for an onward flight to Cairo, or through Mumbai or Delhi. Within Egypt, short domestic flights link Cairo with Luxor, Aswan and the Red Sea resorts.\n\nIndian passport holders need a visa for Egypt, usually applied for online as an e-visa before travel. Travellers holding a valid US, UK or Schengen visa may also be eligible for a visa on arrival. We confirm the current rules at the time of booking, apply for the e-visa with you, and arrange the hotels, cruises, guides, transfers and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "October to April is the finest season. Warm, sunny days and cool evenings make sightseeing comfortable, and December and January are the busiest months of the year.\n\nMay to September is hot, especially in Luxor and Aswan, where temperatures regularly pass 40°C. Sightseeing is best planned for early mornings, while Alexandria and the Red Sea stay pleasant, and Egypt tour packages cost noticeably less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Egypt is three and a half hours behind India in winter and two and a half hours behind in summer. The currency is the Egyptian pound, cards are accepted in hotels and larger shops, and small notes are useful for tips, which are customary for guides, drivers and hotel staff.\n\nDress modestly when visiting mosques and in the older parts of the cities. Women should carry a scarf to cover their hair in mosques, and everyone should cover shoulders and knees. Drink bottled water, wear sunscreen and a hat at outdoor sites, and expect bargaining at the bazaars. Photography may need a separate ticket inside some tombs and museums.",
+      },
+    ],
+    closingTitle: "Ready to plan your Egypt holiday?",
+    closingText:
+      "Cairo, the pyramids and Alexandria across four days, a honeymoon on the Nile, or a family trip from the pyramids to the Red Sea - we will shape it around what you want. Flights, visa, hotels, cruises, guides and sightseeing arranged from one place.",
     metaTitle: "Egypt Tour Packages",
     metaDescription:
-      "Egypt tour packages from Kerala - the Pyramids of Giza and the Sphinx, the Grand Egyptian Museum, a Nile dinner cruise and a day tour of Alexandria.",
+      "Egypt holiday packages from Kerala with the Pyramids of Giza, Alexandria, a Nile cruise and Egyptologist guides. Customised itineraries and honeymoon packages.",
   },
   {
     slug: "pondicherry",
@@ -2014,12 +2599,609 @@ export const destinations = [
     order: 12,
     priceFrom: 0,
     heroImage: img("pondicherry"),
-    tagline: "The French Quarter, Promenade Beach and Auroville",
+    tagline: "A little piece of France on the Bay of Bengal",
     intro:
-      "Pondicherry (Puducherry) is a union territory on the Bay of Bengal coast and was a French colony until 1954. Its White Town, the old French Quarter, has the Promenade along Rock Beach, the old lighthouse, the Sri Aurobindo Ashram, the Manakula Vinayagar Temple, the Basilica of the Sacred Heart of Jesus and the Pondicherry Museum.\n\nAuroville, an international township with the Matrimandir at its centre, is about 10 km north of the town. To the south, boats from the Chunnambar boat house cross the backwater to Paradise Beach.",
+      "Pondicherry is the easiest kind of getaway. Mustard-yellow villas with bougainvillea spilling over the walls line the streets of the French Quarter, cafés serve croissants and filter coffee side by side, and the promenade fills with walkers every evening as the breeze comes in off the sea. A few kilometres away, Auroville offers a quieter, more reflective side of the town, and the beaches stretch south past quiet backwaters.\n\nFor travellers from Kerala, it is a perfect long weekend, reachable by overnight train or a flight to Chennai, with no passport or visa needed. At Alisha Tours & Travels, an IATA-accredited travel agency based in Kottayam, we arrange the travel, hotels, transfers and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Pondicherry",
+        points: [
+          "French colonial streets, cafés and heritage hotels without leaving India",
+          "A relaxed seaside town that suits families, couples and groups of friends",
+          "Sri Aurobindo Ashram and Auroville for a calm, spiritual break",
+          "Pondicherry holiday packages that fit easily into a long weekend",
+          "Beaches, backwaters and boat rides within a short drive",
+          "Easy to reach from Kerala by train, road or a flight to Chennai",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in White Town and the seafront",
+        items: [
+          { title: "The French Quarter", text: "Tree-lined streets of pastel villas, boutique stays and cafés, best explored on foot or by bicycle." },
+          { title: "Promenade Beach & Rock Beach", text: "The seafront walk with the Gandhi statue, the old lighthouse and the war memorial, closed to traffic in the evenings." },
+          { title: "Basilica of the Sacred Heart & Immaculate Conception Cathedral", text: "Two of the town's best-known churches, with Gothic arches and stained glass." },
+          { title: "Pondicherry Museum", text: "French colonial furniture, bronzes and finds from the ancient Roman trading port at Arikamedu." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Temples, ashram and Auroville",
+        items: [
+          { title: "Sri Aurobindo Ashram", text: "The spiritual heart of the town, with a flower-covered samadhi and a peaceful atmosphere." },
+          { title: "Manakula Vinayagar Temple", text: "A much-loved Ganesha temple near the ashram, with richly painted walls and ceilings." },
+          { title: "Auroville & the Matrimandir", text: "An experimental international township, with its golden meditation dome set among gardens. The visitor centre and viewpoint are open to all." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Beaches and around",
+        items: [
+          { title: "Paradise Beach", text: "A sandy beach reached by boat through the Chunnambar backwaters. An easy favourite on any Pondicherry family tour package." },
+          { title: "Serenity & Auroville Beaches", text: "Quieter beaches north of the town, popular for surfing lessons and sunrise walks." },
+          { title: "Mahabalipuram", text: "The UNESCO-listed Shore Temple and rock-cut monuments, a natural stop on the drive from Chennai." },
+          { title: "Chidambaram & Pichavaram", text: "The Nataraja temple and a boat ride through one of the largest mangrove forests in India, a day trip to the south." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Pondicherry honeymoon packages",
+        body:
+          "Pondicherry suits couples who want a short, romantic break close to home. It is slow, pretty and easy, with heritage hotels in old French villas, candlelit dinners in courtyard restaurants and evenings on the promenade.\n\nMost couples take two or three nights, staying in the French Quarter and spending a day at Auroville and the beaches. The French Quarter is the romantic centre of it, with cycling through the lanes in the morning, café hopping in the afternoon and the sea breeze in the evening. A beach resort night towards Auroville adds a quieter finish.\n\nOur Pondicherry honeymoon packages cover heritage and boutique hotels rather than standard stays, private transfers and sightseeing, a boat ride to Paradise Beach and a candlelit dinner. Long weekends and the December holidays fill up early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Pondicherry tour packages from Kerala",
+        body:
+          "Pondicherry is an easy trip from Kerala. Overnight trains run from several Kerala stations towards Puducherry and Villupuram, which is about forty minutes away by road, or travellers can fly to Chennai and drive down the East Coast Road in around three hours, stopping at Mahabalipuram on the way. Road trips from central Kerala are also popular for groups and families.\n\nNo permits or travel documents are needed beyond a photo ID for hotel check-in. We book the train or flights, hotels, transfers and sightseeing from our office, so the trip runs smoothly from pick-up at the station or airport.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "October to March is the finest season. Cooler days and pleasant evenings, ideal for walking the French Quarter and the beaches. The northeast monsoon brings heavy rain in November, so December to March is the most reliable stretch.\n\nApril to June is hot and humid, with the best weather in the early mornings and evenings. Hotels are quieter and Pondicherry tour packages cost less.\n\nJuly to September is warm with occasional showers, and a good time for short, value-for-money breaks.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Pondicherry is compact, and the French Quarter is best explored on foot or by bicycle, with scooters easy to hire for longer trips. Respect the quiet at Sri Aurobindo Ashram, dress modestly, and keep phones silent inside. Entry to the inner chamber of the Matrimandir needs advance booking and is limited, so we plan it ahead where possible.\n\nSea currents along the town beaches can be strong, so swim only where it is marked as safe. Carry light cotton clothing, sunscreen and a hat, and comfortable walking shoes for the heritage lanes. Many cafés and boutiques close for a few hours in the afternoon, so plan sightseeing for the mornings and evenings.",
+      },
+    ],
+    closingTitle: "Ready to plan your Pondicherry holiday?",
+    closingText:
+      "The French Quarter, Auroville and Paradise Beach across three days, a honeymoon in a heritage villa, or a family trip combined with Mahabalipuram - we will shape it around what you want. Travel, hotels, transfers and sightseeing arranged from one place.",
     metaTitle: "Pondicherry Tour Packages",
     metaDescription:
-      "Pondicherry packages from Kerala - the French Quarter, Rock Beach and the Aurobindo Ashram, Auroville and the Matrimandir, and a boat to Paradise Beach.",
+      "Pondicherry holiday packages from Kerala with the French Quarter, Auroville, Paradise Beach and Mahabalipuram. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "tawang",
+    name: "Tawang",
+    country: "India",
+    region: "domestic",
+    order: 13,
+    priceFrom: 0,
+    heroImage: img("tawang"),
+    tagline: "Monasteries, high passes and frozen lakes at India's eastern edge",
+    intro:
+      "Tawang is the kind of place that makes the long road worth it. The drive up from the plains of Assam climbs through forests, river valleys and mountain passes to a town of prayer flags and monasteries, watched over by the largest monastery in India. Beyond it there are high-altitude lakes, snowfields and the Bum La Pass on the border with Tibet. It is remote, peaceful and quite unlike anywhere else in the country.\n\nFor travellers from Kerala, it is one of the most rewarding journeys in India, and no passport is needed, only an Inner Line Permit. At Alisha Tours & Travels, an IATA-accredited travel agency based in Kottayam, we arrange the flights to Guwahati, permits, hotels, vehicle and driver, and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Tawang",
+        points: [
+          "Himalayan scenery, snow and frozen lakes without leaving India or needing a passport",
+          "Tawang Monastery, the largest monastery in India, and a living Buddhist culture",
+          "A road journey through Bomdila, Dirang and Sela Pass that is a highlight in itself",
+          "Tawang holiday packages that cover the whole circuit in five to seven days",
+          "Quiet, unspoilt valleys far from the crowds of better-known hill stations",
+          "Warm Monpa hospitality, homestays and local food along the way",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Tawang",
+        items: [
+          { title: "Tawang Monastery", text: "Founded in the seventeenth century, the largest monastery in India, with a three-storey assembly hall, an eight-metre golden Buddha and a library of ancient manuscripts." },
+          { title: "Tawang War Memorial", text: "A stupa-shaped memorial to the soldiers of the 1962 conflict, with a sound and light show in the evening." },
+          { title: "Giant Buddha Statue", text: "A seated Buddha on a hilltop above the town, with views across the valley." },
+          { title: "Urgelling Monastery", text: "The birthplace of the sixth Dalai Lama, a short drive from the town." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The high lakes and Bum La",
+        items: [
+          { title: "Bum La Pass", text: "The India-China border at over 15,000 feet, reached on an army-permitted excursion through snowfields and lakes. Visits depend on permits, weather and road conditions." },
+          { title: "Sangetsar Lake (Madhuri Lake)", text: "A lake formed by an earthquake, with dead tree trunks rising from the water, made famous by the film Koyla." },
+          { title: "Pankang Teng Tso", text: "A high-altitude lake surrounded by snow peaks and meadows, often frozen in winter." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "On the road to Tawang",
+        items: [
+          { title: "Sela Pass & Paradise Lake", text: "A 13,700-foot pass with a frozen lake beside the road and snow for much of the year. The Sela Tunnel now offers a faster all-weather route, but the pass is still worth the stop." },
+          { title: "Jaswantgarh War Memorial", text: "A memorial to rifleman Jaswant Singh Rawat and his stand in 1962, kept by the army with tea and snacks for travellers." },
+          { title: "Nuranang Falls", text: "A spectacular waterfall plunging into a gorge just off the main road." },
+          { title: "Bomdila", text: "A hill town with a monastery, apple orchards and views of the eastern Himalaya. An easy overnight stop on any Tawang family tour package." },
+          { title: "Dirang", text: "A valley town with an old stone dzong, hot springs and kiwi and apple orchards, and the Sangti Valley nearby." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Tawang honeymoon packages",
+        body:
+          "Tawang suits couples who want a honeymoon in the mountains that feels like a real adventure. It is quiet, cold and beautiful, the scenery changes around every bend, and evenings by a heater in a mountain hotel are part of the charm.\n\nThe route most couples take is Guwahati, Bomdila, Tawang and Dirang across five or six nights. Tawang is the romantic centre of it, with snow at Sela Pass, the frozen lakes on the way to Bum La and the monastery at sunrise. A night in the Dirang or Sangti valley adds a slower pace and riverside walks.\n\nOur Tawang honeymoon packages cover the best hotels and boutique homestays available on the route, a private vehicle and experienced mountain driver throughout, a candlelit dinner and time set aside for photography at the passes and lakes. Spring and the October to November season book up early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Tawang tour packages from Kerala",
+        body:
+          "Tawang takes a little more planning from Kerala, and most of it is the journey. Travellers fly from Kochi or Thiruvananthapuram to Guwahati, usually with one connection, and the road trip begins at the airport. The drive to Tawang is split over two days with an overnight stop at Bomdila or Dirang, which also helps with acclimatisation.\n\nIndian citizens visiting Arunachal Pradesh need an Inner Line Permit, applied for online in advance with ID and photographs. The Bum La excursion needs a separate permit and runs in local vehicles only, subject to army clearance and weather. We arrange the permits, vehicle, driver, hotels and full itinerary from our office, so nothing needs sorting out once you land in Guwahati.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "March to June is the finest season. Pleasant days, rhododendrons and orchids in bloom, clear lakes and snow still lingering at Sela Pass and Bum La.\n\nSeptember to November is the second peak, with clear skies, crisp air and the Tawang Festival, held in the autumn months.\n\nDecember to February is cold and snowy, with frozen lakes and snow-covered passes. Roads can close after heavy snowfall, so the plan needs flexibility, and Tawang tour packages cost noticeably less.\n\nJuly and August bring the monsoon. Landslides can affect the roads, and we generally suggest other months for this route.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Tawang sits at around 10,000 feet, with Sela Pass near 14,000 and Bum La over 15,000, so take the first day slowly, drink plenty of water and avoid exertion at the high points. Drives are long, roads are winding, and travel times can change with weather or roadworks, so carry motion sickness tablets and snacks.\n\nMobile networks are patchy outside the towns, and ATMs are limited to Bomdila, Dirang and Tawang, so carry enough cash. Dress in warm layers whatever the month, with thermals, gloves and waterproof shoes from October to April. Dress modestly at monasteries, walk clockwise around prayer wheels and stupas, and ask before photographing monks.",
+      },
+    ],
+    closingTitle: "Ready to plan your Tawang holiday?",
+    closingText:
+      "Bomdila, Tawang and Dirang across five days, a honeymoon in the snow at Sela Pass, or a trip timed around the Tawang Festival - we will shape it around what you want. Flights, permits, hotels, vehicle, driver and sightseeing arranged from one place.",
+    metaTitle: "Tawang Tour Packages",
+    metaDescription:
+      "Tawang holiday packages from Kerala with Tawang Monastery, Sela Pass, Bum La and the high lakes, with permits. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "laos",
+    name: "Laos",
+    country: "Laos",
+    region: "international",
+    order: 23,
+    priceFrom: 0,
+    heroImage: img("laos"),
+    tagline: "The quiet heart of the Mekong",
+    intro:
+      "Laos is Southeast Asia at its most unhurried. Saffron-robed monks walk the streets at dawn, golden temples glint along the Mekong, and the pace of life seems set by the river itself. There are limestone mountains and turquoise waterfalls, French colonial cafés and night markets, and a capital that feels more like a large, friendly town than a city. It is the country travellers keep telling their friends about when they come home from Thailand or Vietnam.\n\nFor Indian travellers, the connection is older than most realise. Buddhism reached Laos from India, Hindu deities sit among the statues at Buddha Park, and the temple of Wat Phou in the south was first dedicated to Shiva. At Alisha Tours & Travels, an IATA-accredited Laos travel agency based in Kottayam, we arrange the flights, visa, hotels, guides, transfers and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Laos",
+        points: [
+          "A calm, uncrowded alternative to Thailand and Vietnam, with the same warmth and beauty",
+          "Temples, monasteries and daily rituals that are still part of ordinary life",
+          "Simple entry for Indian passport holders, with a visa on arrival or an e-visa",
+          "Laos holiday packages that offer excellent value for comfortable hotels and private guides",
+          "Waterfalls, caves, rivers and karst mountains within easy reach of the towns",
+          "A modern railway linking Vientiane, Vang Vieng and Luang Prabang in a few hours",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Vientiane",
+        items: [
+          { title: "Pha That Luang", text: "The great golden stupa that is the national symbol of Laos, said to enshrine a relic of the Buddha." },
+          { title: "Patuxai", text: "The Victory Gate, Vientiane's own Arc de Triomphe, with views over the city from the top." },
+          { title: "Wat Sisaket & Haw Phra Kaew", text: "The city's oldest temple, its walls filled with thousands of tiny Buddha images, and the former royal temple of the Emerald Buddha opposite." },
+          { title: "Buddha Park (Xieng Khuan)", text: "A riverside garden of more than two hundred Buddhist and Hindu sculptures, including a giant reclining Buddha." },
+          { title: "Mekong Riverfront & Night Market", text: "An evening stroll along the river at sunset, with food stalls, handicrafts and the lights of Thailand across the water." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Nam Ngum Lake and Vang Vieng",
+        items: [
+          { title: "Nam Ngum Lake", text: "A vast reservoir dotted with forested islands, best seen on a boat cruise with lunch on board." },
+          { title: "Vang Vieng", text: "Limestone peaks rising above the Nam Song river, with kayaking, caves, blue lagoons and hot air balloon flights at sunrise. An easy favourite on any Laos family tour package with active teenagers." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Luang Prabang and the south",
+        items: [
+          { title: "Luang Prabang", text: "A UNESCO-listed town of golden temples, French villas and tree-lined streets at the meeting of two rivers." },
+          { title: "Tak Bat Alms Giving", text: "The dawn procession of monks collecting offerings of sticky rice, one of the most moving sights in Asia." },
+          { title: "Kuang Si Falls", text: "Tiers of turquoise pools cascading through the forest, with a bear rescue centre near the entrance." },
+          { title: "Mount Phousi & Pak Ou Caves", text: "Sunset over the town from the hilltop stupa, and a boat up the Mekong to caves filled with thousands of Buddha statues." },
+          { title: "Wat Phou", text: "A UNESCO-listed hillside temple complex in the south, built by the Khmer and first dedicated to Shiva." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Laos honeymoon packages",
+        body:
+          "Laos suits couples who want a honeymoon that is peaceful, romantic and a little off the usual path. It is quiet in a way the busier countries of the region are not, the scenery is soft and green, and the evenings are made for long dinners by the river.\n\nThe route most couples take is Vientiane, Vang Vieng and Luang Prabang across five or six nights, travelling between them by train. Luang Prabang is the romantic centre of it, with boutique hotels in old French villas, sunset cruises on the Mekong and the morning alms procession outside the door. Vang Vieng adds a sunrise balloon flight over the karst mountains.\n\nOur Laos honeymoon packages cover boutique and heritage hotels rather than standard stays, private guides and transfers throughout, a Mekong sunset cruise, a spa session and a candlelit dinner by the river. November to February is the most popular season, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Laos tour packages from Kerala",
+        body:
+          "Laos takes one connection from Kerala, and it pairs easily with a neighbouring country. Most travellers fly through Bangkok, Kuala Lumpur or Singapore, all short flights from Kochi, for an onward hop to Vientiane or Luang Prabang. Many of our guests combine Laos with a few days in Thailand or Vietnam on the same trip.\n\nIndian passport holders can enter Laos on a visa on arrival at international airports and main border crossings, or apply in advance for an e-visa, both allowing stays of up to 30 days. We confirm the current rules at the time of booking, help with the visa, and arrange the hotels, guides, train tickets and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "November to February is the finest season. Cool, dry weather, clear skies and comfortable days for sightseeing, with festivals around the temples.\n\nMarch to May is hot and dry, with haze in some areas from seasonal burning. Pi Mai, the Lao New Year water festival, takes place in mid-April.\n\nJune to October is the rainy season. The countryside is lush and the waterfalls are at their fullest, showers usually come in the afternoon, and Laos tour packages cost noticeably less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Laos is one and a half hours ahead of India. The local currency is the kip, while US dollars and Thai baht are widely accepted in towns; cards work in larger hotels, so carry cash for markets and smaller restaurants. ATMs are easy to find in Vientiane and Luang Prabang.\n\nDress modestly at temples, covering shoulders and knees, and remove shoes before entering. Women should not touch monks or hand items to them directly. If you join the alms giving, do so quietly and respectfully, without flash photography. Pack light cotton clothing, insect repellent and comfortable sandals, with a light jacket for cool winter mornings.",
+      },
+    ],
+    closingTitle: "Ready to plan your Laos holiday?",
+    closingText:
+      "Vientiane and Nam Ngum Lake across four days, a honeymoon through Vang Vieng and Luang Prabang, or Laos combined with Thailand or Vietnam - we will shape it around what you want. Flights, visa, hotels, guides, transfers and sightseeing arranged from one place.",
+    metaTitle: "Laos Tour Packages",
+    metaDescription:
+      "Laos holiday packages from Kerala with Vientiane, Vang Vieng, Luang Prabang and Kuang Si Falls. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "philippines",
+    name: "Philippines",
+    country: "Philippines",
+    region: "international",
+    order: 24,
+    priceFrom: 0,
+    heroImage: img("philippines"),
+    tagline: "Seven thousand islands and a welcome on every one",
+    intro:
+      "The Philippines is a country made of islands, and every one of them seems to have a beach worth the journey. There are white-sand shores at Boracay, limestone lagoons in Palawan, rice terraces in the north and chocolate-coloured hills in Bohol. Manila adds a Spanish walled city, rooftop bars and some of the biggest malls in Asia. What visitors remember most, though, is the people, who are famously warm, cheerful and almost all English-speaking.\n\nFor Indian travellers, the Philippines has become far easier to visit. Indian passport holders can now enter without a visa for short tourist stays, and Manila is well connected through the major hubs of Southeast Asia. At Alisha Tours & Travels, an IATA-accredited Philippines travel agency based in Kottayam, we arrange the flights, hotels, island transfers, guides and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose the Philippines",
+        points: [
+          "Visa-free entry for Indian passport holders for short tourist stays",
+          "Some of the most beautiful beaches and island scenery in Asia",
+          "English spoken almost everywhere, which makes travel easy for first-timers",
+          "Philippines holiday packages that combine city, volcano, waterfalls and beach",
+          "Diving, snorkelling and island-hopping among coral reefs and lagoons",
+          "Warm, family-friendly hospitality at every level of hotel",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Manila",
+        items: [
+          { title: "Intramuros", text: "The old Spanish walled city, with cobbled streets, horse-drawn carriages and Fort Santiago." },
+          { title: "San Agustin Church", text: "The oldest stone church in the country and part of a UNESCO World Heritage Site." },
+          { title: "Rizal Park & Manila Bay", text: "The city's great park and a seafront promenade famous for its sunsets." },
+          { title: "Makati & Bonifacio Global City", text: "Modern Manila of rooftop restaurants, cafés and shopping malls, and the best areas to stay." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Around Manila",
+        items: [
+          { title: "Taal Volcano", text: "A volcano inside a lake, best viewed from the ridge at Tagaytay with its cool air and lakeside restaurants." },
+          { title: "Pagsanjan Falls", text: "A canoe ride up a river gorge lined with cliffs and forest to a waterfall you can pass beneath on a raft." },
+          { title: "Angeles City & Clark", text: "The former air base north of Manila, now a hub of hotels, restaurants and casinos, with an international hot air balloon festival each February." },
+          { title: "Mount Pinatubo", text: "A 4x4 ride across volcanic plains and a hike to a turquoise crater lake, an unforgettable day trip from Clark." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The islands",
+        items: [
+          { title: "Boracay", text: "White Beach, one of the most famous beaches in the world, with powdery sand, clear water and spectacular sunsets." },
+          { title: "El Nido & Coron, Palawan", text: "Limestone cliffs, hidden lagoons and island-hopping by traditional boat. The scenery most people picture when they think of the Philippines." },
+          { title: "Puerto Princesa Underground River", text: "A boat ride into a cave system flowing beneath the mountains, a UNESCO World Heritage Site." },
+          { title: "Bohol", text: "The Chocolate Hills, tiny tarsiers at the sanctuary and a cruise on the Loboc River. An easy favourite on any Philippines family tour package." },
+          { title: "Cebu", text: "Waterfalls, canyoneering and heritage sites, with island beaches a short boat ride away." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Philippines honeymoon packages",
+        body:
+          "The Philippines suits couples who want a beach honeymoon with variety. The islands are among the most beautiful in Asia, the resorts range from barefoot luxury to lively beachfront hotels, and island-hopping brings a new lagoon or sandbar every day.\n\nThe route most couples take is a night or two in Manila followed by four or five nights in Boracay or Palawan. El Nido is the romantic centre of it for many, with private island-hopping tours, hidden lagoons and sunset from the cliffs. Boracay suits couples who want a livelier beach, with water sports, beachfront dining and sunset sailing.\n\nOur Philippines honeymoon packages cover beach resorts and boutique island stays rather than standard hotels, domestic flights and transfers, private island-hopping, a candlelit beach dinner and a spa session. December to May is the peak beach season, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Philippines tour packages from Kerala",
+        body:
+          "The Philippines takes one connection from Kerala, and there are several good routes. Most travellers fly through Singapore, Kuala Lumpur or Bangkok, all short flights from Kochi, for an onward flight to Manila or Clark. From Manila, domestic flights reach Boracay, Palawan, Cebu and Bohol in an hour or so.\n\nIndian passport holders can visit the Philippines without a visa for up to 14 days for tourism, with a return ticket, hotel booking and proof of funds. Those holding a valid US, UK, Schengen, Japanese, Australian, Canadian or Singaporean visa or residence permit can stay up to 30 days without a visa, and longer trips need an e-visa. Every arriving traveller also completes the free online eTravel registration. We confirm the current rules at the time of booking and arrange the hotels, transfers, flights and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "December to February is the finest season, with cooler, dry weather and calm seas for island-hopping. Christmas is celebrated with enormous enthusiasm across the country.\n\nMarch to May is hot and dry, the height of the beach season, with the clearest water for snorkelling and diving.\n\nJune to November is the rainy season, with typhoons possible, especially from July to October. Plans need flexibility, but Philippines tour packages cost noticeably less and the countryside is at its greenest.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "The Philippines is two and a half hours ahead of India. The currency is the peso, cards are accepted in hotels and malls, and cash is needed on the islands and for small purchases. English is widely spoken, along with Filipino and regional languages.\n\nTraffic in Manila is heavy, so we plan city sightseeing around the rush hours and allow time for airport transfers. Domestic flights and island boat trips can change with the weather, so keep a little flexibility in the plan. Pack light clothing, reef-safe sunscreen, insect repellent and water shoes for island-hopping, and dress modestly when visiting churches.",
+      },
+    ],
+    closingTitle: "Ready to plan your Philippines holiday?",
+    closingText:
+      "Manila and Angeles City across five days, a honeymoon in Boracay or El Nido, or a family island-hopping trip through Bohol and Cebu - we will shape it around what you want. Flights, hotels, island transfers, guides and sightseeing arranged from one place.",
+    metaTitle: "Philippines Tour Packages",
+    metaDescription:
+      "Philippines holiday packages from Kerala with Manila, Boracay, El Nido, Bohol and Cebu island-hopping. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "south-korea",
+    name: "South Korea",
+    country: "South Korea",
+    region: "international",
+    order: 25,
+    priceFrom: 0,
+    heroImage: img("south-korea"),
+    tagline: "Palaces, K-culture and cherry blossom in the Land of the Morning Calm",
+    intro:
+      "South Korea is a country that moves fast and remembers everything. In Seoul, royal palaces and wooden hanok houses sit beneath glass towers, street food stalls stay open late into the night, and the fashion, music and dramas that the world now follows were born in its neighbourhoods. Beyond the capital there are seaside temples in Busan, an ancient royal city at Gyeongju, the volcanic island of Jeju and some of the most beautiful spring and autumn scenery in Asia.\n\nFor Indian travellers, Korea is no longer a distant dream. K-dramas and K-pop have made it one of the most requested destinations among families and young couples, and the high-speed KTX train makes it easy to see much of the country in a single trip. At Alisha Tours & Travels, an IATA-accredited South Korea travel agency based in Kottayam, we arrange the flights, visa, hotels, train tickets, guides and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose South Korea",
+        points: [
+          "The world of K-dramas, K-pop and K-beauty, seen up close in Seoul",
+          "Cherry blossom in spring and fiery autumn leaves, two of the best seasons in Asia",
+          "Safe, clean and efficient, with excellent public transport and the KTX bullet train",
+          "South Korea holiday packages that combine city, history, beaches and theme parks",
+          "Snow and skiing in winter, with Nami Island and the mountains under white",
+          "An ancient link with India through the legend of Queen Heo, the princess from Ayodhya",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Seoul",
+        items: [
+          { title: "Gyeongbokgung Palace", text: "The grandest of Seoul's royal palaces, with the changing of the guard at the main gate. Visitors wearing hanbok enter the palaces free of charge." },
+          { title: "Bukchon Hanok Village", text: "A hillside neighbourhood of traditional wooden houses between two palaces, best explored quietly on foot." },
+          { title: "N Seoul Tower", text: "A cable car up Namsan Mountain to the tower and its love-lock terraces, with views across the whole city." },
+          { title: "Myeongdong & Insadong", text: "Street food, cosmetics shopping and crafts, tea houses and galleries in two very different neighbourhoods." },
+          { title: "COEX & Starfield Library", text: "A huge mall in Gangnam with a soaring wall of bookshelves at its centre." },
+          { title: "Han River Cruise", text: "An evening on the water with the city lights on both banks." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Day trips from Seoul",
+        items: [
+          { title: "Nami Island", text: "Tree-lined avenues made famous by the drama Winter Sonata, beautiful in every season." },
+          { title: "Petite France & the Garden of Morning Calm", text: "A storybook village in the hills and one of the finest gardens in the country, lit with lanterns in winter." },
+          { title: "Everland", text: "Korea's largest theme park, with rides, safari and seasonal festivals. A highlight of almost every South Korea family tour package we plan." },
+          { title: "The DMZ", text: "Imjingak Park, the Third Infiltration Tunnel and Dora Observatory, looking across the border into North Korea." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Busan, Gyeongju and Jeju",
+        items: [
+          { title: "Gamcheon Culture Village", text: "Brightly painted houses stepping down a hillside, full of murals, cafés and art installations." },
+          { title: "Haedong Yonggungsa Temple", text: "A Buddhist temple set on the rocks right at the edge of the sea." },
+          { title: "Haeundae Beach & Sky Capsule", text: "Busan's favourite beach, and little capsule cars running along the coastal railway above it." },
+          { title: "Bulguksa Temple & Seokguram Grotto", text: "UNESCO-listed masterpieces of the Silla kingdom in Gyeongju, the ancient royal capital." },
+          { title: "Donggung Palace & Wolji Pond", text: "Royal pavilions reflected in still water, magical when lit up at night." },
+          { title: "Jeju Island", text: "Volcanic craters, waterfalls, black-sand beaches and Seongsan Ilchulbong, the sunrise peak rising from the sea." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "South Korea honeymoon packages",
+        body:
+          "South Korea suits couples who want romance with a modern edge. The country is made for couples, from love-lock terraces at N Seoul Tower to matching hanbok in the palaces, and the cafés, night views and cherry blossom avenues feel straight out of a drama.\n\nThe route most couples take is Seoul, Nami Island and Jeju across six or seven nights, with Busan added for those with time. Jeju is the romantic centre of it, with coastal drives, sunrise at Seongsan Ilchulbong, tangerine farms and ocean-view resorts. Spring and autumn add the colours that make Korea famous.\n\nOur South Korea honeymoon packages cover boutique hotels and ocean-view resorts rather than standard stays, private transfers and guides, a hanbok photo session in the palaces, a Han River cruise and a domestic flight to Jeju. Cherry blossom and autumn foliage weeks book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "South Korea tour packages from Kerala",
+        body:
+          "South Korea takes one connection from Kerala, and there are several good routes. Most travellers fly from Kochi through Singapore, Bangkok or Hong Kong, or connect through Delhi for a direct flight to Seoul's Incheon airport. From Seoul, the KTX bullet train reaches Busan in under three hours, and Jeju is a short domestic flight away.\n\nIndian passport holders need a tourist visa for South Korea, applied for in advance through the Korea Visa Application Centre, with processing taking around two weeks. Travellers also complete the online e-Arrival Card before landing. We confirm the current rules at the time of booking, prepare the visa documents with you, and arrange the hotels, trains, transfers and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "April to May is the finest season. Cherry blossom usually peaks in early April, followed by azaleas and fresh green hills, with comfortable sightseeing weather.\n\nSeptember to November is the second peak, with clear skies and the autumn leaves turning red and gold, at their best from mid-October into November.\n\nJune to August is hot and humid, with the monsoon rains from late June to July. Beaches in Busan and Jeju are busy, and indoor attractions and theme parks are a good focus.\n\nDecember to February is cold and snowy, with skiing, ice festivals, winter illuminations and Nami Island under snow. South Korea tour packages cost noticeably less outside the holiday weeks.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "South Korea is three and a half hours ahead of India. The currency is the won, cards are accepted almost everywhere, and a T-money card makes buses and the metro easy. Navigation works best on Korean map apps such as Naver Map or KakaoMap rather than Google Maps.\n\nKorea is very safe, and tipping is not customary. Vegetarian food takes planning, as many dishes, including kimchi, contain fish or meat stock, so let us know and we will flag suitable restaurants and Indian options along the route. Palaces and some attractions close one day a week, so we plan sightseeing around those days. Pack layers for spring and autumn, and proper winter clothing from December to February.",
+      },
+    ],
+    closingTitle: "Ready to plan your South Korea holiday?",
+    closingText:
+      "Seoul, Busan and Gyeongju across a week or more, a honeymoon through Nami Island and Jeju, or a family trip timed around the cherry blossom - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
+    metaTitle: "South Korea Tour Packages",
+    metaDescription:
+      "South Korea holiday packages from Kerala with Seoul, Nami Island, Busan, Gyeongju and Jeju, visa and KTX trains. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "sri-lanka",
+    name: "Sri Lanka",
+    country: "Sri Lanka",
+    region: "international",
+    order: 26,
+    priceFrom: 0,
+    heroImage: img("sri-lanka"),
+    tagline: "Rock fortresses, tea country and a coastline that never ends",
+    intro:
+      "Sri Lanka packs more into a small island than countries ten times its size. In a single week you can climb a fifth-century rock fortress, watch elephants gather at a reservoir, ride a blue train through misty tea estates and finish on a palm-lined beach in the south. It is green, warm and welcoming, the food is generous with spice and coconut, and the distances are short enough that every day brings a completely different landscape.\n\nFor Indian travellers, it is the easiest international holiday there is. The flight from Kochi or Thiruvananthapuram to Colombo takes about an hour, there is no time difference, and entry is by a simple online travel authorisation. At Alisha Tours & Travels, an IATA-accredited Sri Lanka travel agency based in Kottayam, we arrange the flights, hotels, private vehicle, driver-guide and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Sri Lanka",
+        points: [
+          "A one-hour flight from Kerala and the same clock as home, so no time is lost to travel",
+          "Ancient cities, hill country, wildlife and beaches, all within a single week",
+          "A private car and driver-guide throughout, which suits families travelling with elders and young children",
+          "Sri Lanka holiday packages that offer excellent value for the quality of hotels",
+          "The Ramayana trail, with sites linked to Sita, Hanuman and Ravana across the hill country",
+          "Food, faith and culture that feel familiar yet distinctly their own",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in the Cultural Triangle",
+        items: [
+          { title: "Sigiriya Lion Rock", text: "A royal fortress built on top of a rock rising nearly 200 metres from the plain, with frescoes, mirror wall and the giant lion paws at the final staircase. Climb early before the heat." },
+          { title: "Dambulla Cave Temple", text: "Five caves filled with Buddha statues and painted ceilings, a UNESCO World Heritage Site above the town." },
+          { title: "Polonnaruwa", text: "The medieval capital, with palaces, stupas and the great carved Buddhas of Gal Vihara, best explored by bicycle." },
+          { title: "Minneriya National Park", text: "In the dry season, hundreds of elephants gather at the reservoir in one of the largest elephant gatherings in Asia." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Kandy and the hill country",
+        items: [
+          { title: "Temple of the Sacred Tooth Relic", text: "The most important Buddhist shrine in the country, beside the lake in Kandy. Visit for the evening puja with drums and offerings." },
+          { title: "Kandyan Cultural Show", text: "Fire walkers, drummers and dancers in the costumes of the old royal court." },
+          { title: "Pinnawala Elephant Orphanage", text: "Elephants of all ages bathing in the river. An easy stop on any Sri Lanka family tour package with children along." },
+          { title: "Nuwara Eliya", text: "The old hill station known as Little England, with tea estates, cool air, Gregory Lake and a tea factory visit along the way." },
+          { title: "Seetha Amman Temple & Ramboda Falls", text: "The temple linked to Sita in the Ramayana, and a tall waterfall beside the road up into the hills." },
+          { title: "Ella & Nine Arch Bridge", text: "A railway viaduct curving through the jungle, with Little Adam's Peak and Ravana Falls nearby." },
+          { title: "The hill country train", text: "The journey from Nanu Oya to Ella through tea plantations and misty valleys, one of the most beautiful train rides in the world." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The south coast and Colombo",
+        items: [
+          { title: "Galle Fort", text: "A walled Dutch town on the sea, with ramparts, a lighthouse, cafés and boutiques. A UNESCO World Heritage Site." },
+          { title: "Bentota", text: "Golden beaches, water sports, a boat safari through the mangroves of the Madu River and turtle hatcheries along the coast." },
+          { title: "Yala National Park", text: "One of the best places in the world to see leopards, along with elephants, sloth bears and crocodiles." },
+          { title: "Mirissa", text: "Whale and dolphin watching between November and April, and a relaxed beach town to unwind afterwards." },
+          { title: "Colombo", text: "Gangaramaya Temple, the seafront promenade at Galle Face, Independence Square and shopping at One Galle Face and Laksala." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Sri Lanka honeymoon packages",
+        body:
+          "Sri Lanka suits couples who want variety without long travel days. It moves from misty hills to warm beaches in a few hours, the hotels are some of the best value in Asia, and a private driver means the whole trip runs at your own pace.\n\nThe route most couples take is Sigiriya, Kandy, Nuwara Eliya or Ella and then the south coast across six or seven nights, ending with two or three nights on the beach at Bentota or near Galle. A tea estate bungalow in the hills is the romantic centre of it, with cool evenings, a fireplace and views across the plantations in the morning.\n\nOur Sri Lanka honeymoon packages cover boutique hotels and beach resorts rather than standard stays, a private car and driver-guide throughout, the hill country train ride, a candlelit dinner and an Ayurvedic spa session. December to April is the peak season on the south coast, so these dates are worth confirming early.",
+      },
+      {
+        kind: "prose",
+        title: "Sri Lanka tour packages from Kerala",
+        body:
+          "Few international trips are as simple from Kerala. Kochi and Thiruvananthapuram both have direct flights to Colombo, about an hour in the air, and the main tourist circuit begins within a short drive of Bandaranaike International Airport. A seven-day loop through the Cultural Triangle, the hills and the coast can start the same afternoon you land.\n\nIndian passport holders enter Sri Lanka with an Electronic Travel Authorisation (ETA) applied for online before travel, which has been issued free of charge for Indian travellers under Sri Lanka's tourism promotion scheme. We confirm the current rules at the time of booking, apply for the ETA, and arrange the hotels, vehicle, driver-guide, entrance tickets and full itinerary from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "December to April is the main season for the west and south coasts, the hill country and the Cultural Triangle, with dry, sunny days and calm seas. This is the best time for most first-time visitors.\n\nMay to September brings the southwest monsoon to the west and south coasts, but the east coast at Trincomalee, Pasikudah and Arugam Bay is at its best. The Cultural Triangle stays largely dry, and the Kandy Esala Perahera festival takes place in July or August.\n\nOctober and November are the inter-monsoon months, with afternoon showers in most areas. Hotels are quieter and Sri Lanka tour packages cost less, while mornings are usually clear enough for sightseeing.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Sri Lanka keeps the same time as India. The local currency is the Sri Lankan rupee, cards work in hotels and larger shops, and it is worth carrying some cash for temples, tuk-tuks and roadside stops. Distances look short on a map, but hill roads are winding and slow, so allow time and carry motion sickness tablets for the drive to Nuwara Eliya.\n\nDress modestly at temples, covering shoulders and knees, and remove shoes and hats before entering. Never pose for photos with your back to a Buddha statue, and avoid clothing or tattoos showing the Buddha, which can cause serious offence. Pack light layers and a jacket for the hills, where evenings turn cool even when the coast is hot.",
+      },
+    ],
+    closingTitle: "Ready to plan your Sri Lanka holiday?",
+    closingText:
+      "Sigiriya, Kandy, Ella and the beaches across seven days, a honeymoon through tea country and the south coast, or a Ramayana trail with the family - we will shape it around what you want. Flights, ETA, hotels, private vehicle, guide and sightseeing arranged from one place.",
+    metaTitle: "Sri Lanka Tour Packages",
+    metaDescription:
+      "Sri Lanka holiday packages from Kerala with Sigiriya, Kandy, Nuwara Eliya, Ella and the south coast. Customised itineraries and honeymoon packages.",
+  },
+  {
+    slug: "uzbekistan",
+    name: "Uzbekistan",
+    country: "Uzbekistan",
+    region: "international",
+    order: 27,
+    priceFrom: 0,
+    heroImage: img("uzbekistan"),
+    tagline: "The Silk Road, still standing",
+    intro:
+      "Uzbekistan is where the old caravan routes between China and Europe met, and the cities they built are still there. Turquoise domes rise over Samarkand, the mud-brick walls of Khiva look much as they did when traders arrived by camel, and the bazaars of Bukhara still sell spices, silk and bread from clay ovens. It is one of the most beautiful countries in Asia and still one of the least crowded, with warm hospitality and food that Indian travellers find surprisingly familiar.\n\nThe connection with India runs deep. Babur, founder of the Mughal empire, was born in the Fergana Valley, and the architecture of Samarkand shaped the monuments of Delhi and Agra. At Alisha Tours & Travels, an IATA-accredited Uzbekistan travel agency based in Kottayam, we arrange the flights, visa, hotels, guides, high-speed trains and transfers as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Uzbekistan",
+        points: [
+          "Silk Road cities that look like a storybook, with mosaics, minarets and madrasahs at every turn",
+          "A short flight from Delhi, and only half an hour behind Indian time",
+          "Safe, clean and welcoming, with Indian films and music well known locally",
+          "Uzbekistan holiday packages that cost far less than Europe for a comparable experience",
+          "Fast, modern Afrosiyob trains linking Tashkent, Samarkand and Bukhara in a few hours",
+          "Mountain air at Chimgan and Charvak within easy reach of the capital",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Tashkent",
+        items: [
+          { title: "Khast Imam Complex", text: "The religious heart of the old city, with madrasahs, a mosque and a library holding one of the oldest Qurans in the world." },
+          { title: "Chorsu Bazaar", text: "A great domed market of spices, dried fruit, nuts and fresh bread. The best place to see daily life in the capital." },
+          { title: "Amir Temur Square & Independence Square", text: "The modern centre of Tashkent, with parks, fountains and the statue of Timur on horseback." },
+          { title: "Tashkent Metro", text: "Stations decorated with chandeliers, marble and mosaics, each one designed around a different theme." },
+          { title: "Lal Bahadur Shastri Memorial", text: "A street and memorial dedicated to the former Indian Prime Minister, who passed away in Tashkent in 1966." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Chimgan Mountains and Charvak",
+        items: [
+          { title: "Amirsoy Resort", text: "A cable-chair ride up into the western Tien Shan, with snow-capped peaks, river valleys and skiing in winter. An easy favourite on any Uzbekistan family tour package." },
+          { title: "Charvak Reservoir", text: "A turquoise lake ringed by mountains, with lakeside resorts and boat rides through the summer." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Samarkand, Bukhara and Khiva",
+        items: [
+          { title: "Registan Square, Samarkand", text: "Three madrasahs facing each other across a vast square, covered in blue and gold tilework. Even more dramatic when lit up at night." },
+          { title: "Gur-e-Amir", text: "The mausoleum of Timur, with a ribbed blue dome that inspired the tombs of the Mughals." },
+          { title: "Shah-i-Zinda", text: "An avenue of mausoleums climbing a hillside, each one covered in some of the finest tilework in the Islamic world." },
+          { title: "Bibi-Khanym Mosque & Siab Bazaar", text: "Once one of the largest mosques in the world, beside a lively market selling the famous Samarkand bread." },
+          { title: "Poi Kalyan, Bukhara", text: "A great mosque and madrasah around the Kalyan Minaret, which has stood above the city for nearly nine hundred years." },
+          { title: "Lyabi Hauz & the Ark Fortress", text: "A pool shaded by mulberry trees at the centre of old Bukhara, and the massive walls of the citadel nearby." },
+          { title: "Itchan Kala, Khiva", text: "A complete walled city of mosques, palaces and minarets, best seen at sunset from the walls." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Uzbekistan honeymoon packages",
+        body:
+          "Uzbekistan suits couples who want a honeymoon that feels like a discovery. It is exotic without being difficult, the cities are some of the most photogenic anywhere, and evenings in the old towns are quiet, warm and lit by lanterns.\n\nThe route most couples take is Tashkent, Samarkand and Bukhara across six or seven nights, travelling between cities by high-speed train. Bukhara is the romantic centre of it, with boutique hotels set in restored merchants' houses, dinners around Lyabi Hauz and the old town to wander after dark. A night or two at Chimgan or Charvak adds mountain scenery for couples with time.\n\nOur Uzbekistan honeymoon packages cover boutique heritage hotels rather than standard stays, private guides in each city, train travel in business class, a traditional dinner with folk music and a photo walk through the old towns at golden hour. Spring and autumn book out early, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Uzbekistan tour packages from Kerala",
+        body:
+          "Uzbekistan takes one connection from Kerala, and the routing is straightforward. Most travellers fly through Delhi on the direct service to Tashkent, which takes under three hours, or connect through Dubai or Sharjah, both short flights from Kochi. Arriving in Tashkent works for most itineraries, and the high-speed train takes over from there.\n\nIndian passport holders currently travel to Uzbekistan on an e-visa, usually issued within a few working days. A 30-day visa-free arrangement for Indian citizens was announced in August 2026 and is expected to simplify entry further once it takes effect, so we confirm the current rules at the time of booking. We handle the visa, hotels, guides, train tickets and the full itinerary from our office, so nothing needs arranging after you land.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "April to June is the finest season. Gardens in bloom, comfortable temperatures for walking the old cities, and green valleys around Chimgan. Navruz, the spring new year, is celebrated across the country just before, around 21 March.\n\nSeptember to October is the second peak, with warm days, cool evenings and markets overflowing with melons, grapes and pomegranates. Clear skies make this the best time for photography.\n\nJuly and August are very hot, particularly in Bukhara and Khiva, where temperatures can pass 40°C. Sightseeing is best planned for early mornings and evenings, though mountain areas stay pleasant.\n\nNovember to March is cold and quiet, with snow at Chimgan and Amirsoy for skiing and very few visitors in the cities. Uzbekistan tour packages cost noticeably less through the winter.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Uzbekistan is thirty minutes behind India. The local currency is the som, cards are accepted in larger hotels and city shops, and cash is still needed in bazaars and smaller towns, so carry US dollars to exchange at banks. Russian and Uzbek are the main languages, though guides speak English and younger people increasingly do too.\n\nDress modestly at mosques and mausoleums, covering shoulders and knees, and women should carry a scarf. Ask before photographing people, particularly in markets. Vegetarian meals are available but limited outside the main cities, so let us know and we will plan around it. Days are dry and sunny for much of the year, so pack sunscreen, a hat and comfortable shoes for long walks across old city streets.",
+      },
+    ],
+    closingTitle: "Ready to plan your Uzbekistan holiday?",
+    closingText:
+      "Tashkent and the Chimgan mountains across four days, a honeymoon through Samarkand and Bukhara, or the full Silk Road circuit to Khiva - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
+    metaTitle: "Uzbekistan Tour Packages",
+    metaDescription:
+      "Uzbekistan holiday packages from Kerala with Tashkent, Samarkand, Bukhara and Khiva, visa and high-speed trains. Customised itineraries and honeymoon packages.",
   },
 ];
 
