@@ -251,7 +251,11 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
       id={id}
       onMouseEnter={onMouseEnter}
       className={cn(
-        "absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-150",
+        "absolute top-full pt-4 transition-all duration-150",
+        // The wide Destinations panel opens from its own link rather than
+        // centring on it: centred, it ran off the left edge of a 1280px
+        // screen, because Destinations is the first item in the bar.
+        wide ? "-left-8" : "left-1/2 -translate-x-1/2",
         open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
       )}
       // Hidden from assistive tech and from tab order while collapsed. React 19
@@ -261,7 +265,7 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
       <div
         className={cn(
           "rounded-3xl border border-line bg-white p-6 shadow-[0_28px_70px_-30px_rgba(16,32,42,0.4)]",
-          wide ? "grid w-[44rem] grid-cols-[1.4fr_1fr] gap-8" : rich ? "w-[24rem]" : "w-[17rem]"
+          wide ? "grid w-[54rem] grid-cols-[3fr_2fr] gap-8" : rich ? "w-[24rem]" : "w-[17rem]"
         )}
       >
         {item.columns.map((column) => (
@@ -272,7 +276,11 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
             <ul
               className={cn(
                 "mt-3",
-                column.items.length > 8 ? "grid grid-cols-2 gap-x-5 gap-y-0.5" : "space-y-0.5"
+                column.items.length > 16
+                  ? "grid grid-cols-3 gap-x-3 gap-y-0.5"
+                  : column.items.length > 8
+                    ? "grid grid-cols-2 gap-x-3 gap-y-0.5"
+                    : "space-y-0.5"
               )}
             >
               {column.items.map((link) => (
