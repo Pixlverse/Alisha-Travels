@@ -301,66 +301,80 @@ export const destinations = [
     order: 4,
     priceFrom: 55000,
     heroImage: img("maldives"),
-    tagline: "Overwater villas, honeymoons and the clearest water on earth",
+    tagline: "One island, one resort, nothing but blue",
     intro:
-      "The Maldives is 1,192 islands scattered across the Indian Ocean, and almost every resort occupies one of its own. You arrive by seaplane or speedboat, you are handed a coconut, and for the next few days your only decisions are about which water to get into. There is no sightseeing to tick off, no long drives, no early starts. That is the whole point.\n\nIt is also the closest of the classic honeymoon destinations to Kerala. Direct connections run from Kochi and Thiruvananthapuram via Male; the flight is short, and Indian food is on every resort menu. At Alisha Tours & Travels, an IATA-accredited Maldives travel agency based in Kottayam, we arrange the flights, resort, seaplane or speedboat transfers, meal plan, and any private experiences as one booking.",
+      "The Maldives is the simplest idea in travel done perfectly. Each resort has an island to itself, ringed by white sand and a reef you can snorkel straight from the beach. Villas stand on stilts over a lagoon so clear you can watch fish from your deck, and the days are measured by meals, swims and sunsets. There is little to see in the usual sense, which is exactly the point.\n\nFor Indian travellers, it is also one of the closest. The flight from Kochi to Malé takes under two hours, visas are free on arrival, and resorts are used to Indian guests, families and honeymooners alike. At Alisha Tours & Travels, an IATA-accredited Maldives travel agency based in Kottayam, we arrange the flights, resort, villa category, meal plan and transfers as one booking.",
     blocks: [
       {
         kind: "list",
         title: "Why travellers choose the Maldives",
         points: [
-          "Water so clear it looks unreal, and some of the best reefs in the world",
-          "Private villas over the lagoon, with steps straight down into the sea",
-          "A short flight from Kerala, with no visa needed in advance",
-          "Full-board and all-inclusive plans, so nothing is left to arrange once you land",
-          "Maldives holiday packages across every level, from guesthouse islands to private resorts",
-          "Complete privacy, which no other destination at this distance can match",
+          "Under two hours from Kochi, with a free visa on arrival for Indian passport holders",
+          "Water villas over the lagoon, private pools and house reefs right outside the door",
+          "The most popular honeymoon destination for Indian couples, and for good reason",
+          "Maldives holiday packages with meals, transfers and taxes included, so costs stay clear",
+          "Snorkelling and diving among turtles, rays, reef sharks and whale sharks",
+          "Resorts that suit every budget, from good-value islands near Malé to private-island luxury",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top experiences: villas and resort life",
+        items: [
+          { title: "Water Villas", text: "Rooms built on stilts over the lagoon, with ladders straight into the sea and sunrise or sunset views from the deck." },
+          { title: "Beach Villas", text: "Steps from the sand and better for families with small children. Many of our guests split their stay between a beach villa and a water villa." },
+          { title: "House Reef Snorkelling", text: "Most resorts have a reef within swimming distance of the beach, with turtles, reef fish and the occasional reef shark." },
+          { title: "Spa & Sunset Dinners", text: "Overwater spa treatments and private dinners on the beach, often included in honeymoon offers." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "In the water",
+        items: [
+          { title: "Whale Sharks in South Ari Atoll", text: "One of the few places in the world where whale sharks can be seen year-round." },
+          { title: "Manta Rays at Hanifaru Bay", text: "Baa Atoll, a UNESCO Biosphere Reserve, where mantas gather to feed in the southwest monsoon season." },
+          { title: "Dolphin Cruises", text: "Sunset boat trips where spinner dolphins ride alongside, a favourite on any Maldives family tour package." },
+          { title: "Sandbank Picnics", text: "A boat out to a strip of sand in the middle of the ocean, with nothing around but water." },
+          { title: "Diving", text: "Some of the best diving in the Indian Ocean, with courses for beginners at most resorts." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Beyond the resort",
+        items: [
+          { title: "Malé City", text: "The compact capital, with the coral-stone Old Friday Mosque, the fish market and Sultan Park, easily seen in a few hours." },
+          { title: "Local Islands", text: "Guesthouse islands such as Maafushi offer a glimpse of everyday Maldivian life and a more budget-friendly stay." },
+          { title: "Underwater Restaurants", text: "A meal below the surface with fish swimming past the glass, offered at a handful of resorts." },
         ],
       },
       {
         kind: "prose",
         title: "Maldives honeymoon packages",
         body:
-          "This is the honeymoon almost everyone pictures, and there is a reason it has stayed at the top of the list for so long. An overwater villa with a private deck and a ladder into the lagoon, dinner served on the sand, a sandbank picnic with nothing else in sight, and no schedule to keep for a week.\n\nOur Maldives honeymoon packages are built around the couple rather than a fixed template. Some want a quiet island with a house reef and little else. Others want a resort with a spa, water sports and a choice of restaurants. We arrange the villa category, the meal plan, airport transfers, and the extras that matter: floating breakfast, a private sunset cruise, a candlelit beach dinner, spa treatments for two. Honeymoon benefits vary by resort, from room upgrades to a complimentary dinner or decorated villa, and we make sure yours are confirmed before you travel.",
-      },
-      {
-        kind: "cards",
-        title: "What to do",
-        items: [
-          { title: "Overwater villas", text: "Glass floor panels, a private deck and a ladder into the lagoon. Beach villas with private pools cost less and suit families better." },
-          { title: "Snorkelling the house reef", text: "Most resorts have a reef a short swim from shore, with parrotfish, turtles and reef sharks. Often the best hour of the trip, and it costs nothing." },
-          { title: "Scuba diving", text: "Manta rays, whale sharks and wreck dives. Resorts run PADI courses for beginners, so a first dive is entirely possible on a honeymoon." },
-          { title: "Sandbank picnic", text: "A boat drops you on a strip of sand in open ocean with a packed lunch and an umbrella, and collects you hours later. Nothing else in sight." },
-          { title: "Dolphin cruise at sunset", text: "Spinner dolphins riding the bow while the sky turns. The standard evening on almost every island." },
-          { title: "Male and Hulhumale", text: "The capital's fish market, Friday Mosque and coloured streets, for travellers who want a half-day of something other than sand." },
-          { title: "Maafushi and the local islands", text: "Guesthouse islands where the Maldives is affordable. Excursions, shared reefs and a bikini beach set aside for visitors." },
-          { title: "Underwater dining", text: "A handful of resorts have restaurants built below the waterline, surrounded by reef. Expensive, and unforgettable." },
-          { title: "Water sports", text: "Jet skis, parasailing, kayaks, catamarans and paddleboards, usually included in the villa rate or run as a package." },
-          { title: "Spa over the water", text: "Treatment rooms with glass floors and the sound of the lagoon underneath." },
-        ],
+          "The Maldives was made for honeymoons. It is private in a way that no city can be, the scenery does all the work, and the days have no schedule beyond what you want to do with them.\n\nMost couples take three to five nights, often with a night or two in a beach villa followed by the rest in a water villa. The water villa is the romantic centre of it, with breakfast on the deck, a private pool or ladder into the lagoon, and the sunset from your own terrace. Transfers by speedboat suit resorts close to Malé, while seaplanes reach the more remote atolls with spectacular views on the way.\n\nOur Maldives honeymoon packages cover water villa stays, full board or all-inclusive meal plans, speedboat or seaplane transfers, all taxes including the green tax, and the honeymoon extras resorts offer, such as cake, flowers, a candlelit dinner or a spa session. December to April books out early, so these dates are worth confirming well ahead.",
       },
       {
         kind: "prose",
-        title: "Choosing where to stay",
+        title: "Maldives tour packages from Kerala",
         body:
-          "The resort matters more here than in any other destination, because the island is your entire holiday.\n\nResort islands suit honeymooners and anyone wanting privacy, all-inclusive dining and a reef at the doorstep. Transfers are by speedboat for nearer atolls and seaplane for the far ones, and seaplanes only fly in daylight.\n\nLocal islands such as Maafushi cost a fraction of the resort rate, with guesthouses, local restaurants and day trips out to sandbanks and reefs. Alcohol is not served, and dress is modest away from the tourist beach.\n\nFamily resorts are the basis of our Maldives family packages, with kids' clubs, shallow lagoons and connecting or two-bedroom villas. Several sit close enough to Male to reach by speedboat, which avoids the seaplane cost and the daylight restriction that comes with it.\n\nWe match the island to the trip, since a resort that suits a honeymoon is rarely the right one for a family with small children.",
+          "Few international holidays are as easy from Kerala. IndiGo and Maldivian, the national airline of the Maldives, both fly direct from Kochi to Malé in under two hours, and Maldivian also flies direct from Thiruvananthapuram. There are good connections from Bengaluru and other Indian cities too. From Velana International Airport, transfers go straight to the resort by speedboat, seaplane or a short domestic flight, depending on the island. Maldivian runs the country's largest domestic network as well, which makes it a convenient choice when the last leg to the resort is a domestic flight.\n\nIndian passport holders receive a free 30-day tourist visa on arrival, with a confirmed hotel booking and return ticket. Every traveller, including infants, completes the online IMUGA traveller declaration in the days before departure. We confirm the current rules at the time of booking, complete the paperwork with you, and arrange the resort, transfers and meal plan from our office.",
       },
       {
         kind: "prose",
         title: "Best time to visit",
         body:
-          "November to April is the dry season and the peak, with calm seas, clear water and the best visibility for diving. Rates are highest around Christmas and the New Year, so you'll need to book Maldives tour packages several months ahead for those dates.\n\nMay to October is the wetter season, though rain tends to come in short bursts rather than settling in. Resort rates drop substantially, which is when the Maldives becomes surprisingly affordable, and whale shark and manta sightings are at their best around Baa Atoll from May to November.",
+          "December to April is the dry season, with sunshine, calm seas and the clearest water for snorkelling. It is the peak season, so resort rates are at their highest, particularly over Christmas and New Year.\n\nMay to November is the southwest monsoon, with more cloud, showers and occasional rough seas. Days are still warm and often sunny between showers, manta season is at its best and Maldives tour packages offer excellent value, with many resorts adding free nights or villa upgrades.",
       },
       {
         kind: "prose",
         title: "Good to know before you go",
         body:
-          "The Maldives is thirty minutes behind India. Indian passport holders receive a free visa on arrival, valid for thirty days, upon presenting confirmed hotel bookings and return tickets. The currency is the rufiyaa, though resorts bill in US dollars and cards are accepted everywhere. Resorts are relaxed about swimwear, while local islands are not. Alcohol is served only on resort islands. Seaplane transfers operate in daylight hours alone, so arrival timing decides whether you reach the island the same day. Bring reef-safe sunscreen, since several resorts have stopped selling anything else.",
+          "The Maldives is thirty minutes behind India. The local currency is the rufiyaa, but resorts charge in US dollars and accept cards, so there is little need for cash. Prices in resorts are high for extras, so the meal plan matters: full board or all-inclusive usually works out better value than paying for each meal.\n\nSeaplanes fly only in daylight, so guests arriving late in the evening may need a night near the airport before transferring. Alcohol is available only on resort islands, and on local islands visitors should dress modestly away from designated bikini beaches. Pack reef-safe sunscreen, a hat and light clothing, and bring an underwater camera if you have one.",
       },
     ],
     closingTitle: "Ready to plan your Maldives holiday?",
     closingText:
-      "An overwater villa for a honeymoon, a family week with a shallow lagoon and a kids' club, or a budget trip built around a local island, we will match the resort to what you actually want. Flights, transfers, meal plans and experiences arranged from one place.\n\nCall +91 9562921818 or write to info@alishatravels.in",
+      "Three nights in a beach villa, a honeymoon split between beach and water villa, or a family stay at an island with a kids' club - we will shape it around what you want. Flights, resort, meal plan, transfers and taxes arranged from one place.",
     faqs: [
       {
         question: "Do we need a visa for the Maldives?",
