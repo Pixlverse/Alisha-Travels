@@ -126,6 +126,20 @@ async function resolveGallery(list, folder) {
 /*  Upsert helpers                                                             */
 /* -------------------------------------------------------------------------- */
 
+const RETIRED_GALLERY_CAPTIONS = [
+  "Group departure at the Burj Khalifa observation deck",
+  "Coral Island morning, Pattaya group tour",
+  "On the Zanskar road, Ladakh fixed departure",
+  "Alleppey houseboat, Kerala family package",
+  "Shikaras on Dal Lake at first light",
+  "A honeymoon couple's sandbank picnic, Baa Atoll",
+  "Long-weekend group at Palolem, South Goa",
+  "Ettumanoor, where the head office has been since 2013",
+  "Sending a group off from Cochin International",
+  "Gardens by the Bay - Singapore family package advertisement",
+  "Phi Phi Islands - Thailand fixed departure advertisement",
+];
+
 const PACKAGE_OPTIONAL_DEFAULTS = {
   priceNote: "",
   priceRows: [],
@@ -136,6 +150,13 @@ const PACKAGE_OPTIONAL_DEFAULTS = {
   guidelines: [],
   terms: [],
   offerEndsOn: null,
+  // The proposal's quote details (REF, party, travel month, rooms) are not
+  // shown on customized packages, at the client's instruction - cleared here
+  // so a re-seed removes them from documents that already have them.
+  referenceNo: "",
+  travelWindow: "",
+  travellers: "",
+  rooms: null,
 };
 
 async function upsertBySlug(Model, doc) {
@@ -234,6 +255,7 @@ async function main() {
             departureDate,
             returnDate,
             price: dep.price ?? savedPackage.priceFrom,
+            priceLabel: dep.priceLabel || "",
             seatsTotal: dep.seatsTotal ?? 0,
             seatsRemaining: dep.seatsRemaining ?? 0,
             boardingCity: dep.boardingCity || "",
@@ -296,6 +318,10 @@ async function main() {
 
   /* --- Gallery ----------------------------------------------------------- */
   process.stdout.write("Gallery      ");
+  // Gallery items are matched by caption, so the captions the seed used to
+  // write ("Group departure at the Burj Khalifa..." over a library photo) are
+  // removed by name. Photographs added through /admin/ are left alone.
+  await GalleryItem.deleteMany({ caption: { $in: RETIRED_GALLERY_CAPTIONS } });
   for (const source of galleryItems) {
     const image = await resolveImage(source.image, CLOUDINARY_FOLDERS.gallery);
     await GalleryItem.findOneAndUpdate(

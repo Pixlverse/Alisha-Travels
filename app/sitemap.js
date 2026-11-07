@@ -53,6 +53,8 @@ export default async function sitemap() {
     { path: "/about/ramzi-mohammed-ali/", priority: 0.5, changeFrequency: "yearly" },
     { path: "/reviews/", priority: 0.6, changeFrequency: "weekly" },
     { path: "/gallery/", priority: 0.4, changeFrequency: "monthly" },
+    { path: "/privacy-policy/", priority: 0.2, changeFrequency: "yearly" },
+    { path: "/terms-and-conditions/", priority: 0.2, changeFrequency: "yearly" },
     { path: "/contact/", priority: 0.8, changeFrequency: "monthly" },
   ].map((route) => ({
     url: url(route.path),
@@ -75,12 +77,15 @@ export default async function sitemap() {
     priority: 0.7,
   }));
 
-  const serviceRoutes = services.map((service) => ({
-    url: url(`/services/${service.slug}/`),
-    lastModified: service.updatedAt ? new Date(service.updatedAt) : now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const serviceRoutes = services
+    // Redirects to /services/global-visa/ (next.config.mjs).
+    .filter((service) => service.slug !== "global-tourist-visa")
+    .map((service) => ({
+      url: url(`/services/${service.slug}/`),
+      lastModified: service.updatedAt ? new Date(service.updatedAt) : now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
 
   return [...staticRoutes, ...destinationRoutes, ...packageRoutes, ...serviceRoutes];
 }

@@ -31,7 +31,7 @@ export const categoryPages = [
       { title: "Reachable on the trip", text: "One number for the whole group" },
     ],
     intro:
-      "Most groups start with an idea and a rough number. We quote a per-head price for a range, say 20 to 30 people, and hold group fares and rooms while names are confirmed. The organiser collects the list; we handle tickets, rooming, transport and the day-by-day plan. When someone drops out or joins late, the change goes through one person, and the revised cost reaches the organiser in writing. Every itinerary is built for the group that is travelling, so customised group tours are the normal case here rather than an extra.",
+      "Most groups start with an idea and a rough number. We quote a per-head price for a range, say 20 to 30 people, and hold group fares and rooms while names are confirmed. The organiser collects the list; we handle tickets, rooming, transport and the day-by-day plan. When someone drops out or joins late, the change goes through one person, and the revised cost reaches the organiser in writing. Every itinerary is built for the group that is travelling, so customized group tours are the normal case here rather than an extra.",
     blocks: [
       {
         kind: "cards",
@@ -225,7 +225,7 @@ export const categoryPages = [
       },
     ],
     intro:
-      "How many are travelling, their ages, and anyone who needs extra care: a grandparent who can't manage long walks, a child with a food allergy, a wheelchair user. Then school holidays, exam dates and how long you can be away. That is usually enough to decide how many days the trip needs, how much driving is reasonable in a day, and which hotels will actually work. Most of the family holiday packages from Kerala we plan start with that conversation, which is why every itinerary is customised. Customised family tour packages cost no more than a fixed one; they simply fit the people going.",
+      "How many are travelling, their ages, and anyone who needs extra care: a grandparent who can't manage long walks, a child with a food allergy, a wheelchair user. Then school holidays, exam dates and how long you can be away. That is usually enough to decide how many days the trip needs, how much driving is reasonable in a day, and which hotels will actually work. Most of the family holiday packages from Kerala we plan start with that conversation, which is why every itinerary is customized. Customized family tour packages cost no more than a fixed one; they simply fit the people going.",
     blocks: [
       {
         kind: "cards",
@@ -383,7 +383,7 @@ export const categoryPages = [
       },
     ],
     intro:
-      "Most couples come to us once the wedding date is fixed and everything else is still moving. We start with a short conversation (number of nights, how far you want to travel, whether you want to see places or mostly rest) and come back with one or two itineraries, costed in full. We plan around the reception, leave dates and visa appointments, so the trip fits the weeks after the wedding rather than competing with them. Every one of our honeymoon travel packages is built this way. There is no fixed list to pick a number from, and a customised honeymoon package costs no more than a standard one.",
+      "Most couples come to us once the wedding date is fixed and everything else is still moving. We start with a short conversation (number of nights, how far you want to travel, whether you want to see places or mostly rest) and come back with one or two itineraries, costed in full. We plan around the reception, leave dates and visa appointments, so the trip fits the weeks after the wedding rather than competing with them. Every one of our honeymoon travel packages is built this way. There is no fixed list to pick a number from, and a customized honeymoon package costs no more than a standard one.",
     blocks: [
       {
         kind: "cards",

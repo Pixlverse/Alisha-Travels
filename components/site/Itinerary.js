@@ -58,7 +58,9 @@ export default function Itinerary({ days = [] }) {
                   {day.stay ? (
                     <li className="inline-flex items-center gap-1.5">
                       <BedDouble className="size-3.5 text-brand-400" aria-hidden="true" />
-                      Overnight: {day.stay}
+                      {/* The proposals write the stay as "Overnight, Beijing";
+                          the label is added here, so strip theirs. */}
+                      Overnight: {day.stay.replace(/^overnight(\s+(stay\s+)?(in|at|on))?[\s,:-]*/i, "") || day.stay}
                     </li>
                   ) : null}
                   {day.meals && day.meals !== "-" ? (

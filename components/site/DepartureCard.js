@@ -189,7 +189,12 @@ export default function DepartureCard({ departure, destinations = [], services =
           Above the card-wide link, so the buttons are the buttons. */}
       <div className="relative z-10 flex shrink-0 items-center justify-between gap-4 border-t border-line pt-4 sm:w-[10.5rem] sm:flex-col sm:items-stretch sm:justify-center sm:gap-3 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-5">
         <div className="sm:text-center">
-          <p className="text-[0.625rem] tracking-wide text-ink-muted uppercase">Per person</p>
+          <p className="text-[0.625rem] tracking-wide text-ink-muted uppercase">
+            {departure.priceLabel && !expired ? (
+              <span className="font-bold text-sun-shadow">{departure.priceLabel} · </span>
+            ) : null}
+            Per person
+          </p>
           <p
             className={cn(
               "font-sans text-xl leading-tight font-extrabold",

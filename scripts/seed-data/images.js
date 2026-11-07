@@ -183,6 +183,16 @@ export const DESTINATION_IMAGES = {
 
 /** Extra frames used for package heroes, galleries and the /gallery/ page. */
 export const EXTRA_IMAGES = {
+  // A Piece of Europe: Prague is on the route, Switzerland is not (CC BY-SA 3.0)
+  prague: {
+    url: `${C}/1/1c/Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg/1920px-Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg`,
+    alt: "The Old Town Square in Prague at night, with the Old Town Hall tower and the Tyn Church",
+  },
+  // Maldives package: an atoll from the seaplane, not any one resort (CC BY-SA 2.0)
+  maldivesAtoll: {
+    url: `${C}/6/62/Maldives_-_aerial_view1.jpg/1920px-Maldives_-_aerial_view1.jpg`,
+    alt: "A ring-shaped coral atoll in the Maldives seen from a seaplane window",
+  },
   pattaya: {
     url: `${C}/e/ec/Pattaya_beach_from_view_point.jpg/1920px-Pattaya_beach_from_view_point.jpg`,
     alt: "Pattaya beach and bay seen from the viewpoint above the town",

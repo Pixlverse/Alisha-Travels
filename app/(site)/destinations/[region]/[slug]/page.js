@@ -66,7 +66,6 @@ export default async function DestinationPage({ params }) {
     topAttractions = [],
     faqs = [],
     packages = [],
-    priceFrom,
     country,
   } = destination;
 
@@ -78,9 +77,11 @@ export default async function DestinationPage({ params }) {
     { label: regionLabel, href: `/destinations/${region}/` },
     { label: name },
   ];
-  const cheapest = packages.length
-    ? Math.min(...packages.map((p) => p.priceFrom))
-    : priceFrom || null;
+  // Only priced packages (promotional offers, fixed departures) count;
+  // customized proposals are price on request, so a destination with none
+  // shows no "Packages start from" at all.
+  const priced = packages.map((p) => p.priceFrom).filter((value) => value > 0);
+  const cheapest = priced.length ? Math.min(...priced) : null;
 
   return (
     <>
@@ -133,7 +134,7 @@ export default async function DestinationPage({ params }) {
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button href="/contact/" size="lg" variant="white">
-                Plan a {name} trip
+                Plan {/^[AEIOU]/i.test(name) ? "an" : "a"} {name} trip
               </Button>
               <Button
                 href={whatsappLink({ destinationName: name })}

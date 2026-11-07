@@ -19,10 +19,11 @@ import { DESTINATION_IMAGES } from "./images.js";
  * without throwing most of each document away. See models/Destination.js.
  *
  * TWO DESTINATIONS HAVE NO DOCUMENT YET — the Golden Triangle and Delhi &
- * Manali. They keep the original placeholder fields (whyVisit,
- * bestTimeToVisit, topAttractions), which is what the page falls back to when
- * a destination has no blocks, so they render correctly and are ready for the
- * client's copy whenever it arrives.
+ * Manali. Their blocks, closing and second intro paragraph were drafted
+ * in-house from the packages we sell, in the same structure as Goa and
+ * Rajasthan, not transcribed from a client document. They still carry the
+ * original placeholder fields (whyVisit, bestTimeToVisit, topAttractions),
+ * which the page only falls back to when a destination has no blocks.
  *
  * Images, order, prices, FAQs and meta descriptions are NOT from the documents
  * and were carried over unchanged.
@@ -42,7 +43,7 @@ export const destinations = [
     country: "United Arab Emirates",
     region: "international",
     order: 1,
-    priceFrom: 42000,
+    priceFrom: 0,
     heroImage: img("dubai"),
     tagline: "Where the desert meets the skyline",
     intro:
@@ -91,7 +92,7 @@ export const destinations = [
     ],
     closingTitle: "Ready to plan your Dubai holiday?",
     closingText:
-      "Whether it is a honeymoon, a family trip or a long-overdue break with friends, we will customise your Dubai holiday package around what you actually want to do. Flights, hotels, visa, transfers and sightseeing, all arranged from one place.\n\nCall +91 9562921818 or write to info@alishatravels.in",
+      "Whether it is a honeymoon, a family trip or a long-overdue break with friends, we will customize your Dubai holiday package around what you actually want to do. Flights, hotels, visa, transfers and sightseeing, all arranged from one place.\n\nCall +91 9562921818 or write to info@alishatravels.in",
     faqs: [
       {
         question: "Do we need a visa for Dubai from India?",
@@ -119,7 +120,7 @@ export const destinations = [
     country: "Singapore",
     region: "international",
     order: 2,
-    priceFrom: 58000,
+    priceFrom: 0,
     heroImage: img("singapore"),
     tagline: "A small island that does everything properly",
     intro:
@@ -191,7 +192,7 @@ export const destinations = [
     country: "Thailand",
     region: "international",
     order: 3,
-    priceFrom: 38000,
+    priceFrom: 0,
     heroImage: img("thailand"),
     tagline: "Islands, temples and a night market on every corner",
     intro:
@@ -291,7 +292,7 @@ export const destinations = [
     ],
     metaTitle: "Thailand Tour Packages",
     metaDescription:
-      "Bangkok, Pattaya, Phuket and Krabi holiday packages with flights, hotels and island tours. Group fixed departures and customised Thailand itineraries.",
+      "Bangkok, Pattaya, Phuket and Krabi holiday packages with flights, hotels and island tours. Group fixed departures and customized Thailand itineraries.",
   },
   {
     slug: "maldives",
@@ -299,7 +300,7 @@ export const destinations = [
     country: "Maldives",
     region: "international",
     order: 4,
-    priceFrom: 55000,
+    priceFrom: 0,
     heroImage: img("maldives"),
     tagline: "One island, one resort, nothing but blue",
     intro:
@@ -402,7 +403,7 @@ export const destinations = [
     country: "Malaysia",
     region: "international",
     order: 5,
-    priceFrom: 45000,
+    priceFrom: 0,
     heroImage: img("malaysia"),
     tagline: "Three countries' worth of culture in one",
     intro:
@@ -474,7 +475,7 @@ export const destinations = [
     country: "Indonesia",
     region: "international",
     order: 6,
-    priceFrom: 62000,
+    priceFrom: 0,
     heroImage: img("bali"),
     tagline: "Rice terraces, temple gates and a villa with its own pool",
     intro:
@@ -591,7 +592,7 @@ export const destinations = [
     country: "Vietnam",
     region: "international",
     order: 7,
-    priceFrom: 52000,
+    priceFrom: 0,
     heroImage: img("vietnam"),
     tagline: "Limestone bays, lantern towns and the best street food in Asia",
     intro:
@@ -686,7 +687,7 @@ export const destinations = [
     country: "Azerbaijan",
     region: "international",
     order: 8,
-    priceFrom: 48000,
+    priceFrom: 0,
     heroImage: img("azerbaijan"),
     tagline: "Baku, the Caspian and the mountains beyond",
     intro:
@@ -756,7 +757,7 @@ export const destinations = [
     ],
     metaTitle: "Azerbaijan Tour Packages",
     metaDescription:
-      "Baku and Azerbaijan holiday packages with e-visa, flights, hotels, Gobustan and Gabala excursions. Group departures and customised itineraries from Kerala.",
+      "Baku and Azerbaijan holiday packages with e-visa, flights, hotels, Gobustan and Gabala excursions. Group departures and customized itineraries from Kerala.",
   },
   {
     slug: "europe",
@@ -764,7 +765,7 @@ export const destinations = [
     country: "Multiple",
     region: "international",
     order: 9,
-    priceFrom: 185000,
+    priceFrom: 0,
     heroImage: img("europe"),
     tagline: "One trip, a continent's worth of countries",
     intro:
@@ -872,7 +873,7 @@ export const destinations = [
     country: "Bhutan",
     region: "international",
     order: 10,
-    priceFrom: 68000,
+    priceFrom: 0,
     heroImage: img("bhutan"),
     tagline: "The last Himalayan kingdom, on its own terms",
     intro:
@@ -930,7 +931,7 @@ export const destinations = [
         kind: "prose",
         title: "Bhutan honeymoon packages",
         body:
-          "Bhutan suits couples who want the trip to be about somewhere rather than about a resort. It is quiet in a way that beach destinations never are, the scenery does the work, and the limited number of visitors means the valleys feel like they belong to you.\n\nThe route most couples take is Paro, Thimphu and Punakha across six or seven nights, with Punakha as the romantic centre of it. The valley is warmer and lower than the rest, the dzang at the meeting of the rivers is the most beautiful building in the country, and the farmhouse and riverside lodges there are the best places to stay in Bhutan. Phobjikha adds a night of complete quiet for couples with time.\n\nOur Bhutan honeymoon packages cover boutique lodges and heritage farmhouse stays rather than standard hotels, a private guide and vehicle throughout, a traditional hot stone bath, candlelit dinners and the Tiger's Nest hike planned with a rest day either side. Spring and autumn book out early for these, so the flights into Paro are worth confirming well ahead.",
+          "Bhutan suits couples who want the trip to be about somewhere rather than about a resort. It is quiet in a way that beach destinations never are, the scenery does the work, and the limited number of visitors means the valleys feel like they belong to you.\n\nThe route most couples take is Paro, Thimphu and Punakha across six or seven nights, with Punakha as the romantic centre of it. The valley is warmer and lower than the rest, the dzong at the meeting of the rivers is the most beautiful building in the country, and the farmhouse and riverside lodges there are the best places to stay in Bhutan. Phobjikha adds a night of complete quiet for couples with time.\n\nOur Bhutan honeymoon packages cover boutique lodges and heritage farmhouse stays rather than standard hotels, a private guide and vehicle throughout, a traditional hot stone bath, candlelit dinners and the Tiger's Nest hike planned with a rest day either side. Spring and autumn book out early for these, so the flights into Paro are worth confirming well ahead.",
       },
       {
         kind: "prose",
@@ -976,7 +977,7 @@ export const destinations = [
     country: "Nepal",
     region: "international",
     order: 11,
-    priceFrom: 34000,
+    priceFrom: 0,
     heroImage: img("nepal"),
     tagline: "Eight of the world's ten highest mountains, and the temples below them",
     intro:
@@ -1078,7 +1079,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 1,
-    priceFrom: 14500,
+    priceFrom: 0,
     heroImage: img("kerala"),
     tagline: "God's own country, from the backwaters to the hills",
     intro:
@@ -1166,7 +1167,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 2,
-    priceFrom: 26000,
+    priceFrom: 0,
     heroImage: img("kashmir-srinagar"),
     tagline: "Houseboats on the lake, snow on the meadow",
     intro:
@@ -1250,7 +1251,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 3,
-    priceFrom: 32000,
+    priceFrom: 0,
     heroImage: img("ladakh"),
     tagline: "High passes, blue lakes and very thin air",
     intro:
@@ -1339,7 +1340,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 4,
-    priceFrom: 29000,
+    priceFrom: 0,
     heroImage: img("andaman"),
     tagline: "Clear water, white sand and a slower clock",
     intro:
@@ -1422,7 +1423,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 5,
-    priceFrom: 9999,
+    priceFrom: 0,
     heroImage: img("goa"),
     tagline: "Two coastlines, four centuries and no hurry at all",
     intro:
@@ -1505,7 +1506,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 6,
-    priceFrom: 24000,
+    priceFrom: 0,
     heroImage: img("rajasthan"),
     tagline: "Forts on the hills, palaces on the water, desert in between",
     intro:
@@ -1588,7 +1589,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 7,
-    priceFrom: 18500,
+    priceFrom: 0,
     heroImage: img("darjeeling"),
     tagline: "Kanchenjunga at dawn, tea gardens and a steam train",
     intro:
@@ -1671,7 +1672,7 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 8,
-    priceFrom: 12500,
+    priceFrom: 0,
     heroImage: img("hyderabad"),
     tagline: "Charminar, Golconda and the best biryani in the country",
     intro:
@@ -1754,11 +1755,11 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 9,
-    priceFrom: 11999,
+    priceFrom: 0,
     heroImage: img("golden-triangle"),
     tagline: "Delhi, Agra and Jaipur on one circuit",
     intro:
-      "Delhi, Agra and Jaipur sit close enough together to see properly in four days, which is why the circuit has outlasted every itinerary invented since. It is the trip most families do first in north India, and the one first-time visitors are almost always sold.",
+      "Delhi, Agra and Jaipur sit close enough together to see properly in four days, which is why the circuit has outlasted every itinerary invented since. It is the trip most families do first in north India, and the one first-time visitors are almost always sold.\n\nAt Alisha Tours & Travels, we sell it two ways: a three-day Delhi and Agra trip that takes the Taj Mahal as a day out from a Delhi hotel, and the full four-day circuit with a night in each city. As an IATA-accredited travel agency based in Kottayam, we put together Golden Triangle tour packages from Kerala with the flights or train to Delhi, the hotels, and one private car and driver for the whole route.",
     whyVisit:
       "Three cities, three completely different characters, and no long internal flights between them. Delhi carries the Mughal and colonial history, Agra has the one building everybody has come to see, and Jaipur is where the trip loosens up - forts, bazaars and colour.",
     bestTimeToVisit:
@@ -1769,6 +1770,62 @@ export const destinations = [
       { title: "Hawa Mahal & City Palace, Jaipur", description: "Both in the old city, and walkable between them." },
       { title: "Amber Fort", description: "Go early. The climb is manageable, and a jeep is available for anyone who would rather not." },
     ],
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose the Golden Triangle",
+        points: [
+          "The Taj Mahal, the Red Fort and the palaces of Jaipur in a single short trip",
+          "Three cities close enough to drive between, with no internal flights",
+          "Golden Triangle tour packages from three days for Delhi and Agra to four for all three cities",
+          "Delhi and Agra honeymoon packages short enough to fit around a few days of leave",
+          "Mughal tombs, Rajput palaces and modern Delhi, each with a completely different character",
+          "Easy to extend into Rajasthan, with Udaipur or Jodhpur a drive or a short flight beyond Jaipur",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Our most requested Golden Triangle packages",
+        items: [
+          { title: "Delhi & Agra honeymoon", text: "Three days and two nights, staying in the same Delhi hotel throughout. Raj Ghat, India Gate and Akshardham on arrival, a full day out to the Taj Mahal, Agra Fort and the Baby Taj, and the Red Fort, Qutub Minar, the Lotus Temple and Humayun's Tomb before the flight home. The simplest way to see the Taj without changing hotels." },
+          { title: "Delhi, Agra & Jaipur in four days", text: "The full circuit, with one night in each city. Delhi's monuments and temples across the first day and a half, the Taj Mahal on the third morning, then the drive to Jaipur for the City Palace, Jantar Mantar and the Albert Hall Museum before you fly home from Jaipur." },
+          { title: "Golden Triangle with Rajasthan", text: "The four-day circuit, then on to Udaipur or Jodhpur for another three or four nights. The version for anyone who wants the Taj Mahal and the lake palaces of Rajasthan in one trip." },
+          { title: "A slower Golden Triangle", text: "Five or six nights instead of three, with time for Amber Fort, Fatehpur Sikri on the road from Agra to Jaipur, and the lanes of Old Delhi. This is the version we suggest for anyone travelling with parents." },
+        ],
+        footnote:
+          "All of our Golden Triangle tour packages use one private car and driver for the whole route, with airport or railway station pick-up and drop. Monument entry tickets are not included in the package price and are quoted separately at the current rates.",
+      },
+      {
+        kind: "cards",
+        title: "Top attractions",
+        items: [
+          { title: "Taj Mahal, Agra", text: "Shah Jahan's white marble tomb for Mumtaz Mahal, best seen early in the morning, before the heat and the crowds. Closed on Fridays, which decides the order of many itineraries." },
+          { title: "Agra Fort and the Baby Taj", text: "The red sandstone fort of the Mughal emperors, looking down the river to the Taj, and the tomb of Itimad-ud-Daulah, a small inlaid marble tomb that came before the Taj and is often called its draft." },
+          { title: "Red Fort and Raj Ghat, Delhi", text: "Shah Jahan's fort in Old Delhi, the seat of Mughal power for nearly two centuries, and the simple memorial to Mahatma Gandhi a short drive away." },
+          { title: "Qutub Minar and Humayun's Tomb", text: "A towering stone minaret begun at the end of the twelfth century, and the garden tomb that set the pattern for the Taj Mahal. Both are UNESCO World Heritage Sites." },
+          { title: "Akshardham and the Lotus Temple", text: "A vast carved temple complex on the banks of the Yamuna, best in the late afternoon, and the lotus-shaped Baha'i house of worship, open to visitors of every faith." },
+          { title: "India Gate and Kartavya Path", text: "The war memorial arch and the ceremonial avenue leading up to Rashtrapati Bhavan and Parliament House, which are seen from the outside." },
+          { title: "Hawa Mahal and City Palace, Jaipur", text: "The pink honeycomb facade over the old city's main street, and the royal palace and museum, still partly home to the royal family." },
+          { title: "Jantar Mantar and Albert Hall, Jaipur", text: "The eighteenth-century stone observatory, a UNESCO World Heritage Site, and the city's grand old museum, lit up after dark." },
+          { title: "Amber Fort", text: "The hilltop fort above Maota Lake, with its mirrored Sheesh Mahal. It is not in our four-day itinerary, but an extra night in Jaipur makes room for it." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit the Golden Triangle",
+        body:
+          "October to March is the season. Days are warm and dry, evenings are cool, and the long drives between the cities are comfortable. December and January bring cold mornings and fog, which can delay early flights and trains and hide the Taj Mahal at sunrise, so we leave a little slack in the plan. The Christmas and New Year weeks book out early.\n\nApril to June is very hot, regularly above forty degrees in all three cities, and sightseeing has to be squeezed into the early mornings and evenings. Hotels are cheaper and quieter, but it is not the time for a first visit with elderly parents or small children.\n\nJuly to September is the monsoon. The worst of the heat breaks, the gardens around the monuments turn green and hotel rates are low, which is why some of our Golden Triangle packages run in these months. Expect humidity and sudden heavy showers, and keep the afternoons flexible.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Plan around the closing days: the Taj Mahal is closed on Fridays, and the Red Fort, Akshardham and the Lotus Temple are closed on Mondays, so the order of the cities depends on the day you land. Phones, cameras and bags are not allowed inside Akshardham, and the Taj has its own list of items that cannot be taken in, so carry as little as possible on those days. Delhi to Agra is around three to four hours on the expressway, and Agra to Jaipur around four to five, so the four-day circuit includes two long drives. From Kerala, direct flights from Kochi and Thiruvananthapuram reach Delhi in about three and a half to four hours, and the train takes around two days. Delhi's air quality is often poor from late October into January, so anyone with asthma should carry their medication. Monument entry fees are paid separately at the current rates. Dress modestly at temples and mosques, politely ignore anyone at a monument gate offering to be your guide, and agree prices in the bazaars before you buy.",
+      },
+    ],
+    closingTitle: "Ready to plan your Golden Triangle holiday?",
+    closingText:
+      "Whether it is three days in Delhi and Agra as a couple, the full circuit to Jaipur with the family, or the Golden Triangle with a few days of Rajasthan attached, we will build it around your dates. Our Golden Triangle tour packages from Kerala cover the flight or the train, hotels, airport or station pick-up and one private car for the whole route in a single booking.\n\nCall +91 9562921818 or write to info@alishatravels.in. Alisha Tours & Travels, SBI Building, Ettumanoor, Kottayam 686631, Kerala.",
     faqs: [
       {
         question: "How many days does the circuit need?",
@@ -1791,11 +1848,11 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 10,
-    priceFrom: 8999,
+    priceFrom: 0,
     heroImage: img("delhi-manali"),
     tagline: "A Himalayan hill station, with the capital either side of it",
     intro:
-      "Manali is the easiest Himalayan holiday to reach from Kerala: fly into Delhi, take the overnight Volvo up, and wake in the mountains. Snow for travellers who have never seen it, and a hill station that works for a family and a honeymooning couple equally well.",
+      "Manali is the easiest Himalayan holiday to reach from Kerala: fly into Delhi, take the overnight Volvo up, and wake in the mountains. Snow for travellers who have never seen it, and a hill station that works for a family and a honeymooning couple equally well.\n\nAt Alisha Tours & Travels, our Delhi and Manali package runs over five days: the overnight Volvo up, two nights in Manali with a day at Solang Valley and a day through the Kullu valley, and the Volvo back down to Delhi. As an IATA-accredited travel agency based in Kottayam, we put together Manali tour packages from Kerala with the bus tickets, the hotel and meals in Manali, the sightseeing and the pick-ups at both ends in one booking.",
     whyVisit:
       "It is the cheapest way to put a Kerala family in the mountains, and the overnight coach both ways keeps two nights out of the hotel bill. Delhi at one end gives the trip a day of sightseeing without a second flight.",
     bestTimeToVisit:
@@ -1806,6 +1863,62 @@ export const destinations = [
       { title: "Kullu", description: "The valley, the river and the shawl workshops, usually on the way back." },
       { title: "Delhi's landmarks", description: "Half a day before the flight home - India Gate, the Red Fort and Akshardham." },
     ],
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Delhi & Manali",
+        points: [
+          "Snow and Himalayan scenery within a night's travel of Delhi",
+          "The overnight Volvo both ways, which saves two hotel nights and two days of driving",
+          "Manali honeymoon packages that are short, affordable and need no passport",
+          "Solang Valley for paragliding, the ropeway and snow in season",
+          "Delhi and Manali tour packages that fit into five days, with a half day in the capital",
+          "Cool mountain air from March to June, when Kerala is at its hottest",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Our most requested Delhi & Manali packages",
+        items: [
+          { title: "Manali honeymoon with Delhi", text: "Five days and four nights, with the overnight Volvo each way and two nights in Manali on breakfast and dinner. Hadimba Devi Temple, the Tibetan monastery and Mall Road on the first afternoon, Solang Valley the next day, and Kullu and Naggar Castle on the last day before the bus back to Delhi." },
+          { title: "Delhi & Manali for families and groups", text: "The same five-day shape, with Vashisht Temple and its hot springs on the Manali day, and a half-day tour of India Gate, the Lotus Temple, Qutub Minar and the Red Fort on the morning you arrive back in Delhi." },
+          { title: "Manali by air", text: "For anyone who would rather not spend two nights on a bus, we price flights from Delhi to Bhuntar, about fifty kilometres from Manali, with an extra night in the hotel instead. Flights are few and often affected by weather, so this suits travellers with some flexibility in their dates." },
+          { title: "Manali in the snow", text: "December to February, planned around a day of snow at Solang, with warm clothing and boots hired on the spot. We leave a little room in the plan, because heavy snowfall can close roads for a day." },
+        ],
+        footnote:
+          "Adventure activities - paragliding, the ropeway, river rafting and skiing - are paid on the spot and are not included in the package price. If snow or a landslide blocks the road, any extra vehicle needed is also paid locally.",
+      },
+      {
+        kind: "cards",
+        title: "Top attractions",
+        items: [
+          { title: "Hadimba Devi Temple", text: "A sixteenth-century wooden temple with a tiered pagoda roof, set in a cedar forest above the town. Busy by late morning, so it is best visited early or late in the day." },
+          { title: "Old Manali and Vashisht", text: "Old Manali's lanes of cafés and guesthouses across the stream, and the village of Vashisht on the other side of the river, with its temple and natural hot spring baths." },
+          { title: "Mall Road and the Tibetan monastery", text: "The main street of shops, cafés and woollens, and the colourful Buddhist monastery a short walk away." },
+          { title: "Solang Valley", text: "About fourteen kilometres from Manali, with paragliding, zip lines, horse rides and a ropeway in summer, and snow, skiing and snow scooters in winter." },
+          { title: "Atal Tunnel and Sissu", text: "The long tunnel under the Rohtang range to the Lahaul valley, with snow at Sissu on the far side well into spring. Not in our standard itinerary, and added at extra cost, subject to road conditions." },
+          { title: "Rohtang Pass", text: "The high pass at nearly 4,000 metres, open only in the warmer months and limited by a daily permit quota. We will tell you honestly whether your dates are likely to get one." },
+          { title: "Kullu and Naggar", text: "The Kullu valley along the Beas, with river rafting in season and the shawl workshops, and the old stone-and-timber castle at Naggar, with the Roerich art gallery close by." },
+          { title: "Van Vihar", text: "A small park of tall deodar trees beside the Beas in the middle of town, an easy hour with children." },
+          { title: "Delhi's landmarks", text: "India Gate, the Lotus Temple, Qutub Minar and the Red Fort, on a half-day tour the morning you arrive back from Manali, before the flight home." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit Manali",
+        body:
+          "March to June is the main season. Clear skies, comfortable days and cool nights, with snow still lying higher up in March and April. May and June are the busiest months, because they coincide with school holidays across India, so hotels and Volvo seats book out early.\n\nJuly to September is the monsoon. Manali is green and quiet and rates fall, but heavy rain brings landslides and road closures across Himachal, and rafting and paragliding are often suspended. Travel in these months with flexible plans and without counting on every excursion.\n\nOctober and November are crisp, clear and quieter, with autumn colour in the valley. December to February is winter, and the reason many Kerala families go: snow at Solang, freezing nights, and the chance that heavy snowfall blocks roads for a day. If seeing snow is the point of the trip, January and February are the most reliable months.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "The Volvo leaves Delhi in the evening, usually around seven or eight, and reaches Manali the next morning after twelve to fourteen hours on the road. Delhi airport is about an hour from the bus stand at Kashmiri Gate, so book a flight that lands by the middle of the afternoon, and tell us your arrival time a day ahead so the cab is waiting. Hotel check-in in Manali is around noon, and on the last day you check out in the morning and board the return bus in the evening, so keep a warm layer and essentials in your hand luggage. The hill roads are winding, so carry motion sickness tablets if anyone in the family needs them. Manali sits at around 2,000 metres and the nights are cold even in May, so pack a jacket and warm layers; snow boots and suits can be hired at Solang in winter. Adventure activities are paid locally and prices vary, so agree the price before you start. In heavy snow or after a landslide, roads can close without warning, and any extra vehicle needed is paid on the spot.",
+      },
+    ],
+    closingTitle: "Ready to plan your Manali holiday?",
+    closingText:
+      "Whether it is a honeymoon in the snow, a family trip with a day at Solang, or a group of friends on a summer break, we will build it around your dates. Our Delhi and Manali tour packages from Kerala cover the Volvo both ways, the hotel and meals in Manali, sightseeing and pick-ups at both ends, and the flights to Delhi if you want them, in one booking.\n\nCall +91 9562921818 or write to info@alishatravels.in. Alisha Tours & Travels, SBI Building, Ettumanoor, Kottayam 686631, Kerala.",
     faqs: [
       {
         question: "How long is the road journey?",
@@ -1826,9 +1939,9 @@ export const destinations = [
     GEORGIA, ALBANIA AND LAKSHADWEEP were added with the customized proposals
     for them (customizedpackage/), because a package cannot exist without its
     destination. There is NO client document for any of the three yet: the
-    tagline and intro are plain facts drawn from what those proposals cover,
-    and the page falls back to its default sections. Replace with the client's
-    copy in /admin/ (Destinations) when it arrives.
+    intro, blocks, closing and FAQs were drafted in-house from what those
+    proposals cover, in the same structure as the client's documents. Replace
+    with the client's copy in /admin/ (Destinations) when it arrives.
   */
   {
     slug: "georgia",
@@ -1836,11 +1949,103 @@ export const destinations = [
     country: "Georgia",
     region: "international",
     order: 12,
-    priceFrom: 34900,
+    priceFrom: 0,
     heroImage: img("georgia"),
     tagline: "Tbilisi's old town and the Caucasus mountain road to Kazbegi",
     intro:
-      "Georgia's capital, Tbilisi, has the Narikala Fortress, the sulphur-bath district of Abanotubani, Sameba Cathedral, Rustaveli Avenue and a cable car over the Mtkvari River.\n\nNorth of the city, the road into the Caucasus passes Zhinvali Reservoir, Ananuri Fortress and the ski resort of Gudauri before reaching Kazbegi (Stepantsminda), where Gergeti Trinity Church stands below Mount Kazbek.",
+      "Georgia sits between the Black Sea and the Caucasus mountains, and fits a great deal into a small country. Its capital, Tbilisi, has the Narikala Fortress, the sulphur-bath district of Abanotubani, Sameba Cathedral, Rustaveli Avenue and a cable car over the Mtkvari River. North of the city, the road into the Caucasus passes Zhinvali Reservoir, Ananuri Fortress and the ski resort of Gudauri before reaching Kazbegi (Stepantsminda), where Gergeti Trinity Church stands below Mount Kazbek.\n\nFor Indian travellers, it is a short, good-value trip with real mountains, snow in winter and a capital that feels European, reached with one connection through the Gulf. At Alisha Tours & Travels, an IATA-accredited Georgia travel agency based in Kottayam, we arrange the flights, visa, hotels, transfers and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Georgia",
+        points: [
+          "Snow-capped Caucasus peaks within a day trip of the capital",
+          "Tbilisi's old town, fortress and sulphur baths, easy to explore on foot",
+          "Georgia holiday packages that cover the city and the mountains in four days",
+          "Snow and skiing at Gudauri in winter, green valleys and open mountain roads in summer",
+          "One of the oldest wine-making traditions in the world, with tastings in the Kakheti region",
+          "Good connections from Kerala through Dubai, Sharjah and Doha",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Tbilisi",
+        items: [
+          { title: "Narikala Fortress & the cable car", text: "An ancient fortress on the ridge above the old town, reached by cable car across the river from Rike Park, with the best views over the city." },
+          { title: "Abanotubani", text: "The old bath district, with domed brick bathhouses fed by natural sulphur springs, where you can book a private room for a soak." },
+          { title: "Mother of Georgia", text: "A twenty-metre statue on the ridge above the city, holding a sword for enemies and a bowl of wine for friends." },
+          { title: "Sameba Cathedral", text: "The Holy Trinity Cathedral, one of the largest Orthodox cathedrals in the world, with its gold dome visible from across the city." },
+          { title: "Rustaveli Avenue & the Bridge of Peace", text: "The city's grand avenue of theatres, museums and cafés, and a glass-and-steel footbridge over the Mtkvari that lights up at night." },
+          { title: "Old Tbilisi", text: "Carved wooden balconies, the leaning clock tower of the puppet theatre, and bakeries and wine bars in the lanes below the fortress." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The mountain road to Kazbegi",
+        items: [
+          { title: "Zhinvali Reservoir & Ananuri Fortress", text: "A turquoise reservoir and a medieval fortress with two churches on its shore, the first stop on the old Georgian Military Road." },
+          { title: "Pasanauri", text: "A mountain village on the way north, known for khinkali, the Georgian dumpling, and a good place to stop for lunch." },
+          { title: "Gudauri", text: "Georgia's best-known ski resort, at over 2,000 metres, with the colourful Friendship Monument viewpoint looking out over the valleys below." },
+          { title: "Jvari Pass", text: "The highest point on the road at around 2,400 metres, often under snow well into spring." },
+          { title: "Kazbegi & Gergeti Trinity Church", text: "A fourteenth-century church on a ridge above the town of Stepantsminda, with Mount Kazbek, over 5,000 metres high, rising behind it. The most famous view in Georgia." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Mtskheta, Kakheti and beyond",
+        items: [
+          { title: "Mtskheta", text: "The old capital and spiritual centre of Georgia, about half an hour from Tbilisi, with the UNESCO-listed Svetitskhoveli Cathedral and Jvari Monastery above the meeting of two rivers." },
+          { title: "Sighnaghi", text: "A walled hill town in the wine country of Kakheti, looking out across the Alazani Valley to the Caucasus. A favourite with couples." },
+          { title: "Kakheti wineries", text: "Family cellars and larger estates where wine is still made in clay vessels buried in the ground, a method recognised by UNESCO." },
+          { title: "Uplistsikhe", text: "An ancient cave town carved into the rock near Gori, about an hour and a half from Tbilisi. An easy favourite on any Georgia family tour package." },
+          { title: "Batumi", text: "Georgia's city on the Black Sea, with a long seafront promenade, a botanical garden and a modern skyline, reached by a short flight or a long train ride from Tbilisi." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Georgia honeymoon packages",
+        body:
+          "Georgia suits couples who want mountains, good food and wine without the cost of Switzerland. Tbilisi is relaxed and romantic in the evenings, with old-town restaurants, live music and the fortress lit up above the river, and the mountains are only a few hours away.\n\nOur four-day Incredible Georgia package is built as a honeymoon: three nights in Tbilisi, a full day in the old town with the cable car up to Narikala, and a day on the mountain road to Gudauri and Kazbegi. Couples with more time add a night in Kazbegi facing Mount Kazbek, and a night in Sighnaghi in the wine country.\n\nOur Georgia honeymoon packages cover central hotels close to the old town, private transfers throughout, the cable car and the sightseeing entry tickets. Spring, autumn and the winter snow season are all popular, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Georgia tour packages from Kerala",
+        body:
+          "Georgia takes one connection from Kerala, and the routing is straightforward. Most travellers fly through the Gulf, connecting in Dubai, Sharjah or Doha for a flight of around three hours to Tbilisi, with total travel time similar to a trip to Europe but usually at a lower fare.\n\nIndian passport holders need a visa for Georgia, usually applied for online as an e-visa. Travellers holding certain valid visas or residence permits, such as those of the US, UK or Schengen countries, may be able to enter without one. The rules change, so check the current position with us at the time of booking; we handle the application and arrange the hotels, transfers and sightseeing from our office, so nothing needs arranging after you land.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "May to June and September to October are the finest months. Comfortable temperatures in Tbilisi, green or golden valleys, and the mountain road at its clearest. Late September and October are the grape harvest in Kakheti.\n\nJuly and August are hot in Tbilisi, often above 30°C, but cool and pleasant in Gudauri and Kazbegi, where this is the main summer season.\n\nDecember to March is snow season, with skiing at Gudauri and the Caucasus under snow. Heavy snowfall can close the road over the Jvari Pass to Kazbegi for a day or more, so winter mountain days are planned with some flexibility. Georgia tour packages cost noticeably less outside the holiday weeks.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Georgia is one and a half hours behind India. The currency is the lari, cards are widely accepted in Tbilisi, and cash is useful in the mountains and at markets. Georgian is the main language, Russian is widely understood, and English is spoken by many younger people and in hotels.\n\nDress modestly in churches, covering shoulders and knees, and women are expected to cover their heads; scarves are often provided at the entrance. The day to Kazbegi is long, around three hours each way, and much colder than Tbilisi, so carry a warm layer even in summer. Old Tbilisi is hilly with uneven cobbles, so wear comfortable shoes. Georgian food is generous and vegetarians do well, with cheese bread, bean stews and walnut-stuffed aubergine on most menus.",
+      },
+    ],
+    closingTitle: "Ready to plan your Georgia holiday?",
+    closingText:
+      "Tbilisi and the mountain road to Kazbegi across four days, a honeymoon with a night in the wine country, or a winter trip to the snow at Gudauri - we will shape it around what you want. Flights, visa, hotels, transfers and sightseeing arranged from one place.",
+    faqs: [
+      {
+        question: "Do we need a visa for Georgia?",
+        answer:
+          "Yes, most Indian passport holders do, usually as an e-visa applied for online. Travellers with certain valid visas or residence permits, such as US, UK or Schengen, may be able to enter without one. The rules change, so we confirm the current position when you book and handle the application.",
+      },
+      {
+        question: "Will we see snow?",
+        answer:
+          "From December to March, almost certainly, at Gudauri and Kazbegi. In spring there is often snow on the high peaks while the valleys are green. Heavy snowfall can close the road to Kazbegi for short spells, and we plan around it when it does.",
+      },
+      {
+        question: "Is four days enough?",
+        answer:
+          "For Tbilisi and one day in the mountains, yes - that is what our four-day package covers. Six or seven days lets you add Mtskheta, a night in Kazbegi and the wine country of Kakheti without rushing.",
+      },
+    ],
     metaTitle: "Georgia Tour Packages",
     metaDescription:
       "Georgia tour packages from Kerala - Tbilisi's old town, Narikala Fortress and the mountain road to Kazbegi and Gergeti Trinity Church.",
@@ -1851,11 +2056,103 @@ export const destinations = [
     country: "Albania",
     region: "international",
     order: 13,
-    priceFrom: 44400,
+    priceFrom: 0,
     heroImage: img("albania"),
     tagline: "Tirana's city centre and the castles of northern Albania",
     intro:
-      "Tirana, Albania's capital, is centred on Skanderbeg Square, with the Et'hem Bey Mosque, the Clock Tower and the National History Museum close by.\n\nTo the north, Lezha has a hilltop castle, and Shkoder, one of the country's oldest cities, has Rozafa Castle above Lake Shkoder.",
+      "Albania is still little known to most Indian travellers, and that is much of its appeal. Its capital, Tirana, is centred on Skanderbeg Square, with the Et'hem Bey Mosque, the Clock Tower and the National History Museum close by, and a lively café quarter in the streets around them. To the north, Lezha has a hilltop castle, and Shkoder, one of the country's oldest cities, has Rozafa Castle above Lake Shkoder.\n\nFor Indian travellers, it offers castles, mountains, Mediterranean food and a long coastline at prices well below most of Europe. At Alisha Tours & Travels, an IATA-accredited Albania travel agency based in Kottayam, we arrange the flights, visa, hotels, transfers and sightseeing as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Albania",
+        points: [
+          "A European holiday at a noticeably lower cost than Italy or Greece across the water",
+          "Tirana, a colourful, walkable capital with a recent history unlike anywhere else in Europe",
+          "Castles, Ottoman-era towns and UNESCO-listed sites, with far smaller crowds",
+          "Albania holiday packages that cover Tirana and the castles of the north in four days",
+          "Beaches on the Adriatic and the Ionian for those with more time",
+          "Simple, fresh food, with grilled meats, vegetables, cheese and pastries on every menu",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Tirana",
+        items: [
+          { title: "Skanderbeg Square", text: "The vast central square, named after Albania's national hero, with his statue on horseback and the main public buildings around it." },
+          { title: "Et'hem Bey Mosque & the Clock Tower", text: "A small mosque from the Ottoman period with painted frescoes inside, beside the city's old Clock Tower, which can be climbed for views over the square." },
+          { title: "National History Museum", text: "The largest museum in the country, with a huge mosaic of Albanian history across its front." },
+          { title: "Bunk'Art", text: "Cold War bunkers turned into museums of Albania's communist years, one in the city centre and a larger one on the edge of the city." },
+          { title: "Blloku", text: "Once closed to ordinary citizens under the communist regime, now the liveliest district for cafés, restaurants and evenings out." },
+          { title: "Dajti Ekspres", text: "A cable car up Mount Dajti on the edge of the city, with views over Tirana and the plain below." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Lezha, Shkoder and the north",
+        items: [
+          { title: "Lezha Castle", text: "A hilltop castle above the town with views across the plain towards the coast. Lezha is also where Skanderbeg is buried, in a memorial set in the ruins of an old church." },
+          { title: "Rozafa Castle", text: "A fortress on a rocky hill above Shkoder, with a famous legend about its walls and wide views over the lake and rivers below." },
+          { title: "Lake Shkoder", text: "The largest lake in the Balkans, shared with Montenegro, with villages and fish restaurants along its shore." },
+          { title: "Shkoder old town", text: "A pedestrian street of restored houses and cafés, and the Marubi museum of photography, one of the oldest photographic collections in the region." },
+          { title: "Theth & the Albanian Alps", text: "Remote mountain villages and hiking trails north of Shkoder, for a longer trip in the summer months." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Kruja, Berat and the south",
+        items: [
+          { title: "Kruja", text: "A hill town within an hour of Tirana, with a castle, a Skanderbeg museum and an old bazaar of crafts. An easy favourite on any Albania family tour package." },
+          { title: "Durres", text: "Albania's port city on the Adriatic, with a Roman amphitheatre and a long beach, under an hour from Tirana." },
+          { title: "Berat", text: "A UNESCO-listed town of white Ottoman houses climbing the hillside, known as the town of a thousand windows." },
+          { title: "Gjirokaster", text: "A UNESCO-listed stone town in the south, with a vast castle above its slate-roofed houses." },
+          { title: "The Riviera & Butrint", text: "Clear Ionian water at Ksamil, Himara and Dhermi, and the ruins of the ancient city of Butrint near the Greek border." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Albania honeymoon packages",
+        body:
+          "Albania suits couples who want Europe without the crowds or the prices. The coast in summer is the main draw, with clear water and small beach towns, and the old towns of Berat and Gjirokaster are quiet and atmospheric in the evenings.\n\nMost couples start with two or three nights in Tirana, including the day trip to Lezha and Shkoder, then continue south to Berat and the Riviera for another four or five nights. The Riviera is the romantic centre of it, with sea-view rooms, long lunches and sunsets over the Ionian.\n\nOur Albania honeymoon packages cover central hotels in Tirana, sea-view stays on the coast, private transfers between towns and the sightseeing. June and September are the best months for the coast, with warm water and fewer people than July and August, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Albania tour packages from Kerala",
+        body:
+          "Albania takes at least one connection from Kerala. Most travellers fly through Istanbul or one of the Gulf hubs to Tirana International Airport, the country's main airport, around half an hour from the city centre.\n\nIndian passport holders generally need a visa for Albania, applied for online. Travellers holding certain valid multiple-entry visas or residence permits, such as those of the US, UK or Schengen countries, may be able to enter without one. The rules change, so check the current position with us at the time of booking; we handle the application and arrange the hotels, transfers and sightseeing from our office.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "May to June and September to October are the finest months. Warm days, comfortable sightseeing in Tirana and the north, and the sea warm enough for swimming from June.\n\nJuly and August are hot, often above 35°C in Tirana, and the coast is at its busiest and most expensive.\n\nNovember to March is cool and often wet in Tirana and the north, with snow in the mountains. City sightseeing is still very possible, hotels are quieter and Albania tour packages cost less.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Albania is four and a half hours behind India in winter and three and a half hours behind in summer. The currency is the lek. Cards are accepted in larger hotels and restaurants in Tirana, but cash is needed in smaller towns, and euros are sometimes accepted in tourist areas. Albanian is the main language, Italian is widely understood, and English is spoken by many younger people.\n\nOn our Tirana package, the day trip to Lezha and Shkoder runs on a shared seat-in-coach basis, so you make your own way to the starting point; we explain where and when before you go. Dress modestly at mosques and churches. Roads outside the cities can be slow and winding, so journeys take longer than the map suggests. Drink bottled water, and wear comfortable shoes for the castles, which sit on hills and are reached by steep cobbled paths.",
+      },
+    ],
+    closingTitle: "Ready to plan your Albania holiday?",
+    closingText:
+      "Tirana and the castles of the north across four days, a honeymoon on the Riviera, or a longer trip through Berat and Gjirokaster - we will shape it around what you want. Flights, visa, hotels, transfers and sightseeing arranged from one place.",
+    faqs: [
+      {
+        question: "Do we need a visa for Albania?",
+        answer:
+          "Generally yes, applied for online. Travellers with certain valid multiple-entry visas or residence permits, such as US, UK or Schengen, may be able to enter without one. The rules change, so we confirm the current position when you book and handle the application.",
+      },
+      {
+        question: "Is the Lezha and Shkoder day trip private?",
+        answer:
+          "In our four-day package it is a shared seat-in-coach tour, which keeps the cost down, and you make your own way to the starting point in Tirana. If you would rather have a private car and guide for the day, we will quote for it.",
+      },
+      {
+        question: "Is four days enough?",
+        answer:
+          "For Tirana and a day in the north, yes. To add Berat, Gjirokaster and the coast, plan on seven to nine days.",
+      },
+    ],
     metaTitle: "Albania Tour Packages",
     metaDescription:
       "Albania tour packages from Kerala - Tirana and Skanderbeg Square, with day trips to the castles of Lezha and Shkoder.",
@@ -1866,11 +2163,99 @@ export const destinations = [
     country: "India",
     region: "domestic",
     order: 11,
-    priceFrom: 15500,
+    priceFrom: 0,
     heroImage: img("lakshadweep"),
     tagline: "Lagoon beaches and coral reefs around Agatti Island",
     intro:
-      "Lakshadweep is an Indian island territory in the Arabian Sea. Agatti Island has the territory's airport, lagoon beaches such as Lagoon Beach and Hamdan Beach, and jetties looking over the lagoon.\n\nVisitors snorkel, kayak and take glass-bottom boat rides over the coral reefs, and make boat trips to nearby Kalpetti Island, where sea turtles are often seen.",
+      "Lakshadweep is an Indian island territory in the Arabian Sea, a scatter of coral islands and lagoons a short flight from Kochi. Agatti Island has the territory's airport, lagoon beaches such as Lagoon Beach and Hamdan Beach, and jetties looking over the lagoon. Visitors snorkel, kayak and take glass-bottom boat rides over the coral reefs, and make boat trips to nearby Kalpetti Island, where sea turtles are often seen.\n\nFor travellers from Kerala, it is a coral-island holiday with no passport or visa, and Malayalam is spoken on most of the islands. Every visitor needs an entry permit, and places to stay are few and simple, so planning ahead matters. At Alisha Tours & Travels, an IATA-accredited travel agency based in Kottayam, we arrange the permit, flights, stay, meals, boat trips and water sports as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Lakshadweep",
+        points: [
+          "Clear lagoons and coral reefs without leaving India",
+          "A short flight from Kochi to Agatti, with no passport or visa needed",
+          "Quiet, uncrowded islands, because visitor numbers are controlled by permit",
+          "Lakshadweep holiday packages that include the permit, all meals and the boat trips",
+          "Snorkelling, kayaking and glass-bottom boat rides in shallow, calm water, with scuba for the adventurous",
+          "Malayalam spoken on most islands, and food that will feel familiar to anyone from Kerala",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions on Agatti",
+        items: [
+          { title: "Lagoon Beach", text: "The long sandy stretch along the lagoon side of the island, with shallow, calm water for wading and snorkelling." },
+          { title: "Hamdan Beach", text: "A quieter beach on the island, and a good spot to watch the sun go down." },
+          { title: "The jetties", text: "The Eastern, Floating and Western Jetties, where the water below is clear enough to watch fish from the pier." },
+          { title: "Island life", text: "A walk through the village, with coconut groves and fishing boats, and an introduction to the history and marine life of the islands on the first afternoon." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "The lagoon and water sports",
+        items: [
+          { title: "Shore snorkelling", text: "Swim out from the beach over the reef in shallow water, with masks and fins provided. Included on our Agatti package." },
+          { title: "Kayaking", text: "Paddle across the flat, clear lagoon, an easy activity for beginners. Also included." },
+          { title: "Scuba diving", text: "Introductory dives with an instructor for first-timers, and reef dives for certified divers. Optional, at extra cost." },
+          { title: "Speed boat & banana boat rides", text: "Faster rides around the lagoon, optional and paid on the spot. An easy favourite on any Lakshadweep family tour package." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Kalpetti and the other islands",
+        items: [
+          { title: "Glass-bottom boat", text: "A boat ride over the reef with a clear panel in the hull, so you see coral and fish without getting wet. Good for children and non-swimmers." },
+          { title: "Kalpetti Island", text: "A small island near Agatti with clean white sand and clear water, reached by boat, with a good chance of seeing sea turtles on the way." },
+          { title: "Bangaram & Thinnakara", text: "Small islands with beach stays, a boat ride from Agatti. Not part of our standard package, and arranged separately where permits and availability allow." },
+          { title: "Kavaratti & Minicoy", text: "The capital island, and the southernmost island with its tall lighthouse and its own language and culture. Reached by inter-island ship or boat, subject to schedules and permits." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Lakshadweep honeymoon packages",
+        body:
+          "Lakshadweep suits couples who want a quiet island honeymoon close to home. There are no crowds, no nightlife and almost no traffic, just the lagoon, the reef and long evenings on the beach.\n\nMost couples take three or four nights on Agatti, with a day of water sports, the glass-bottom boat to Kalpetti and plenty of time to do nothing at all. A beach cottage on the lagoon is the romantic centre of it, with sunrise over the water and a swim before breakfast.\n\nOur Lakshadweep honeymoon packages cover the entry permit, a beach cottage, all meals, the boat trips, snorkelling and kayaking. Places to stay on the islands are simple and limited, so these dates are worth confirming well ahead, particularly from October to March.",
+      },
+      {
+        kind: "prose",
+        title: "Lakshadweep tour packages from Kerala",
+        body:
+          "Lakshadweep is reached from Kochi. Flights to Agatti take around an hour and a half on a small aircraft, with limited seats and a baggage allowance that can be lower than on larger planes, so we book them as early as possible. Passenger ships also sail from Kochi to the islands, but they take much longer and their schedules change at short notice, so for a short trip we recommend the flight.\n\nEvery visitor to Lakshadweep, including Indian citizens, needs an entry permit issued by the administration, applied for in advance with identity documents and confirmed travel details. The process and timelines change, so check the current rules with us; we handle the application as part of the package, along with the flights, stay, meals and transfers.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "October to March is the finest season. Calm seas, clear water for snorkelling and the glass-bottom boat, and pleasant temperatures. December and January are the busiest months.\n\nApril and May are hot and humid, but the sea is often still calm and the water clear, and this can be a good window for diving.\n\nJune to September is the monsoon. Seas are rough, water activities are limited, boat services may be reduced or cancelled, and flights can be disrupted by weather. We do not recommend these months for a first visit.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Accommodation on Lakshadweep is simple. Agatti has beach cottages and homestays rather than large resorts, and our package is quoted in three tiers, all with the same itinerary and meals. Mobile networks and internet can be patchy and ATMs are few, so carry enough cash and let family know you may be hard to reach.\n\nAlcohol is not available on the inhabited islands, and the local community is conservative, so dress modestly away from the beach. Do not touch or stand on the coral, and leave coral and shells where you find them, as taking coral is prohibited. Use reef-safe sunscreen, a hat and sunglasses, because the glare off the lagoon is strong. If you plan to scuba dive, avoid flying for at least a day afterwards, so dive early in the trip rather than on the last day.",
+      },
+    ],
+    closingTitle: "Ready to plan your Lakshadweep holiday?",
+    closingText:
+      "Agatti's lagoon, a day of water sports and the glass-bottom boat to Kalpetti across four days, or a quiet honeymoon in a beach cottage - we will shape it around what you want. Permit, flights, stay, meals and boat trips arranged from one place.",
+    faqs: [
+      {
+        question: "Do we need a permit to visit Lakshadweep?",
+        answer:
+          "Yes. Every visitor needs an entry permit from the Lakshadweep administration, including Indian citizens. It needs identity documents and confirmed travel details in advance, so book early. The permit and documentation charges are included in our package, and we handle the application.",
+      },
+      {
+        question: "Can we go by ship instead of flying?",
+        answer:
+          "Passenger ships do sail from Kochi, but the journey is much longer and the schedules change at short notice, which is hard to plan a short holiday around. For a four-day trip we recommend the flight to Agatti.",
+      },
+      {
+        question: "Do we need to know how to swim?",
+        answer:
+          "Not for the glass-bottom boat or the beaches. The lagoon is shallow for snorkelling and kayaking, and life jackets are normally provided, but tell us if anyone cannot swim and we will let the guides know.",
+      },
+    ],
     metaTitle: "Lakshadweep Tour Packages",
     metaDescription:
       "Lakshadweep packages from Kerala - Agatti Island's lagoon beaches, snorkelling and glass-bottom boat rides, and a boat trip to Kalpetti Island.",
@@ -1880,9 +2265,9 @@ export const destinations = [
     JAPAN, EGYPT AND PONDICHERRY were added with the customized proposals for
     them (customized package/), because a package cannot exist without its
     destination. All but JAPAN now carry the client's own copy, transcribed
-    from the PDFs in DESTINATION/; Japan's tagline and intro are still drafted
-    plain facts, and its page falls back to the default sections until the
-    client's document arrives. LAOS, PHILIPPINES, SOUTH KOREA, SRI LANKA,
+    from the PDFs in DESTINATION/; Japan's intro, blocks, closing and FAQs
+    were drafted in-house from its Tokyo and Kyoto package until the client's
+    document arrives. LAOS, PHILIPPINES, SOUTH KOREA, SRI LANKA,
     UZBEKISTAN and TAWANG (at the end) came with that same batch of PDFs.
     priceFrom is 0: these destinations' packages are price on request.
   */
@@ -1974,7 +2359,7 @@ export const destinations = [
       "Beijing across five days, Beijing and Shanghai across six, or a longer journey to Xi'an, Guilin or Zhangjiajie - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
     metaTitle: "China Tour Packages",
     metaDescription:
-      "China holiday packages from Kerala with Beijing, the Great Wall, Shanghai and Xi'an, visa, hotels and trains. Customised itineraries and honeymoon packages.",
+      "China holiday packages from Kerala with Beijing, the Great Wall, Shanghai and Xi'an, visa, hotels and trains. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "kenya",
@@ -2059,7 +2444,7 @@ export const destinations = [
       "Nairobi, the Maasai Mara and Lake Naivasha across five days, a honeymoon in a tented camp, or a migration safari timed for the river crossings - we will shape it around what you want. Flights, eTA, lodges, safari and transfers arranged from one place.",
     metaTitle: "Kenya Tour Packages",
     metaDescription:
-      "Kenya safari packages from Kerala with the Maasai Mara, Lake Naivasha and Amboseli, lodges and game drives. Customised itineraries and honeymoon packages.",
+      "Kenya safari packages from Kerala with the Maasai Mara, Lake Naivasha and Amboseli, lodges and game drives. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "mauritius",
@@ -2145,7 +2530,7 @@ export const destinations = [
       "Île aux Cerfs, the north and south tours across five days, a honeymoon on the west coast, or a family trip with Casela and the beaches - we will shape it around what you want. Flights, resort, transfers and sightseeing arranged from one place.",
     metaTitle: "Mauritius Tour Packages",
     metaDescription:
-      "Mauritius holiday packages from Kerala with Île aux Cerfs, north and south tours, Chamarel and Grand Bassin. Customised itineraries and honeymoon packages.",
+      "Mauritius holiday packages from Kerala with Île aux Cerfs, north and south tours, Chamarel and Grand Bassin. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "armenia",
@@ -2233,7 +2618,7 @@ export const destinations = [
       "Yerevan, Garni, Geghard and Lake Sevan across four days, a honeymoon through the mountains, or a winter trip to the snow at Tsaghkadzor - we will shape it around what you want. Flights, visa, hotels, transfers, guides and sightseeing arranged from one place.",
     metaTitle: "Armenia Tour Packages",
     metaDescription:
-      "Armenia holiday packages from Kerala with Yerevan, Garni, Geghard, Lake Sevan and Tsaghkadzor, e-visa and hotels. Customised itineraries and honeymoon packages.",
+      "Armenia holiday packages from Kerala with Yerevan, Garni, Geghard, Lake Sevan and Tsaghkadzor, e-visa and hotels. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "kazakhstan",
@@ -2320,7 +2705,7 @@ export const destinations = [
       "Almaty, Shymbulak and Charyn Canyon across four days, a winter honeymoon in the snow, or a summer trip to Kolsai and Kaindy - we will shape it around what you want. Flights, hotels, transfers, guides and sightseeing arranged from one place.",
     metaTitle: "Kazakhstan Tour Packages",
     metaDescription:
-      "Kazakhstan holiday packages from Kerala with Almaty, Shymbulak, Charyn Canyon and Kolsai Lakes, visa-free entry. Customised itineraries and honeymoon packages.",
+      "Kazakhstan holiday packages from Kerala with Almaty, Shymbulak, Charyn Canyon and Kolsai Lakes, visa-free entry. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "turkey",
@@ -2410,7 +2795,7 @@ export const destinations = [
       "Istanbul and Cappadocia across six days, a honeymoon with a balloon flight and a cave suite, or the full circuit to Pamukkale, Ephesus and the coast - we will shape it around what you want. Flights, visa, hotels, transfers and sightseeing arranged from one place.",
     metaTitle: "Turkey Tour Packages",
     metaDescription:
-      "Turkey holiday packages from Kerala with Istanbul, Cappadocia balloon rides, Pamukkale, Ephesus and visa. Customised itineraries and honeymoon packages.",
+      "Turkey holiday packages from Kerala with Istanbul, Cappadocia balloon rides, Pamukkale, Ephesus and visa. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "hong-kong",
@@ -2499,7 +2884,7 @@ export const destinations = [
       "Disneyland, Ocean Park and the Peak across four days, a honeymoon split between the harbour and Macau, or a family trip timed for the Christmas lights - we will shape it around what you want. Flights, registration, hotels, transfers, park tickets and sightseeing arranged from one place.",
     metaTitle: "Hong Kong & Macau Tour Packages",
     metaDescription:
-      "Hong Kong and Macau holiday packages from Kerala with Disneyland, Ocean Park, Victoria Peak and Ngong Ping 360. Customised itineraries and honeymoon packages.",
+      "Hong Kong and Macau holiday packages from Kerala with Disneyland, Ocean Park, Victoria Peak and Ngong Ping 360. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "japan",
@@ -2511,7 +2896,100 @@ export const destinations = [
     heroImage: img("japan"),
     tagline: "Tokyo, Mount Fuji, Kyoto and Osaka by bullet train",
     intro:
-      "Tokyo has Senso-ji temple in Asakusa, Meiji Jingu shrine, the Shibuya crossing and the Tokyo Skytree. Mount Fuji is seen on day trips to Lake Kawaguchiko and the Chureito Pagoda, or to Hakone.\n\nThe bullet train reaches Kyoto from Tokyo in a little over two hours. Kyoto has the Golden Pavilion (Kinkaku-ji), Fushimi Inari shrine, Kiyomizu-dera, Nijo Castle and the Arashiyama bamboo grove. Nearby Osaka has Osaka Castle, the Dotonbori food street and Universal Studios Japan, and Nara has its deer park and Todai-ji temple.",
+      "Japan puts centuries-old temples and some of the most modern cities in the world a train ride apart. Tokyo has Senso-ji temple in Asakusa, Meiji Jingu shrine, the Shibuya crossing and the Tokyo Skytree, and Mount Fuji is seen on day trips to Lake Kawaguchiko and the Chureito Pagoda, or to Hakone. The bullet train reaches Kyoto in a little over two hours, where the Golden Pavilion (Kinkaku-ji), Fushimi Inari shrine, Kiyomizu-dera, Nijo Castle and the Arashiyama bamboo grove are all within the city. Nearby Osaka has Osaka Castle, the Dotonbori food street and Universal Studios Japan, and Nara has its deer park and Todai-ji temple.\n\nFor Indian travellers, Japan is clean, safe and remarkably well organised, and easier to get around than its reputation suggests once the train tickets are sorted. At Alisha Tours & Travels, an IATA-accredited Japan travel agency based in Kottayam, we arrange the flights, visa, hotels, bullet train tickets, private guides and transfers as one booking.",
+    blocks: [
+      {
+        kind: "list",
+        title: "Why travellers choose Japan",
+        points: [
+          "Temples, shrines and gardens in Kyoto that have stood for centuries, a bullet train ride from Tokyo",
+          "One of the safest and cleanest countries in the world to travel in",
+          "Trains that run to the minute, so a city-to-city itinerary is easy to follow",
+          "Japan holiday packages built around Tokyo and Kyoto in six days, with Mount Fuji, Osaka and Nara to add",
+          "Cherry blossom in spring and red maples in autumn, two seasons worth planning a trip around",
+          "Private English-speaking guides on the city days, so the language barrier rarely gets in the way",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Top attractions in Tokyo",
+        items: [
+          { title: "Senso-ji & Nakamise-dori", text: "Tokyo's oldest temple in Asakusa, reached through the great Kaminarimon gate and a street of snack and souvenir stalls." },
+          { title: "Meiji Jingu Shrine", text: "A Shinto shrine set in a forest in the middle of the city, a quiet walk a few minutes from the crowds of Harajuku." },
+          { title: "Shibuya Crossing", text: "The famous scramble crossing, best seen from above in the evening when the screens light up." },
+          { title: "Tokyo Skytree", text: "At 634 metres, the tallest tower in Japan, with observation decks looking out over the city and, on clear days, to Mount Fuji." },
+          { title: "Sushi-making lunch", text: "A hands-on class where you make and eat your own sushi, included on the Tokyo city day of our package." },
+          { title: "Shinjuku & Ginza", text: "Department stores, electronics, neon-lit lanes and food halls, for an evening on your own." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Kyoto",
+        items: [
+          { title: "Arashiyama Bamboo Grove", text: "A walk through towering bamboo on the western edge of the city, with Tenryu-ji temple and its garden next door. Best early in the morning, before the crowds." },
+          { title: "Kinkaku-ji (Golden Pavilion)", text: "A Zen temple covered in gold leaf, reflected in the pond in front of it." },
+          { title: "Kiyomizu-dera", text: "A hillside temple with a great wooden stage looking out over the city, reached through the old stepped lanes of Ninenzaka and Sannenzaka." },
+          { title: "Fushimi Inari Taisha", text: "Thousands of vermilion torii gates winding up the hillside, one of the most recognisable sights in Japan." },
+          { title: "Nijo Castle & Heian Shrine", text: "The shogun's palace, with nightingale floors that chirp underfoot to warn of intruders, and a shrine with a giant torii gate and landscaped gardens." },
+          { title: "Gion", text: "Kyoto's old geisha district of wooden teahouses, best walked in the early evening." },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Mount Fuji, Osaka and Nara",
+        items: [
+          { title: "Lake Kawaguchiko & Chureito Pagoda", text: "The classic view of Mount Fuji, on a day trip from Tokyo. The mountain hides behind cloud on many days, more often in summer, so it is a view to hope for rather than count on." },
+          { title: "Hakone", text: "Hot springs, a ropeway over a volcanic valley and a boat across Lake Ashi, with Fuji views on clear days. A good place for a night in a traditional inn." },
+          { title: "Osaka Castle & Dotonbori", text: "The castle in its park by day, and the canal-side food street of neon signs and street snacks by night." },
+          { title: "Universal Studios Japan", text: "The theme park in Osaka, home to Super Nintendo World. An easy favourite on any Japan family tour package." },
+          { title: "Nara", text: "Tame deer roaming the park, and Todai-ji, with its giant bronze Buddha in one of the largest wooden buildings in the world. Under an hour from Kyoto by train." },
+        ],
+      },
+      {
+        kind: "prose",
+        title: "Japan honeymoon packages",
+        body:
+          "Japan suits couples who want a honeymoon built around discovery rather than a beach. Days are spent between temples, gardens and city lights, and evenings in Kyoto's lantern-lit lanes or high above Tokyo.\n\nThe route most couples take is Tokyo and Kyoto across five or six nights, adding a night in Hakone or at Lake Kawaguchiko for the mountain views and a hot spring bath. A night in a ryokan, a traditional inn with tatami rooms and a long multi-course dinner, is the romantic centre of it, and worth adding even to a short trip.\n\nOur Japan honeymoon packages can cover well-located city hotels and a ryokan night, bullet train tickets, private guides for the sightseeing days and transfers from the airport. Cherry blossom and autumn colour seasons fill up fastest, so these dates are worth confirming well ahead.",
+      },
+      {
+        kind: "prose",
+        title: "Japan tour packages from Kerala",
+        body:
+          "Japan takes one connection from Kerala. Most travellers fly through Singapore, Kuala Lumpur, Bangkok or Hong Kong, or through Delhi or Mumbai, which have direct flights to Tokyo. Our Tokyo and Kyoto itinerary arrives in Tokyo and leaves from Narita, with the bullet train between the two cities.\n\nIndian passport holders need a visa for Japan, applied for before travel with a set of supporting documents. The rules and processing times change, so we confirm the current requirements at the time of booking and handle the application with you, along with the flights, hotels, train tickets, guides and transfers, so nothing needs arranging after you land.",
+      },
+      {
+        kind: "prose",
+        title: "Best time to visit",
+        body:
+          "Late March to early April is cherry blossom season, the most famous time of year in Japan and the busiest, with hotels in Tokyo and Kyoto booked out months ahead. The exact dates move by a week or two each year.\n\nOctober and November bring clear skies, comfortable temperatures and the autumn colours, usually at their best in Kyoto in the second half of November.\n\nJune is the rainy season, and July and August are hot and humid, with typhoons possible from August into September. Sightseeing is still very possible with early starts.\n\nDecember to February is cold but often dry and clear, with the best chance of seeing Mount Fuji, fewer crowds and lower hotel rates, apart from the New Year holidays. Late April to early May is Golden Week, a run of Japanese public holidays when trains and hotels are crowded.",
+      },
+      {
+        kind: "prose",
+        title: "Good to know before you go",
+        body:
+          "Japan is three and a half hours ahead of India. The currency is the yen. Cards are accepted in most hotels and city shops, but cash is still needed at smaller restaurants, temples and shrines, and a rechargeable transit card makes the metro and buses simple. Tipping is not customary, so there is no need to leave anything.\n\nTravel light: large suitcases are awkward on the metro, and bullet trains have rules on oversized luggage, so we can arrange for bags to be sent ahead between hotels. Take your shoes off where you see a step up or slippers laid out, in temples, ryokans and some restaurants, and keep voices low and phones silent on trains. Vegetarian food takes some planning, as fish stock is used in many dishes that look vegetarian, so tell us and we will plan meals around it. Expect a lot of walking every day, and pack comfortable shoes.",
+      },
+    ],
+    closingTitle: "Ready to plan your Japan holiday?",
+    closingText:
+      "Tokyo and Kyoto across six days by bullet train, a honeymoon with a night in a ryokan, or a family trip with Mount Fuji, Osaka and Universal Studios - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
+    faqs: [
+      {
+        question: "Do we need a visa for Japan?",
+        answer:
+          "Yes. Indian passport holders need a visa, applied for before travel. The rules and documents change from time to time, so we check the current requirements when you book and handle the application with you.",
+      },
+      {
+        question: "Is the bullet train included?",
+        answer:
+          "In our Tokyo and Kyoto package, yes - standard-class Shinkansen tickets between Tokyo and Kyoto in both directions, and the train from Tokyo to Narita Airport on the last day. They are tickets only, so you make your own way to the station, and we brief you on how before you leave.",
+      },
+      {
+        question: "Is Japan easy for vegetarians?",
+        answer:
+          "It takes planning rather than luck. Many dishes use fish stock, so we point you to vegetarian and Indian restaurants near your hotels, and Tokyo and Kyoto both have more of them than most people expect.",
+      },
+    ],
     metaTitle: "Japan Tour Packages",
     metaDescription:
       "Japan tour packages from Kerala - Tokyo's temples and Skytree, Mount Fuji, Kyoto's Golden Pavilion and bamboo grove, and Osaka, by bullet train.",
@@ -2603,7 +3081,7 @@ export const destinations = [
       "Cairo, the pyramids and Alexandria across four days, a honeymoon on the Nile, or a family trip from the pyramids to the Red Sea - we will shape it around what you want. Flights, visa, hotels, cruises, guides and sightseeing arranged from one place.",
     metaTitle: "Egypt Tour Packages",
     metaDescription:
-      "Egypt holiday packages from Kerala with the Pyramids of Giza, Alexandria, a Nile cruise and Egyptologist guides. Customised itineraries and honeymoon packages.",
+      "Egypt holiday packages from Kerala with the Pyramids of Giza, Alexandria, a Nile cruise and Egyptologist guides. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "pondicherry",
@@ -2688,7 +3166,7 @@ export const destinations = [
       "The French Quarter, Auroville and Paradise Beach across three days, a honeymoon in a heritage villa, or a family trip combined with Mahabalipuram - we will shape it around what you want. Travel, hotels, transfers and sightseeing arranged from one place.",
     metaTitle: "Pondicherry Tour Packages",
     metaDescription:
-      "Pondicherry holiday packages from Kerala with the French Quarter, Auroville, Paradise Beach and Mahabalipuram. Customised itineraries and honeymoon packages.",
+      "Pondicherry holiday packages from Kerala with the French Quarter, Auroville, Paradise Beach and Mahabalipuram. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "tawang",
@@ -2774,7 +3252,7 @@ export const destinations = [
       "Bomdila, Tawang and Dirang across five days, a honeymoon in the snow at Sela Pass, or a trip timed around the Tawang Festival - we will shape it around what you want. Flights, permits, hotels, vehicle, driver and sightseeing arranged from one place.",
     metaTitle: "Tawang Tour Packages",
     metaDescription:
-      "Tawang holiday packages from Kerala with Tawang Monastery, Sela Pass, Bum La and the high lakes, with permits. Customised itineraries and honeymoon packages.",
+      "Tawang holiday packages from Kerala with Tawang Monastery, Sela Pass, Bum La and the high lakes, with permits. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "laos",
@@ -2860,7 +3338,7 @@ export const destinations = [
       "Vientiane and Nam Ngum Lake across four days, a honeymoon through Vang Vieng and Luang Prabang, or Laos combined with Thailand or Vietnam - we will shape it around what you want. Flights, visa, hotels, guides, transfers and sightseeing arranged from one place.",
     metaTitle: "Laos Tour Packages",
     metaDescription:
-      "Laos holiday packages from Kerala with Vientiane, Vang Vieng, Luang Prabang and Kuang Si Falls. Customised itineraries and honeymoon packages.",
+      "Laos holiday packages from Kerala with Vientiane, Vang Vieng, Luang Prabang and Kuang Si Falls. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "philippines",
@@ -2947,7 +3425,7 @@ export const destinations = [
       "Manila and Angeles City across five days, a honeymoon in Boracay or El Nido, or a family island-hopping trip through Bohol and Cebu - we will shape it around what you want. Flights, hotels, island transfers, guides and sightseeing arranged from one place.",
     metaTitle: "Philippines Tour Packages",
     metaDescription:
-      "Philippines holiday packages from Kerala with Manila, Boracay, El Nido, Bohol and Cebu island-hopping. Customised itineraries and honeymoon packages.",
+      "Philippines holiday packages from Kerala with Manila, Boracay, El Nido, Bohol and Cebu island-hopping. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "south-korea",
@@ -3037,7 +3515,7 @@ export const destinations = [
       "Seoul, Busan and Gyeongju across a week or more, a honeymoon through Nami Island and Jeju, or a family trip timed around the cherry blossom - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
     metaTitle: "South Korea Tour Packages",
     metaDescription:
-      "South Korea holiday packages from Kerala with Seoul, Nami Island, Busan, Gyeongju and Jeju, visa and KTX trains. Customised itineraries and honeymoon packages.",
+      "South Korea holiday packages from Kerala with Seoul, Nami Island, Busan, Gyeongju and Jeju, visa and KTX trains. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "sri-lanka",
@@ -3127,7 +3605,7 @@ export const destinations = [
       "Sigiriya, Kandy, Ella and the beaches across seven days, a honeymoon through tea country and the south coast, or a Ramayana trail with the family - we will shape it around what you want. Flights, ETA, hotels, private vehicle, guide and sightseeing arranged from one place.",
     metaTitle: "Sri Lanka Tour Packages",
     metaDescription:
-      "Sri Lanka holiday packages from Kerala with Sigiriya, Kandy, Nuwara Eliya, Ella and the south coast. Customised itineraries and honeymoon packages.",
+      "Sri Lanka holiday packages from Kerala with Sigiriya, Kandy, Nuwara Eliya, Ella and the south coast. Customized itineraries and honeymoon packages.",
   },
   {
     slug: "uzbekistan",
@@ -3215,7 +3693,7 @@ export const destinations = [
       "Tashkent and the Chimgan mountains across four days, a honeymoon through Samarkand and Bukhara, or the full Silk Road circuit to Khiva - we will shape it around what you want. Flights, visa, hotels, trains, guides and sightseeing arranged from one place.",
     metaTitle: "Uzbekistan Tour Packages",
     metaDescription:
-      "Uzbekistan holiday packages from Kerala with Tashkent, Samarkand, Bukhara and Khiva, visa and high-speed trains. Customised itineraries and honeymoon packages.",
+      "Uzbekistan holiday packages from Kerala with Tashkent, Samarkand, Bukhara and Khiva, visa and high-speed trains. Customized itineraries and honeymoon packages.",
   },
 ];
 

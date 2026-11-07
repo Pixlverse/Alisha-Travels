@@ -16,7 +16,7 @@ export const revalidate = 600;
 export const metadata = {
   title: "Our Services - Tickets, Hotels, Visas, Attestation & Tours",
   description:
-    "Everything Alisha Tours & Travels handles in-house: IATA air ticketing, hotel booking, travel insurance, customised tours, MICE and corporate travel, educational and adventure tours, and certificate attestation.",
+    "Everything Alisha Tours & Travels handles in-house: IATA air ticketing, hotel booking, travel insurance, customized tours, MICE and corporate travel, educational and adventure tours, and certificate attestation.",
   alternates: { canonical: "/services/" },
 };
 

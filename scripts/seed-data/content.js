@@ -229,18 +229,24 @@ export const testimonials = [
  * page only renders a filter tab when at least one item uses that category, so
  * there are no dead tabs.
  */
+/*
+ * Until the client's own photographs are added, these are licensed
+ * destination photographs, so the captions name the place and nothing more -
+ * no "group departure at..." for a picture we did not take, and every item
+ * sits under one "tours" tab rather than "memories" or "office".
+ */
 export const galleryItems = [
-  { image: d("dubai"), caption: "Group departure at the Burj Khalifa observation deck", category: "tours", order: 1 },
-  { image: x("pattaya"), caption: "Coral Island morning, Pattaya group tour", category: "tours", order: 2 },
-  { image: d("ladakh"), caption: "On the Zanskar road, Ladakh fixed departure", category: "tours", order: 3 },
-  { image: x("houseboat"), caption: "Alleppey houseboat, Kerala family package", category: "tours", order: 4 },
-  { image: d("kashmir-srinagar"), caption: "Shikaras on Dal Lake at first light", category: "memories", order: 5 },
-  { image: d("maldives"), caption: "A honeymoon couple's sandbank picnic, Baa Atoll", category: "memories", order: 6 },
-  { image: d("goa"), caption: "Long-weekend group at Palolem, South Goa", category: "memories", order: 7 },
-  { image: x("ettumanoor"), caption: "Ettumanoor, where the head office has been since 2013", category: "office", order: 8 },
-  { image: x("airport"), caption: "Sending a group off from Cochin International", category: "office", order: 9 },
-  { image: x("gardensByTheBay"), caption: "Gardens by the Bay - Singapore family package advertisement", category: "ads", order: 10 },
-  { image: d("thailand"), caption: "Phi Phi Islands - Thailand fixed departure advertisement", category: "ads", order: 11 },
+  { image: d("dubai"), caption: "Burj Khalifa, Dubai", category: "tours", order: 1 },
+  { image: x("pattaya"), caption: "Coral Island, Pattaya", category: "tours", order: 2 },
+  { image: d("ladakh"), caption: "Ladakh", category: "tours", order: 3 },
+  { image: x("houseboat"), caption: "Houseboat, Alleppey", category: "tours", order: 4 },
+  { image: d("kashmir-srinagar"), caption: "Dal Lake, Srinagar", category: "tours", order: 5 },
+  { image: d("maldives"), caption: "Maldives", category: "tours", order: 6 },
+  { image: d("goa"), caption: "Palolem, South Goa", category: "tours", order: 7 },
+  { image: x("ettumanoor"), caption: "Ettumanoor, Kottayam", category: "tours", order: 8 },
+  { image: x("airport"), caption: "Cochin International Airport", category: "tours", order: 9 },
+  { image: x("gardensByTheBay"), caption: "Gardens by the Bay, Singapore", category: "tours", order: 10 },
+  { image: d("thailand"), caption: "Phi Phi Islands, Thailand", category: "tours", order: 11 },
 ];
 
 /**

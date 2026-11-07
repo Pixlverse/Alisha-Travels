@@ -246,13 +246,20 @@ export default function DepartureMonths({ departures = [] }) {
                         "mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold",
                         soldOut
                           ? "bg-mist-100 text-ink-muted"
-                          : departure.seatsRemaining && departure.seatsRemaining <= 6
+                          : departure.seatsTotal > 0 && departure.seatsRemaining <= 6
                             ? "bg-sun/20 text-sun-shadow"
                             : "bg-brand-50 text-brand-700"
                       )}
                     >
                       <ArmchairIcon className="size-3.5" aria-hidden="true" />
-                      {soldOut ? "Sold out" : `${departure.seatsRemaining} seats left`}
+                      {/* No seat count entered (seatsTotal 0) means seats are
+                          not tracked - say "Seats available", as the
+                          departure card does, never "0 seats left". */}
+                      {soldOut
+                        ? "Sold out"
+                        : departure.seatsTotal > 0
+                          ? `${departure.seatsRemaining} seats left`
+                          : "Seats available"}
                     </span>
                   </span>
 
@@ -260,7 +267,12 @@ export default function DepartureMonths({ departures = [] }) {
                     <span className="block font-sans text-2xl leading-none font-extrabold text-ink">
                       {formatPackagePrice(departure.price ?? departure.package?.priceFrom)}
                     </span>
-                    <span className="mt-1.5 block text-[0.6875rem] text-ink-muted">per person</span>
+                    <span className="mt-1.5 block text-[0.6875rem] text-ink-muted">
+                      {departure.priceLabel ? (
+                        <span className="font-bold text-sun-shadow">{departure.priceLabel} · </span>
+                      ) : null}
+                      per person
+                    </span>
                     <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
                       View tour
                       <ArrowRight

@@ -17,7 +17,7 @@ export const revalidate = 600;
 export const metadata = {
   title: "Tour Packages - Honeymoon, Family, Group & Corporate",
   description:
-    "Every package Alisha Tours & Travels has built and priced - filter by destination, budget, duration and the kind of trip. Fixed group departures and customised itineraries, all in INR.",
+    "Every package Alisha Tours & Travels has built and priced - filter by destination, budget, duration and the kind of trip. Fixed group departures and customized itineraries, all in INR.",
   alternates: { canonical: "/packages/" },
 };
 

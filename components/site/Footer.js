@@ -48,7 +48,7 @@ export default function Footer() {
       // menu, the other sits under Packages), but the footer keeps them.
       links: [
         { label: "Air ticket booking", href: "/services/air-ticket-booking/" },
-        { label: "Global tourist visa", href: "/services/global-tourist-visa/" },
+        { label: "Global visa", href: "/services/global-visa/" },
         { label: "MICE & corporate travel", href: "/services/mice-corporate-travel/" },
         { label: "Train & bus tickets", href: "/services/train-bus-tickets/" },
         { label: "Cab rental", href: "/services/cab-rental/" },
@@ -79,7 +79,7 @@ export default function Footer() {
               {SITE.tagline}.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-brand-100/75">
-              An IATA-accredited travel agency based in Kerala since {SITE.founded}. Customised
+              An IATA-accredited travel agency based in Kerala since {SITE.founded}. Customized
               holidays, fixed departures, corporate movements and the paperwork that goes with
               them - handled by a named person from the first question to the last boarding pass.
             </p>
@@ -222,6 +222,15 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             <Link href="/reviews/" className="underline-offset-4 hover:text-white hover:underline">
               Read our reviews
+            </Link>
+            <Link href="/privacy-policy/" className="underline-offset-4 hover:text-white hover:underline">
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions/"
+              className="underline-offset-4 hover:text-white hover:underline"
+            >
+              Terms &amp; Conditions
             </Link>
 
             {/* The build credit. The mark is white artwork on transparency, so

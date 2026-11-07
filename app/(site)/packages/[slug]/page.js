@@ -184,7 +184,7 @@ export default async function PackagePage({ params }) {
               ) : (
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[0.6875rem] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
                   <Sparkles className="size-3.5" aria-hidden="true" />
-                  Customisable
+                  Customizable
                 </span>
               )}
               {destination ? (
@@ -313,7 +313,7 @@ export default async function PackagePage({ params }) {
                 wraps without leaving a hole, and the dashed rules between the
                 figures are the same perforation language as the boarding-pass
                 card on the 404 and the About page. */}
-            {travelWindow || rooms || travellers ? (
+            {durationDays ? (
               <div className="mt-14">
                 <h2 className="text-2xl font-semibold text-ink sm:text-3xl">Trip at a glance</h2>
                 {/* A DARK stub, and the only dark element in this stretch of
@@ -696,8 +696,8 @@ export default async function PackagePage({ params }) {
                       off "Guidelines for travelling" in the document outline. */}
                   <h2 className="text-xl font-semibold text-ink">Terms &amp; conditions</h2>
                   <span className="mt-1 block text-sm text-ink-muted">
-                    The fine print, in full - the same {(terms.length ? terms : PACKAGE_TERMS).length}{" "}
-                    clauses as the proposal
+                    The fine print, in full - {(terms.length ? terms : PACKAGE_TERMS).length}{" "}
+                    clauses
                   </span>
                 </span>
                 <ChevronDown
@@ -895,6 +895,11 @@ function DepartureRow({ departure, price }) {
 
       <p className={cn("font-sans font-semibold", expired ? "text-ink-muted" : "text-ink")}>
         {formatPackagePrice(departure.price ?? price)}
+        {departure.priceLabel && !expired ? (
+          <span className="ml-2 rounded-full bg-sun/20 px-2 py-0.5 align-middle text-[0.6875rem] font-bold tracking-wide text-sun-shadow uppercase">
+            {departure.priceLabel}
+          </span>
+        ) : null}
       </p>
 
       {expired ? (

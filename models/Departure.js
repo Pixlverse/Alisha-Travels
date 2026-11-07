@@ -29,6 +29,9 @@ const departureSchema = new mongoose.Schema(
     seatsTotal: { type: Number, min: 0, default: 0 },
     seatsRemaining: { type: Number, min: 0, default: 0 },
 
+    /** Shown beside the price, e.g. "Early bird" - blank for a plain price. */
+    priceLabel: { type: String, trim: true, default: "" },
+
     /** Optional, e.g. "Kochi" — group tours often depart from a named city. */
     boardingCity: { type: String, trim: true, default: "" },
 

@@ -227,7 +227,7 @@ export const revalidate = 600;
 export const metadata = {
   title: "Alisha Tours & Travels - Tour Packages from Kerala",
   description:
-    "IATA-accredited travel agency in Kottayam, Kerala. Customised tour packages, fixed group departures, honeymoons, family holidays and corporate travel, domestic and international.",
+    "IATA-accredited travel agency in Kottayam, Kerala. Customized tour packages, fixed group departures, honeymoons, family holidays and corporate travel, domestic and international.",
   alternates: { canonical: "/" },
 };
 
@@ -622,21 +622,23 @@ export default async function HomePage() {
         It used to render only when there were videos, which meant it did not
         render at all — so the space the client asked to have set aside for
         video reviews was invisible, and looked like it had never been built.
-        It is always here now, and VideoReviews draws reserved frames until
-        the first video is added in /admin/ (Testimonials → Video review URL),
-        at which point the frames give way to the real thing.
+        The reserved "coming soon" frames that stood in for it were taken
+        down at the client's request, so the band is hidden again until the
+        first video is added in /admin/ (Testimonials → Video review URL).
       */}
-      <Section>
-        <div className="container-page">
-          <VideoReviews
-            reviews={videoReviews}
-            eyebrow="On camera"
-            title="Some of them said it out loud."
-            link="/reviews/"
-            linkLabel="All reviews"
-          />
-        </div>
-      </Section>
+      {videoReviews?.length ? (
+        <Section>
+          <div className="container-page">
+            <VideoReviews
+              reviews={videoReviews}
+              eyebrow="On camera"
+              title="Some of them said it out loud."
+              link="/reviews/"
+              linkLabel="All reviews"
+            />
+          </div>
+        </Section>
+      ) : null}
 
       {/* --------------------------- Travel packages ------------------------ */}
       {/*
@@ -871,15 +873,19 @@ export default async function HomePage() {
               ) : null}
             </div>
 
-            {/* The campaign film. */}
-            <div className="lg:pt-4">
-              <CampaignFilm
-                videoUrl={campaign.videoUrl}
-                still={campaign.videoThumbnail?.url || campaign.heroImage?.url}
-                alt={campaign.videoThumbnail?.alt || ""}
-                title={TRAVEL_BEYOND_SIGHT.title}
-              />
-            </div>
+            {/* The campaign film - only once a video URL is saved on the
+                campaign; the "Coming soon" frame was taken down at the
+                client's request. */}
+            {campaign.videoUrl ? (
+              <div className="lg:pt-4">
+                <CampaignFilm
+                  videoUrl={campaign.videoUrl}
+                  still={campaign.videoThumbnail?.url || campaign.heroImage?.url}
+                  alt={campaign.videoThumbnail?.alt || ""}
+                  title={TRAVEL_BEYOND_SIGHT.title}
+                />
+              </div>
+            ) : null}
             </div>
           </div>
         </section>

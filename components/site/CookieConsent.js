@@ -105,10 +105,10 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                 Decline
               </Button>
               <Link
-                href="/contact/"
+                href="/privacy-policy/"
                 className="ml-auto text-xs text-ink-muted underline-offset-4 hover:text-brand-700 hover:underline"
               >
-                Questions?
+                Privacy policy
               </Link>
             </div>
           </div>

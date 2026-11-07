@@ -7,7 +7,7 @@
  *   - "Fixed Departure Tours" is not one of them. The nav specification listed
  *     it as a service, but it points at /fixed-departures/ rather than a page
  *     of its own, so no dead /services/fixed-departure-tours/ page exists.
- *   - Three of the ten (customised, educational and adventure tours) are
+ *   - Three of the ten (customized, educational and adventure tours) are
  *     presented under PACKAGES rather than Services and are filtered out of
  *     the Services listings — see SERVICES_PRESENTED_AS_PACKAGES in
  *     lib/site.js. Their pages are unchanged and still live at /services/.
@@ -19,7 +19,7 @@
  * The legacy site's tenth service, "Worldwide Tourist Visa", was dropped by the
  * client's SEO revision ("Travel Guide and Visa & Attestation removed") and is
  * deliberately not seeded. Visa work is still described inside the individual
- * destination pages and the customised-tours service.
+ * destination pages and the customized-tours service.
  *
  * `icon` is a lucide-react icon name, resolved by components/site/ServiceIcon.js.
  */
@@ -437,7 +437,7 @@ export const services = [
     order: 12,
     shortDescription:
       "Holidays built around your pace, your budget and the people travelling with you. Nothing off the shelf.",
-    heroHeading: "Customised Tour Packages for Personalised Travel",
+    heroHeading: "Customized Tour Packages for Personalised Travel",
     heroLead:
       "We build tour packages around the people travelling on your dates, your budget, your pace and the things you actually want to see. Domestic or international, two of you or forty.\n\nTell us the budget, and we will tell you what it buys, rather than sending an itinerary you then have to cut.",
     ctaLabel: "Start planning",
@@ -597,7 +597,7 @@ export const services = [
     closingPrimaryType: "phone",
     closingSecondaryLabel: "WhatsApp us",
     closingSecondaryType: "whatsapp",
-    metaTitle: "Customised Tour Packages for Personalised Travel",
+    metaTitle: "Customized Tour Packages for Personalised Travel",
     metaDescription:
       "Custom-built holiday packages on your dates, your budget and your pace - domestic and international, with inclusions, exclusions and any TCS stated upfront.",
   },
@@ -754,7 +754,7 @@ export const services = [
         intro: "Booked through the same desk, so nothing has to be organised twice.",
         tags: [
           "Hotel booking",
-          "Customised tour packages",
+          "Customized tour packages",
           "Cab rental",
           "Air tickets",
           "Travel insurance",
@@ -883,7 +883,7 @@ export const services = [
         intro: "Booked through the same desk, so nothing has to be organised twice.",
         tags: [
           "Hotel booking",
-          "Customised tour packages",
+          "Customized tour packages",
           "Air tickets",
           "Train & bus tickets",
           "Cruise holidays",
@@ -937,7 +937,7 @@ export const services = [
         items: [
           {
             tag: "Honeymoon",
-            title: "Customised cruise holidays",
+            title: "Customized cruise holidays",
             text: "Which sailing, which deck, and which dates are not full of school holidays. What the balcony is worth, and when it is not.",
           },
           {
@@ -1013,7 +1013,7 @@ export const services = [
           "Tourist visa assistance",
           "Cab rental",
           "Travel insurance",
-          "Customised tour packages",
+          "Customized tour packages",
         ],
       },
     ],

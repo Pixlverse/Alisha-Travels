@@ -10,9 +10,9 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 export const revalidate = 600;
 
 export const metadata = {
-  title: "Gallery - Tours, Offices and Travellers",
+  title: "Gallery - Destinations We Travel To",
   description:
-    "Photographs and videos from Alisha Tours & Travels group departures, family holidays and our Kottayam office.",
+    "Photographs of the destinations Alisha Tours & Travels plans trips to, from Dubai and Thailand to Kashmir, Goa and Kerala.",
   alternates: { canonical: "/gallery/" },
 };
 
@@ -34,8 +34,8 @@ export default async function GalleryPage() {
 
       <PageHeader
         eyebrow={galleryCount(items)}
-        title="Groups we have sent, places we have been, and the desk we work from."
-        lead="Photographs and videos from our group departures and family holidays, and from the Kottayam office. Nothing staged, and nothing from a stock library."
+        title="The places our travellers go."
+        lead="A look at the destinations we plan trips to. Photographs from our own group departures and family holidays will be added here."
         breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Gallery" }]}
       />
 
