@@ -70,6 +70,9 @@ const nextConfig = {
       // One visa page: the footer's old "Global tourist visa" service page
       // goes to the Global Visa section the menu links to.
       { source: "/services/global-tourist-visa", destination: "/services/global-visa/", permanent: true },
+      // Customized packages replaced by newer proposals of a different length.
+      { source: "/packages/fascinating-bali-5d4n", destination: "/packages/bali-nusa-penida-6d5n/", permanent: true },
+      { source: "/packages/charm-of-pattaya-bangkok-4d3n", destination: "/packages/pattaya-bangkok-5d4n/", permanent: true },
       // The legacy payment URL now goes to the Razorpay page.
       { source: "/payment", destination: "/pay/", permanent: false },
     ];

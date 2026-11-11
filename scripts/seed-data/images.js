@@ -183,6 +183,11 @@ export const DESTINATION_IMAGES = {
 
 /** Extra frames used for package heroes, galleries and the /gallery/ page. */
 export const EXTRA_IMAGES = {
+  // Songkran group tour: the water festival on Silom Road, Bangkok (CC BY 3.0)
+  songkran: {
+    url: `${C}/a/ae/Silom_road%2CBang_rak%2CThailand-Songkran_-_panoramio.jpg/1920px-Silom_road%2CBang_rak%2CThailand-Songkran_-_panoramio.jpg`,
+    alt: "Crowds celebrating Songkran, the Thai new-year water festival, on Silom Road in Bangkok",
+  },
   // A Piece of Europe: Prague is on the route, Switzerland is not (CC BY-SA 3.0)
   prague: {
     url: `${C}/1/1c/Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg/1920px-Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg`,

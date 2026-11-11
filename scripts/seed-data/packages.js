@@ -154,35 +154,36 @@ const entries = [
     metaDescription:
       "Bhutan in six days - by road from Bagdogra through Phuentsholing to Thimphu and Paro, with Kuensel Phodrang, Tashichho Dzong and the Tiger's Nest. Land only.",
   },
-  // 004682 BALI 4N 5D 3A NOV.pdf
+  // 003998 6D 5N BALI 3 ADULTS MAY.pdf (replaces 004682 BALI 4N 5D 3A NOV.pdf)
   {
-    slug: "fascinating-bali-5d4n",
+    slug: "bali-nusa-penida-6d5n",
     title: "Bali & Nusa Penida Discovery",
     summary:
-      "Five days in Bali - Padang Padang Beach and the Uluwatu sunset, a full day on Nusa Penida's west coast, and Kintamani's volcano views with a coffee plantation, Tegalalang and the jungle swing.",
+      "Six days in Bali from a 4-star hotel in Legian, Kuta - water sports at Benoa and the Uluwatu sunset, a full day on Nusa Penida's west coast, Kintamani, Ubud, Tegalalang and Tegenungan Waterfall, then an ATV ride and the Bali Jungle Swing.",
     destinationSlug: "bali",
     category: "family",
     type: "customized",
-    durationDays: 5,
-    durationNights: 4,
+    durationDays: 6,
+    durationNights: 5,
     priceFrom: 0,
     heroImage: d("bali"),
     highlights: [
-      "Nusa Penida",
-      "Padang Padang",
+      "Benoa Water Sports",
       "Uluwatu Sunset",
-      "Kintamani",
+      "Nusa Penida",
+      "Kintamani & Ubud",
+      "ATV Ride & Jungle Swing",
     ],
     inclusions: [
-      "4 nights' accommodation at the above-mentioned hotel in Kuta",
-      "A/C vehicle during tours and transfers mentioned in the itinerary (1-4 pax - SUV: Avanza/Xenia or similar)",
-      "Daily breakfast at the hotel (from Day 2)",
-      "01 water bottle (600 ml) per adult per day during the full-day tours and half-day tour in Bali. For island tours like Nusa Penida or Nusa Lembongan, or any other island tour, water bottles will not be provided on those islands",
+      "5 nights' accommodation at the above-mentioned hotel in Kuta",
+      "A/C vehicle during the tours and transfers mentioned in the itinerary (5 - 6 pax - SUV: Avanza / Xenia or similar)",
+      "Daily breakfast at the hotel's restaurant (from Day 2), and other meals as mentioned in the itinerary",
+      "02 water bottles (600 ml) per adult per day during the full-day and half-day tours in Bali. On island tours like Nusa Penida or Nusa Lembongan, water bottles are not provided on the islands",
       "Flower garland welcome on arrival at Bali airport",
       "Airport to hotel / hotel to airport - private transfers, as per the itinerary",
       "All transfers and sightseeing as mentioned in the itinerary on a PRIVATE A/C VEHICLE only, other than mentioned",
-      "Basic English-speaking driver during the tours and transfers on Bali mainland. On remote islands like Nusa Penida / Nusa Lembongan / Nusa Ceningan, drivers provided cannot speak English very well. Please use Google Translate, if needed. The driver will not be guiding the tours",
-      "All entrance fees, local taxes, donations, parking and toll charges for the above-mentioned itinerary, other than mentioned - at some places the local government collects the entrance charges directly from the guest, and these cannot be paid indirectly, so such charges are mentioned in the itinerary",
+      "Basic English-speaking driver during the tours and transfers on Bali mainland. On remote islands like Nusa Penida / Nusa Lembongan / Nusa Ceningan, drivers cannot speak English very well - please use Google Translate if needed. The driver will not be guiding the tours",
+      "All entrance fees, local taxes, donations, parking and toll charges for the above-mentioned itinerary, other than mentioned - at some places the local government collects the entrance charges directly from the guest, and these cannot be paid indirectly; such charges are mentioned in the itinerary",
       "GST",
     ],
     exclusions: [
@@ -193,54 +194,63 @@ const entries = [
       "Early check-in or late check-out",
       "Laundry, telephone calls and incidentals",
       "Personal expenses, room service, special orders, and alcoholic/non-alcoholic beverages",
-      "Lunch, dinner",
-      "Any extra excursion beyond the itinerary",
-      "A tour guide, if required (available at extra charge)",
+      "Any extra excursion apart from the itinerary",
     ],
     itinerary: [
       {
         day: 1,
         title: "Arrival in Bali - Transfer to Hotel",
         description:
-          "After arrival at Bali International Airport, our driver will pick you up from the airport and drop you at your hotel for check-in at the hotel / villa. The driver for the airport pick-up will arrive 45 - 60 minutes after the flight arrival time, so that you get enough time to clear all the formalities at the airport, like visa, immigration, luggage collection and customs.\n\nNotes: 1. Maximum waiting time will be 02 hours 30 minutes after the flight arrival time. If the waiting time is more than 02 hours for any reason, waiting charges will apply, which can be discussed and paid directly to the driver on the spot. 2. If the flight arrival time is before 0800 hrs in the morning or after 1930 hrs in the evening, there will be additional night charges for the transportation; in such a case, kindly cross-check with our sales team for the charges. 3. Kindly remember to cross-check your itinerary with the driver upon arrival, to avoid any confusion during the tours. Also please discuss your next day's pick-up timings with the driver.",
+          "After arrival at Bali International Airport, our driver will pick you up from the airport and drop you at your hotel / villa for check-in. The driver will arrive 45 - 60 minutes after the flight arrival time, so that you have enough time to clear the airport formalities - visa, immigration, luggage collection and customs.\n\nNotes: 1. The maximum waiting time is 2 hours 30 minutes after the flight arrival time; beyond that, waiting charges apply, payable directly to the driver. 2. If the flight arrives before 0800 hrs or after 1930 hrs, additional night charges apply for the transfer - please check with our sales team. 3. Please cross-check your itinerary and the next day's pick-up time with the driver on arrival.",
         meals: "None",
-        stay: "Bali",
+        stay: "Kuta",
       },
       {
         day: 2,
-        title: "Half-Day Padang Padang Beach & Sunset at Uluwatu",
+        title: "Water Sports (Banana Boat, Fly Fish, Jet Ski) & Sunset at Uluwatu Temple",
         description:
-          "Pick-up at 1200 - 1330 hrs, depending on the hotel location. The tour includes a visit to Padang Padang Beach, celebrated for its crystal-clear waters, white sandy shores and unique limestone cave entrance, making it a popular spot for surfers and beachgoers alike. After the beach, we will take you directly to the Uluwatu area to visit Uluwatu Temple, famous for its panoramic views of the ocean and especially renowned for its stunning sunset. After the tour, we will drop you back at the hotel for a good rest.\n\nNotes: 1. To enjoy the Uluwatu sunset, you should reach Uluwatu by 1600 hrs at the latest. 2. Please cross-check the pick-up timings with the driver one day prior, to avoid any confusion. 3. Please take a pair of clothes with you, in case you want to go swimming at the beach.",
-        meals: "None",
-        stay: "Bali",
+          "Pick-up at 1000 - 1100 hrs from the hotel lobby, depending on your hotel location. We will take you to the water sports area at Benoa beach for the pre-booked activities - Banana Boat (5 minutes), Jet Ski (5 minutes) and Fly Fish (1 round). Other activities can be added on a direct-payment basis.\n\nAfter the water sports, continue to Uluwatu Temple, famous for its panoramic ocean views and its stunning sunset, before returning to the hotel.\n\nNotes: Please take a spare set of clothes. Water sports are not included for children below 9; children below 12 must do the activities with their parents; Fly Fish is not allowed for children below 17. Maximum duration of this tour is 8 hours.",
+        meals: "Breakfast",
+        stay: "Kuta",
       },
       {
         day: 3,
         title: "Full-Day Nusa Penida West Tour (Private) - 4 Beaches",
         description:
-          "Kelingking Beach, Angel Billabong, Broken Bay and Bubu Beach, with complimentary snorkelling and canoeing (if time permits). Pick-up at 0545 - 0630 hrs in the morning, depending on your hotel location; please cross-check the exact pick-up time with the driver. The boat departure time is 0800 hrs from Bali; the reporting / check-in time is normally 30 - 45 minutes before departure. We will take you to the harbour to board a sharing boat to Nusa Penida Island. In Nusa Penida, our tour driver will provide the full-day tour including Kelingking Beach, Angel Billabong, Broken Bay and Bubu Beach. The beach tour will finish between 1400 hrs and 1430 hrs, after which you can enjoy snorkelling and canoeing at the harbour until the boat departure time. Tentative departure time from Nusa Penida is 1630 hrs (please read the notes).\n\nNusa Penida package inclusions: Bali hotel to harbour and harbour to Bali hotel transfers (private vehicle); return boat transfer from mainland Bali (sharing boat); private / charter car for the tour on Nusa Penida; 03 beaches - viewing point tour (Kelingking Bay, Angel Billabong and Broken Beach - all 03 places are seen from the viewing point only, as going down to the beach takes more than 02 hours at one location alone; you will get 20 - 30 minutes at each location due to the limited time); 01 beach tour - Bubu Beach, where you can visit the beach and enjoy swimming; snorkelling at the harbour (if time permits) - for the complimentary snorkelling, please connect with the staff at the harbour; canoeing at the harbour (if time permits) - for the complimentary canoeing, please connect with the staff at the harbour; the retribution fees (compulsory donation) for Nusa Penida of IDR 25,000 / adult and IDR 15,000 / child.\n\nNotes: Drivers in Nusa Penida are not fluent in English; most understand very little, as it is a remote island. Kindly use Google Translate, if needed. Please take 01 - 02 pairs of clothes with you for changing after the beaches or snorkelling. At Nusa Penida, depending on traffic conditions and boat arrival and departure timings, the tour can be shortened by the driver on the spot; if the tour is shortened, we will cut 01 beach. No instructor is provided for snorkelling and canoeing. No guide will be provided in Nusa Penida, even if a guide is selected in the booking.",
-        meals: "Breakfast, lunch",
-        stay: "Bali",
+          "Kelingking Beach, Angel Billabong, Broken Bay and Bubu Beach, with complimentary snorkelling (if time permits). Pick-up at 0600 - 0700 hrs depending on your hotel location; the boat departs Bali at 0800 hrs, with reporting 30 - 45 minutes before. We take you to the harbour to board a shared fast boat to Nusa Penida, where our driver runs the full-day tour.\n\nIncluded: private transfers between your Bali hotel and the harbour; return shared fast boat; a private car on Nusa Penida; Kelingking Bay, Angel Billabong and Broken Beach from their viewpoints (going down to each beach takes over 2 hours, so you get 20 - 30 minutes at each viewpoint); a beach visit and swimming at Bubu Beach; complimentary snorkelling at the harbour if time permits; and the Nusa Penida retribution fee (IDR 25,000 per adult, IDR 15,000 per child).\n\nNotes: Drivers on Nusa Penida speak very little English - please use Google Translate if needed. Take 1 - 2 changes of clothes. Depending on traffic and boat timings the driver may shorten the tour by one beach. Boat and pick-up timings can vary slightly - please confirm with the driver the day before.",
+        meals: "Breakfast",
+        stay: "Kuta",
       },
       {
         day: 4,
-        title: "Kintamani Tour, Coffee Plantation & Bali Jungle Swing",
+        title: "Kintamani, Coffee Plantation, Ubud, Tegalalang Rice Terrace & Tegenungan Waterfall",
         description:
-          "Kintamani tour, coffee plantation and the Bali Jungle Swing with unlimited swings and nests, and a complimentary small local lunch at the swing. Pick-up at 0800 - 0900 hrs from the hotel lobby. Today we will cover Kintamani (viewing Lake Batur and Mount Batur from the viewpoint); a coffee plantation, known for tasting different types of coffee, and spice plantations; Tegalalang Rice Terrace, with its landscape of lush green rice paddies across the photogenic Bali countryside; and Tegenungan Waterfall, known for the natural beauty of the area.\n\nBali Jungle Swing: unlimited swings - visitors can enjoy the swings without a time limit, as much as they like. There are 07 kinds of swing, consisting of 3 adult swings, 1 couple swing, 1 children's swing, 1 swing bed and 1 swing circle. Besides the swings, there are also 5 kinds of nests / photo places, consisting of 01 circle nest, 02 bird nests, 01 lovely nest and 01 chicken nest. There is also a beautiful stone and 1 gate (Heaven Gate), and a local lunch with Balinese coffee, tea and water.\n\nNotes: For children below 05 years of age, we will be providing lunch only. For children between 05 and 09 years of age, the parents will need to sign an approval form before doing the activities, and the children need to do these activities along with their parents only. Kindly cross-check with the driver for the exact pick-up timings.",
-        meals: "Breakfast, lunch",
-        stay: "Bali",
+          "Pick-up at 0800 - 0900 hrs from the hotel lobby (maximum 10 hours). Today covers Kintamani, with views of Lake Batur and Mount Batur from the viewpoint; a coffee plantation known for coffee tasting and its spice garden; the Ubud art colonies, an excellent place for paintings, wood carvings, local handicrafts and souvenirs; the lush green paddies of Tegalalang Rice Terrace; and Tegenungan Waterfall.\n\nNote: Please cross-check the exact pick-up time with the driver.",
+        meals: "Breakfast",
+        stay: "Kuta",
       },
       {
         day: 5,
+        title: "ATV Ride & Bali Jungle Swing",
+        description:
+          "Pick-up at 0830 - 0900 hrs. A tandem ATV / quad bike ride (one ATV shared by two people) of about 90 minutes - two rounds of around 45 minutes on a private track through rice fields, jungle, mud and water, passing village life that still runs the traditional way. A small local lunch is served at the ATV site.\n\nThen the Bali Jungle Swing with unlimited swings - seven swings, including adult, couple and children's swings, a swing bed and a swing circle - plus five nests and photo spots and the 'heaven gate'.\n\nNotes: No activity or lunch is included for children below 5. Children aged 5 - 9 need a parent's signed approval form and must do the activities with their parents. Please take a spare set of clothes for after the ATV ride.",
+        meals: "Breakfast, Lunch",
+        stay: "Kuta",
+      },
+      {
+        day: 6,
         title: "Check-Out & Airport Drop / Departure from Bali",
         description:
-          "Check out from the hotel by 1200 hrs at the latest, or as per the hotel policy. Depending on your flight timings, you will be transferred from the hotel to Bali International Airport for your flight back home / to your next destination.\n\nNotes: 1. Kindly cross-check the pick-up time from the hotel / villa with the driver on the day prior to your flight, so there is no confusion between the guest and the driver. 2. If the flight departure time is before 1000 hrs in the morning or after 2200 hrs in the evening, there will be additional night charges for the transportation; in such a case, kindly cross-check with our sales team for the charges.",
+          "Check out from the hotel by 1200 hrs at the latest, or as per the hotel policy. Depending on your flight timings, you will be transferred from the hotel to Bali International Airport for your flight home or to your next destination.\n\nNotes: 1. Please confirm the pick-up time with the driver the day before your flight. 2. If the flight departs before 1000 hrs or after 2200 hrs, additional night charges apply for the transfer - please check with our sales team.",
         meals: "Breakfast",
       },
     ],
-    metaTitle: "Bali & Nusa Penida Discovery - 5 Days / 4 Nights",
+    stays: [
+      { destination: "Kuta", hotel: "Solia Legian Bali Hotel or similar (4 star)", nights: 5, meals: "Breakfast" },
+    ],
+    metaTitle: "Bali & Nusa Penida Discovery - 6 Days / 5 Nights",
     metaDescription:
-      "Bali in five days - Padang Padang and the Uluwatu sunset, a full day on Nusa Penida, and Kintamani with the jungle swing. Land only.",
+      "Bali in six days - Benoa water sports and the Uluwatu sunset, a full day on Nusa Penida, Kintamani and Ubud, then an ATV ride and the jungle swing. Price on request.",
   },
   // 004752 VIETNAM 3N4D 2A NOV 2026.pdf
   {
@@ -553,82 +563,87 @@ const entries = [
     metaDescription:
       "Dubai in four days - a creek dinner cruise, the Burj Khalifa, Global Village, the Miracle Garden, a desert safari with BBQ and an Abu Dhabi city tour. Land only.",
   },
-  // THAILAND 3N4D JAN.pdf
+  // 004020 THAILAND 5D 4N DEC 5 ADULTS.pdf (replaces THAILAND 3N4D JAN.pdf)
   {
-    slug: "charm-of-pattaya-bangkok-4d3n",
+    slug: "pattaya-bangkok-5d4n",
     title: "Pattaya & Bangkok Family Fun",
     summary:
-      "Four days across Thailand's vibrant coast and capital - enjoy Tiger Topia, Coral Island, Pattaya's Floating Market and Alcazar Show before exploring Bangkok's iconic temples and Safari World & Marine Park. A family-friendly holiday blending wildlife, culture and entertainment with private transfers and selected shared experiences.",
+      "Five days across Thailand's coast and capital - Tiger Topia and the Pattaya Floating Market, Coral Island by speedboat with an Indian lunch, two nights in Bangkok with Safari World & Marine Park, and a city tour of the Golden Buddha and Wat Pho.",
     destinationSlug: "thailand",
     category: "family",
     type: "customized",
-    durationDays: 4,
-    durationNights: 3,
+    durationDays: 5,
+    durationNights: 4,
     priceFrom: 0,
     heroImage: x("pattaya"),
-    highlights: ["Floating Market", "Coral Island", "Safari World"],
+    highlights: ["Tiger Topia", "Floating Market", "Coral Island", "Safari World", "Wat Pho"],
     inclusions: [
-      "3 nights' accommodation at the above-mentioned hotels",
-      "Daily breakfast at hotels",
+      "Round-trip airfare",
+      "4 nights' accommodation at the above-mentioned hotels with breakfast",
       "Meet & greet at the airport",
       "Sightseeing as per the above-mentioned itinerary",
-      "All entry tickets",
-      "All tours and transfers on private/SIC vehicles",
-      "Transfers between DMK Airport - Pattaya Hotel - Bangkok Hotel - DMK Airport by private vehicle",
+      "All entry tickets as per the itinerary",
+      "All tours and transfers on private / SIC basis",
+      "Transfers between Bangkok airport, the Pattaya hotel and the Bangkok hotel by private sedan",
       "GST",
     ],
     exclusions: [
-      "Round-trip airfare",
-      "TCS",
-      "Lunch & dinner (except where noted)",
       "Early check-in or late check-out (standard check-in after 1400 hrs, check-out before 1200 hrs)",
       "Other meals not mentioned, laundry, telephone calls and incidentals",
       "Any extra excursion or sightseeing beyond the suggested itinerary",
       "Personal expenses, room service and special orders",
       "Alcoholic and non-alcoholic beverages",
+      "TCS",
     ],
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Bangkok - Tiger Topia + Alcazar Show",
+        title: "Arrival - Tiger Topia & Floating Market",
         description:
-          "On arrival at Bangkok Airport, you'll be warmly welcomed and transferred to the hotel to freshen up and have breakfast. En route, visit Tiger Topia to experience the exciting Tiger Show and Crocodile Show. After the visit, return to the hotel or continue with leisure activities as per your schedule. In the evening, proceed to the famous Alcazar Cabaret Show. Enjoy round-trip private SUV transfers and admission tickets included for a comfortable and hassle-free experience before returning to the hotel.",
-        meals: "Breakfast",
+          "Upon arrival at Bangkok Airport, you will be warmly welcomed and transferred to Pattaya by private sedan. En route, visit Tiger Topia, with entry to the Tiger Show and Crocodile Show - a rare chance to see these animals up close, with trained Bengal tigers performing under professional trainers and handlers working closely with large crocodiles.\n\nContinue to the Pattaya Floating Market, a cultural attraction showcasing Thailand's traditional riverside life - wooden houses built over the water, local Thai snacks, souvenirs and handicrafts, and performances representing Thailand's four regions. After sightseeing, check in at your hotel in Pattaya; the evening is at leisure.",
+        meals: "None",
         stay: "Pattaya",
       },
       {
         day: 2,
-        title: "Coral Island Tour",
+        title: "Coral Island Tour with Lunch",
         description:
-          "After breakfast, a half-day speedboat excursion (shared/SIC basis) to Coral Island (Koh Larn) - known for its clear water, white sand and optional water sports such as parasailing, jet-skiing, sea walking and banana boat rides (extra cost). Relax on the beach or swim in the turquoise shallows, with lunch served during the tour. In the afternoon, visit Pattaya Floating Market.",
-        meals: "Breakfast, Lunch",
+          "After breakfast, a half-day excursion to Coral Island (Koh Larn) by speedboat on a shared (SIC) basis. The island is known for its clear water, white sand beaches and water sports - parasailing, jet skiing, sea walking and banana boat rides (optional, at additional cost) - or you can simply relax on the beach and swim. An Indian lunch is served during the tour, before returning to the hotel.",
+        meals: "Breakfast & Lunch",
         stay: "Pattaya",
       },
       {
         day: 3,
-        title: "Transfer to Bangkok",
+        title: "Pattaya to Bangkok",
         description:
-          "After breakfast at the hotel, depart for Safari World, Bangkok's renowned wildlife attraction. Enjoy a scenic drive to the park before entering the Safari Park, where you will experience an exciting safari through open habitats and observe a variety of animals such as giraffes, zebras, lions, tigers, and other wildlife roaming freely in a natural environment. Continue to the Marine Park, where you can explore fascinating animal exhibits and enjoy entertaining live shows featuring dolphins, sea lions, orangutans, birds, and other trained animals (subject to the daily show schedule). During your visit, savour a delicious buffet lunch at one of the park's restaurants. After lunch, spend more time exploring the park, visiting themed attractions, and watching any remaining shows. In the late afternoon, depart Safari World and return to your hotel in Bangkok with wonderful memories of a fun-filled day amidst wildlife and family-friendly entertainment.",
-        meals: "Breakfast only",
+          "After breakfast, check out from the Pattaya hotel and proceed to Bangkok. On arrival, check in at the hotel (check-in time 1400 hrs); the rest of the day is at leisure.",
+        meals: "Breakfast",
         stay: "Bangkok",
       },
       {
         day: 4,
+        title: "Safari World & Marine Park with Lunch",
+        description:
+          "After breakfast, proceed to Safari World & Marine Park, one of the largest open-air zoos in Asia at about 200 acres. Safari Park can be explored by vehicle, with tigers, lions, bears and zebras roaming in open habitats, while Marine Park has themed attractions and shows with dolphins, elephants, birds, sea lions and orangutans. Lunch is included. After the tour, transfer back to the hotel in Bangkok.",
+        meals: "Breakfast & Lunch",
+        stay: "Bangkok",
+      },
+      {
+        day: 5,
         title: "Bangkok City & Temple Tour - Departure",
         description:
-          "After breakfast, a private-sedan city and temple tour: the Golden Buddha at Wat Traimit, home to the world's largest solid gold Buddha statue at roughly 5.5 tonnes, followed by Wat Pho - the Temple of the Reclining Buddha, its 46-metre gold-leaf statue among Bangkok's oldest and most significant, and the birthplace of traditional Thai massage.\n\nThe tour concludes with your transfer to Bangkok Airport for departure.",
-        meals: "Breakfast only",
+          "After breakfast, a Bangkok city and temple tour on a shared (SIC) basis. Visit the Golden Buddha (Wat Traimit), home to the world's largest solid gold Buddha statue, weighing about 5.5 tonnes; then Wat Pho, the Temple of the Reclining Buddha, with its 46-metre gold-leaf reclining Buddha - one of Bangkok's oldest and most important temples, and the birthplace of traditional Thai massage.\n\nAfter the city tour, transfer to Bangkok Airport for your journey home.",
+        meals: "Breakfast",
       },
     ],
     stays: [
       { destination: "Pattaya", hotel: "Golden Beach Hotel or similar", nights: 2, meals: "Breakfast" },
-      { destination: "Bangkok", hotel: "Seasons Siam Hotel or similar", nights: 1, meals: "Breakfast" },
+      { destination: "Bangkok", hotel: "Seasons Siam Hotel or similar", nights: 2, meals: "Breakfast" },
     ],
-    metaTitle: "Pattaya & Bangkok Family Fun - 4 Days / 3 Nights",
+    metaTitle: "Pattaya & Bangkok Family Fun - 5 Days / 4 Nights",
     metaDescription:
-      "Pattaya and Bangkok in four days - Tiger Topia, the Alcazar show, Coral Island, the floating market, Safari World and Bangkok's temples. Land only.",
+      "Pattaya and Bangkok in five days - Tiger Topia, the Floating Market, Coral Island, Safari World and the Golden Buddha and Wat Pho temples. Price on request.",
   },
-
   // 004676 MANALI 2A NOV 4N 5D.pdf
   {
     slug: "fascinating-delhi-manali-5d4n",
@@ -2759,7 +2774,7 @@ const entries = [
  * entries for the new PDFs, and re-run the seed.
  */
 const promotionalEntries = [
-  // GOA PROMOTION PACKAGE 4A JULY-SEP 2026.pdf
+  // GOA PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "goa-offer-3d2n",
     title: "Goa Beach Getaway",
@@ -2772,13 +2787,13 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 2999,
+    priceFrom: 3999,
     heroImage: d("goa"),
     highlights: ["North Goa Beaches", "Old Goa Churches", "Spice Gardens"],
     inclusions: [
       "2 nights' accommodation at the above-mentioned hotel",
       "1 room",
-      "2 breakfasts (except on arrival day)",
+      "2 breakfasts (except on arrival day) and dinners",
       "Meal plan as per the itinerary",
       "Airport / Railway station pick-up and drop",
       "All tours and transfers by SIC",
@@ -2817,6 +2832,10 @@ const promotionalEntries = [
         meals: "Breakfast only",
       },
     ],
+    referenceNo: "",
+    travelWindow: "October 2026 - February 2027",
+    travellers: "Minimum 4 adults",
+    rooms: 1,
     stays: [
       {
         destination: "Goa",
@@ -2832,22 +2851,109 @@ const promotionalEntries = [
       },
     ],
     stayNote:
-      "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
+      "Land cost shown per adult, based on a minimum of 4 travellers sharing 1 room; excludes airfare / train fare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     priceRows: [
-      { label: "Per adult, hotel option 1", amount: 2999 },
-      { label: "Per adult, hotel option 2", amount: 3999 },
+      { label: "Per adult, hotel option 1", amount: 3999 },
+      { label: "Per adult, hotel option 2", amount: 4999 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Goa Beach Getaway - 3 Days / 2 Nights",
     metaDescription:
-      "Goa in three days from ₹2,999 per adult - Baga, Calangute and Fort Aguada in the north, then Old Goa's churches, a spice garden and sunset at Miramar. Land only.",
+      "Goa in three days from ₹3,999 per adult - Baga, Calangute and Fort Aguada in the north, then Old Goa's churches, a spice garden and sunset at Miramar. Land only.",
   },
-  // GOLDEN  TRIANGLE PROMOTION PACKAGE JULT-SEP 2026.pdf
+  // GOA PROMOTION PACKAGE 2A OCT-FEB.pdf
+  {
+    slug: "goa-couple-offer-3d2n",
+    title: "Goa Beach Getaway for Two",
+    summary:
+      "Three days across Goa's two coasts - a beach-hopping tour of the north from Aguada Fort to Baga, then Old Goa's churches, temples and a spice garden in the south. Priced for a minimum of two adults.",
+    priceNote:
+      "Land cost shown per adult; excludes train fare. Price is valid for a limited period and may change thereafter.",
+    destinationSlug: "goa",
+    category: "customized",
+    type: "customized",
+    durationDays: 3,
+    durationNights: 2,
+    priceFrom: 4999,
+    heroImage: d("goa"),
+    highlights: ["North Goa Beaches", "Old Goa Churches", "Spice Gardens"],
+    inclusions: [
+      "2 nights' accommodation at the above-mentioned hotel",
+      "1 room",
+      "2 breakfasts (except on arrival day) and dinners",
+      "Meal plan as per the itinerary",
+      "Airport / Railway station pick-up and drop",
+      "All tours and transfers by SIC",
+      "GST",
+    ],
+    exclusions: [
+      "Round-trip train fare / Air Fare",
+      "All entry tickets",
+      "Lunch",
+      "Early check-in or late check-out (standard check-in after 1400 hrs, check-out before 1200 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival Goa",
+        description:
+          "Upon your arrival at Goa Airport or the railway station, our representative will greet you and assist you with your transfer to the hotel. After reaching the hotel, complete the check-in formalities and settle into your room.\n\nThe remainder of the day is at your leisure - you may choose to relax after your journey, enjoy the hotel's amenities, or explore the nearby beaches, cafés, and local markets at your own pace. Return to the hotel for an overnight stay in Goa.",
+        meals: "Dinner",
+        stay: "Goa",
+      },
+      {
+        day: 2,
+        title: "North Goa Sightseeing",
+        description:
+          "Start your morning early with breakfast at your hotel, then visit Baga Beach, which is one of the most famous beaches in Goa. You can enjoy the lively atmosphere, beach shacks, water sports, and beautiful sea views. Next, proceed to Calangute Beach, often called the \"Queen of Beaches.\" This beach is very popular among tourists and offers shopping stalls, restaurants, and water activities.\n\nAfter that, visit Anjuna Beach, known for its scenic beauty, rocky shoreline, and vibrant flea market. Continue your beach tour with a visit to Candolim Beach, a quieter and more relaxed beach where you can enjoy peaceful views of the Arabian Sea.\n\nLater in the evening, visit Fort Aguada, a historic Portuguese fort built in the 17th century. From the fort, you can enjoy a spectacular sunset and panoramic views of the sea. After completing the sightseeing for the day, return to the hotel and relax.",
+        meals: "Breakfast & Dinner",
+        stay: "Goa",
+      },
+      {
+        day: 3,
+        title: "South Goa - Departure",
+        description:
+          "Start your morning early with breakfast at your hotel and check out from the hotel, then drive toward Old Goa to explore its historic churches, beginning with the majestic Basilica of Bom Jesus, which houses the remains of St. Francis Xavier, followed by Se Cathedral to admire its Portuguese architecture. After visiting the churches, head to Shri Manguesh Temple, one of Goa's most famous Hindu temples, and spend some time appreciating its beautiful architecture and serene surroundings. Next, visit Shri Balaji Temple, known for its peaceful ambiance and vibrant spiritual atmosphere.\n\nAround midday, enjoy a guided tour at a Spice Garden, where you can learn about local spices, herbs, and traditional Goan farming practices, followed by lunch at the garden or a nearby restaurant.\n\nAfter lunch, drive to Panjim and visit the Our Lady of the Immaculate Conception Church, an iconic landmark with its striking white façade and picturesque steps. In the late afternoon, relax at Miramar Beach, stroll along the shoreline, and watch the sunset over the Arabian Sea. Then proceed for a timely drop at the Airport / Railway Station for departure, concluding your memorable 3-day trip to Goa.",
+        meals: "Breakfast only",
+      },
+    ],
+    referenceNo: "",
+    travelWindow: "October 2026 - February 2027",
+    travellers: "Minimum 2 adults",
+    rooms: 1,
+    stays: [
+      {
+        destination: "Goa",
+        hotel: "Resort Village Royal or similar (option 1)",
+        nights: 2,
+        meals: "Breakfast & Dinner",
+      },
+      {
+        destination: "Goa",
+        hotel: "W S Beach Resort or similar (option 2)",
+        nights: 2,
+        meals: "Breakfast & Dinner",
+      },
+    ],
+    stayNote:
+      "Land cost shown per adult, based on a minimum of 2 travellers sharing 1 room; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
+    priceRows: [
+      { label: "Per adult, hotel option 1", amount: 4999 },
+      { label: "Per adult, hotel option 2", amount: 5999 },
+    ],
+    offerEndsOn: "2027-02-28",
+    metaTitle: "Goa Beach Getaway for Two - 3 Days / 2 Nights",
+    metaDescription:
+      "Goa for two in three days from ₹4,999 per adult - Baga, Calangute and Fort Aguada in the north, then Old Goa's churches, a spice garden and sunset at Miramar. Land only.",
+  },
+  // DELHI AGRA JAIPUR PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "charm-of-delhi-agra-jaipur-offer-4d3n",
     title: "Charm of Delhi, Agra & Jaipur",
     summary:
-      "India's classic Golden Triangle in four days - Delhi's monuments and temples, the Taj Mahal at Agra, and the Pink City's palaces at Jaipur. A limited-period summer package, priced for groups of four or more.",
+      "India's classic Golden Triangle in four days - Delhi's monuments and temples, the Taj Mahal at Agra, and the Pink City's palaces at Jaipur. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "golden-triangle",
@@ -2868,7 +2974,7 @@ const promotionalEntries = [
     exclusions: [
       "Round-trip airfare",
       "All entry tickets",
-      "Early check-in or late check-out (standard check-in 12:00pm, check-out 10:00am)",
+      "Early check-in or late check-out (standard check-in after 1200 hrs, check-out before 1000 hrs)",
       "Other meals not mentioned, laundry, telephone calls and incidentals",
       "Any extra excursion or sightseeing beyond the suggested itinerary",
       "Personal expenses, room service and special orders",
@@ -2907,7 +3013,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -2921,12 +3027,12 @@ const promotionalEntries = [
       { label: "Per adult, minimum 4 travellers", amount: 11999 },
       { label: "Minimum booking, 4 adults (total)", amount: 47996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Delhi, Agra & Jaipur - 4 Days / 3 Nights",
     metaDescription:
       "Delhi, Agra and Jaipur in four days from ₹11,999 per adult - the Red Fort and Akshardham, the Taj Mahal, then Hawa Mahal and the City Palace. Land only.",
   },
-  // RAJASTHAN PROMOTION PACKAGE JULY-SEP.pdf
+  // RAJASTHAN PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "charm-of-jaipur-ajmer-udaipur-offer-4d3n",
     title: "Charm of Jaipur, Ajmer & Udaipur",
@@ -2939,7 +3045,7 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 8999,
+    priceFrom: 9999,
     heroImage: d("rajasthan"),
     highlights: ["Hawa Mahal", "Ajmer Sharif", "City of Lakes"],
     inclusions: [
@@ -2991,7 +3097,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3002,20 +3108,20 @@ const promotionalEntries = [
     stayNote:
       "Hotel categories are confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
     priceRows: [
-      { label: "Per adult, minimum 4 travellers", amount: 8999 },
-      { label: "Minimum booking, 4 adults (total)", amount: 35996 },
+      { label: "Per adult, minimum 4 travellers", amount: 9999 },
+      { label: "Minimum booking, 4 adults (total)", amount: 39996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Jaipur, Ajmer & Udaipur - 4 Days / 3 Nights",
     metaDescription:
-      "Jaipur, Ajmer and Udaipur in four days from ₹8,999 per adult - Hawa Mahal and Amber Fort, Ajmer Sharif Dargah, then Lake Pichola and the City Palace. Land only.",
+      "Jaipur, Ajmer and Udaipur in four days from ₹9,999 per adult - Hawa Mahal and Amber Fort, Ajmer Sharif Dargah, then Lake Pichola and the City Palace. Land only.",
   },
-  // HYDERABAD PROMOTION PACKAGE JULY - SEP 2026 (1).pdf
+  // HYDERABAD PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "charm-of-hyderabad-offer-3d2n",
     title: "Charm of Hyderabad",
     summary:
-      "Three days in the City of Pearls - temples and lakeside parks, a full day at the world's largest film studio complex, and a heritage tour through Charminar and Golconda Fort. A limited-period summer package, priced for groups of four or more.",
+      "Three days in the City of Pearls - temples and lakeside parks, a full day at the world's largest film studio complex, and a heritage tour through Charminar and Golconda Fort. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "hyderabad",
@@ -3068,7 +3174,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3080,12 +3186,12 @@ const promotionalEntries = [
       { label: "Per adult, minimum 4 travellers", amount: 7999 },
       { label: "Minimum booking, 4 adults (total)", amount: 31996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Hyderabad - 3 Days / 2 Nights",
     metaDescription:
       "Hyderabad in three days from ₹7,999 per adult - Birla Mandir and Hussain Sagar, a full day at Ramoji Film City, then Charminar and Golconda Fort. Land only.",
   },
-  // SRINAGAR PROMOTION PACKAGE JULY-SEP 2026.pdf
+  // SRINAGAR PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "charm-of-srinagar-offer-4d3n",
     title: "Charm of Srinagar",
@@ -3152,7 +3258,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "March - May 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3169,17 +3275,17 @@ const promotionalEntries = [
       { label: "Per adult (minimum 4 travellers)", amount: 8999 },
       { label: "Minimum booking (4 adults)", amount: 35996 },
     ],
-    offerEndsOn: "2026-05-31",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Srinagar - 4 Days / 3 Nights",
     metaDescription:
       "Srinagar in four days from ₹8,999 per adult - the Mughal gardens, a day in the Gulmarg meadows and a day in Pahalgam, with a Shikara ride. Land only.",
   },
-  // DELHI MANALI PROMOTION PACKAGE JULY-SEP 2026 (1).pdf
+  // DELHI MANALI PROMOTION PACKAGE OCT -FEB.pdf
   {
     slug: "fascinating-delhi-manali-offer-5d4n",
     title: "Fascinating Delhi - Manali",
     summary:
-      "Five days between the capital and the Himalayas - an overnight Volvo journey each way, local sightseeing and temples in Manali, the meadows of Solang Valley, and a half-day sweep of Delhi's landmarks before departure. A limited-period summer package, priced for groups of four or more.",
+      "Five days between the capital and the Himalayas - an overnight Volvo journey each way, local sightseeing and temples in Manali, the meadows of Solang Valley, and a half-day sweep of Delhi's landmarks before departure. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes flights. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "delhi-manali",
@@ -3249,7 +3355,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3266,7 +3372,7 @@ const promotionalEntries = [
       { label: "Per adult (minimum 4 travellers)", amount: 8999 },
       { label: "Minimum booking (4 adults)", amount: 35996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Fascinating Delhi - Manali - 5 Days / 4 Nights",
     metaDescription:
       "Delhi and Manali in five days from ₹8,999 per adult - Hadimba Devi Temple, Solang Valley and Kullu, with a Volvo each way and a half day in Delhi. Land only.",
@@ -3363,7 +3469,7 @@ const promotionalEntries = [
     metaDescription:
       "Dubai in four days from ₹26,999 per adult - a Creek dhow dinner cruise, the city tour and Burj Khalifa, and a desert safari with BBQ dinner. Land only.",
   },
-  // SINGAPORE PROMOTION PACKAGE JULY-SEP 2026.pdf
+  // SINGAPORE PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "charm-of-singapore-offer-3d2n",
     title: "Charm of Singapore",
@@ -3376,7 +3482,7 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 3,
     durationNights: 2,
-    priceFrom: 23999,
+    priceFrom: 27999,
     heroImage: d("singapore"),
     highlights: ["Marina Bay", "Sentosa Island", "Wings of Time"],
     inclusions: [
@@ -3422,7 +3528,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "March - May 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3436,20 +3542,20 @@ const promotionalEntries = [
     stayNote:
       "Hotel category is confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
     priceRows: [
-      { label: "Per adult (minimum 4 travellers)", amount: 23999 },
-      { label: "Minimum booking (4 adults)", amount: 95996 },
+      { label: "Per adult (minimum 4 travellers)", amount: 27999 },
+      { label: "Minimum booking (4 adults)", amount: 111996 },
     ],
-    offerEndsOn: "2026-05-31",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Singapore - 3 Days / 2 Nights",
     metaDescription:
-      "Singapore in three days from ₹23,999 per adult - a Marina Bay and Chinatown city tour, then Sentosa by cable car, Madame Tussauds and Wings of Time. Land only.",
+      "Singapore in three days from ₹27,999 per adult - a Marina Bay and Chinatown city tour, then Sentosa by cable car, Madame Tussauds and Wings of Time. Land only.",
   },
-  // BALI PROMOTION PACKAGE JULY - SEP 2026.pdf
+  // BALI PROMOTION PACKAGE OCT-FEB.pdf
   {
     slug: "incredible-bali-offer-4d3n",
     title: "Incredible Bali",
     summary:
-      "Four days in Bali - open-water sea walking and a sunset dinner cruise, the volcanic views and rice terraces of Kintamani, and time to swing through the jungle canopy. A limited-period summer package, priced for groups of four or more.",
+      "Four days in Bali - open-water sea walking and a sunset dinner cruise, the volcanic views and rice terraces of Kintamani, and time to swing through the jungle canopy. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare and on-arrival visa/levy charges. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "bali",
@@ -3457,7 +3563,7 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 13999,
+    priceFrom: 15999,
     heroImage: d("bali"),
     highlights: ["Water Sports", "Kintamani", "Dinner Cruise"],
     inclusions: [
@@ -3516,22 +3622,22 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [{ destination: "Kuta", hotel: "Hotel Diamond or similar", nights: 3, meals: "Breakfast" }],
     stayNote:
       "Hotel category is confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
     priceRows: [
-      { label: "Per adult, minimum 4 travellers", amount: 13999 },
-      { label: "Minimum booking, 4 adults", amount: 55996 },
+      { label: "Per adult, minimum 4 travellers", amount: 15999 },
+      { label: "Minimum booking, 4 adults", amount: 63996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Incredible Bali - 4 Days / 3 Nights",
     metaDescription:
-      "Bali in four days from ₹13,999 per adult - Sea Walker at Benoa, a Phinisi dinner cruise, Kintamani, Tegalalang rice terraces and the Bali Jungle Swing. Land only.",
+      "Bali in four days from ₹15,999 per adult - Sea Walker at Benoa, a Phinisi dinner cruise, Kintamani, Tegalalang rice terraces and the Bali Jungle Swing. Land only.",
   },
-  // MALAYSIA PROMOTION PACKAGE JULY-SEP 2026.pdf
+  // MALAYSIA PROMOTION PACKAGE OCT -FEB.pdf
   {
     slug: "charm-of-malaysia-offer-3d2n",
     title: "Charm of Malaysia",
@@ -3591,7 +3697,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "March - May 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [{ destination: "Kuala Lumpur", hotel: "Howard Johnson or similar", nights: 2, meals: "Breakfast" }],
@@ -3601,17 +3707,17 @@ const promotionalEntries = [
       { label: "Per adult, minimum 4 travellers", amount: 15999 },
       { label: "Minimum booking, 4 adults", amount: 63996 },
     ],
-    offerEndsOn: "2026-05-31",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Malaysia - 3 Days / 2 Nights",
     metaDescription:
       "Kuala Lumpur in three days from ₹15,999 per adult - Putrajaya, Batu Caves, the Awana SkyWay to Genting Highlands and the KL city tour. Land only.",
   },
-  // VIETNAM PROMOTION PACKAGE JULY - SEP 2026.pdf
+  // VIETNAM PROMOTION PACKAGE OCT- FEB.pdf
   {
     slug: "fascinating-vietnam-offer-4d3n",
     title: "Fascinating Vietnam",
     summary:
-      "Four days between Vietnam's capital and its most famous bay - Hanoi's Old Quarter and French colonial landmarks, then an overnight cruise among the limestone karsts of Halong Bay. A limited-period summer package, priced for groups of four or more.",
+      "Four days between Vietnam's capital and its most famous bay - Hanoi's Old Quarter and French colonial landmarks, then an overnight cruise among the limestone karsts of Halong Bay. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes flights and visa. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "vietnam",
@@ -3619,7 +3725,7 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 23999,
+    priceFrom: 27999,
     heroImage: d("vietnam"),
     highlights: ["Hanoi City Tour", "Halong Bay Cruise"],
     inclusions: [
@@ -3676,7 +3782,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3686,20 +3792,20 @@ const promotionalEntries = [
     stayNote:
       "Hotel and cruise categories are confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
     priceRows: [
-      { label: "Per adult, minimum 4 travellers", amount: 23999 },
-      { label: "Minimum booking, 4 adults", amount: 95996 },
+      { label: "Per adult, minimum 4 travellers", amount: 27999 },
+      { label: "Minimum booking, 4 adults", amount: 111996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Fascinating Vietnam - 4 Days / 3 Nights",
     metaDescription:
-      "Hanoi and Halong Bay in four days from ₹23,999 per adult - the Old Quarter by electric car, egg coffee and an overnight Halong Bay cruise. Land only.",
+      "Hanoi and Halong Bay in four days from ₹27,999 per adult - the Old Quarter by electric car, egg coffee and an overnight Halong Bay cruise. Land only.",
   },
-  // THAILAND PROMOTION PACKAGE JULY-SEP 2026 (1).pdf
+  // THAILAND PROMOTION PACKAGE OCT -FEB.pdf
   {
     slug: "charm-of-pattaya-bangkok-offer-4d3n",
     title: "Charm of Pattaya & Bangkok",
     summary:
-      "Four days across Thailand's east coast and capital - Pattaya's floating market and Coral Island, then Bangkok's golden temples and the Grand Palace quarter. A limited-period summer package, priced for groups of four or more.",
+      "Four days across Thailand's east coast and capital - Pattaya's floating market and Coral Island, then Bangkok's golden temples and the Grand Palace quarter. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "thailand",
@@ -3707,7 +3813,7 @@ const promotionalEntries = [
     type: "customized",
     durationDays: 4,
     durationNights: 3,
-    priceFrom: 15999,
+    priceFrom: 16999,
     heroImage: d("thailand"),
     highlights: ["Floating Market", "Coral Island", "Grand Palace"],
     inclusions: [
@@ -3735,7 +3841,7 @@ const promotionalEntries = [
         day: 1,
         title: "Arrival in Pattaya - Floating Market",
         description:
-          "On arrival at Suvarnabhumi Airport, you'll be warmly welcomed and transferred to your hotel in Pattaya for check-in and a chance to freshen up.\n\nAfterwards, visit the vibrant Pattaya Floating Market - wooden houses, local handicrafts, boat vendors and street food come together for a colourful, photo-ready introduction to Thai culture, before returning to your hotel.",
+          "On arrival at Don Mueang Airport (DMK), you'll be warmly welcomed and transferred to your hotel in Pattaya for check-in and a chance to freshen up.\n\nAfterwards, visit the vibrant Pattaya Floating Market - wooden houses, local handicrafts, boat vendors and street food come together for a colourful, photo-ready introduction to Thai culture, before returning to your hotel.",
         meals: "None",
         stay: "Pattaya",
       },
@@ -3764,7 +3870,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3784,20 +3890,20 @@ const promotionalEntries = [
     stayNote:
       "Hotel categories are confirmed at time of booking; if unavailable, an alternate of equal or higher standard will be offered. Rate is not valid on surcharged dates such as holidays, festivals or peak seasons.",
     priceRows: [
-      { label: "Per adult, minimum 4 travellers", amount: 15999 },
-      { label: "Minimum booking, 4 adults (total)", amount: 63996 },
+      { label: "Per adult, minimum 4 travellers", amount: 16999 },
+      { label: "Minimum booking, 4 adults (total)", amount: 67996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Pattaya & Bangkok - 4 Days / 3 Nights",
     metaDescription:
-      "Pattaya and Bangkok in four days from ₹15,999 per adult - Pattaya Floating Market, Coral Island by speedboat, and Wat Traimit and Wat Pho. Land only.",
+      "Pattaya and Bangkok in four days from ₹16,999 per adult - Pattaya Floating Market, Coral Island by speedboat, and Wat Traimit and Wat Pho. Land only.",
   },
-  // PHUKET & KRABI PROMOTION PACKAGE JULY - SEP 2026.pdf
+  // PHUKET KRABI PROMOTION PACKAGE OCT -FEB.pdf
   {
     slug: "charm-of-phuket-krabi-offer-4d3n",
     title: "Charm of Phuket & Krabi",
     summary:
-      "Four days across Thailand's Andaman coast - Phuket's Tiger Kingdom, a full day cruising the turquoise waters of Phi Phi, and the limestone cliffs and temples of Krabi. A limited-period summer package, priced for groups of four or more.",
+      "Four days across Thailand's Andaman coast - Phuket's Tiger Kingdom, a full day cruising the turquoise waters of Phi Phi, and the limestone cliffs and temples of Krabi. A limited-period package, priced for groups of four or more.",
     priceNote:
       "Land cost shown per adult, based on a minimum of 4 travellers sharing 2 rooms; excludes airfare. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season - when additional charges will apply.",
     destinationSlug: "thailand",
@@ -3834,7 +3940,7 @@ const promotionalEntries = [
         title: "Arrival in Phuket - Tiger Kingdom",
         description:
           "On arrival at Phuket International Airport, you'll be welcomed by our local representative and transferred by private van to explore the island.\n\nEn route, a stop at Tiger Kingdom Phuket - a walk-around visit (no tiger interaction) where you can observe these animals up close and learn about their care and conservation. From there, transfer to your hotel for check-in, with the rest of the day free to relax.",
-        meals: "Breakfast only",
+        meals: "None",
         stay: "Phuket",
       },
       {
@@ -3862,7 +3968,7 @@ const promotionalEntries = [
       },
     ],
     referenceNo: "",
-    travelWindow: "July - September 2026",
+    travelWindow: "October 2026 - February 2027",
     travellers: "Minimum 4 adults",
     rooms: 2,
     stays: [
@@ -3885,7 +3991,7 @@ const promotionalEntries = [
       { label: "Per adult, minimum 4 travellers", amount: 19999 },
       { label: "Minimum booking, 4 adults (total)", amount: 79996 },
     ],
-    offerEndsOn: "2026-09-30",
+    offerEndsOn: "2027-02-28",
     metaTitle: "Charm of Phuket & Krabi - 4 Days / 3 Nights",
     metaDescription:
       "Phuket and Krabi in four days from ₹19,999 per adult - Tiger Kingdom, a full-day Phi Phi Islands cruise, and Krabi's Tiger Cave Temple and Ao Nang. Land only.",
@@ -4021,60 +4127,252 @@ const fixedDepartureEntries = [
     metaDescription:
       "Escorted Pattaya and Bangkok group tour from Kochi on 28 Jan 2027, from ₹59,800 per adult with flights and all meals - Coral Island, Alcazar Show, Safari World.",
   },
-  // Songkran Festival - April package (client's note: hotels and inclusions)
+  // THAILAND FIXED DEPARTURE 25 PAX APRIL 5D 4N.pdf ("Songkran Mania - Thailand 2027")
   //
-  // PROVISIONAL. The note gives no date, price or day-by-day plan. The client
-  // asked for it live regardless, so it runs on 12 April 2027 (Songkran is 13-15
-  // April) and `priceFrom: 0` shows "Price on request" everywhere. Replace
-  // both, and add priceRows and the itinerary, when the PDF arrives.
+  // The PDF's own date is 16 April 2027: the flight leaves Kochi that night
+  // and lands in Bangkok on the 17th; the tour runs 17-21 April. The 66,800
+  // rate is an early-bird price (client's correction list, point 7).
   {
     slug: "songkran-festival-thailand-5d4n",
     title: "Songkran Festival - Thailand's Biggest Water Festival",
     summary:
-      "Pattaya and Bangkok over Songkran, Thailand's new-year water festival: three nights in Pattaya and one in Bangkok with Tiger Topia, Coral Island by speedboat, the Alcazar Show, Nong Nooch Village, Safari World & Marine Park, a Bangkok city tour and a Chao Phraya dinner cruise.",
+      "An escorted group tour from Kochi for Songkran, Thailand's new-year water festival - three nights in Pattaya and one in Bangkok with return flights, all meals and a Malayalee tour manager: Tiger Topia, the Floating Market, Coral Island by speedboat, the Alcazar Show, Nong Nooch Village, a Bangkok city tour and Safari World.",
+    priceNote:
+      "Per adult, including return flights from Kochi with 20 kg baggage, meals as listed and GST. TCS extra. Flight fares are subject to availability at the time of confirmation.",
     destinationSlug: "thailand",
     category: "group-tours",
     type: "fixed-departure",
     durationDays: 5,
     durationNights: 4,
-    priceFrom: 0,
-    heroImage: d("thailand"),
+    priceFrom: 66800,
+    heroImage: x("songkran"),
     highlights: [
       "Songkran Water Festival",
-      "Chao Phraya Dinner Cruise",
-      "Coral Island",
+      "Tiger Topia",
+      "Floating Market by Rowing Boat",
+      "Coral Island by Speedboat",
       "Alcazar Show",
-      "Safari World and Marine Park",
+      "Nong Nooch Village",
+      "Golden Buddha & Marble Temple",
+      "Safari World & Marine Park",
     ],
     inclusions: [
-      "04 nights stay with breakfast at the above-mentioned hotel",
-      "Fresh-up room with breakfast @ Princeton hotel",
-      "Tiger Topia with crocodile show + tiger show + photo session with tiger",
-      "Nong Nooch Village with show + sightseeing bus + lunch",
-      "Alcazar show",
-      "Coral Island tour with lunch via speedboat",
-      "Floating market with rowing boat",
-      "Safari World and Marine Park with lunch",
-      "BKK city tour (Golden Buddha temple and Marble temple)",
-      "Shopping tour",
-      "Chao Phraya dinner cruise",
-      "1 lunch and 3 dinners @ Pattaya Indian restaurant",
-      "1 lunch and 1 dinner @ BKK Indian restaurant",
-      "500ml water bottles daily",
-      "Full time English speaking guide",
-      "All tours and transfers on PVT disposal coach",
+      "Round-trip airfare with 20kg luggage",
+      "4 nights' accommodation at the above-mentioned hotels - 3 nights in Pattaya, 1 night in Bangkok",
+      "5 Breakfast, 5 Lunch, 4 Dinner",
+      "Meet & greet at the airport",
+      "Sightseeing as per the above-mentioned itinerary",
+      "Songkran Festival celebrations",
+      "500 ml water bottles daily",
+      "Full-time English-speaking guide",
+      "Malayalee Tour Manager from Alisha Tours and Travels",
+      "All tours and transfers on private disposal coach",
+      "GST",
     ],
-    travelWindow: "April 2027",
-    travellers: "Group departure",
+    exclusions: [
+      "TCS",
+      "Early check-in or late check-out (standard check-in after 1400 hrs, check-out before 1200 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Bangkok - Tiger Topia & Floating Market with Rowing Boat",
+        description:
+          "Upon arrival at Bangkok airport, meet your English-speaking guide and transfer to the Princeton Hotel for a fresh-up and breakfast. After breakfast, proceed to Pattaya by private coach.\n\nEn route, visit Tiger Topia to enjoy the crocodile show and tiger show, followed by a memorable photo session with the tiger. Continue to the Floating Market and enjoy a traditional rowing boat ride. After sightseeing, proceed to Pattaya and check in to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 2,
+        title: "Coral Island Tour with Speed Boat & Alcazar Show",
+        description:
+          "After breakfast at the hotel, proceed for the Coral Island Tour by speedboat and enjoy the beautiful island surroundings. Lunch will be provided during the tour.\n\nIn the evening, return to Pattaya and enjoy the spectacular Alcazar Show, then return to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 3,
+        title: "Nong Nooch Village",
+        description:
+          "After breakfast, proceed to Nong Nooch Tropical Garden and explore its beautiful gardens and attractions. Enjoy the entertaining cultural and traditional shows, followed by a sightseeing bus tour around the garden. Lunch will be provided during the tour.\n\nAfter completing the sightseeing, return to the hotel and spend the evening at leisure.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 4,
+        title: "Pattaya - Bangkok City Tour",
+        description:
+          "After breakfast, check out from the Pattaya hotel and transfer to Bangkok by private coach. Upon arrival in Bangkok, proceed for a city tour covering the Golden Buddha Temple and Marble Temple.\n\nLater, enjoy a shopping tour at popular shopping areas in Bangkok. After shopping, check in to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Bangkok",
+      },
+      {
+        day: 5,
+        title: "Safari World & Marine Park - Departure",
+        description:
+          "After breakfast, check out from the hotel and proceed to Safari World and Marine Park, where you can enjoy the various wildlife attractions and entertaining shows. Lunch will be provided during the tour.\n\nLater, proceed to Bangkok airport for your departure flight, marking the end of your memorable Thailand holiday.",
+        meals: "Breakfast, Lunch",
+      },
+    ],
+    referenceNo: "",
+    travelWindow: "16 - 21 April 2027",
+    travellers: "Group of 25",
     stays: [
-      { destination: "Pattaya", hotel: "Golden Beach Hotel (Superior room)", nights: 3, meals: "Breakfast" },
-      { destination: "Bangkok", hotel: "Princeton Hotel (Superior room)", nights: 1, meals: "Breakfast" },
+      { destination: "Pattaya", hotel: "Golden Beach Hotel (Superior Room)", nights: 3, meals: "Breakfast, Lunch & Dinner" },
+      { destination: "Bangkok", hotel: "Princeton Hotel (Superior Room)", nights: 1, meals: "Breakfast, Lunch & Dinner" },
     ],
-    departures: [{ departureDate: "2027-04-12", returnDate: "2027-04-16", price: 0 }],
+    priceRows: [
+      { label: "Per adult (early bird)", amount: 66800 },
+      { label: "Per child with bed", amount: 63400 },
+      { label: "Per child without bed", amount: 59800 },
+    ],
+    departures: [
+      {
+        departureDate: "2027-04-16",
+        returnDate: "2027-04-21",
+        price: 66800,
+        priceLabel: "Early bird",
+        boardingCity: "Kochi",
+        notes:
+          "Flights: Kochi 23:10 - Bangkok 04:40 (+1) on 16 Apr 2027; Bangkok 20:15 - Kochi 22:30 on 21 Apr 2027. Group size 25, 12 rooms.",
+      },
+    ],
     metaTitle: "Songkran Festival Thailand - 5 Days / 4 Nights",
     metaDescription:
-      "Pattaya and Bangkok over Songkran, Thailand's water festival - Coral Island, Alcazar Show, Safari World and a Chao Phraya dinner cruise.",
+      "Songkran in Thailand with an escorted group from Kochi on 16 April 2027 - early bird from ₹66,800 per adult with flights and meals: Pattaya, Coral Island, Alcazar Show, Bangkok and Safari World.",
   },
+  // THAILAND FIXED DEPARTURE 25 PAX MAY 2027.pdf ("Thai Vibes Only! - May 2027")
+  //
+  // The same Pattaya & Bangkok programme as the April and January groups, on
+  // 20 May 2027. The 64,800 rate is an early-bird price (correction list,
+  // point 7).
+  {
+    slug: "thai-vibes-pattaya-bangkok-may-2027-5d4n",
+    title: "Thai Vibes Only! - Pattaya & Bangkok",
+    summary:
+      "An escorted group tour from Kochi in May - three nights in Pattaya and one in Bangkok with return flights, all meals and a Malayalee tour manager: Tiger Topia, the Floating Market, Coral Island by speedboat, the Alcazar Show, Nong Nooch Village, a Bangkok city tour and Safari World.",
+    priceNote:
+      "Per adult, including return flights from Kochi with 20 kg baggage, meals as listed and GST. TCS extra. Flight fares are subject to availability at the time of confirmation.",
+    destinationSlug: "thailand",
+    category: "group-tours",
+    type: "fixed-departure",
+    durationDays: 5,
+    durationNights: 4,
+    priceFrom: 64800,
+    heroImage: x("pattaya"),
+    highlights: [
+      "Tiger Topia",
+      "Floating Market by Rowing Boat",
+      "Coral Island by Speedboat",
+      "Alcazar Show",
+      "Nong Nooch Village",
+      "Golden Buddha & Marble Temple",
+      "Bangkok Shopping Tour",
+      "Safari World & Marine Park",
+    ],
+    inclusions: [
+      "Round-trip airfare with 20kg luggage",
+      "4 nights' accommodation at the above-mentioned hotels - 3 nights in Pattaya, 1 night in Bangkok",
+      "5 Breakfast, 5 Lunch, 4 Dinner",
+      "Meet & greet at the airport",
+      "Sightseeing as per the above-mentioned itinerary",
+      "500 ml water bottles daily",
+      "Full-time English-speaking guide",
+      "Malayalee Tour Manager from Alisha Tours and Travels",
+      "All tours and transfers on private disposal coach",
+      "GST",
+    ],
+    exclusions: [
+      "TCS",
+      "Early check-in or late check-out (standard check-in after 1400 hrs, check-out before 1200 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Bangkok - Tiger Topia & Floating Market with Rowing Boat",
+        description:
+          "Upon arrival at Bangkok airport, meet your English-speaking guide and transfer to the Princeton Hotel for a fresh-up and breakfast. After breakfast, proceed to Pattaya by private coach.\n\nEn route, visit Tiger Topia to enjoy the crocodile show and tiger show, followed by a memorable photo session with the tiger. Continue to the Floating Market and enjoy a traditional rowing boat ride. After sightseeing, proceed to Pattaya and check in to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 2,
+        title: "Coral Island Tour with Speed Boat & Alcazar Show",
+        description:
+          "After breakfast at the hotel, proceed for the Coral Island Tour by speedboat and enjoy the beautiful island surroundings. Lunch will be provided during the tour.\n\nIn the evening, return to Pattaya and enjoy the spectacular Alcazar Show, then return to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 3,
+        title: "Nong Nooch Village",
+        description:
+          "After breakfast, proceed to Nong Nooch Tropical Garden and explore its beautiful gardens and attractions. Enjoy the entertaining cultural and traditional shows, followed by a sightseeing bus tour around the garden. Lunch will be provided during the tour.\n\nAfter completing the sightseeing, return to the hotel and spend the evening at leisure.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Pattaya",
+      },
+      {
+        day: 4,
+        title: "Pattaya - Bangkok City Tour",
+        description:
+          "After breakfast, check out from the Pattaya hotel and transfer to Bangkok by private coach. Upon arrival in Bangkok, proceed for a city tour covering the Golden Buddha Temple and Marble Temple.\n\nLater, enjoy a shopping tour at popular shopping areas in Bangkok. After shopping, check in to the hotel.",
+        meals: "Breakfast, Lunch & Dinner",
+        stay: "Bangkok",
+      },
+      {
+        day: 5,
+        title: "Safari World & Marine Park - Departure",
+        description:
+          "After breakfast, check out from the hotel and proceed to Safari World and Marine Park, where you can enjoy the various wildlife attractions and entertaining shows. Lunch will be provided during the tour.\n\nLater, proceed to Bangkok airport for your departure flight, marking the end of your memorable Thailand holiday.",
+        meals: "Breakfast, Lunch",
+      },
+    ],
+    referenceNo: "",
+    travelWindow: "20 - 25 May 2027",
+    travellers: "Group of 25",
+    stays: [
+      { destination: "Pattaya", hotel: "Golden Beach Hotel (Superior Room)", nights: 3, meals: "Breakfast, Lunch & Dinner" },
+      { destination: "Bangkok", hotel: "Princeton Hotel (Superior Room)", nights: 1, meals: "Breakfast, Lunch & Dinner" },
+    ],
+    priceRows: [
+      { label: "Per adult (early bird)", amount: 64800 },
+      { label: "Per child with bed", amount: 62100 },
+      { label: "Per child without bed", amount: 58700 },
+    ],
+    departures: [
+      {
+        departureDate: "2027-05-20",
+        returnDate: "2027-05-25",
+        price: 64800,
+        priceLabel: "Early bird",
+        boardingCity: "Kochi",
+        notes:
+          "Flights: Kochi 23:10 - Bangkok 04:40 (+1) on 20 May 2027; Bangkok 20:15 - Kochi 22:30 on 25 May 2027. Group size 25, 12 rooms.",
+      },
+    ],
+    metaTitle: "Thai Vibes Only! Pattaya & Bangkok Group Tour - 5 Days / 4 Nights",
+    metaDescription:
+      "Escorted Pattaya and Bangkok group tour from Kochi on 20 May 2027 - early bird from ₹64,800 per adult with flights and meals: Coral Island, Alcazar Show, Nong Nooch and Safari World.",
+  },
+];
+
+/**
+ * Departure dates that were seeded and have since been replaced. Departures
+ * are upserted by (package, date), so a moved date would otherwise stay on
+ * the calendar alongside the new one. Dates added through /admin/ are never
+ * touched.
+ */
+export const RETIRED_DEPARTURES = [
+  // Songkran ran on a 12 April placeholder until the PDF gave 16 April.
+  { slug: "songkran-festival-thailand-5d4n", departureDate: "2027-04-12" },
 ];
 
 /**
@@ -4085,6 +4383,9 @@ const fixedDepartureEntries = [
  * upsert alone would leave them live.
  */
 export const RETIRED_PACKAGE_SLUGS = [
+  // Replaced by newer proposals under new slugs (redirected in next.config.mjs):
+  "fascinating-bali-5d4n", // → bali-nusa-penida-6d5n
+  "charm-of-pattaya-bangkok-4d3n", // → pattaya-bangkok-5d4n
   "charm-of-leh-ladakh-6d5n",
   "goa-hampi-6d5n",
   "bhutan-5d4n",

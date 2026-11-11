@@ -56,7 +56,7 @@ const {
 } = await import("../models/index.js");
 
 const { destinations } = await import("./seed-data/destinations.js");
-const { packages, RETIRED_PACKAGE_SLUGS } = await import("./seed-data/packages.js");
+const { packages, RETIRED_PACKAGE_SLUGS, RETIRED_DEPARTURES = [] } = await import("./seed-data/packages.js");
 const { services } = await import("./seed-data/services.js");
 const { campaigns, testimonials, galleryItems, offices } = await import("./seed-data/content.js");
 const { categoryPages } = await import("./seed-data/category-pages.js");
@@ -274,6 +274,16 @@ async function main() {
   // anything, so without this they would stay live on any database that was
   // seeded before. Only these named slugs go: a package added in /admin/ is
   // never touched.
+  // Seeded departure dates that have moved (see RETIRED_DEPARTURES).
+  for (const { slug, departureDate } of RETIRED_DEPARTURES) {
+    const pkg = await Package.findOne({ slug }, "_id").lean();
+    if (!pkg) continue;
+    await Departure.deleteMany({
+      package: pkg._id,
+      departureDate: new Date(`${departureDate}T00:00:00.000Z`),
+    });
+  }
+
   const retired = await Package.find({ slug: { $in: RETIRED_PACKAGE_SLUGS } }, "_id").lean();
   if (retired.length) {
     const ids = retired.map((doc) => doc._id);
