@@ -489,79 +489,92 @@ const entries = [
     metaDescription:
       "Kuala Lumpur in four days - Putrajaya, Batu Caves, the Genting Skyway cable car, the KL city tour and the KLCC Aquarium. Land only.",
   },
-  // 004947 DUBAI 2A 3N4D NOVEMBER 2026.pdf
+  // 003843 DUBAI 4N 5D 8A JAN 23.pdf (the PDF itself is headed REF NO: 003943)
+  // Replaces the earlier "Dubai - The City of Dreams" 4D/3N proposal, keeping
+  // its name (client's instruction).
   {
-    slug: "dubai-the-city-of-dreams-4d3n",
+    slug: "dubai-city-of-dreams-5d4n",
     title: "Dubai - The City of Dreams",
     summary:
-      "Experience the dazzling city of Dubai, featuring iconic landmarks, breathtaking skyline views, vibrant shopping destinations, cultural experiences, and the spectacular Dubai Miracle Garden. Enjoy unforgettable adventures including a Desert Safari with BBQ Dinner, Dubai Creek Cruise, Burj Khalifa, Global Village, and Sharjah City Tour for a perfect blend of luxury, culture, and adventure.",
+      "Five days in Dubai for a group of eight, every tour and transfer private - a Creek dinner cruise on arrival, a city tour with the Burj Khalifa's 124th and 125th floors and the Dubai Mall Aquarium, a desert safari with BBQ dinner and the Dubai Frame, then Global Village, the Museum of the Future and the Miracle Garden.",
     destinationSlug: "dubai",
-    category: "honeymoon",
+    category: "group-tours",
     type: "customized",
-    durationDays: 4,
-    durationNights: 3,
+    durationDays: 5,
+    durationNights: 4,
     priceFrom: 0,
     heroImage: d("dubai"),
-    highlights: ["Dhow Cruise", "Miracle Garden", "Sharjah City", "Desert Safari"],
+    highlights: ["Creek Dinner Cruise", "Burj Khalifa", "Desert Safari", "Museum of the Future", "Miracle Garden"],
     inclusions: [
-      "3 nights' accommodation in the above-mentioned hotel",
-      "Breakfast as per the itinerary (except on arrival day)",
-      "All entry tickets as per the itinerary",
+      "To and fro airfare",
+      "Visa",
+      "04 nights' accommodation in the above-mentioned hotel",
       "Meet & greet at the airport",
-      "All transfers and tours on PVT & SIC vehicle",
+      "Daily breakfast (except on arrival day)",
+      "Sightseeing as per the above-mentioned itinerary",
+      "All entry tickets",
+      "All tours and transfers on private basis",
+      "Airport pick-up & drop on private basis",
+      "Tourism Dirhams",
       "GST",
     ],
     exclusions: [
-      "Round-trip airfare",
       "TCS",
-      "Visa",
-      "Travel insurance",
-      "Tour guide",
-      "Early check-in & late check-out",
-      "Check-in time at the hotel is after 1400 hrs and check-out is before 1200 hrs",
+      "Early check-in or late check-out (standard check-in after 1400 hrs, check-out before 1200 hrs)",
       "Other meals not mentioned, laundry, telephone calls and incidentals",
-      "Personal expenses, room service, special orders, and alcoholic/non-alcoholic beverages",
-      "Any extra excursion or sightseeing beyond the itinerary",
+      "Any extra excursion or sightseeing apart from the suggested itinerary",
+      "Any personal expenses, room service and special orders",
+      "Alcoholic and non-alcoholic beverages",
     ],
     itinerary: [
       {
         day: 1,
         title: "Arrival in Dubai & Creek Dinner Cruise",
         description:
-          "Upon arrival at Dubai International Airport, you will be warmly greeted by our representative and transferred to the hotel for check-in and relaxation.\n\nIn the evening, proceed for the Dubai Creek Cruise with Dinner with Seat in Coach transfer (SIC), where you can enjoy a relaxing cruise along the historic Dubai Creek while admiring the illuminated city views and enjoying a sumptuous dinner.\n\nAfter the cruise, return to the hotel for an overnight stay in Dubai.",
+          "Upon arrival at Dubai Airport, you will be met and transferred to the hotel. In the evening, board the Dubai Creek Dinner Cruise (Deluxe), with two-way private transfers for the group.\n\nAfter the cruise, return to the hotel for an overnight stay in Dubai.",
         meals: "Dinner",
-        stay: "Dubai Hotel",
+        stay: "Dubai",
       },
       {
         day: 2,
-        title: "Dubai City Tour, Burj Khalifa & Global Village (Transfer SIC)",
+        title: "Dubai City Tour, Burj Khalifa & Dubai Mall Aquarium",
         description:
-          "After breakfast, proceed for an accompanied Half-Day Dubai City Tour (SIC), covering some of Dubai's iconic landmarks and attractions while learning about the city's history and modern development.\n\nAfter the city tour, visit Dubai Mall, one of the world's largest shopping and entertainment destinations, where you will have time to explore the mall and its attractions. Continue to the iconic Burj Khalifa, where you will enjoy non-prime hours entry to the 124th-floor observation deck and take in breathtaking panoramic views of Dubai's skyline.\n\nIn the evening, proceed to Global Village with entry included, where you can explore international pavilions, cultural experiences, entertainment, shopping, and local cuisines from around the world. After enjoying the vibrant atmosphere of Global Village, return to the hotel for an overnight stay in Dubai.",
+          "After breakfast, set out on a half-day Dubai city tour on a private 12-seater basis. Continue to the Burj Khalifa for Silver (non-prime) entry to the 124th and 125th floors, with a one-way private transfer, and visit the Dubai Mall Aquarium and Underwater Zoo with Penguin Cove.\n\nReturn to the hotel for an overnight stay in Dubai.",
         meals: "Breakfast",
-        stay: "Dubai Hotel",
+        stay: "Dubai",
       },
       {
         day: 3,
-        title: "Miracle Garden & Desert Safari with BBQ Dinner",
+        title: "Dubai Frame & Desert Safari with BBQ Dinner",
         description:
-          "After breakfast, proceed to Dubai Miracle Garden (private transfer) accompanied by a Malayalam-speaking guide, where you can admire the stunning floral displays, colourful themed gardens, and beautifully designed flower installations.\n\nIn the afternoon, get ready for an exciting Desert Safari experience (SIC) in 5 Land Cruiser vehicles, featuring thrilling dune bashing across the golden desert sands. Continue to the desert camp to enjoy traditional Arabian experiences, entertainment, and a delicious BBQ dinner. After the safari and dinner, return to the hotel for an overnight stay in Dubai.",
+          "After breakfast, visit the Dubai Frame, with two-way private transfers. Later, head out on a standard desert safari on a private basis, ending with a BBQ dinner at the desert camp.\n\nReturn to the hotel for an overnight stay in Dubai.",
         meals: "Breakfast & Dinner",
-        stay: "Dubai Hotel",
+        stay: "Dubai",
       },
       {
         day: 4,
-        title: "Abu Dhabi City Tour & Departure",
+        title: "Museum of the Future, Miracle Garden & Global Village",
         description:
-          "After breakfast at the hotel, check out and proceed for a full-day Abu Dhabi city tour in a private 7-seater vehicle. Visit the iconic Sheikh Zayed Grand Mosque, one of the most magnificent landmarks in Abu Dhabi, and explore its stunning architecture and beautiful interiors.\n\nContinue the city sightseeing covering the major attractions and landmarks of Abu Dhabi. After completing the sightseeing, proceed to Abu Dhabi International Airport for your departure flight. End of the tour with wonderful memories of the UAE.",
+          "After breakfast, visit the Museum of the Future and the Dubai Miracle Garden, each with two-way private transfers. In the evening, go on to Global Village (any-day ticket, one-way private transfer) for its international pavilions, shopping and food.\n\nReturn to the hotel for an overnight stay in Dubai.",
+        meals: "Breakfast",
+        stay: "Dubai",
+      },
+      {
+        day: 5,
+        title: "Departure",
+        description:
+          "After breakfast, check out from the hotel and transfer to the airport for your flight home.",
         meals: "Breakfast",
       },
     ],
     stays: [
-      { destination: "Bur Dubai", hotel: "Hotel City Max or similar", nights: 3, meals: "Breakfast" },
+      { destination: "Bur Dubai", hotel: "Citymax Hotel Bur Dubai or similar (3 star)", nights: 4, meals: "Breakfast" },
     ],
-    metaTitle: "Dubai - The City of Dreams - 4 Days / 3 Nights",
+    stayNote:
+      "Hotel availability will be reconfirmed at the time of booking; if not available, alternate properties will be offered and rate fluctuations may apply.",
+    metaTitle: "Dubai - The City of Dreams - 5 Days / 4 Nights",
     metaDescription:
-      "Dubai in four days - a creek dinner cruise, the Burj Khalifa, Global Village, the Miracle Garden, a desert safari with BBQ and an Abu Dhabi city tour. Land only.",
+      "Dubai in five days for a group, all private - a Creek dinner cruise, the Burj Khalifa, a desert safari with BBQ, the Museum of the Future and the Miracle Garden. Flights and visa included.",
   },
   // 004020 THAILAND 5D 4N DEC 5 ADULTS.pdf (replaces THAILAND 3N4D JAN.pdf)
   {
@@ -4386,6 +4399,8 @@ export const RETIRED_PACKAGE_SLUGS = [
   // Replaced by newer proposals under new slugs (redirected in next.config.mjs):
   "fascinating-bali-5d4n", // → bali-nusa-penida-6d5n
   "charm-of-pattaya-bangkok-4d3n", // → pattaya-bangkok-5d4n
+  "dubai-the-city-of-dreams-4d3n", // → dubai-city-of-dreams-5d4n
+  "fascinating-dubai-5d4n-003943", // briefly seeded under this slug
   "charm-of-leh-ladakh-6d5n",
   "goa-hampi-6d5n",
   "bhutan-5d4n",

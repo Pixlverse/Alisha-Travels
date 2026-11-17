@@ -22,7 +22,7 @@ export default function TestimonialCard({ testimonial, className }) {
       <StarRating value={rating} />
 
       <blockquote className="mt-4 flex-1">
-        <p className="text-[0.9375rem] leading-relaxed text-ink-soft">“{quote}”</p>
+        <p className="text-[0.9375rem] leading-relaxed whitespace-pre-line text-ink-soft">“{quote}”</p>
       </blockquote>
 
       <figcaption className="mt-6 flex items-center gap-3 border-t border-line pt-5">

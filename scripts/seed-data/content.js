@@ -145,78 +145,112 @@ export const campaigns = [
   },
 ];
 
+/*
+ * Real Google reviews, copied word for word from the client's Google Business
+ * profile on 11 Nov 2026 (only obvious typos left as written). Dates are
+ * approximate - Google shows "4 months ago" - and the star ratings were not
+ * included with the text, so all six are entered as 5 stars; check them
+ * against the profile. The six sample reviews the site launched with are
+ * removed by the seed (RETIRED_TESTIMONIAL_NAMES in scripts/seed.js).
+ */
 export const testimonials = [
   {
-    name: "Anish Varghese",
-    location: "Kottayam",
-    tourTaken: "Maldives, 4D/3N",
+    name: "Aswin Krishna EH",
+    location: "",
+    tourTaken: "Goa",
     rating: 5,
     source: "google",
     featured: true,
     order: 1,
-    date: "2026-06-14",
-    quote:
-      "Junaid planned our honeymoon down to the transfer times, which turned out to matter - our flight landed late and the seaplane would not have flown. He had already put us on a speedboat resort for that exact reason. Nothing went wrong because somebody had thought about it before we did.",
+    date: "2026-11-09",
+    quote: [
+      "Recently, we had the pleasure of going on a Goa trip organized by Alisha Tours, and it was truly an amazing experience. We enjoyed a lot. The entire trip was organized very well - from planning to execution, everything was good, the resort, cab and all.",
+      "A special thanks to Mrs. Karthika for her excellent support and guidance throughout the journey. She was very professional, yet very friendly and approachable at all times.",
+      "Many travel agencies claim to provide 24x7 support, but with Alisha Tours, we actually experienced true 24x7 support. That made our trip completely stress free.",
+      "Thank you, Karthika. Thank you, Alisha Tours, for a wonderful and memorable trip. Highly recommended.",
+    ].join("\n\n"),
   },
   {
-    name: "Priya Menon",
-    location: "Thiruvananthapuram",
-    tourTaken: "Kerala - Munnar, Thekkady & Alleppey",
+    name: "Nita Thomas",
+    location: "",
+    tourTaken: "Thailand - family trip",
     rating: 5,
     source: "google",
     featured: true,
     order: 2,
-    date: "2026-04-02",
-    quote:
-      "We were travelling with my mother, who cannot walk far. Ben rebuilt the whole itinerary around that without being asked twice, and swapped one hill stop for an extra night at the houseboat. He also called midway through the trip just to check the hotel was right.",
+    date: "2026-11-04",
+    quote: [
+      "Ms. Anjali from Alisha Tours and Travels helped me plan a fabulous family trip to Thailand. We wanted a customized trip since we were particular about dates and the places to visit in Thailand. Also my parents were travelling from Kochi and us from Bangalore. Anjali was very patient in understanding all our requirements. She helped us plan our trip the best way possible, booked flights, accommodation, cabs, trips to Safari Park, Tiger Park, James Bond Island.",
+      "The flight tickets were well arranged so that my parents and us would meet at the same airport at the same time in Bangkok. We were able to do the immigration formalities together. The hotel accommodations were nice and the transportation in the private vehicles was really comfortable even for my aged parents. The drivers were friendly and helpful. The itinerary was very well planned with a free day in between for us to chillax.",
+      "We would like to thank Anjali and Alisha Travels for making our first international trip memorable and enjoyable. We will definitely be taking their guidance for future trips too.",
+    ].join("\n\n"),
   },
   {
-    name: "Rajesh Kumar",
-    location: "Dubai",
-    tourTaken: "Kashmir Valley, 6D/5N",
+    name: "El Sol (HR team)",
+    location: "",
+    tourTaken: "Goa - El Sol Annual Meet 2026, around 350 guests",
     rating: 5,
     source: "google",
     featured: true,
     order: 3,
-    date: "2026-05-21",
-    quote:
-      "I booked from Dubai for my parents travelling out of Kochi. SriSankar answered every message, including at hours he had no business being awake. My father is not an easy traveller and even he had nothing to complain about.",
+    date: "2026-08-11",
+    quote: [
+      "Just wanted to take a moment to say a big thank you to the entire Alisha Tours & Travels team for making our El Sol Annual Meet 2026, Goa such a memorable experience. From the moment our journey started until we reached back home, everything was taken care of so well. From travel, accommodation, food, sightseeing, water activities, and our El Sol AGM event to every little detail - everything was perfectly organized.",
+      "Managing a group of around 350 employees is no easy task, but the Alisha team handled it with absolute professionalism and flawless coordination. Because of your planning and dedication, all of us could simply relax, enjoy, and create beautiful memories.",
+      "A very special thanks to Junaid for always being just a call away, no matter what the situation was. Your patience, quick responses, and willingness to help never went unnoticed. A heartfelt thank you to Tharish, Operations Manager, who worked tirelessly behind the scenes. Even before we arrived in Goa, you had already completed all the essential groundwork to ensure everything was ready for us.",
+      "And a huge shoutout to Ramzi and Anjali Chechi ❤️. You both were with us throughout these four days like members of our own team. Whether it was arranging things, solving last-minute issues, finding lost belongings, or simply making sure everyone was comfortable - you handled everything with a smile and incredible dedication.",
+      "Wishing the entire Alisha Tours & Travels team many more successful journeys ahead. Looking forward to travelling together again!",
+    ].join("\n\n"),
   },
   {
-    name: "Fathima Rasheed",
-    location: "Ernakulam",
-    tourTaken: "Singapore & Malaysia",
+    name: "Melin Balan",
+    location: "",
+    tourTaken: "",
     rating: 5,
-    source: "justdial",
-    featured: false,
-    order: 4,
-    date: "2026-02-11",
-    quote:
-      "First time abroad with two small children and I was dreading the airport. Aditya wrote out exactly what to expect at each stage, down to which counter to go to. That single page made the whole trip manageable.",
-  },
-  {
-    name: "Thomas Mathew",
-    location: "Changanassery",
-    tourTaken: "Corporate dealer meet, Bangkok",
-    rating: 5,
-    source: "direct",
-    featured: false,
-    order: 5,
-    date: "2026-01-30",
-    quote:
-      "We moved 96 delegates to Bangkok with one coordinator handling visas, flights, the conference hall and the gala dinner. Our finance team got a clean invoice and I got exactly one phone number to call. We have already booked next year.",
-  },
-  {
-    name: "Sneha Nair",
-    location: "Pathanamthitta",
-    tourTaken: "Ladakh group departure",
-    rating: 4,
     source: "google",
-    featured: false,
+    featured: true,
+    order: 4,
+    date: "2026-07-11",
+    quote: [
+      "One of the best packages from Alisha. We fully recommend Alisha Travels to anyone 🥰",
+      "Positives: 1. Pickup vehicle and team were excellent. 2. Drivers were very supportive, flexible and on time. 3. Dinner cruise was great. 4. Sunbeam Hotel (location, pool and food) was very good. 5. Junaid and Anjali of Alisha Travels were very helpful and always available to pick up the calls any time during the trip. Thanks to you both for showing patience towards me during the negotiations of the offers. 6. Food arrangements were good.",
+      "We really liked Alisha Travels and will definitely recommend your services to others. We will travel with you again 😊",
+    ].join("\n\n"),
+  },
+  {
+    name: "Unnikrishnan NA",
+    location: "",
+    tourTaken: "Bali",
+    rating: 5,
+    source: "google",
+    featured: true,
+    order: 5,
+    date: "2026-07-11",
+    quote: [
+      "We had a wonderful time in Bali. The entire trip was very well organized, and the team's coordination was excellent from start to finish. Everything went smoothly without any difficulties.",
+      "The hotel accommodations were comfortable, and the travel partners provided outstanding service throughout our journey. We truly appreciate the effort and dedication of the entire team. I highly recommend their services and have personally recommended them to my friends as well.",
+      "Special thanks to Mr. Junaidh and the entire team for making our Bali trip such a memorable experience. Thank you 🤝🏻❤️",
+    ].join("\n\n"),
+  },
+  {
+    name: "Devi Jairaj",
+    location: "",
+    tourTaken: "Malaysia",
+    rating: 5,
+    source: "google",
+    featured: true,
     order: 6,
-    date: "2025-09-08",
-    quote:
-      "The two rest days in Leh felt excessive when I read the itinerary and made complete sense by day four, when half the people we met who had gone straight up were unwell. Only reason it is not five stars is the camp at Pangong, which was basic - though they did warn us it would be.",
+    date: "2026-05-11",
+    quote: [
+      "മലേഷ്യ യാത്ര മനസ്സിലേക്ക് വന്നപ്പോൾ തന്നെ ആദ്യം ഓർമ്മ വന്നത് alisha travels ആണ്",
+      "ഒറ്റതിരിഞ്ഞുള്ള യാത്രകൾ ഒരിക്കലും ഒരു ടൂറിൻ്റെ ആകർഷ വലയം നമുക്ക് തരില്ല",
+      "ഒറ്റപ്പെട്ട യാത്രകൾ പലപ്പോഴും റിസ്‌കുള്ളതായി മാറുന്നതും സ്വാഭാവികമാണ",
+      "യാത്രകളിലെവഴിത്താരകൾ എത്രമാത്രം ചിരപരിചിതമാണെങ്കിൽ പോലും ഒരു ഗൈഡ് ഇല്ലെങ്കിൽ അതിൻ്റെ സൗരഭ്യം നുകരാനും സൗന്ദര്യം ആസ്വദിക്കാനും നമുക്ക് കഴിയില്ല",
+      "പിന്നിട്ട രണ്ട് യാത്രകളിലും ചെന്തുടിപ്പാർന്ന കുസുമങ്ങളിലെ മധു നുകരാൻ നമ്മെ പ്രാപ്‌തമാക്കിയത് അലിഷ ട്രാവൽസിലെ അഞ്ജലിയുടെ കൂട്ടാണ് എന്ന് പറയാതിരിക്കാൻ വയ്യ ! കഴിഞ്ഞ വർഷത്തെ തായ്ലാൻഡ് യാത്ര കളിയും ചിരിയുമായി അവിസ്മരണീയമാക്കിയ Alisha Travels MD Mr Ramzi യും കൂടി ഈ യാത്രയിലും ഒപ്പമുണ്ടായിരുന്നെങ്കിലെന്ന് ആശിച്ചു",
+      "അഞ്ജലി എന്ന വാക്കിന് ഞാൻ സംസ്‌കൃതത്തിൽ അർത്ഥം കണ്ടെത്തിയത് കൂപ്പുകൈ എന്നാണ് ! എത്ര അന്വർത്ഥമായ അർത്ഥതലമാണ് അഞ്ജലിയും കുപ്പുകൈയും തമ്മിലുള്ളതെന്ന് ഞാൻ വിസ്മയിച്ചു പോകുകയാണ!",
+      "ഈ യാത്രകൾ ധന്യമായി എന്നുമാത്രമല്ല അഞ്ജലിയുമായി നിസ്തുലമായ ഒരു ബന്ധത്തിൻ്റെ ദൃഷ്ടാന്തമായി മാറുകയായിരുന്നു ഞങ്ങൾക്കെല്ലാം ! ധന്യമായ ഓർമ്മകൾ ഹൃദയത്തിൽ പരിമളം പരത്തുന്ന കൂപ്പുകൈ ആയി ഞങ്ങളുടെ ഹൃദയത്തിൽ വെക്കും എന്ന് മാത്രമെ വാക്ക് തരാനാള്ളൂ!",
+      "ഈ യാത്രയുടെ സുരഭിലത ജീവിതത്തിലുടനീളം നുകരാൻ അഞ്ജലിക്കും നമുക്ക് ഓരോരുത്തർക്കും കഴിയട്ടെ എന്നും അഞ്ജലിയെ ടൂർ ഗൈഡായിത്തന്ന അലിഷ ട്രാവൽസ് എന്നെന്നും ശോഭിക്കട്ടെയെന്നും പ്രാർത്ഥനയോടെ !",
+    ].join("\n\n"),
   },
 ];
 

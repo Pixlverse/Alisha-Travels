@@ -126,6 +126,15 @@ async function resolveGallery(list, folder) {
 /*  Upsert helpers                                                             */
 /* -------------------------------------------------------------------------- */
 
+const RETIRED_TESTIMONIAL_NAMES = [
+  "Anish Varghese",
+  "Priya Menon",
+  "Rajesh Kumar",
+  "Fathima Rasheed",
+  "Thomas Mathew",
+  "Sneha Nair",
+];
+
 const RETIRED_GALLERY_CAPTIONS = [
   "Group departure at the Burj Khalifa observation deck",
   "Coral Island morning, Pattaya group tour",
@@ -317,6 +326,9 @@ async function main() {
   console.log(`Campaigns     ${campaigns.length} ✓`);
 
   /* --- Testimonials ------------------------------------------------------ */
+  // The sample reviews the site launched with, replaced by real Google
+  // reviews. Removed by name; reviews added through /admin/ are untouched.
+  await Testimonial.deleteMany({ name: { $in: RETIRED_TESTIMONIAL_NAMES } });
   for (const source of testimonials) {
     await Testimonial.findOneAndUpdate(
       { name: source.name, quote: source.quote },

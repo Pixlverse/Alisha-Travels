@@ -73,6 +73,7 @@ const nextConfig = {
       // Customized packages replaced by newer proposals of a different length.
       { source: "/packages/fascinating-bali-5d4n", destination: "/packages/bali-nusa-penida-6d5n/", permanent: true },
       { source: "/packages/charm-of-pattaya-bangkok-4d3n", destination: "/packages/pattaya-bangkok-5d4n/", permanent: true },
+      { source: "/packages/dubai-the-city-of-dreams-4d3n", destination: "/packages/dubai-city-of-dreams-5d4n/", permanent: true },
       // The legacy payment URL now goes to the Razorpay page.
       { source: "/payment", destination: "/pay/", permanent: false },
     ];
