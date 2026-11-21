@@ -38,7 +38,7 @@ services:
     run_command: npm start
 
     github:
-      repo: your-org/alisha-travels
+      repo: Pixlverse/Alisha-Travels
       branch: main
       # GitHub Actions triggers the deploy instead, so it is visible and
       # controllable from both GitHub and DO's Activity tab. Set this to true
@@ -50,7 +50,7 @@ services:
     instance_count: 1
     # Entry-level. Move up a size if p95 response times climb; this app is
     # mostly serving statically generated pages, so it is not memory-hungry.
-    instance_size_slug: apps-s-1vcpu-1gb
+    instance_size_slug: apps-s-1vcpu-1gb-fixed
 
     health_check:
       # The trailing slash is REQUIRED. next.config.mjs sets
@@ -101,6 +101,34 @@ services:
         scope: RUN_TIME
         type: SECRET
         value: ${AUTH_SECRET}
+
+      # --- Payments (Razorpay) --------------------------------------------
+      # Live keys (rzp_live_...) only take money when RAZORPAY_LIVE_PAYMENTS
+      # is "on" - see lib/razorpay.js. Production is the ONLY place that flag
+      # is set; with test keys it is ignored.
+      - key: RAZORPAY_KEY_ID
+        scope: RUN_TIME
+        value: ${RAZORPAY_KEY_ID}
+      - key: RAZORPAY_KEY_SECRET
+        scope: RUN_TIME
+        type: SECRET
+        value: ${RAZORPAY_KEY_SECRET}
+      - key: RAZORPAY_WEBHOOK_SECRET
+        scope: RUN_TIME
+        type: SECRET
+        value: ${RAZORPAY_WEBHOOK_SECRET}
+      - key: RAZORPAY_LIVE_PAYMENTS
+        scope: RUN_TIME
+        value: "on"
+
+      # --- Memory ----------------------------------------------------------
+      # sharp (next/image) allocates through glibc malloc, whose per-thread
+      # arenas fragment and hold on to memory; 2 arenas is sharp's own
+      # recommendation for Linux and keeps the 1 GB instance well clear of
+      # its limit.
+      - key: MALLOC_ARENA_MAX
+        scope: RUN_TIME
+        value: "2"
 
       # --- Build shape -----------------------------------------------------
       # Turns on `output: "standalone"` in next.config.mjs, which this

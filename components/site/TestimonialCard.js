@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import { formatDate } from "@/lib/format";
 import StarRating from "./StarRating";
 import { cn } from "@/lib/utils";

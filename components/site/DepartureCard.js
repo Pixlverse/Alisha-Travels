@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import { ArmchairIcon, ArrowRight, Clock, MapPin } from "lucide-react";
 import Button from "./Button";
 import EnquiryDialog from "./EnquiryDialog";

@@ -44,7 +44,14 @@ const nextConfig = {
       // be deleted once the client's own photography is in place.
       { protocol: "https", hostname: "thumb.wikimedia.org" },
     ],
-    formats: ["image/avif", "image/webp"],
+    // WebP only. AVIF encoding in sharp is several times heavier in memory
+    // and CPU, and on the 1 GB App Platform instance it pushed RAM to 90%
+    // ("Degraded"). WebP is within a few percent on photographs.
+    formats: ["image/webp"],
+    // Optimized images are cached on disk; keep them for 30 days so each
+    // photo is resized once, not again every 4 hours (Cloudinary URLs are
+    // immutable - a new upload gets a new URL).
+    minimumCacheTTL: 2592000,
     // Next 16 narrowed the default to [75]. 60 is the rung the photography
     // actually uses — hero art and card art both — because at the sizes they
     // render the byte saving beats the fidelity loss, and the images are what

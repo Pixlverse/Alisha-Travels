@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import { ArrowRight, ShieldCheck, Star } from "lucide-react";
 import Button from "./Button";
 import HeroSearch from "./HeroSearch";

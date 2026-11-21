@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import Link from "next/link";
 import { ArrowRight, Phone, Quote, ShieldCheck } from "lucide-react";
 

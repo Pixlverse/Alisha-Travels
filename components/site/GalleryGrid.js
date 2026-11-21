@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import { isVideo, videoPoster, videoSrc } from "@/lib/media";
 import { cn } from "@/lib/utils";

@@ -43,3 +43,6 @@ next-env.d.ts
 
 # next standalone build artefacts
 /.next-profiles
+
+# Client source PDFs dropped in the project root - not part of the site
+/*.pdf

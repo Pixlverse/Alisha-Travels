@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import Link from "next/link";
 import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
 import Logo from "./Logo";

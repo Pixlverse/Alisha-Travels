@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/site/SmartImage";
 import Link from "next/link";
 import { CalendarDays, MapPin } from "lucide-react";
 import { durationLabel, formatDateRange, formatDateShort, formatPackagePrice } from "@/lib/format";
