@@ -37,7 +37,13 @@ function isCloudinary(src) {
  * never where the caller sets its own opacity (e.g. the greyed campaign still).
  */
 function canFade(props) {
-  return !props.priority && props.loading !== "eager" && !/(^|\s)opacity-/.test(props.className || "");
+  return (
+    !props.priority &&
+    !props.preload && // Next 16's name for priority - the hero images use it
+    props.fetchPriority !== "high" &&
+    props.loading !== "eager" &&
+    !/(^|\s)opacity-/.test(props.className || "")
+  );
 }
 
 export default function SmartImage({ alt, onLoad, ...props }) {

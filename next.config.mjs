@@ -48,6 +48,10 @@ const nextConfig = {
     // and CPU, and on the 1 GB App Platform instance it pushed RAM to 90%
     // ("Degraded"). WebP is within a few percent on photographs.
     formats: ["image/webp"],
+    // The default list tops out at 3840px, which a full-width hero on a
+    // high-density laptop asks for - a several-hundred-KB photo nobody can
+    // tell from the 2048 one. Capping here keeps heroes light everywhere.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     // Optimized images are cached on disk; keep them for 30 days so each
     // photo is resized once, not again every 4 hours (Cloudinary URLs are
     // immutable - a new upload gets a new URL).
