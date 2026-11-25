@@ -9,6 +9,7 @@ import { getDeparturesSplit } from "@/lib/data/departures";
 import { getDestinations } from "@/lib/data/destinations";
 import { getServices } from "@/lib/data/content";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 /**
@@ -48,11 +49,11 @@ export async function generateMetadata({ params }) {
   const config = REGIONS[region];
   if (!config) return {};
 
-  return {
+  return pageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
-    alternates: { canonical: `/fixed-departures/${region}/` },
-  };
+    path: `/fixed-departures/${region}/`,
+  });
 }
 
 export default async function RegionCalendarPage({ params }) {

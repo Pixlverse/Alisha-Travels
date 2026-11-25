@@ -11,14 +11,15 @@ import { getDestinationsByRegion } from "@/lib/data/destinations";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Destinations - Places We Send Travellers",
   description:
     "Every destination Alisha Tours & Travels arranges holidays to, international and domestic, each with attractions, the best time to travel, FAQs and the packages that go there.",
-  alternates: { canonical: "/destinations/" },
-};
+  path: "/destinations/",
+});
 
 /**
  * The destinations index.

@@ -48,6 +48,7 @@ import { cn } from "@/lib/utils";
 import { whatsappLink } from "@/lib/whatsapp";
 import { getDepartures } from "@/lib/data/departures";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /**
  * Content is edited through /admin/ rather than by redeploying, so pages are
  * statically generated and revalidated on a ten-minute window. A price change
@@ -225,12 +226,12 @@ const HOMEPAGE_DESTINATIONS = [
 
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Alisha Tours & Travels - Tour Packages from Kerala",
   description:
     "IATA-accredited travel agency in Kottayam, Kerala. Customized tour packages, fixed group departures, honeymoons, family holidays and corporate travel, domestic and international.",
-  alternates: { canonical: "/" },
-};
+  path: "/",
+});
 
 export default async function HomePage() {
   const [

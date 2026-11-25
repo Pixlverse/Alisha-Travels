@@ -11,14 +11,15 @@ import { SERVICES_PRESENTED_AS_PACKAGES } from "@/lib/site";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Our Services - Tickets, Hotels, Visas, Attestation & Tours",
   description:
     "Everything Alisha Tours & Travels handles in-house: IATA air ticketing, hotel booking, travel insurance, customized tours, MICE and corporate travel, educational and adventure tours, and certificate attestation.",
-  alternates: { canonical: "/services/" },
-};
+  path: "/services/",
+});
 
 /**
  * The services index.

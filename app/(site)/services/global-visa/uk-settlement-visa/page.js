@@ -28,18 +28,18 @@ import { breadcrumbSchema } from "@/lib/seo/schema";
 import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /** /services/global-visa/uk-settlement-visa/. Copy: lib/content/visa.js. */
 
 export const revalidate = 600;
 
 const PAGE = VISA_PAGES.settlement;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: SETTLEMENT.meta.title,
   description: SETTLEMENT.meta.description,
-  alternates: { canonical: PAGE.href },
-  openGraph: { title: SETTLEMENT.meta.title, description: SETTLEMENT.meta.description },
-};
+  path: PAGE.href,
+});
 
 export default async function SettlementVisaPage() {
   const [services, destinations] = await Promise.all([getServices(), getDestinations()]);

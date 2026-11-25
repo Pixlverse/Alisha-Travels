@@ -9,13 +9,15 @@ import { getCategoryPage } from "@/lib/data/content";
 import { getDestinations } from "@/lib/data/destinations";
 import { getPackages } from "@/lib/data/packages";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Honeymoon Packages from Kerala",
-  description: "Honeymoon packages to the Maldives, Bali, Dubai, Andaman and more - private villas, transfers and itineraries built around the two of you. Priced in INR from Kerala.",
-  alternates: { canonical: "/packages/honeymoon/" },
-};
+  description:
+    "Honeymoon packages to the Maldives, Bali, Dubai, Andaman and more - private villas, transfers and itineraries built around the two of you. Priced in INR from Kerala.",
+  path: "/packages/honeymoon/",
+});
 
 /**
  * A category view over the Package collection — not a separate content type.

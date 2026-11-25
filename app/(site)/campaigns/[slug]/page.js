@@ -14,6 +14,7 @@ import { SITE } from "@/lib/site";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 export async function generateStaticParams() {
@@ -25,17 +26,14 @@ export async function generateMetadata({ params }) {
   const campaign = await getCampaignBySlug(slug);
   if (!campaign) return {};
 
-  const title = campaign.metaTitle || campaign.title;
-  return {
-    title: title.includes(SITE.name) ? { absolute: title } : title,
+  return pageMetadata({
+    title: campaign.metaTitle || campaign.title,
     description: campaign.metaDescription || campaign.summary,
-    alternates: { canonical: `/campaigns/${slug}/` },
-    openGraph: {
-      title,
-      description: campaign.metaDescription || campaign.summary,
-      images: campaign.heroImage?.url ? [campaign.heroImage.url] : undefined,
-    },
-  };
+    path: `/campaigns/${slug}/`,
+    image: campaign.heroImage?.url,
+    imageAlt: campaign.heroImage?.alt,
+    type: "article",
+  });
 }
 
 export default async function CampaignPage({ params }) {

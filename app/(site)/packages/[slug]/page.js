@@ -45,6 +45,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, faqSchema, touristTripSchema } from "@/lib/seo/schema";
 import { cn } from "@/lib/utils";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 const CATEGORY_LABEL = Object.fromEntries(PACKAGE_CATEGORIES.map((c) => [c.slug, c.label]));
@@ -58,16 +59,13 @@ export async function generateMetadata({ params }) {
   const pkg = await getPackageBySlug(slug);
   if (!pkg) return {};
 
-  return {
+  return pageMetadata({
     title: pkg.metaTitle || pkg.title,
     description: pkg.metaDescription || pkg.summary,
-    alternates: { canonical: `/packages/${slug}/` },
-    openGraph: {
-      title: pkg.metaTitle || pkg.title,
-      description: pkg.metaDescription || pkg.summary,
-      images: pkg.heroImage?.url ? [{ url: pkg.heroImage.url }] : undefined,
-    },
-  };
+    path: `/packages/${slug}/`,
+    image: pkg.heroImage?.url,
+    imageAlt: pkg.heroImage?.alt || pkg.title,
+  });
 }
 
 /**

@@ -14,14 +14,18 @@ import { whatsappLink } from "@/lib/whatsapp";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Ramzi Mohammed Ali - Founder",
   description:
     "Ramzi Mohammed Ali founded Alisha Tours & Travels in Ettumanoor in 2013 with one desk and one conviction: a traveller should never have to chase anyone.",
-  alternates: { canonical: "/about/ramzi-mohammed-ali/" },
-};
+  path: "/about/ramzi-mohammed-ali/",
+  image: "/images/founder/ramzi-mohammed-ali.jpg",
+  imageAlt: "Ramzi Mohammed Ali, founder of Alisha Tours & Travels",
+  type: "profile",
+});
 
 const { story, visionMission } = ABOUT_SECTIONS;
 

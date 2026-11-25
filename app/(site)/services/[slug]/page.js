@@ -20,6 +20,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/seo/schema";
 import { cn } from "@/lib/utils";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 export async function generateStaticParams() {
@@ -31,19 +32,14 @@ export async function generateMetadata({ params }) {
   const service = await getServiceBySlug(slug);
   if (!service) return {};
 
-  const title = service.metaTitle || service.title;
-  const description = service.metaDescription || service.shortDescription;
-
-  return {
-    // metaTitle normally holds the page-specific part and the root template
-    // appends the brand. Two of the client's title tags are supplied whole,
-    // brand included — appending it again would print the name twice, so a
-    // stored title that already carries it is passed through as absolute.
-    title: title.includes(SITE.name) ? { absolute: title } : title,
-    description,
-    alternates: { canonical: `/services/${slug}/` },
-    openGraph: { title, description },
-  };
+  // Two of the client's title tags are supplied whole, brand included;
+  // pageMetadata passes those through without appending the brand again.
+  return pageMetadata({
+    title: service.metaTitle || service.title,
+    description: service.metaDescription || service.shortDescription,
+    path: `/services/${slug}/`,
+    image: service.heroImage?.url,
+  });
 }
 
 export default async function ServicePage({ params }) {

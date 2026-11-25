@@ -11,14 +11,15 @@ import { cn } from "@/lib/utils";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Beyond Destinations - Journeys That Mean Something More",
   description:
     "Beyond Destinations: the stories of journeys Alisha Tours & Travels has been part of that mean something more - a day on Ashtamudi Lake with the children of a school for the blind, and a first flight for three people who had always wished to fly.",
-  alternates: { canonical: "/campaigns/" },
-};
+  path: "/campaigns/",
+});
 
 /**
  * Beyond Destinations - the campaigns index, in the client's words.

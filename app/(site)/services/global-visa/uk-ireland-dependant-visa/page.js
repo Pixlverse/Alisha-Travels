@@ -24,18 +24,18 @@ import { visaServiceSchema } from "@/lib/seo/visa";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 import { whatsappLink } from "@/lib/whatsapp";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /** /services/global-visa/uk-ireland-dependant-visa/. Copy: lib/content/visa.js. */
 
 export const revalidate = 600;
 
 const PAGE = VISA_PAGES.dependant;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: DEPENDANT.meta.title,
   description: DEPENDANT.meta.description,
-  alternates: { canonical: PAGE.href },
-  openGraph: { title: DEPENDANT.meta.title, description: DEPENDANT.meta.description },
-};
+  path: PAGE.href,
+});
 
 export default async function DependantVisaPage() {
   const [services, destinations] = await Promise.all([getServices(), getDestinations()]);

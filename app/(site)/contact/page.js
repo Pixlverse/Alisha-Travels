@@ -13,14 +13,15 @@ import { EMAILS, OFFICES, PRIMARY_PHONE, SITE } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { breadcrumbSchema, officeSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Contact Us - Kottayam, Kerala",
   description:
     "Talk to Alisha Tours & Travels. Our office is in Ettumanoor, Kottayam. Phone, WhatsApp, e-mail and a general enquiry form.",
-  alternates: { canonical: "/contact/" },
-};
+  path: "/contact/",
+});
 
 export default async function ContactPage() {
   const [offices, destinations, services] = await Promise.all([

@@ -6,17 +6,18 @@ import { Section } from "@/components/site/Section";
 import { isTestMode } from "@/lib/razorpay";
 import { PRIMARY_PHONE } from "@/lib/site";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 // Test mode is read from the environment per request.
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Pay Online",
   description:
     "Pay your Alisha Tours & Travels booking advance or balance online by UPI, card or net banking, processed securely by Razorpay.",
-  alternates: { canonical: "/pay/" },
+  path: "/pay/",
   // A utility page for people who have already booked, not a landing page.
-  robots: { index: false, follow: true },
-};
+  noindex: true,
+});
 
 /**
  * /pay/ - online payment for a booking already agreed with the office.

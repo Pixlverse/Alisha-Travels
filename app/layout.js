@@ -1,4 +1,5 @@
 import { Figtree, Fraunces } from "next/font/google";
+import { DEFAULT_SHARE_IMAGE } from "@/lib/seo/metadata";
 import "./globals.css";
 import { SITE } from "@/lib/site";
 
@@ -60,11 +61,13 @@ export const metadata = {
     url: SITE.url,
     title: `${SITE.name} - ${SITE.tagline}`,
     description: SITE.description,
+    images: [DEFAULT_SHARE_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE.name} - ${SITE.tagline}`,
     description: SITE.description,
+    images: [DEFAULT_SHARE_IMAGE.url],
   },
   robots: {
     index: true,

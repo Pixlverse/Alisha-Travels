@@ -6,11 +6,13 @@ import { Section } from "@/components/site/Section";
 import { EMAILS, OFFICES, PRIMARY_PHONE, SITE } from "@/lib/site";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
-export const metadata = {
+import { pageMetadata } from "@/lib/seo/metadata";
+export const metadata = pageMetadata({
   title: "Privacy Policy",
-  description: `How ${SITE.name} collects, uses and protects the personal information you share with us.`,
-  alternates: { canonical: "/privacy-policy/" },
-};
+  description:
+    `How ${SITE.name} collects, uses and protects the personal information you share with us.`,
+  path: "/privacy-policy/",
+});
 
 /** Last reviewed - update this when the policy text changes. */
 const UPDATED = "November 2026";

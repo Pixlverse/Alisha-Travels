@@ -23,6 +23,7 @@ import { visaServiceSchema } from "@/lib/seo/visa";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 import { whatsappLink } from "@/lib/whatsapp";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /**
  * /services/global-visa/: the hub for the three visa pages.
  *
@@ -32,12 +33,11 @@ import { whatsappLink } from "@/lib/whatsapp";
 
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: HUB.meta.title,
   description: HUB.meta.description,
-  alternates: { canonical: VISA_PAGES.hub.href },
-  openGraph: { title: HUB.meta.title, description: HUB.meta.description },
-};
+  path: VISA_PAGES.hub.href,
+});
 
 export default async function GlobalVisaPage() {
   const [services, destinations] = await Promise.all([getServices(), getDestinations()]);

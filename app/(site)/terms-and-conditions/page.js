@@ -7,11 +7,13 @@ import { PACKAGE_TERMS } from "@/lib/content/package-policies";
 import { EMAILS, PRIMARY_PHONE, SITE } from "@/lib/site";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
-export const metadata = {
+import { pageMetadata } from "@/lib/seo/metadata";
+export const metadata = pageMetadata({
   title: "Terms & Conditions",
-  description: `The booking, payment, cancellation and refund terms for travel booked with ${SITE.name}.`,
-  alternates: { canonical: "/terms-and-conditions/" },
-};
+  description:
+    `The booking, payment, cancellation and refund terms for travel booked with ${SITE.name}.`,
+  path: "/terms-and-conditions/",
+});
 
 /**
  * /terms-and-conditions/ - the same clauses every package page shows under

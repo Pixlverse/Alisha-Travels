@@ -17,6 +17,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { breadcrumbSchema, faqSchema, touristDestinationSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 /**
@@ -36,16 +37,13 @@ export async function generateMetadata({ params }) {
   const destination = await getDestinationBySlug(slug, region);
   if (!destination) return {};
 
-  return {
+  return pageMetadata({
     title: destination.metaTitle || `${destination.name} Tour Packages`,
     description: destination.metaDescription || destination.tagline,
-    alternates: { canonical: `/destinations/${region}/${slug}/` },
-    openGraph: {
-      title: destination.metaTitle || `${destination.name} Tour Packages`,
-      description: destination.metaDescription || destination.tagline,
-      images: destination.heroImage?.url ? [{ url: destination.heroImage.url }] : undefined,
-    },
-  };
+    path: `/destinations/${region}/${slug}/`,
+    image: destination.heroImage?.url,
+    imageAlt: destination.heroImage?.alt || destination.name,
+  });
 }
 
 export default async function DestinationPage({ params }) {

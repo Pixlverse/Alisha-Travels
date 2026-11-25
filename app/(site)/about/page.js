@@ -14,14 +14,15 @@ import { ABOUT_HERO, ABOUT_SECTIONS } from "@/lib/content/about";
 import { SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "About Alisha Tours & Travels - IATA Accredited Since 2013",
   description:
     "Ramzi Mohammed Ali founded Alisha Tours & Travels in 2013 on one conviction: a traveller should never have to chase anyone. IATA accredited, 4.8★ on Google reviews, based in Kottayam, Kerala.",
-  alternates: { canonical: "/about/" },
-};
+  path: "/about/",
+});
 
 const {
   opening,

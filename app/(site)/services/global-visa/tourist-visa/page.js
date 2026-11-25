@@ -25,18 +25,18 @@ import { visaServiceSchema } from "@/lib/seo/visa";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 import { whatsappLink } from "@/lib/whatsapp";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /** /services/global-visa/tourist-visa/. Copy: lib/content/tourist-visa.js. */
 
 export const revalidate = 600;
 
 const PAGE = VISA_PAGES.tourist;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: TOURIST.meta.title,
   description: TOURIST.meta.description,
-  alternates: { canonical: PAGE.href },
-  openGraph: { title: TOURIST.meta.title, description: TOURIST.meta.description },
-};
+  path: PAGE.href,
+});
 
 export default async function TouristVisaPage() {
   const [services, destinations] = await Promise.all([getServices(), getDestinations()]);

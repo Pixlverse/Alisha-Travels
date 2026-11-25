@@ -9,13 +9,15 @@ import { getCategoryPage } from "@/lib/data/content";
 import { getDestinations } from "@/lib/data/destinations";
 import { getPackages } from "@/lib/data/packages";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Group Tour Packages & Fixed Departures",
-  description: "Group tours and fixed departures from Kerala - set dates, set prices and a tour manager with the group.",
-  alternates: { canonical: "/packages/group-tours/" },
-};
+  description:
+    "Group tours and fixed departures from Kerala - set dates, set prices and a tour manager with the group.",
+  path: "/packages/group-tours/",
+});
 
 /**
  * A category view over the Package collection — not a separate content type.

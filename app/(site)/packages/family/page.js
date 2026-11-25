@@ -9,13 +9,15 @@ import { getCategoryPage } from "@/lib/data/content";
 import { getDestinations } from "@/lib/data/destinations";
 import { getPackages } from "@/lib/data/packages";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Family Tour Packages from Kerala",
-  description: "Family holiday packages to Dubai, Singapore, Kerala, Kashmir, Goa and Rajasthan - paced for children and grandparents, with flights, hotels and transfers arranged.",
-  alternates: { canonical: "/packages/family/" },
-};
+  description:
+    "Family holiday packages to Dubai, Singapore, Kerala, Kashmir, Goa and Rajasthan - paced for children and grandparents, with flights, hotels and transfers arranged.",
+  path: "/packages/family/",
+});
 
 /**
  * A category view over the Package collection — not a separate content type.

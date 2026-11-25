@@ -12,14 +12,15 @@ import { SITE, SOCIAL } from "@/lib/site";
 import { ABOUT_SECTIONS } from "@/lib/content/about";
 import { breadcrumbSchema, reviewsSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Customer Reviews - 4.8★ on Google",
   description:
     "What travellers say about Alisha Tours & Travels. 4.8 on Google reviews and 4.9 on JustDial, earned one traveller at a time since 2013.",
-  alternates: { canonical: "/reviews/" },
-};
+  path: "/reviews/",
+});
 
 const SOURCE_LABELS = {
   google: "Google",

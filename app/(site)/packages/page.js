@@ -12,14 +12,15 @@ import Link from "next/link";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Tour Packages - Honeymoon, Family, Group & Corporate",
   description:
     "Every package Alisha Tours & Travels has built and priced - filter by destination, budget, duration and the kind of trip. Fixed group departures and customized itineraries, all in INR.",
-  alternates: { canonical: "/packages/" },
-};
+  path: "/packages/",
+});
 
 export default async function PackagesPage() {
   const [packages, destinations] = await Promise.all([

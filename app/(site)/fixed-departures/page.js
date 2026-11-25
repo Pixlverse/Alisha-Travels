@@ -10,14 +10,15 @@ import { getServices } from "@/lib/data/content";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Fixed Departures - Upcoming Group Tours",
   description:
     "Group departures on set dates at set prices, with itineraries already tested and a tour manager travelling with the group. Upcoming international and domestic departures from Kerala.",
-  alternates: { canonical: "/fixed-departures/" },
-};
+  path: "/fixed-departures/",
+});
 
 export default async function FixedDeparturesPage() {
   // destinations and services feed the enquiry form each card can open in

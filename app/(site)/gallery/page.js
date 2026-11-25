@@ -7,14 +7,15 @@ import { getGalleryItems } from "@/lib/data/content";
 
 import { breadcrumbSchema } from "@/lib/seo/schema";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Gallery - Destinations We Travel To",
   description:
     "Photographs of the destinations Alisha Tours & Travels plans trips to, from Dubai and Thailand to Kashmir, Goa and Kerala.",
-  alternates: { canonical: "/gallery/" },
-};
+  path: "/gallery/",
+});
 
 /**
  * One gallery, replacing the legacy site's two.

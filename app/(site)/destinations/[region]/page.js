@@ -6,6 +6,7 @@ import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import { getDestinations } from "@/lib/data/destinations";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 600;
 
 /**
@@ -42,11 +43,11 @@ export async function generateMetadata({ params }) {
   const config = REGIONS[region];
   if (!config) return {};
 
-  return {
+  return pageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
-    alternates: { canonical: `/destinations/${region}/` },
-  };
+    path: `/destinations/${region}/`,
+  });
 }
 
 export default async function RegionPage({ params }) {

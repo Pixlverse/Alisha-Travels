@@ -41,6 +41,7 @@ import { SITE, SOCIAL } from "@/lib/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 
+import { pageMetadata } from "@/lib/seo/metadata";
 /**
  * /services/global-visa/tourist-visa/<country>/ — one page per country the
  * agency files most often. Copy: lib/content/visa-countries.js, transcribed
@@ -69,13 +70,12 @@ export async function generateMetadata({ params }) {
   const { country: slug } = await params;
   const country = getCountry(slug);
   if (!country) return {};
-  const href = `${VISA_PAGES.tourist.href}${country.slug}/`;
-  return {
+
+  return pageMetadata({
     title: country.metaTitle,
     description: country.metaDescription,
-    alternates: { canonical: href },
-    openGraph: { title: country.metaTitle, description: country.metaDescription },
-  };
+    path: `${VISA_PAGES.tourist.href}${country.slug}/`,
+  });
 }
 
 /** Tile labels differ by country, so each known label gets its own icon. */
