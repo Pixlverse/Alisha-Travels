@@ -15,6 +15,7 @@ import {
   Scale,
   Star,
   Ticket,
+  BadgeCheck,
   UserRound,
   Users,
   UsersRound,
@@ -403,7 +404,7 @@ export default async function HomePage() {
             source needs naming. Public domain for copyright, but a trademark:
             descriptive use is fine, do not restyle it.
           */}
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {[
               {
                 chip: "bg-sun/15",
@@ -415,36 +416,44 @@ export default async function HomePage() {
                 href: "/reviews/",
               },
               {
-                // A pill rather than the round chip, to hold both marks.
-                chip: "bg-brand-100/70 h-12 w-auto self-start gap-3 px-4",
+                chip: "bg-brand-100/70",
                 rule: "bg-brand-500",
                 watermark: <Ticket className="size-32 text-brand-100" strokeWidth={1} aria-hidden="true" />,
                 icon: (
-                  <>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/IATA.png"
-                      alt=""
-                      aria-hidden="true"
-                      width={406}
-                      height={260}
-                      className="w-8"
-                    />
-                    <span className="h-6 w-px bg-brand-300/60" aria-hidden="true" />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/TAFI.webp"
-                      alt=""
-                      aria-hidden="true"
-                      width={510}
-                      height={200}
-                      className="w-14"
-                    />
-                  </>
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src="/images/IATA.png"
+                    alt=""
+                    aria-hidden="true"
+                    width={406}
+                    height={260}
+                    className="w-8"
+                  />
                 ),
-                // TAFI added at the client's request (logo from tafionline.com).
-                value: "IATA accredited · TAFI member",
+                value: "IATA accredited",
                 label: "Tickets issued directly by us, not resold",
+                href: "/about/",
+              },
+              {
+                // TAFI, its own card at the client's request (logo from
+                // tafionline.com). The mark is wide, so it sits in a pill
+                // rather than the round chip.
+                chip: "bg-brand-100/70 h-12 w-auto self-start px-4",
+                rule: "bg-brand-600",
+                watermark: <BadgeCheck className="size-32 text-brand-100" strokeWidth={1} aria-hidden="true" />,
+                icon: (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src="/images/TAFI.webp"
+                    alt=""
+                    aria-hidden="true"
+                    width={510}
+                    height={200}
+                    className="w-16"
+                  />
+                ),
+                value: "TAFI member",
+                label: "Member of the Travel Agents Federation of India",
                 href: "/about/",
               },
               {
