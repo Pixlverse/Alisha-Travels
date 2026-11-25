@@ -4375,6 +4375,110 @@ const fixedDepartureEntries = [
     metaDescription:
       "Escorted Pattaya and Bangkok group tour from Kochi on 20 May 2027 - early bird from ₹64,800 per adult with flights and meals: Coral Island, Alcazar Show, Nong Nooch and Safari World.",
   },
+  // SINGAPORE 35 PAX 3N 4D JUNE.pdf ("Charm of Singapore", prepared 10 Nov 2026)
+  //
+  // The PDF's dates are 25 - 29 June 2027 for a group of 33 (the file name
+  // says 35). Its flight table is empty, so no flight times are stored. The
+  // title differs from the promotional "Charm of Singapore" offer so the two
+  // are not confused in listings.
+  {
+    slug: "singapore-group-departure-june-2027-4d3n",
+    title: "Singapore Group Departure",
+    summary:
+      "An escorted group tour from Kochi with a Malayali tour manager - four days in Singapore with return flights, visa and Indian meals: a city tour and Gardens by the Bay, a full day at Universal Studios, shopping and Sentosa with the cable car, Madame Tussauds and Wings of Time, then the Singapore Flyer and Jewel Changi.",
+    priceNote:
+      "Per adult, including return flights from Kochi, Singapore tourist visa, meals as listed and GST. TCS extra. Quoted rates are not valid on surcharged dates - public holidays, festivals or peak season.",
+    destinationSlug: "singapore",
+    category: "group-tours",
+    type: "fixed-departure",
+    durationDays: 4,
+    durationNights: 3,
+    priceFrom: 99500,
+    heroImage: x("gardensByTheBay"),
+    highlights: [
+      "Singapore City Tour",
+      "Gardens by the Bay - Flower Dome",
+      "Universal Studios Singapore",
+      "Sentosa - Cable Car, Madame Tussauds & Wings of Time",
+      "Singapore Flyer",
+      "Jewel Changi",
+    ],
+    inclusions: [
+      "Round-trip airfare (Kochi - Singapore - Kochi)",
+      "Singapore tourist visa",
+      "3 nights' accommodation on a double/twin-sharing basis at the above-mentioned hotel",
+      "4 breakfasts, 4 lunches & 3 dinners at Indian restaurants, with transfers",
+      "Singapore City Tour",
+      "Singapore Flyer",
+      "Gardens by the Bay",
+      "Full day at Universal Studios with an SGD 20 meal voucher (guide for pick-up and drop only)",
+      "Sentosa Island - cable car, Madame Tussauds (4-in-1) and Wings of Time",
+      "Shopping tour (3 hrs)",
+      "Experienced Malayali Tour Manager",
+      "All tours & transfers on private basis with English-speaking guide assistance",
+      "2 x 500 ml water bottles per person per day",
+      "GST",
+    ],
+    exclusions: [
+      "TCS",
+      "Early check-in or late check-out (standard check-in after 1500 hrs)",
+      "Other meals not mentioned, laundry, telephone calls and incidentals",
+      "Any extra excursion or sightseeing beyond the suggested itinerary",
+      "Personal expenses, room service and special orders",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Singapore - City Tour & Gardens by the Bay",
+        description:
+          "Upon arrival at Singapore Changi International Airport, meet our local representative and proceed for a panoramic city tour covering Singapore's famous landmarks, including Merlion Park and Marina Bay. After the city tour, lunch at an Indian restaurant, then transfer to the hotel and check in (standard check-in time 1500 hrs).\n\nAfter some time to relax and freshen up, proceed to Gardens by the Bay to explore the Flower Dome conservatory, with its floral displays, exotic plants and indoor landscapes. Dinner at an Indian restaurant, then return to the hotel.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Singapore",
+      },
+      {
+        day: 2,
+        title: "Universal Studios Singapore",
+        description:
+          "After breakfast at the hotel, a full-day visit to Universal Studios Singapore on Sentosa Island - themed zones, roller coasters and rides, live entertainment and attractions inspired by Hollywood films and television shows. A lunch coupon is provided for a meal inside the park. Return to the hotel in the evening.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Singapore",
+      },
+      {
+        day: 3,
+        title: "Shopping Tour - Sentosa Island",
+        description:
+          "After breakfast, a 3-hour morning shopping tour of Singapore's popular shopping areas - clothing, accessories, electronics, souvenirs and local products. Lunch at an Indian restaurant.\n\nIn the afternoon, continue to Sentosa Island, Singapore's resort island, for its beaches and attractions, with the cable car, Madame Tussauds (4-in-1) and the Wings of Time show. Dinner at an Indian restaurant, then transfer back to the hotel.",
+        meals: "Breakfast, Lunch, Dinner",
+        stay: "Singapore",
+      },
+      {
+        day: 4,
+        title: "Singapore Flyer & Departure",
+        description:
+          "After breakfast, check out and visit the Singapore Flyer for panoramic views of the skyline, Marina Bay and Gardens by the Bay. Lunch at a nearby Indian restaurant, then transfer to Changi Airport.\n\nBefore check-in, explore Jewel Changi Airport and the HSBC Rain Vortex, the world's tallest indoor waterfall, with its indoor gardens, shops and dining, then board your flight home.",
+        meals: "Breakfast, Lunch",
+      },
+    ],
+    referenceNo: "",
+    travelWindow: "25 - 29 June 2027",
+    travellers: "Group of 33",
+    stays: [
+      { destination: "Singapore", hotel: "Chancellor Orchard or similar", nights: 3, meals: "Breakfast, Lunch & Dinner" },
+    ],
+    priceRows: [{ label: "Per adult", amount: 99500 }],
+    departures: [
+      {
+        departureDate: "2027-06-25",
+        returnDate: "2027-06-29",
+        price: 99500,
+        boardingCity: "Kochi",
+        notes: "Group size 33, 16 rooms. Flight details to be confirmed.",
+      },
+    ],
+    metaTitle: "Singapore Group Departure - 4 Days / 3 Nights",
+    metaDescription:
+      "Escorted Singapore group tour from Kochi on 25 June 2027, from ₹99,500 per adult with flights, visa and Indian meals - Universal Studios, Sentosa, Gardens by the Bay and the Singapore Flyer.",
+  },
 ];
 
 /**

@@ -243,6 +243,10 @@
   html {
     @apply font-sans;
     -webkit-text-size-adjust: 100%;
+    /* Safety net: nothing may widen the page sideways. `clip`, not
+       `hidden` - hidden would make <html> a scroll container and break the
+       sticky header. */
+    overflow-x: clip;
   }
 
   body {

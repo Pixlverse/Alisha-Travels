@@ -652,6 +652,24 @@ export default async function AboutPage() {
               <p className="mt-2 text-xs leading-relaxed text-ink-muted">
                 Tickets issued directly by us
               </p>
+              {/* TAFI membership, at the client's request (logo from
+                  tafionline.com). */}
+              <div className="mt-6 border-t border-dashed border-brand-200 pt-6">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/TAFI.webp"
+                  alt="TAFI - The Travel Agents Federation of India"
+                  width={510}
+                  height={200}
+                  className="mx-auto w-36"
+                />
+                <p className="mt-4 font-sans text-sm font-bold tracking-[0.14em] text-brand-800 uppercase">
+                  TAFI Member
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+                  Travel Agents Federation of India
+                </p>
+              </div>
             </div>
           </div>
 

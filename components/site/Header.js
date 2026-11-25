@@ -199,7 +199,15 @@ export default function Header() {
                       id={`nav-panel-${index}`}
                       item={item}
                       open={open}
-                      wide={item.columns.length > 1}
+                      // Only the Destinations mega menu (a column of more
+                      // than 8 places) gets the 54rem panel. Packages and
+                      // Services also have two columns, but short ones - at
+                      // 54rem, opened from the middle and right of the bar,
+                      // their hidden panels ran ~170px past the right edge
+                      // and made every page scroll sideways on desktop.
+                      wide={item.columns.some((column) => column.items.length > 8)}
+                      twoColumn={item.columns.length > 1}
+                      alignRight={index >= 3 /* Services onwards */}
                       onMouseEnter={cancelClose}
                     />
                   ) : null}
@@ -241,7 +249,7 @@ export default function Header() {
   );
 }
 
-function MegaPanel({ id, item, open, wide, onMouseEnter }) {
+function MegaPanel({ id, item, open, wide, twoColumn, alignRight, onMouseEnter }) {
   // Items with a description (the Global Visa menu) get a wider panel and a
   // two-line entry with their flags, instead of a bare list of labels.
   const rich = item.columns.some((column) => column.items.some((link) => link.description));
@@ -255,7 +263,9 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
         // The wide Destinations panel opens from its own link rather than
         // centring on it: centred, it ran off the left edge of a 1280px
         // screen, because Destinations is the first item in the bar.
-        wide ? "-left-8" : "left-1/2 -translate-x-1/2",
+        // Menus in the right half of the bar open leftwards from their own
+        // link, so a panel never runs off the right edge either.
+        wide ? "-left-8" : alignRight ? "-right-4" : "left-1/2 -translate-x-1/2",
         open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
       )}
       // Hidden from assistive tech and from tab order while collapsed. React 19
@@ -265,7 +275,13 @@ function MegaPanel({ id, item, open, wide, onMouseEnter }) {
       <div
         className={cn(
           "rounded-3xl border border-line bg-white p-6 shadow-[0_28px_70px_-30px_rgba(16,32,42,0.4)]",
-          wide ? "grid w-[54rem] grid-cols-[3fr_2fr] gap-8" : rich ? "w-[24rem]" : "w-[17rem]"
+          wide
+            ? "grid w-[54rem] grid-cols-[3fr_2fr] gap-8"
+            : twoColumn
+              ? "grid w-[32rem] grid-cols-2 gap-6"
+              : rich
+                ? "w-[24rem]"
+                : "w-[17rem]"
         )}
       >
         {item.columns.map((column) => (

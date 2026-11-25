@@ -238,7 +238,7 @@ export default function Hero({ destinations = [], testimonials = [] }) {
 
           <p className="flex items-center gap-2 text-sm text-brand-100">
             <ShieldCheck className="size-4 shrink-0 text-brand-200" aria-hidden="true" />
-            IATA accredited
+            IATA accredited · TAFI member
           </p>
         </div>
       </div>

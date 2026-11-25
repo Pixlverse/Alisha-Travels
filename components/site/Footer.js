@@ -79,15 +79,22 @@ export default function Footer() {
               {SITE.tagline}.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-brand-100/75">
-              An IATA-accredited travel agency based in Kerala since {SITE.founded}. Customized
+              An IATA-accredited travel agency and TAFI member, based in Kerala since{" "}
+              {SITE.founded}. Customized
               holidays, fixed departures, corporate movements and the paperwork that goes with
               them - handled by a named person from the first question to the last boarding pass.
             </p>
 
-            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-brand-200">
-              <ShieldCheck className="size-3.5" aria-hidden="true" />
-              IATA Accredited Agent
-            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-brand-200">
+                <ShieldCheck className="size-3.5" aria-hidden="true" />
+                IATA Accredited Agent
+              </p>
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-brand-200">
+                <ShieldCheck className="size-3.5" aria-hidden="true" />
+                TAFI Member
+              </p>
+            </div>
 
             {/*
               Four marks on filled tiles, where there used to be three words in
@@ -216,7 +223,7 @@ export default function Footer() {
           {/* The client's own credit line, in their order: accreditation,
               founding, copyright. */}
           <p>
-            IATA accredited · Founded {SITE.founded} by {SITE.founder} · © {year}{" "}
+            IATA accredited · TAFI member · Founded {SITE.founded} by {SITE.founder} · © {year}{" "}
             {SITE.legalName}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">

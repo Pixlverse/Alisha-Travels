@@ -415,21 +415,35 @@ export default async function HomePage() {
                 href: "/reviews/",
               },
               {
-                chip: "bg-brand-100/70",
+                // A pill rather than the round chip, to hold both marks.
+                chip: "bg-brand-100/70 h-12 w-auto self-start gap-3 px-4",
                 rule: "bg-brand-500",
                 watermark: <Ticket className="size-32 text-brand-100" strokeWidth={1} aria-hidden="true" />,
                 icon: (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src="/images/IATA.png"
-                    alt=""
-                    aria-hidden="true"
-                    width={406}
-                    height={260}
-                    className="w-8"
-                  />
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/IATA.png"
+                      alt=""
+                      aria-hidden="true"
+                      width={406}
+                      height={260}
+                      className="w-8"
+                    />
+                    <span className="h-6 w-px bg-brand-300/60" aria-hidden="true" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/TAFI.webp"
+                      alt=""
+                      aria-hidden="true"
+                      width={510}
+                      height={200}
+                      className="w-14"
+                    />
+                  </>
                 ),
-                value: "IATA accredited",
+                // TAFI added at the client's request (logo from tafionline.com).
+                value: "IATA accredited · TAFI member",
                 label: "Tickets issued directly by us, not resold",
                 href: "/about/",
               },
