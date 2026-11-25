@@ -6,7 +6,8 @@ import PageHeader from "@/components/site/PageHeader";
 import { Section } from "@/components/site/Section";
 import StarRating from "@/components/site/StarRating";
 import TestimonialCard from "@/components/site/TestimonialCard";
-import { getTestimonials } from "@/lib/data/content";
+import VideoReviews from "@/components/site/VideoReviews";
+import { getTestimonials, getVideoTestimonials } from "@/lib/data/content";
 import { SITE, SOCIAL } from "@/lib/site";
 import { ABOUT_SECTIONS } from "@/lib/content/about";
 import { breadcrumbSchema, reviewsSchema } from "@/lib/seo/schema";
@@ -38,7 +39,11 @@ const SOURCE_LABELS = {
  * zero, which is worse than showing nothing.
  */
 export default async function ReviewsPage() {
-  const testimonials = await getTestimonials();
+  // Every video review lives here; the home page shows only the newest six.
+  const [testimonials, videoReviews] = await Promise.all([
+    getTestimonials(),
+    getVideoTestimonials(),
+  ]);
 
   const bySource = testimonials.reduce((counts, item) => {
     counts[item.source] = (counts[item.source] || 0) + 1;
@@ -92,6 +97,18 @@ export default async function ReviewsPage() {
           </span>
         </div>
       </PageHeader>
+
+      {videoReviews.length ? (
+        <Section className="pt-6 pb-0 sm:pt-7">
+          <div className="container-page">
+            <VideoReviews
+              reviews={videoReviews}
+              eyebrow="On camera"
+              title="Some of them said it out loud."
+            />
+          </div>
+        </Section>
+      ) : null}
 
       <Section className="py-6 sm:py-7">
         <div className="container-page">
