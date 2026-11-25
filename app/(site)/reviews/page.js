@@ -45,10 +45,11 @@ export default async function ReviewsPage() {
     return counts;
   }, {});
 
-  const average =
-    testimonials.length
-      ? testimonials.reduce((total, item) => total + item.rating, 0) / testimonials.length
-      : SITE.rating.value;
+  // Rating is optional on a testimonial; the average counts rated ones only.
+  const rated = testimonials.filter((item) => item.rating);
+  const average = rated.length
+    ? rated.reduce((total, item) => total + item.rating, 0) / rated.length
+    : SITE.rating.value;
 
   return (
     <>

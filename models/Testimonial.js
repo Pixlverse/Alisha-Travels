@@ -7,14 +7,21 @@ import { imageSchema, mediaSchema, registerModel } from "./_shared.js";
  */
 const testimonialSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, trim: true },
+    /**
+     * Name, rating and review text are all optional so a video review can be
+     * added with nothing but the video. What IS required - one of review text
+     * or a video - is checked when the admin form saves (lib/admin/resources.js,
+     * testimonials.validate), and the written-review rails skip any entry
+     * without text (lib/data/content.js).
+     */
+    name: { type: String, trim: true, default: "" },
     location: { type: String, trim: true, default: "" },
     /** Free text ("Maldives 4D/3N") with an optional link to a real package. */
     tourTaken: { type: String, trim: true, default: "" },
     package: { type: mongoose.Schema.Types.ObjectId, ref: "Package" },
     date: { type: Date, default: Date.now },
-    rating: { type: Number, min: 1, max: 5, required: true },
-    quote: { type: String, required: true, trim: true },
+    rating: { type: Number, min: 1, max: 5 },
+    quote: { type: String, trim: true, default: "" },
     photo: { type: imageSchema },
 
     /**

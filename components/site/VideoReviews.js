@@ -86,13 +86,19 @@ export default function VideoReviews({ reviews = [], ...heading }) {
         return (
           <article
             key={review._id}
-            className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white"
+            className={cn(
+              "flex flex-col overflow-hidden rounded-3xl border border-line bg-white",
+              // A video-only card (no rating or text) is just the video: it
+              // must not stretch to its neighbour's height and leave a blank
+              // white strip under the frame.
+              review.rating || review.quote ? "h-full" : "self-start"
+            )}
           >
             <div className="relative aspect-[9/16] bg-brand-900">
               {isPlaying && embed ? (
                 <iframe
                   src={embed}
-                  title={`Video review from ${review.name}`}
+                  title={review.name ? `Video review from ${review.name}` : "Video review"}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 size-full"
@@ -141,23 +147,33 @@ export default function VideoReviews({ reviews = [], ...heading }) {
                   </span>
 
                   <span className="absolute inset-x-0 bottom-0 p-4 text-left">
-                    <span className="block text-base font-semibold text-white">{review.name}</span>
+                    {review.name ? (
+                      <span className="block text-base font-semibold text-white">{review.name}</span>
+                    ) : null}
                     {review.tourTaken ? (
                       <span className="mt-0.5 block text-xs text-white/75">{review.tourTaken}</span>
                     ) : null}
                   </span>
 
-                  <span className="sr-only">Play the video review from {review.name}</span>
+                  <span className="sr-only">
+                    {review.name ? `Play the video review from ${review.name}` : "Play the video review"}
+                  </span>
                 </button>
               )}
             </div>
 
-            <div className="flex flex-1 flex-col p-4">
-              <StarRating value={review.rating} size="sm" />
-              <p className="mt-2.5 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-soft">
-                {review.quote}
-              </p>
-            </div>
+            {/* Rating and text are optional on a video review; with neither,
+                the card is just the video. */}
+            {review.rating || review.quote ? (
+              <div className="flex flex-1 flex-col p-4">
+                <StarRating value={review.rating} size="sm" />
+                {review.quote ? (
+                  <p className="mt-2.5 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-soft">
+                    {review.quote}
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
           </article>
         );
       })}

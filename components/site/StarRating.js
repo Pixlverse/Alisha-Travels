@@ -5,7 +5,10 @@ import { cn } from "@/lib/utils";
  * Star rating. Renders real stars for a real number — the legacy site shipped
  * a rating widget stuck at zero, which is worse than showing nothing.
  */
-export default function StarRating({ value = 5, size = "sm", className, showValue = false }) {
+export default function StarRating({ value, size = "sm", className, showValue = false }) {
+  // No rating given (optional on testimonials) → no stars, rather than an
+  // invented five.
+  if (value == null || Number.isNaN(Number(value))) return null;
   const rounded = Math.round(value);
   const dimension = size === "lg" ? "size-5" : "size-4";
 
